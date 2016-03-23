@@ -26,14 +26,23 @@ public class OpenDoor : MonoBehaviour {
 	public Transform rightDoor;
 
 	//angle rotated, incremet of rotation and door initial state closed
-	private float angle = 90;
+	public float stopAngle = 90;
 	private float rotation = 0;
 	private bool closed = true;
+	private MeshRenderer mR;
+
+	void Awake()
+	{
+		mR = gameObject.GetComponent<MeshRenderer> ();	
+	}
 
 	//when player enter in the key area open the door
 	void OnTriggerEnter(Collider other) {
-		if (other.CompareTag ("Player"))
+		if (other.CompareTag ("Player")) 
+		{
 			closed = false;
+			mR.enabled = false;
+		}
 	}
 
 	//update the angle position and increment till the door is opened
@@ -43,11 +52,13 @@ public class OpenDoor : MonoBehaviour {
 			return;
 
 		rotation += Time.deltaTime * 20.0f ;
-		leftDoor.Rotate (rotation * Vector3.up, Space.World);
-		rightDoor.Rotate (rotation * Vector3.down, Space.World);
-		angle -= rotation;
+		if (leftDoor)
+			leftDoor.Rotate (rotation * Vector3.up, Space.World);
+		if (rightDoor)
+			rightDoor.Rotate (rotation * Vector3.down, Space.World);
 
-		if (angle < 0)
+		stopAngle -= rotation;
+		if (stopAngle < 0)
 			gameObject.SetActive (!gameObject.activeSelf);
 	}
 }
