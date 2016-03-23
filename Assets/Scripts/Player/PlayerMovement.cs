@@ -21,15 +21,11 @@ public class PlayerMovement : MonoBehaviour  {
 
 	public bool IsDead = false;
 
-	public float MovementSpeed = 1;
-	public float RotationSpeed = 1;
-
-
-	/* NEW */
-	public float jumpSpeed = 8.0f;
-	public float gravity = 20.0f;
-
-	Vector3 direction;
+	public float movementSpeed = 6.0F;
+	public float jumpSpeed = 8.0F;
+	public float gravity = 20.0F;
+	private Vector3 moveDirection = Vector3.zero;
+	CharacterController controller;
 
 	public bool IsMoving {
 		get {
@@ -49,31 +45,28 @@ public class PlayerMovement : MonoBehaviour  {
 	}
 		
 	private void Awake ()  {
-		mController = GetComponent<CharacterController> ();
+		controller = GetComponent<CharacterController> ();
 	}
 
 	private void Update ()  {
 		if (IsDead)
 			return;
-		
-		if (mController.isGrounded) {
-			direction = new Vector3 (Input.GetAxisRaw ("Horizontal"), 0, Input.GetAxisRaw ("Vertical"));
+
+		if (controller.isGrounded) {
+			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+			moveDirection = transform.TransformDirection(moveDirection);
+			moveDirection *= movementSpeed;
 
 			if (Input.GetButton("Jump"))
-				direction.y = jumpSpeed;
+				moveDirection.y = jumpSpeed;
 		}
 
-		if (direction == Vector3.zero)
-			return;
-		transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.LookRotation (direction), Time.deltaTime * RotationSpeed);
-
-		//direction.y -= gravity * Time.deltaTime;
-
-		mController.SimpleMove (direction * MovementSpeed);
+		moveDirection.y -= gravity * Time.deltaTime;
+		controller.Move(moveDirection * Time.deltaTime);
 	}
 
 	private IEnumerator RestartGame() {
 		yield return new WaitForSeconds (3);
-		Application.LoadLevel (0);
+		//Application.LoadLevel (0);
 	}
 }
