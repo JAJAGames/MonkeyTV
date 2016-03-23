@@ -1,0 +1,169 @@
+fileFormatVersion: 2
+guid: c2bf58ca46aedca4da811daa5a5995c9
+timeCreated: 1458640767
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: CS01_Cartel01
+    100004: CS01_Liana01
+    100006: CS01_Liana02
+    100008: CS01_Pared01
+    100010: CS01_Pared02
+    100012: CS01_Pared03
+    100014: CS01_Tablon01
+    100016: CS01_Tablon02
+    100018: CS01_Tablon03
+    100020: CS01_Tablon04
+    100022: CS01_Tablon05
+    100024: CS01_Techo01
+    100026: CS01_Techo02
+    100028: CS01_Techo03
+    100030: CS01_Techo04
+    100032: CS01_Tronco01
+    100034: CS01_Tronco02
+    100036: CS01_Tronco03
+    100038: CS01_Tronco04
+    400000: //RootNode
+    400002: CS01_Cartel01
+    400004: CS01_Liana01
+    400006: CS01_Liana02
+    400008: CS01_Pared01
+    400010: CS01_Pared02
+    400012: CS01_Pared03
+    400014: CS01_Tablon01
+    400016: CS01_Tablon02
+    400018: CS01_Tablon03
+    400020: CS01_Tablon04
+    400022: CS01_Tablon05
+    400024: CS01_Techo01
+    400026: CS01_Techo02
+    400028: CS01_Techo03
+    400030: CS01_Techo04
+    400032: CS01_Tronco01
+    400034: CS01_Tronco02
+    400036: CS01_Tronco03
+    400038: CS01_Tronco04
+    2300000: CS01_Cartel01
+    2300002: CS01_Liana01
+    2300004: CS01_Liana02
+    2300006: CS01_Pared01
+    2300008: CS01_Pared02
+    2300010: CS01_Pared03
+    2300012: CS01_Tablon01
+    2300014: CS01_Tablon02
+    2300016: CS01_Tablon03
+    2300018: CS01_Tablon04
+    2300020: CS01_Tablon05
+    2300022: CS01_Techo01
+    2300024: CS01_Techo02
+    2300026: CS01_Techo03
+    2300028: CS01_Techo04
+    2300030: CS01_Tronco01
+    2300032: CS01_Tronco02
+    2300034: CS01_Tronco03
+    2300036: CS01_Tronco04
+    3300000: CS01_Cartel01
+    3300002: CS01_Liana01
+    3300004: CS01_Liana02
+    3300006: CS01_Pared01
+    3300008: CS01_Pared02
+    3300010: CS01_Pared03
+    3300012: CS01_Tablon01
+    3300014: CS01_Tablon02
+    3300016: CS01_Tablon03
+    3300018: CS01_Tablon04
+    3300020: CS01_Tablon05
+    3300022: CS01_Techo01
+    3300024: CS01_Techo02
+    3300026: CS01_Techo03
+    3300028: CS01_Techo04
+    3300030: CS01_Tronco01
+    3300032: CS01_Tronco02
+    3300034: CS01_Tronco03
+    3300036: CS01_Tronco04
+    4300000: CS01_Tronco01
+    4300002: CS01_Pared01
+    4300004: CS01_Pared02
+    4300006: CS01_Tronco02
+    4300008: CS01_Tronco03
+    4300010: CS01_Pared03
+    4300012: CS01_Tronco04
+    4300014: CS01_Tablon01
+    4300016: CS01_Tablon02
+    4300018: CS01_Tablon03
+    4300020: CS01_Tablon04
+    4300022: CS01_Tablon05
+    4300024: CS01_Techo01
+    4300026: CS01_Techo02
+    4300028: CS01_Techo03
+    4300030: CS01_Techo04
+    4300032: CS01_Liana01
+    4300034: CS01_Cartel01
+    4300036: CS01_Liana02
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

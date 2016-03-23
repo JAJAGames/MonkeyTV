@@ -1,0 +1,15 @@
+/* ARCHIVE_NAME.CS
+ * (C) COPYRIGHT "JAJA GAMES", 2.016
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * EXPLANATION: 
+ * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * FUNCTIONS LIST:
+ * 
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * MODIFICATIONS:
+ * DATA			DESCRIPCTION
+ * ----------	-----------------------------------------------------------------------------------------------------------------------
+ * XX/XX/XXXX	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ */

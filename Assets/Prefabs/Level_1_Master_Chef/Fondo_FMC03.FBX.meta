@@ -1,0 +1,139 @@
+fileFormatVersion: 2
+guid: 0a50092c8cdb11d44b9146283857badc
+timeCreated: 1458640766
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: FMC01_Piedra08
+    100002: FMC03_Pared01
+    100004: FMC03_Piedra01
+    100006: FMC03_Piedra02
+    100008: FMC03_Piedra03
+    100010: FMC03_Piedra04
+    100012: FMC03_Piedra05
+    100014: FMC03_Piedra06
+    100016: FMC03_Piedra07
+    100018: FMC03_Piedra08
+    100020: FMC03_Piedra09
+    100022: FMC03_Piedra10
+    100024: FMC03_Suelo01
+    100026: //RootNode
+    400000: FMC01_Piedra08
+    400002: FMC03_Pared01
+    400004: FMC03_Piedra01
+    400006: FMC03_Piedra02
+    400008: FMC03_Piedra03
+    400010: FMC03_Piedra04
+    400012: FMC03_Piedra05
+    400014: FMC03_Piedra06
+    400016: FMC03_Piedra07
+    400018: FMC03_Piedra08
+    400020: FMC03_Piedra09
+    400022: FMC03_Piedra10
+    400024: FMC03_Suelo01
+    400026: //RootNode
+    2300000: FMC01_Piedra08
+    2300002: FMC03_Pared01
+    2300004: FMC03_Piedra01
+    2300006: FMC03_Piedra02
+    2300008: FMC03_Piedra03
+    2300010: FMC03_Piedra04
+    2300012: FMC03_Piedra05
+    2300014: FMC03_Piedra06
+    2300016: FMC03_Piedra07
+    2300018: FMC03_Piedra08
+    2300020: FMC03_Piedra09
+    2300022: FMC03_Piedra10
+    2300024: FMC03_Suelo01
+    3300000: FMC01_Piedra08
+    3300002: FMC03_Pared01
+    3300004: FMC03_Piedra01
+    3300006: FMC03_Piedra02
+    3300008: FMC03_Piedra03
+    3300010: FMC03_Piedra04
+    3300012: FMC03_Piedra05
+    3300014: FMC03_Piedra06
+    3300016: FMC03_Piedra07
+    3300018: FMC03_Piedra08
+    3300020: FMC03_Piedra09
+    3300022: FMC03_Piedra10
+    3300024: FMC03_Suelo01
+    4300000: FMC01_Piedra08
+    4300002: FMC03_Suelo01
+    4300004: FMC03_Pared01
+    4300006: FMC03_Piedra01
+    4300008: FMC03_Piedra02
+    4300010: FMC03_Piedra03
+    4300012: FMC03_Piedra04
+    4300014: FMC03_Piedra05
+    4300016: FMC03_Piedra06
+    4300018: FMC03_Piedra07
+    4300020: FMC03_Piedra08
+    4300022: FMC03_Piedra09
+    4300024: FMC03_Piedra10
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
