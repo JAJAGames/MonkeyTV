@@ -20,30 +20,13 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour  {
 
 	public bool IsDead = false;
-
 	public float movementSpeed = 6.0F;
 	public float jumpSpeed = 8.0F;
 	public float gravity = 20.0F;
+
 	private Vector3 moveDirection = Vector3.zero;
-	CharacterController controller;
+	private CharacterController controller;
 
-	public bool IsMoving {
-		get {
-			return !IsDead && (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0);
-		}
-	}
-
-	private CharacterController mController;
-
-	public void KillPlayer() {
-		if (IsDead)
-			return;
-
-		StartCoroutine (RestartGame ());
-
-		IsDead = true;
-	}
-		
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
 	}
@@ -63,10 +46,5 @@ public class PlayerMovement : MonoBehaviour  {
 
 		moveDirection.y -= gravity * Time.deltaTime;
 		controller.Move(moveDirection * Time.deltaTime);
-	}
-
-	private IEnumerator RestartGame() {
-		yield return new WaitForSeconds (3);
-		//Application.LoadLevel (0);
 	}
 }

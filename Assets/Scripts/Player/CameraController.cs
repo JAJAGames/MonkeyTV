@@ -27,7 +27,6 @@ public class CameraController : MonoBehaviour {
 	}
 
 	private void LateUpdate() {
-
 		Vector3 difference = Player.transform.position - mPreviousPosition;
 
 		transform.position += difference;
