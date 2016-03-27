@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 5f76c3db8a8555f489919baefc32c296
-timeCreated: 1458751929
+guid: 52ddbd9b8de8d41399e21f18e6b11bc7
+timeCreated: 1459077933
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: NMC_Collider20
+    4300000: NMC_Collider29
     9500000: //RootNode
   materials:
     importMaterials: 1
