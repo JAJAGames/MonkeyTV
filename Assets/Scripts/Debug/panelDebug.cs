@@ -2,18 +2,16 @@
 using System.Collections;
 
 
-public class buttonColliders : MonoBehaviour {
+public class panelDebug : MonoBehaviour {
 
 	// Use this for initialization
-	[Header("NivelMCS01")]
+	[Header("Scenery Renders")]
 	public Transform NivelMCS01;
 	private GameObject [] rendersMCS01;
 
-	[Header("NivelMCS02")]
 	public Transform NivelMCS02;
 	private  GameObject[] rendersMCS02;
 
-	[Header("NivelMCS03")]
 	public Transform NivelMCS03;
 	private  GameObject[] rendersMCS03;
 
@@ -21,9 +19,19 @@ public class buttonColliders : MonoBehaviour {
 	public Transform colliders;
 	private  GameObject[] colliderRenders;
 
-	[Header("shader")]
+	[Header("Panel Debug")]
+	public RectTransform _panelDebug; 
+	public float smoothMovement = 20.0f; 
+	private float currentPosition;
+	private float maxPosition;
+	private float minPosition;
+	private float initPosition;
+	private bool togglePanel;
+
+	[Header("Shader")]
 	public Shader wireframe;
 	Shader transparent;
+
 
 	void Awake () {
 		//wallsRenders = new List<GameObject>();
@@ -46,13 +54,22 @@ public class buttonColliders : MonoBehaviour {
 			colliderRenders[i].GetComponent<MeshRenderer> ().material.shader = Shader.Find ("Transparent/Diffuse");
 			colliderRenders[i].GetComponent<MeshRenderer> ().enabled = false;
 		}
+			
 	}
 		
+
+	void Start(){
+		
+		togglePanel = false;
+		maxPosition = _panelDebug.rect.position.x;
+		minPosition = currentPosition - _panelDebug.rect.width;
+		_panelDebug.position = new Vector3 (minPosition,0,0);
+	}
 
 	// Update is called once per frame
 	public void ButtonCollidersPressed () 
 	{
-		//show&hide render
+		//show & hide renders
 		for (int i = 0; i < rendersMCS01.Length; i++)
 			rendersMCS01 [i].SetActive (!rendersMCS01 [i].activeSelf);
 		for (int i = 0; i < rendersMCS02.Length; i++)
@@ -63,22 +80,55 @@ public class buttonColliders : MonoBehaviour {
 			colliderRenders[i].GetComponent<MeshRenderer> ().enabled = !colliderRenders[i].GetComponent<MeshRenderer> ().enabled;
 
 	}
-}
 
-		/*
-		if (Input.GetKeyUp (KeyCode.F12)) 
+	public void ButtonWireframePressed () 
+	{
+		//toggle shader
+		if (colliderRenders [0].GetComponent<MeshRenderer> ().material.shader == wireframe) 
 		{
+			for (int i = 0; i < colliderRenders.Length; i++) 
+				colliderRenders [i].GetComponent<MeshRenderer> ().material.shader = Shader.Find ("Transparent/Diffuse");
+		}else
+		{
+			for (int i = 0; i < colliderRenders.Length; i++) 
+				colliderRenders [i].GetComponent<MeshRenderer> ().material.shader = wireframe;
+		}
 
-			if (furnitureCollider.GetComponent<MeshRenderer> ().material.shader == wireframe) {
-				furnitureCollider.GetComponent<MeshRenderer> ().material.shader = Shader.Find("Transparent/Diffuse");
-				wallsCollider.GetComponent<MeshRenderer> ().material.shader = Shader.Find("Transparent/Diffuse");
+	}
+
+	public void ButtonBackPressed () 
+	{
+		togglePanel = true;
+		initPosition = _panelDebug.position.x;
+		currentPosition = initPosition;
+	}
+
+	void Update()
+	{
+
+		if (Input.GetKeyUp (KeyCode.P) && !togglePanel) {
+			togglePanel = true;
+			initPosition = _panelDebug.position.x;
+			currentPosition = initPosition;
+		}
+
+		if (togglePanel) 
+		{
+			if (initPosition == minPosition) {
+				
+				currentPosition += smoothMovement;
+				_panelDebug.position = new Vector3 (currentPosition,0,0);
+				if (currentPosition - maxPosition > - smoothMovement ) 
+					togglePanel = false;
 			} 
 			else 
 			{
-				furnitureCollider.GetComponent<MeshRenderer> ().material.shader = wireframe;
-				wallsCollider.GetComponent<MeshRenderer> ().material.shader = wireframe;
+				currentPosition -= smoothMovement;
+				_panelDebug.position = new Vector3 (currentPosition,0,0);
+				if (currentPosition - minPosition < smoothMovement) 
+					togglePanel = false;
 			}
 
 		}
-		*/
-
+	}
+}
