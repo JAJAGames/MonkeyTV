@@ -1,8 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
-
-/* MENUCLICK.CS
+﻿/* MENUCLICK.CS
  * (C) COPYRIGHT "JAJA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
@@ -21,6 +17,10 @@ using UnityEngine.SceneManagement;
  * 23/03/2016	CODE BASE MATCHED TO MENU BUTTONS OF THE MENU SCENE
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
+
+using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MenuClick : MonoBehaviour {
 

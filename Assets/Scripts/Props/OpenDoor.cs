@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-/* MENUCLICK.CS
+﻿/* MENUCLICK.CS
  * (C) COPYRIGHT "JAJA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
@@ -18,6 +15,9 @@ using System.Collections;
  * 23/03/2016	CODE BASE MATCHED TO NMC03_Door GAMEOBJECT IN Level1MasterChef SCENE
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
+
+using UnityEngine;
+using System.Collections;
 
 public class OpenDoor : MonoBehaviour {
 
