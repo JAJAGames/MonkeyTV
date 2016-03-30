@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour  {
 	public float gravity = 20.0F;
 
 	private Vector3 moveDirection = Vector3.zero;
-	private CharacterController controller;
+	public CharacterController controller;
 
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
