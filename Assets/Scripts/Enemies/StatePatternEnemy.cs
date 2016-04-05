@@ -2,7 +2,7 @@
 using System.Collections;
 
 public enum enemyType {Simple,Patrol, JumperSimple, JumperPatrol}
-public enum enemyState {IDLE,PATROL,CHASE,ALERT}
+public enum enemyState {WAIT,IDLE,PATROL,CHASE,ALERT}
 
 public class StatePatternEnemy : MonoBehaviour {
 
@@ -22,6 +22,7 @@ public class StatePatternEnemy : MonoBehaviour {
 	[HideInInspector]	public Rigidbody rigidbody;
 	[HideInInspector]	public Transform chaseTarget;
 	[HideInInspector]	public IEnemyState currentState;
+	[HideInInspector]	public WaitState waitState;
 	[HideInInspector]	public AlertState alertState;
 	[HideInInspector]	public ChaseState chaseState;
 	[HideInInspector]	public PatrolState patrolState;
@@ -31,10 +32,11 @@ public class StatePatternEnemy : MonoBehaviour {
 
 	void Awake () {
 
-		alertState   = new AlertState  (this);
-		chaseState   = new ChaseState  (this);
-		patrolState  = new PatrolState (this);
-		idleState	 = new IdleState (this);
+		waitState	= new WaitState	(this);
+		alertState	= new AlertState  (this);
+		chaseState	= new ChaseState  (this);
+		patrolState	= new PatrolState (this);
+		idleState	= new IdleState (this);
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		navMeshAgent.enabled = true;
 		rigidbody = GetComponent<Rigidbody> ();

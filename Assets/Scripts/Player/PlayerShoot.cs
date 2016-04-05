@@ -33,12 +33,8 @@ public class PlayerShoot : MonoBehaviour {
 	int enemyMask;
 	int explosiveMask;
 
-
-
-	//NEW
-	//public PlayerMovement Player;
 	public GameObject render;
-	//Vector3 positionAux;
+
 
 	void Awake () {
 		enemyMask = LayerMask.GetMask("Enemy");

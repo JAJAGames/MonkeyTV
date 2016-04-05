@@ -19,6 +19,11 @@ public class ChaseState : IEnemyState {
 	public void OnTriggerEnter (Collider other)
 	{}
 
+	public void ToWaitState() {
+		enemy.eState = enemyState.WAIT;
+		enemy.currentState = enemy.waitState;
+	}
+
 	public void ToIdleState ()
 	{
 		enemy.eState = enemyState.IDLE;

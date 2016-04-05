@@ -29,6 +29,11 @@ public class IdleState : IEnemyState {
 		}
 	}
 
+	public void ToWaitState() {
+		enemy.eState = enemyState.WAIT;
+		enemy.currentState = enemy.waitState;
+	}
+
 	public void ToIdleState ()
 	{
 		// Can't transition to same state
@@ -58,6 +63,3 @@ public class IdleState : IEnemyState {
 	}
 
 }
-
-
-

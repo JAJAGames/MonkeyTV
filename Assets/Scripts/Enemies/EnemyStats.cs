@@ -24,15 +24,22 @@ public class EnemyStats : MonoBehaviour {
 
 	public int startingHealth = 4;            
 	public int currentHealth;
-
+	bool isDead;
 	public GameObject EnemySideLine;
 
-	CapsuleCollider capsuleCollider;
-	bool isDead;
+	public GameObject player;
+
+	private StatePatternEnemy enemy;
+
 
 	void Awake () {
-		capsuleCollider = GetComponent <CapsuleCollider> ();
 		currentHealth = startingHealth;
+		enemy = GetComponent<StatePatternEnemy> ();
+	}
+
+	void Update() {
+
+		if (isDead) StartCoroutine (Rebirth());
 	}
 
 	public void TakeDamage (int damage) {
@@ -48,14 +55,34 @@ public class EnemyStats : MonoBehaviour {
 
 	private IEnumerator Death () {
 		isDead = true;
-		yield return new WaitForSeconds(1.5f);
-		Debug.Log (EnemySideLine.transform.position);
+
+		yield return new WaitForSeconds(1.0f);
+
+		currentHealth = startingHealth;
+
+
+		ToWaitState();
 		transform.position = EnemySideLine.transform.position;
+		enabled = false;
 	}
 
-	void Rebirth () {
+	private IEnumerator Rebirth() {
+		yield return new WaitForSeconds(4.0f);
+
 		isDead = false;
 		currentHealth = startingHealth;
-		//Destroy (gameObject, 0f);
+
+		transform.position = player.transform.position;
+
+		enemy.navMeshAgent.enabled = true;
+		enemy.eState = enemyState.PATROL;
+		enemy.currentState = enemy.patrolState;
+
+	}
+
+	public void ToWaitState() {
+		enemy.navMeshAgent.enabled = false;
+		enemy.eState = enemyState.WAIT;
+		enemy.currentState = enemy.waitState;
 	}
 }
