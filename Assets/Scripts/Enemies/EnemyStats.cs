@@ -24,7 +24,7 @@ public class EnemyStats : MonoBehaviour {
 
 	public int startingHealth = 4;            
 	public int currentHealth;
-	bool isDead;
+	public bool isDead;
 	public GameObject EnemySideLine;
 
 	public GameObject player;
@@ -58,22 +58,22 @@ public class EnemyStats : MonoBehaviour {
 
 		yield return new WaitForSeconds(1.0f);
 
-		currentHealth = startingHealth;
-
-
 		ToWaitState();
 		transform.position = EnemySideLine.transform.position;
 		enabled = false;
 	}
 
 	private IEnumerator Rebirth() {
-		yield return new WaitForSeconds(4.0f);
+		
 
+		yield return new WaitForSeconds(4.0f);
 		isDead = false;
+
 		currentHealth = startingHealth;
 
 		transform.position = player.transform.position;
 
+		enabled = true;
 		enemy.navMeshAgent.enabled = true;
 		enemy.eState = enemyState.PATROL;
 		enemy.currentState = enemy.patrolState;
