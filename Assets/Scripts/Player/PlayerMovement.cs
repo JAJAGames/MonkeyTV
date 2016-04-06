@@ -27,36 +27,48 @@ public class PlayerMovement : MonoBehaviour  {
 	private Vector3 moveDirection = Vector3.zero;
 	public CharacterController controller;
 	public ParticleSystem walkParticles;
-	ParticleSystem.EmissionModule em;
+	public ParticleSystem jumpParticles;
+	ParticleSystem.EmissionModule emWalk;
+	ParticleSystem.EmissionModule emJump;
+	public bool grounded;
+
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
-		em = walkParticles.emission;
-		em.enabled = false;
+		emWalk = walkParticles.emission;
+		emWalk.enabled = false;
+		emJump = jumpParticles.emission;
+		emJump.enabled = false;
+		grounded = false;
 	}
 
 	private void Update ()  {
 																			//no update for deads... no Zombies please!
 		if (IsDead)
 			return;
-		
+		if (emJump.enabled)
+			emJump.enabled = false;
 																			//if grounded get input
 		if (controller.isGrounded) {
-			
+			if (!grounded) {
+				grounded = true;
+				emJump.enabled = true;
+			} 
 			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			moveDirection = transform.TransformDirection(moveDirection);
 			moveDirection *= movementSpeed;
 
 			if (moveDirection != Vector3.zero) 								//enable or disable emitter of ParticleSystem
 			{
-				em.enabled = true;
+				emWalk.enabled = true;
 			}
 			else
-				em.enabled = false;
+				emWalk.enabled = false;
 
 			if (Input.GetButton ("Jump")) 									//jump go up y axis!! and no particles...
 			{
 				moveDirection.y = jumpSpeed;
-				em.enabled = false;
+				grounded = false;
+				emWalk.enabled = false;
 			} 
 
 		}
