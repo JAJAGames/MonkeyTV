@@ -26,14 +26,8 @@ public class panelDebug : MonoBehaviour {
 
 	// Use this for initialization
 	[Header("Scenery Renders")]
-	public Transform NivelMCS01;
+	public Transform NMC_ALL01;
 	private GameObject [] rendersMCS01;
-
-	public Transform NivelMCS02;
-	private  GameObject[] rendersMCS02;
-
-	public Transform NivelMCS03;
-	private  GameObject[] rendersMCS03;
 
 	[Tooltip("Colliders")]
 	public Transform colliders;
@@ -55,19 +49,17 @@ public class panelDebug : MonoBehaviour {
 	public GameStats statsText;
 
 	void Awake () {
+		
 		//wallsRenders = new List<GameObject>();
-		rendersMCS01		= HelperMethods.GetChildren(NivelMCS01);
-		rendersMCS02 		= HelperMethods.GetChildren(NivelMCS02);
-		rendersMCS03 		= HelperMethods.GetChildren(NivelMCS03);
+		if (NMC_ALL01)
+			rendersMCS01		= HelperMethods.GetChildren(NMC_ALL01);
+		
 		colliderRenders 	= HelperMethods.GetChildren (colliders);
 
 		//show renders
-		for (int i = 0; i < rendersMCS01.Length; i++)
-			rendersMCS01 [i].SetActive (true);
-		for (int i = 0; i < rendersMCS02.Length; i++)
-			rendersMCS02 [i].SetActive (true);
-		for (int i = 0; i < rendersMCS03.Length; i++)
-			rendersMCS03 [i].SetActive (true);
+		if (NMC_ALL01)
+			for (int i = 0; i < rendersMCS01.Length; i++)
+				rendersMCS01 [i].SetActive (true);
 		
 		//set wireframe mode and hide colliders
 		for (int i = 0; i < colliderRenders.Length; i++) 
@@ -121,10 +113,7 @@ public class panelDebug : MonoBehaviour {
 		//show & hide renders
 		for (int i = 0; i < rendersMCS01.Length; i++)
 			rendersMCS01 [i].SetActive (!rendersMCS01 [i].activeSelf);
-		for (int i = 0; i < rendersMCS02.Length; i++)
-			rendersMCS02 [i].SetActive (!rendersMCS02 [i].activeSelf);
-		for (int i = 0; i < rendersMCS03.Length; i++)
-			rendersMCS03 [i].SetActive (!rendersMCS03 [i].activeSelf);
+		
 		for (int i = 0; i < colliderRenders.Length; i++) 
 			colliderRenders[i].GetComponent<MeshRenderer> ().enabled = !colliderRenders[i].GetComponent<MeshRenderer> ().enabled;
 
