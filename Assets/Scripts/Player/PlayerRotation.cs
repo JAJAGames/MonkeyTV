@@ -12,7 +12,8 @@
  * DATA			DESCRIPCTION	
  * ----------	-----------------------------------------------------------------------------------------------------------------------
  * XX/XX/2016	CODE ATTACHED TO RENDER OBJECT OF PREFAB PLAYER
- * 12/04/2016	DELETED PLANE MASK
+ * 12/04/2016	DELETED PLANE MASK.
+ * 12/04/2016	SET A SELECTIVE VALUE TO NOT HIT PLAYER OR ENEMIES
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 
@@ -22,14 +23,13 @@ using System.Collections;
 public class PlayerRotation : MonoBehaviour {
 
 	void Update () {
-		// get the mouse point 
-		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition); 	// get the mouse point 
+		int layerMask = 1; 													// default layer
 		RaycastHit floorHit;
-		Physics.Raycast (camRay, out floorHit, 100);
-
-		// look to point
-		Vector3 lookTo = floorHit.point;
-		lookTo.y = transform.position.y;
-		transform.LookAt(lookTo);
+		if (Physics.Raycast (camRay, out floorHit, 100, layerMask)) {
+			Vector3 lookTo = floorHit.point;
+			lookTo.y = transform.position.y;								//cos always look towards the y axis must be fixed
+			transform.LookAt (lookTo);
+		}
 	}
 }
