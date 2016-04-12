@@ -1,20 +1,31 @@
-﻿using UnityEngine;
+﻿/* PLAYERROTATION.CS
+ * (C) COPYRIGHT "JAJA GAMES", 2.016
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * EXPLANATION: 
+ * MOVEMENT OF THE FREE CAMERA USING MOUSE
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * FUNCTIONS LIST:
+ * 
+ * Update ()
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * MODIFICATIONS:
+ * DATA			DESCRIPCTION	
+ * ----------	-----------------------------------------------------------------------------------------------------------------------
+ * XX/XX/2016	CODE ATTACHED TO RENDER OBJECT OF PREFAB PLAYER
+ * 12/04/2016	DELETED PLANE MASK
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class PlayerRotation : MonoBehaviour {
 
-	private int floorMask;
-	private float camRayLength = 100f;
-
-	private void Awake ()  {
-		floorMask = LayerMask.GetMask ("Floor");
-	}
-
 	void Update () {
-		// get the mouse point in background plane
+		// get the mouse point 
 		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 		RaycastHit floorHit;
-		Physics.Raycast (camRay, out floorHit, camRayLength, floorMask);
+		Physics.Raycast (camRay, out floorHit, 100);
 
 		// look to point
 		Vector3 lookTo = floorHit.point;
