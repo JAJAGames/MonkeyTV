@@ -79,16 +79,17 @@ public class StatePatternEnemy : MonoBehaviour {
 
 	private void  OnCollisionStay(Collision collision)
 	{
-		if (collision.collider.gameObject.CompareTag ("Floor"))
-		{
+		GameObject other = collision.collider.gameObject;
+
+		if (other.CompareTag ("Floor")) {
 			navMeshAgent.enabled = true;
 			rigidbody.isKinematic = true;
 			navMeshAgent.Resume ();
 			if (currentState == patrolState)
 				navMeshAgent.destination = wayPoints [lastWayPoint].position;
 		}
-		
 	}
+
 
 	private void Jump()
 	{

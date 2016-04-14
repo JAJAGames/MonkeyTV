@@ -54,8 +54,9 @@ public class PlayerMovement : MonoBehaviour  {
 				emJump.enabled = true;
 			} 
 			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-			moveDirection = transform.TransformDirection(moveDirection);
 			moveDirection *= movementSpeed;
+			moveDirection = transform.TransformDirection(moveDirection);
+
 
 			if (moveDirection != Vector3.zero) 								//enable or disable emitter of ParticleSystem
 			{
@@ -75,5 +76,25 @@ public class PlayerMovement : MonoBehaviour  {
 
 		moveDirection.y -= gravity * Time.deltaTime;						//calculate translation
 		controller.Move(moveDirection * Time.deltaTime);
+	}
+
+	//Adding phisics to player... 
+	void OnControllerColliderHit(ControllerColliderHit other) {
+	
+																					//if the player collides with one enemy he can move him depending on their mass
+		if (other.gameObject.CompareTag ("Enemy") && controller.isGrounded) { 		//the player must be grtounded
+
+			//Vector direction 
+			Vector3 direction = other.transform.position - transform.position;	
+			direction.Normalize();
+			direction.y = 0;
+
+			//smoothness
+			float smoothPush = 1 / (movementSpeed * 2);
+			// and mass
+			float mass = other.gameObject.GetComponent<Rigidbody> ().mass;
+			other.transform.position += direction * mass * smoothPush; 
+		}		
+		
 	}
 }

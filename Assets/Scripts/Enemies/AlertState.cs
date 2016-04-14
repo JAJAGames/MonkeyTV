@@ -56,7 +56,7 @@ public class AlertState : IEnemyState {
 		// Can't transition to same state
 	}
 
-	public void ToChaseState ()
+	public void ToChaseState () //TODO:: BUG FOUND --> from alert to chase state !!! THE ENEMY STOPS
 	{
 		enemy.eState = enemyState.CHASE;
 		enemy.navMeshAgent.Resume ();
