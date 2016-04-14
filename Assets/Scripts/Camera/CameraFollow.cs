@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-/* CAMERACONTROLLER.CS
+/* CAMERAFOLLOW.CS
  * (C) COPYRIGHT "JAJA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
@@ -21,7 +21,7 @@ using System.Collections;
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 
-public class CameraController : MonoBehaviour {
+public class CameraFollow : MonoBehaviour {
 
 	public PlayerMovement playerMove; 	//used in both methods
 
@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour {
 		playerVisible = true;                                                               //in initial offset athe player is visible
     }
 
-	private void LateUpdate() {
+	private void Update() {
 		 
 		//get the position of player in screen
 		Vector3 screenPoint = Camera.main.WorldToViewportPoint (playerMove.transform.position); 

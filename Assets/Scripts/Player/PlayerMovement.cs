@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour  {
 		grounded = false;
 	}
 
-	private void Update ()  {
+	private void FixedUpdate ()  {
 																			//no update for deads... no Zombies please!
 		if (IsDead)
 			return;

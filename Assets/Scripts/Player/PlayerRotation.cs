@@ -22,7 +22,7 @@ using System.Collections;
 
 public class PlayerRotation : MonoBehaviour {
 
-	void Update () {
+	void FixedUpdate () {
 		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition); 	// get the mouse point 
 		int layerMask = 1; 													// default layer
 		RaycastHit floorHit;
