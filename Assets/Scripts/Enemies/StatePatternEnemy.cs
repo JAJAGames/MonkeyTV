@@ -90,8 +90,20 @@ public class StatePatternEnemy : MonoBehaviour {
 		}
 	}
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject other = collision.collider.gameObject;
 
-	private void Jump()
+        if (!other.CompareTag("Floor") && rigidbody.velocity.y <=0)
+        {
+            Vector3 velocity = Vector3.zero;
+            rigidbody.velocity = velocity;
+            velocity = Vector3.up * jumpForce + transform.forward * speed;
+            rigidbody.AddForce(velocity, ForceMode.VelocityChange);
+        }
+    }
+
+    private void Jump()
 	{
 		Vector3 dest = navMeshAgent.destination - transform.position;
 		dest.y = 0;
