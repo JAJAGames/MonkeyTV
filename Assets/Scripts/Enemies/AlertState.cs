@@ -9,7 +9,7 @@ public class AlertState : IEnemyState {
 	public AlertState(StatePatternEnemy statePatternEnemy)
 	{
 		enemy = statePatternEnemy;
-		enemy.eState = enemyState.ALERT;
+		enemy.state = enemyState.ALERT;
 	}
 
 
@@ -30,13 +30,13 @@ public class AlertState : IEnemyState {
 	}
 
 	public void ToWaitState() {
-		enemy.eState = enemyState.WAIT;
+		enemy.state = enemyState.WAIT;
 		enemy.currentState = enemy.waitState;
 	}
 
 	public void ToIdleState ()
 	{
-		enemy.eState = enemyState.IDLE;
+		enemy.state = enemyState.IDLE;
 		searchTime = 0;
 		enemy.navMeshAgent.Resume ();
 		enemy.currentState = enemy.idleState;
@@ -44,7 +44,7 @@ public class AlertState : IEnemyState {
 
 	public void ToPatrolState ()
 	{
-		enemy.eState = enemyState.PATROL;
+		enemy.state = enemyState.PATROL;
 		searchTime = 0;
 		enemy.navMeshAgent.Resume ();
 		enemy.currentState = enemy.patrolState;
@@ -56,9 +56,9 @@ public class AlertState : IEnemyState {
 		// Can't transition to same state
 	}
 
-	public void ToChaseState () //TODO:: BUG FOUND --> from alert to chase state !!! THE ENEMY STOPS
+	public void ToChaseState ()
 	{
-		enemy.eState = enemyState.CHASE;
+		enemy.state = enemyState.CHASE;
 		enemy.navMeshAgent.Resume ();
 		enemy.currentState = enemy.chaseState;
 		searchTime = 0;
@@ -87,7 +87,7 @@ public class AlertState : IEnemyState {
 
 		if (searchTime >= enemy.searchingDuration) 
 		{
-			if (enemy.eType == enemyType.Simple || enemy.eType == enemyType.JumperSimple)
+			if (enemy.type == enemyType.Simple || enemy.type == enemyType.JumperSimple)
 				ToIdleState ();
 			else
 				ToPatrolState ();

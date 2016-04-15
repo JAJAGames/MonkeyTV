@@ -12,33 +12,35 @@ public class ChaseState : IEnemyState {
 
 	public void UpdateState()
 	{
-		Look ();
-		Chase ();
+		enemy.navMeshAgent.destination = enemy.player.position;
+		Vector3 lookAt = enemy.navMeshAgent.destination;
+		lookAt.y = enemy.transform.position.y;
+		enemy.transform.LookAt (enemy.navMeshAgent.destination);
 	}
 
 	public void OnTriggerEnter (Collider other)
 	{}
 
 	public void ToWaitState() {
-		enemy.eState = enemyState.WAIT;
+		enemy.state = enemyState.WAIT;
 		enemy.currentState = enemy.waitState;
 	}
 
 	public void ToIdleState ()
 	{
-		enemy.eState = enemyState.IDLE;
+		enemy.state = enemyState.IDLE;
 		enemy.currentState = enemy.idleState;
 	}
 
 	public void ToPatrolState ()
 	{
-		enemy.eState = enemyState.PATROL;
+		enemy.state = enemyState.PATROL;
 		enemy.currentState = enemy.patrolState;
 	}
 
 	public void ToAlertState ()
 	{
-		enemy.eState = enemyState.ALERT;
+		enemy.state = enemyState.ALERT;
 		enemy.currentState = enemy.alertState;
 	}
 
@@ -47,24 +49,6 @@ public class ChaseState : IEnemyState {
 	{
 		// Can't transition to same state
 	}
-
-	private void Look()
-	{
-		RaycastHit hit;
-		Vector3 enemyToTarget = enemy.chaseTarget.position  - enemy.eyes.transform.position;
-
-		if (Physics.Raycast (enemy.eyes.transform.position, enemyToTarget, out hit, enemy.sightRange)) {
-			if (hit.collider.CompareTag ("Player"))
-					enemy.chaseTarget = hit.transform;
-		}	else
-				ToAlertState ();
-		Debug.DrawRay(enemy.eyes.transform.position, enemyToTarget, Color.red);
-
-	}
-
-	private void Chase()
-	{
-		enemy.navMeshAgent.destination = enemy.chaseTarget.position;
-	}
+		
 }
 

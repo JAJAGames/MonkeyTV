@@ -10,7 +10,7 @@ public class PatrolState : IEnemyState {
 	public PatrolState(StatePatternEnemy statePatternEnemy)
 	{
 		enemy = statePatternEnemy;
-		enemy.eState = enemyState.PATROL;
+		enemy.state = enemyState.PATROL;
 		enemy.nextWayPoint = 0;
 		timer = 0;
 		time = 0;
@@ -33,13 +33,13 @@ public class PatrolState : IEnemyState {
 	}
 
 	public void ToWaitState() {
-		enemy.eState = enemyState.WAIT;
+		enemy.state = enemyState.WAIT;
 		enemy.currentState = enemy.waitState;
 	}
 
 	public void ToIdleState ()
 	{
-		enemy.eState = enemyState.IDLE;
+		enemy.state = enemyState.IDLE;
 		enemy.currentState = enemy.idleState;
 	}
 
@@ -51,13 +51,13 @@ public class PatrolState : IEnemyState {
 
 	public void ToAlertState ()
 	{
-		enemy.eState = enemyState.ALERT;
+		enemy.state = enemyState.ALERT;
 		enemy.currentState = enemy.alertState;
 	}
 
 	public void ToChaseState ()
 	{
-		enemy.eState = enemyState.CHASE;
+		enemy.state = enemyState.CHASE;
 		enemy.currentState = enemy.chaseState;
 	}
 	

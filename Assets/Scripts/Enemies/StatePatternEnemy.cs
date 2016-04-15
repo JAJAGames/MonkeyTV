@@ -6,18 +6,36 @@ public enum enemyState {WAIT,IDLE,PATROL,CHASE,ALERT}
 
 public class StatePatternEnemy : MonoBehaviour {
 
-	const float GRAVITY = 20f;
+	public Transform player;
 
-	public float speed = 4f;
-	float timeLeftJump = 0.0f;
-	public float jumpForce = 7;
-	public float searchingDuration = 10f;
-	public float sightRange = 10f;
+	[Header ("Enemy Settings")]
+	public enemyType type;
+	public enemyState state;
+
+	[Header ("NavMeshAgent Points and References")]
 	public Transform eyes;
 	public Transform[] wayPoints;
 	public int lastWayPoint, nextWayPoint;
-	public enemyType eType;
-	public enemyState eState;
+
+
+	const float GRAVITY = 20f;  
+	[Header("Physics definitions")]
+	[Range(2,10)]	public float speed = 4f; 
+	[Range(10,30)]	public float jumpForce = 20;
+	[Range(0,5)]	public float searchingDuration = 1f;
+	[Range(1,100)]	public float sightRange = 10f;
+
+
+
+
+	[Header("Navigation Variables & Values")]
+	public bool hasPath;
+	public bool isOnNavMesh;
+	public NavMeshPathStatus pathStatus;
+	public Vector3 steeringTarget;
+	public bool isPathStale;
+	public bool autoRepath;
+	public float remainingDistance;
 
 	[HideInInspector]	public Rigidbody rigidbody;
 	[HideInInspector]	public Transform chaseTarget;
@@ -44,12 +62,13 @@ public class StatePatternEnemy : MonoBehaviour {
 		rigidbody.detectCollisions = true;
 		navMeshAgent.speed = speed;
 		startPosition = transform.position;
+
 	}
 
 
 	void Start ()
 	{
-		if (eType == enemyType.Patrol)
+		if (type == enemyType.Patrol)
 			currentState = patrolState;
 		else 
 			currentState = idleState;
@@ -58,16 +77,33 @@ public class StatePatternEnemy : MonoBehaviour {
 
 	void Update () 
 	{
-
 		if (navMeshAgent.enabled) 
 		{
+																			//Trace Navmesh Agent status on inspector
+			hasPath 		= navMeshAgent.hasPath;
+			isOnNavMesh 	= navMeshAgent.isOnNavMesh;
+			pathStatus		= navMeshAgent.pathStatus;
+			steeringTarget 	= navMeshAgent.steeringTarget;
+			isPathStale 	= navMeshAgent.isPathStale;
+			autoRepath		= navMeshAgent.autoRepath;
+			remainingDistance = navMeshAgent.remainingDistance;
+
+
 			currentState.UpdateState ();
-			if (eType == enemyType.JumperSimple && timeLeftJump < 0)
+
+			NavMeshHit hit;
+			bool blocked = false;
+			blocked = NavMesh.Raycast(eyes.position, navMeshAgent.destination, out hit, NavMesh.AllAreas);
+			Debug.DrawLine(eyes.position, navMeshAgent.destination, blocked ? Color.red : Color.green);
+
+			if (blocked)
+				Debug.DrawRay(hit.position, Vector3.up, Color.red);
+
+			if (type == enemyType.JumperSimple && !blocked)
 				Jump();
 
 		}
 		rigidbody.AddForce (Vector3.down * speed * GRAVITY);
-		timeLeftJump -= Time.deltaTime;
 	
 
 	}
@@ -96,14 +132,11 @@ public class StatePatternEnemy : MonoBehaviour {
 
         if (!other.CompareTag("Floor") && rigidbody.velocity.y <=0)
         {
-            Vector3 velocity = Vector3.zero;
-            rigidbody.velocity = velocity;
-            velocity = Vector3.up * jumpForce + transform.forward * speed;
-            rigidbody.AddForce(velocity, ForceMode.VelocityChange);
+			ForceJump ();
         }
     }
 
-    private void Jump()
+    public void Jump()
 	{
 		Vector3 dest = navMeshAgent.destination - transform.position;
 		dest.y = 0;
@@ -111,8 +144,16 @@ public class StatePatternEnemy : MonoBehaviour {
 		if (alpha < 5) {
 			navMeshAgent.enabled = false;
 			rigidbody.isKinematic = false;
-			Vector3 velocity = Vector3.up * jumpForce + transform.forward * speed;
+			Vector3 velocity = Vector3.up * (jumpForce + Random.Range(-5.0F, 5.0F)) + transform.forward * speed;
 			rigidbody.AddForce (velocity, ForceMode.VelocityChange);
 		}
+	}
+
+	public void ForceJump()
+	{
+		Vector3 velocity = Vector3.zero;
+		rigidbody.velocity = velocity;
+		velocity = Vector3.up * (jumpForce + Random.Range(-5.0F, 5.0F))   + transform.forward * speed;
+		rigidbody.AddForce(velocity, ForceMode.VelocityChange);
 	}
 }

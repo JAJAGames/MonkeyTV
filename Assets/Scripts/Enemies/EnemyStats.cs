@@ -75,14 +75,14 @@ public class EnemyStats : MonoBehaviour {
 
 		enabled = true;
 		enemy.navMeshAgent.enabled = true;
-		enemy.eState = enemyState.PATROL;
+		enemy.state = enemyState.PATROL;
 		enemy.currentState = enemy.patrolState;
 
 	}
 
 	public void ToWaitState() {
 		enemy.navMeshAgent.enabled = false;
-		enemy.eState = enemyState.WAIT;
+		enemy.state = enemyState.WAIT;
 		enemy.currentState = enemy.waitState;
 	}
 }

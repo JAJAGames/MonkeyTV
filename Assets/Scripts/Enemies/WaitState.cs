@@ -7,7 +7,7 @@ public class WaitState : IEnemyState {
 
 	public WaitState(StatePatternEnemy statePatternEnemy) {
 		enemy = statePatternEnemy;
-		enemy.eState = enemyState.WAIT;
+		enemy.state = enemyState.WAIT;
 	}
 
 	public void UpdateState() {
@@ -23,26 +23,26 @@ public class WaitState : IEnemyState {
 	}
 
 	public void ToIdleState() {
-		enemy.eState = enemyState.IDLE;
+		enemy.state = enemyState.IDLE;
 		enemy.currentState = enemy.idleState;
 	}
 
 	public void ToPatrolState() {
 		enemy.navMeshAgent.Resume ();
-		enemy.eState = enemyState.PATROL;
+		enemy.state = enemyState.PATROL;
 		enemy.currentState = enemy.patrolState;
 	}
 
 	public void ToAlertState() {
 		enemy.navMeshAgent.Resume ();
-		enemy.eState = enemyState.ALERT;
+		enemy.state = enemyState.ALERT;
 		enemy.currentState = enemy.alertState;
 	}
 
 	public void ToChaseState() {
 		if (enemy.navMeshAgent.enabled)
 			enemy.navMeshAgent.Resume ();
-		enemy.eState = enemyState.CHASE;
+		enemy.state = enemyState.CHASE;
 		enemy.currentState = enemy.chaseState;
 	}
 }
