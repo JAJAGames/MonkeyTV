@@ -12,10 +12,11 @@ public class ChaseState : IEnemyState {
 
 	public void UpdateState()
 	{
-		enemy.navMeshAgent.destination = enemy.player.position;
 		Vector3 lookAt = enemy.navMeshAgent.destination;
 		lookAt.y = enemy.transform.position.y;
-		enemy.transform.LookAt (enemy.navMeshAgent.destination);
+		enemy.transform.LookAt (lookAt);
+
+		enemy.navMeshAgent.destination = enemy.player.position;
 	}
 
 	public void OnTriggerEnter (Collider other)

@@ -6,7 +6,14 @@ public enum enemyState {WAIT,IDLE,PATROL,CHASE,ALERT}
 
 public class StatePatternEnemy : MonoBehaviour {
 
+	[Header ("Target")]
 	public Transform player;
+	[Header ("Fx movement")]
+	public ParticleSystem walkParticles;
+	public ParticleSystem jumpParticles;
+	ParticleSystem.EmissionModule emWalk;
+	ParticleSystem.EmissionModule emJump;
+	private bool stopJumpParticles;
 
 	[Header ("Enemy Settings")]
 	public enemyType type;
@@ -20,6 +27,7 @@ public class StatePatternEnemy : MonoBehaviour {
 
 	const float GRAVITY = 20f;  
 	[Header("Physics definitions")]
+	public float yVelocity;
 	[Range(2,10)]	public float speed = 4f; 
 	[Range(10,30)]	public float jumpForce = 20;
 	[Range(0,5)]	public float searchingDuration = 1f;
@@ -55,13 +63,22 @@ public class StatePatternEnemy : MonoBehaviour {
 		chaseState	= new ChaseState  (this);
 		patrolState	= new PatrolState (this);
 		idleState	= new IdleState (this);
+
+		startPosition = transform.position;
+
 		navMeshAgent = GetComponent<NavMeshAgent>();
 		navMeshAgent.enabled = true;
+		navMeshAgent.speed = speed;
+
 		rigidbody = GetComponent<Rigidbody> ();
 		rigidbody.isKinematic = true;
 		rigidbody.detectCollisions = true;
-		navMeshAgent.speed = speed;
-		startPosition = transform.position;
+
+		emWalk = walkParticles.emission;
+		emWalk.enabled = false;
+		emJump = jumpParticles.emission;
+		emJump.enabled = false;
+		stopJumpParticles = false;
 
 	}
 
@@ -77,35 +94,45 @@ public class StatePatternEnemy : MonoBehaviour {
 
 	void Update () 
 	{
-		if (navMeshAgent.enabled) 
-		{
-																			//Trace Navmesh Agent status on inspector
-			hasPath 		= navMeshAgent.hasPath;
-			isOnNavMesh 	= navMeshAgent.isOnNavMesh;
-			pathStatus		= navMeshAgent.pathStatus;
-			steeringTarget 	= navMeshAgent.steeringTarget;
-			isPathStale 	= navMeshAgent.isPathStale;
-			autoRepath		= navMeshAgent.autoRepath;
+		if (stopJumpParticles) {
+			stopJumpParticles = false;
+			emJump.enabled = false;
+		}
+		if (navMeshAgent.enabled) {
+			if (emJump.enabled)
+				stopJumpParticles = true;
+			//Trace Navmesh Agent status on inspector
+			hasPath = navMeshAgent.hasPath;
+			isOnNavMesh = navMeshAgent.isOnNavMesh;
+			pathStatus = navMeshAgent.pathStatus;
+			steeringTarget = navMeshAgent.steeringTarget;
+			isPathStale = navMeshAgent.isPathStale;
+			autoRepath = navMeshAgent.autoRepath;
 			remainingDistance = navMeshAgent.remainingDistance;
 
-
+			if (Vector3.Distance (transform.position, navMeshAgent.nextPosition) != 0)
+				emWalk.enabled = true;
+			else
+				emWalk.enabled = false;
 			currentState.UpdateState ();
 
 			NavMeshHit hit;
 			bool blocked = false;
-			blocked = NavMesh.Raycast(eyes.position, navMeshAgent.destination, out hit, NavMesh.AllAreas);
-			Debug.DrawLine(eyes.position, navMeshAgent.destination, blocked ? Color.red : Color.green);
+			blocked = NavMesh.Raycast (eyes.position, navMeshAgent.destination, out hit, NavMesh.AllAreas);
+			Debug.DrawLine (eyes.position, navMeshAgent.destination, blocked ? Color.red : Color.green);
+
 
 			if (blocked)
-				Debug.DrawRay(hit.position, Vector3.up, Color.red);
+				Debug.DrawRay (hit.position, Vector3.up, Color.red);
 
 			if (type == enemyType.JumperSimple && !blocked)
-				Jump();
+				Jump ();
 
+		} else {
+			emWalk.enabled = false;
+			yVelocity = rigidbody.velocity.y;
 		}
 		rigidbody.AddForce (Vector3.down * speed * GRAVITY);
-	
-
 	}
 
 	private void OnTriggerEnter (Collider other)
@@ -118,23 +145,24 @@ public class StatePatternEnemy : MonoBehaviour {
 		GameObject other = collision.collider.gameObject;
 
 		if (other.CompareTag ("Floor")) {
+			emJump.enabled = true;
 			navMeshAgent.enabled = true;
 			rigidbody.isKinematic = true;
 			navMeshAgent.Resume ();
 			if (currentState == patrolState)
 				navMeshAgent.destination = wayPoints [lastWayPoint].position;
-		}
+		}else if( rigidbody.velocity.y <=0)
+			ForceJump ();
 	}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        GameObject other = collision.collider.gameObject;
+	private void OnCollisionEnter(Collision collision)
+	{
+		GameObject other = collision.collider.gameObject;
 
-        if (!other.CompareTag("Floor") && rigidbody.velocity.y <=0)
-        {
-			ForceJump ();
-        }
-    }
+		if (other.CompareTag("Enemy"))
+			rigidbody.AddForce (- transform.forward * 100);
+	}
+    
 
     public void Jump()
 	{
@@ -144,7 +172,7 @@ public class StatePatternEnemy : MonoBehaviour {
 		if (alpha < 5) {
 			navMeshAgent.enabled = false;
 			rigidbody.isKinematic = false;
-			Vector3 velocity = Vector3.up * (jumpForce + Random.Range(-5.0F, 5.0F)) + transform.forward * speed;
+			Vector3 velocity = Vector3.up * (jumpForce + Random.Range(-10.0F, 10.0F)) + transform.forward * speed;
 			rigidbody.AddForce (velocity, ForceMode.VelocityChange);
 		}
 	}
@@ -153,7 +181,7 @@ public class StatePatternEnemy : MonoBehaviour {
 	{
 		Vector3 velocity = Vector3.zero;
 		rigidbody.velocity = velocity;
-		velocity = Vector3.up * (jumpForce + Random.Range(-5.0F, 5.0F))   + transform.forward * speed;
+		velocity = Vector3.up * (jumpForce + Random.Range(-10.0F, 10.0F))   + transform.forward * speed;
 		rigidbody.AddForce(velocity, ForceMode.VelocityChange);
 	}
 }
