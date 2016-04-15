@@ -58,23 +58,23 @@ public class StatePatternEnemy : MonoBehaviour {
 
 	void Awake () {
 
-		waitState	= new WaitState	(this);
+		waitState	= new WaitState	(this);										//define states
 		alertState	= new AlertState  (this);
 		chaseState	= new ChaseState  (this);
 		patrolState	= new PatrolState (this);
 		idleState	= new IdleState (this);
 
-		startPosition = transform.position;
+		startPosition = transform.position;										//start position for idle enemies
 
-		navMeshAgent = GetComponent<NavMeshAgent>();
+		navMeshAgent = GetComponent<NavMeshAgent>();							//get de agent
 		navMeshAgent.enabled = true;
 		navMeshAgent.speed = speed;
 
-		rigidbody = GetComponent<Rigidbody> ();
+		rigidbody = GetComponent<Rigidbody> ();									//get phisics
 		rigidbody.isKinematic = true;
 		rigidbody.detectCollisions = true;
 
-		emWalk = walkParticles.emission;
+		emWalk = walkParticles.emission;										//get particles
 		emWalk.enabled = false;
 		emJump = jumpParticles.emission;
 		emJump.enabled = false;
@@ -85,7 +85,7 @@ public class StatePatternEnemy : MonoBehaviour {
 
 	void Start ()
 	{
-		if (type == enemyType.Patrol)
+		if (type == enemyType.Patrol)												//for non patrol enemies they must being in idle state
 			currentState = patrolState;
 		else 
 			currentState = idleState;
@@ -94,13 +94,16 @@ public class StatePatternEnemy : MonoBehaviour {
 
 	void Update () 
 	{
-		if (stopJumpParticles) {
+		if (stopJumpParticles) {													//stop fx landing effect
 			stopJumpParticles = false;
 			emJump.enabled = false;
 		}
-		if (navMeshAgent.enabled) {
-			if (emJump.enabled)
+
+		if (navMeshAgent.enabled) {													//navmeshagent is enabled only for landed enemies
+
+			if (emJump.enabled)														//next frame disable landing particles
 				stopJumpParticles = true;
+
 			//Trace Navmesh Agent status on inspector
 			hasPath = navMeshAgent.hasPath;
 			isOnNavMesh = navMeshAgent.isOnNavMesh;
@@ -110,78 +113,71 @@ public class StatePatternEnemy : MonoBehaviour {
 			autoRepath = navMeshAgent.autoRepath;
 			remainingDistance = navMeshAgent.remainingDistance;
 
-			if (Vector3.Distance (transform.position, navMeshAgent.nextPosition) != 0)
-				emWalk.enabled = true;
-			else
-				emWalk.enabled = false;
-			currentState.UpdateState ();
+			currentState.UpdateState ();											//do the update loop of the current state
 
+			//forward direction guizmo
 			NavMeshHit hit;
 			bool blocked = false;
 			blocked = NavMesh.Raycast (eyes.position, navMeshAgent.destination, out hit, NavMesh.AllAreas);
 			Debug.DrawLine (eyes.position, navMeshAgent.destination, blocked ? Color.red : Color.green);
 
-
-			if (blocked)
-				Debug.DrawRay (hit.position, Vector3.up, Color.red);
-
-			if (type == enemyType.JumperSimple && !blocked)
+								
+			if (type == enemyType.JumperSimple && !blocked)							//can jump with clear path
 				Jump ();
 
-		} else {
+		} else {																	//enemy with disabled agent is the same as landed enemy
 			emWalk.enabled = false;
 			yVelocity = rigidbody.velocity.y;
 		}
-		rigidbody.AddForce (Vector3.down * speed * GRAVITY);
+		rigidbody.AddForce (Vector3.down * speed * GRAVITY);						//gravity
 	}
 
 	private void OnTriggerEnter (Collider other)
 	{
-		currentState.OnTriggerEnter (other);
+		currentState.OnTriggerEnter (other);										//execute triggers of states
 	}
 
 	private void  OnCollisionStay(Collision collision)
 	{
 		GameObject other = collision.collider.gameObject;
 
-		if (other.CompareTag ("Floor")) {
-			emJump.enabled = true;
+		if (other.CompareTag ("Floor")) {											//when touch the floor set landed mode:
+			emJump.enabled = true;													//enable agent, disable physics and resume navigation
 			navMeshAgent.enabled = true;
 			rigidbody.isKinematic = true;
 			navMeshAgent.Resume ();
-			if (currentState == patrolState)
+			if (currentState == patrolState)										//if the enemy was in patrol mode he needs to recover the last waypoint.
 				navMeshAgent.destination = wayPoints [lastWayPoint].position;
 		}else if( rigidbody.velocity.y <=0)
-			ForceJump ();
+			ForceJump ();															//if the other object is not the floor force monkey to jump.
 	}
 
 	private void OnCollisionEnter(Collision collision)
 	{
 		GameObject other = collision.collider.gameObject;
 
-		if (other.CompareTag("Enemy"))
+		if (other.CompareTag("Enemy"))												//colliding with other enemies needs to set backward force.
 			rigidbody.AddForce (- transform.forward * 100);
 	}
     
 
     public void Jump()
 	{
-		Vector3 dest = navMeshAgent.destination - transform.position;
+		Vector3 dest = navMeshAgent.destination - transform.position;				//get the angle between direction and destination
 		dest.y = 0;
 		float alpha = Vector3.Angle(dest.normalized, transform.forward.normalized);
-		if (alpha < 5) {
+		if (alpha < 5) {															//if the angles is lower than 5 degrees the monkey enemy can jump
 			navMeshAgent.enabled = false;
 			rigidbody.isKinematic = false;
-			Vector3 velocity = Vector3.up * (jumpForce + Random.Range(-10.0F, 10.0F)) + transform.forward * speed;
+			Vector3 velocity = Vector3.up * (jumpForce + Random.Range(-10.0F, 10.0F)) + transform.forward * speed; //we add a random value to the jump force.
 			rigidbody.AddForce (velocity, ForceMode.VelocityChange);
 		}
 	}
 
-	public void ForceJump()
+	public void ForceJump()															//to do the jumps is necessary to set their velocity to 0 first;
 	{
-		Vector3 velocity = Vector3.zero;
-		rigidbody.velocity = velocity;
-		velocity = Vector3.up * (jumpForce + Random.Range(-10.0F, 10.0F))   + transform.forward * speed;
+		rigidbody.velocity = Vector3.zero;
+		Vector3 velocity = Vector3.up * (jumpForce + Random.Range(-10.0F, 10.0F))   + transform.forward * speed;
 		rigidbody.AddForce(velocity, ForceMode.VelocityChange);
 	}
 }
