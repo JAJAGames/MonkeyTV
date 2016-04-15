@@ -1,16 +1,22 @@
 fileFormatVersion: 2
-guid: 3c21600515867524a9a44b35b61152db
-timeCreated: 1460460660
+guid: b16cc1aaf65236648bb75b3636c1905f
+timeCreated: 1460732097
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: PRMC_Foco
+    100004: PRMC_Foco_Poste
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: PRMC_Foco
-    7400000: Take 001
+    400002: PRMC_Foco
+    400004: PRMC_Foco_Poste
+    2300000: PRMC_Foco
+    2300002: PRMC_Foco_Poste
+    3300000: PRMC_Foco
+    3300002: PRMC_Foco_Poste
+    4300000: PRMC_Foco_Poste
+    4300002: PRMC_Foco
     9500000: //RootNode
   materials:
     importMaterials: 1
