@@ -3,28 +3,27 @@ using System.Collections;
 
 public class TestObject : PoolObject {
 
-	TrailRenderer trail;
-	float trailTime;
-
-	void Awake(){
-		trail = GetComponent<TrailRenderer> ();
-		trailTime = trail.time;
-	}
+	public GameObject target;
+	public float speed = 50.1f;
 
 	// Update is called once per frame
 	void Update () {
-		transform.localScale += Vector3.one * Time.deltaTime * 3;
-		transform.Translate (Vector3.forward * Time.deltaTime * 25);	
+		transform.LookAt (target.transform);
+		transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
+		//Debug.Log (transform.position.ToString ());
 	}
 
 	public override void OnObjectReuse (){
-
-		trail.time = -1;
-		Invoke ("ResetTrail", .1f);
 		transform.localScale = Vector3.one;
 	}
 
-	void ResetTrail(){
-		trail.time = trailTime;
+	void OnTriggerEnter (Collider other) {
+		Debug.Log ("Han tocat algo: " + other.GetComponent<Collider>().tag.ToString() );
+		if (other.GetComponent<Collider>().tag == "Floor"){
+			Debug.Log ("FLOOR");
+			//Falta spawnejar a l'enemic
+
+			gameObject.SetActive (false);
+		}
 	}
 }

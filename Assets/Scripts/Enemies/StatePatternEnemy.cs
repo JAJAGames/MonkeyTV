@@ -6,6 +6,11 @@ public enum enemyState {WAIT,IDLE,PATROL,CHASE,ALERT}
 
 public class StatePatternEnemy : MonoBehaviour {
 
+	//NEW
+	[Header ("Prefab")]
+	public GameObject prefab;
+	//END NEW
+
 	[Header ("Target")]
 	public Transform player;
 	[Header ("Fx movement")]
@@ -33,9 +38,6 @@ public class StatePatternEnemy : MonoBehaviour {
 	[Range(0,5)]	public float searchingDuration = 1f;
 	[Range(1,100)]	public float sightRange = 10f;
 
-
-
-
 	[Header("Navigation Variables & Values")]
 	public bool hasPath;
 	public bool isOnNavMesh;
@@ -55,6 +57,9 @@ public class StatePatternEnemy : MonoBehaviour {
 	[HideInInspector]	public IdleState idleState;
 	[HideInInspector]	public NavMeshAgent navMeshAgent;
 	[HideInInspector]	public Vector3 startPosition;
+
+
+
 
 	void Awake () {
 
