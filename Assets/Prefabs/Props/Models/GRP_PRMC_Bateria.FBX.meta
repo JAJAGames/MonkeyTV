@@ -1,27 +1,32 @@
 fileFormatVersion: 2
-guid: 961488cbf7ab3e34298a7f9fd2a48b2a
-timeCreated: 1460905369
+guid: 393e3224b5e9cb34f89505fd3c2b86fb
+timeCreated: 1460907046
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: PRMC_Botiquin01
-    100004: PRMC_Botiquin02
-    100006: PRMC_Botiquin03
+    100002: PRMC_Bateria
+    100004: PRMC_Bateria_PAzul
+    100006: PRMC_Bateria_PRojo
+    100008: PRMC_Bateria_Tapa
     400000: //RootNode
-    400002: PRMC_Botiquin01
-    400004: PRMC_Botiquin02
-    400006: PRMC_Botiquin03
-    2300000: PRMC_Botiquin01
-    2300002: PRMC_Botiquin02
-    2300004: PRMC_Botiquin03
-    3300000: PRMC_Botiquin01
-    3300002: PRMC_Botiquin02
-    3300004: PRMC_Botiquin03
-    4300000: PRMC_Botiquin01
-    4300002: PRMC_Botiquin02
-    4300004: PRMC_Botiquin03
+    400002: PRMC_Bateria
+    400004: PRMC_Bateria_PAzul
+    400006: PRMC_Bateria_PRojo
+    400008: PRMC_Bateria_Tapa
+    2300000: PRMC_Bateria
+    2300002: PRMC_Bateria_PAzul
+    2300004: PRMC_Bateria_PRojo
+    2300006: PRMC_Bateria_Tapa
+    3300000: PRMC_Bateria
+    3300002: PRMC_Bateria_PAzul
+    3300004: PRMC_Bateria_PRojo
+    3300006: PRMC_Bateria_Tapa
+    4300000: PRMC_Bateria_PAzul
+    4300002: PRMC_Bateria
+    4300004: PRMC_Bateria_PRojo
+    4300006: PRMC_Bateria_Tapa
     7400000: Take 001
     9500000: //RootNode
     11100000: //RootNode
@@ -50,7 +55,7 @@ ModelImporter:
       name: Take 001
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 20
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
@@ -73,11 +78,13 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: PRMC_Botiquin01
+      - path: PRMC_Bateria
         weight: 1
-      - path: PRMC_Botiquin02
+      - path: PRMC_Bateria_PAzul
         weight: 1
-      - path: PRMC_Botiquin03
+      - path: PRMC_Bateria_PRojo
+        weight: 1
+      - path: PRMC_Bateria_Tapa
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
