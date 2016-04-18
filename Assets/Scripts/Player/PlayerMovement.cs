@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviour  {
 			Vector3 direction = other.transform.position - transform.position;	
 			direction.Normalize();
 			direction.y = 0;
+			direction.z = 0;
 
 			//smoothness
 			float smoothPush = 1 / (movementSpeed * 2);
@@ -95,6 +96,12 @@ public class PlayerMovement : MonoBehaviour  {
 			float mass = other.gameObject.GetComponent<Rigidbody> ().mass;
 			other.transform.position += direction * mass * smoothPush; 
 		}		
-		
+
+		if (other.gameObject.CompareTag ("Prop")) {
+			Vector3 direction = other.transform.position - transform.position;	
+			direction.y = 0;
+			direction.Normalize();
+			other.gameObject.GetComponent<Rigidbody> ().AddForce(direction ,ForceMode.Impulse); 
+		}
 	}
 }
