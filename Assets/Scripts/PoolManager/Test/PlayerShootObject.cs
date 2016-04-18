@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerShootObject : PoolObject {
-	[Range (1,20)]
+	[Range (1,3)]
 	public float speed = 1.0f;
 
 	// Update is called once per frame
@@ -13,11 +13,12 @@ public class PlayerShootObject : PoolObject {
 
 	void OnTriggerStay (Collider other) {
 
-		if (Vector3.Distance (gameObject.transform.position, other.gameObject.transform.position) < 1) {
-			if (other.CompareTag ("Enemy"))
+		if (other.CompareTag ("Enemy")) {
+			if (Vector3.Distance (gameObject.transform.position, other.gameObject.transform.position) < 1) {
 				other.gameObject.GetComponent<EnemyStats> ().TakeDamage (1);
-			if (!other.CompareTag ("Player"))
 				gameObject.SetActive (false);
+			}
 		}
 	}
+
 }
