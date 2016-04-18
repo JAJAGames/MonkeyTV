@@ -9,11 +9,12 @@ public class TestManager : MonoBehaviour {
 	void Start(){
 		PoolManager.instance.CreatePool (prefab, 10);
 	}
-
+	/*
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			PoolManager.instance.ReuseObject (prefab, startPoint.transform.position, Quaternion.identity);			
 		}
 
 	}
+	*/
 }

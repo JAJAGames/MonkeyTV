@@ -8,7 +8,7 @@ public class EnemyShootObject : PoolObject {
 	private PlayerStats playerStats;
 
 	void Awake() {
-		playerStats = player.GetComponent<PlayerStats> ();
+		playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats> ();
 	}
 
 	// Update is called once per frame
@@ -16,16 +16,12 @@ public class EnemyShootObject : PoolObject {
 		gameObject.transform.Translate(Vector3.forward * speed/5);
 	}
 
-	public override void OnObjectReuse (){
-		transform.localScale = Vector3.one;
-	}
 
 	void OnTriggerEnter (Collider other) {
 		if (other.CompareTag ("Player")) {
 			playerStats.TakeDamage (1);
 			gameObject.SetActive (false);
 		}
-		//else 
-			//gameObject.SetActive (false);
+
 	}
 }

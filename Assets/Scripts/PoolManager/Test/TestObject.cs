@@ -10,7 +10,6 @@ public class TestObject : PoolObject {
 	void Update () {
 		transform.LookAt (target.transform);
 		transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-		//Debug.Log (transform.position.ToString ());
 	}
 
 	public override void OnObjectReuse (){
