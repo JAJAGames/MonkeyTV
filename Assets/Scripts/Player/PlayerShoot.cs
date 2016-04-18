@@ -19,7 +19,21 @@ using System.Collections;
  */
 
 public class PlayerShoot : MonoBehaviour {
+	[Header ("Bullet")]
+	public GameObject prefab;
+	private Transform render;
 
+	void Awake(){
+		render = transform.GetChild (0).transform;
+	}
+
+	void Update()
+	{
+		if (Input.GetButtonDown("Fire1") )
+		PoolManager.instance.ReuseObject (prefab, render.position ,render.rotation);	
+	}
+}
+/*
 	public int damagePerShot = 1;
 	public float timeBetweenBullets = 0.15f;
 	public float range = 200f;
@@ -81,4 +95,4 @@ public class PlayerShoot : MonoBehaviour {
 	public void DisableEffects () {
 		gunLine.enabled = false;
 	}
-}
+}*/

@@ -27,10 +27,26 @@ public class EnemyStats : MonoBehaviour {
 	public bool isDead;
 	public GameObject EnemySideLine;
 
+	void Awake () {
+		currentHealth = startingHealth;
+	}
+
+	public void TakeDamage (int damage) {
+		if(isDead)
+			return;
+
+		currentHealth -= damage;
+
+		if(currentHealth <= 0) {
+			gameObject.SetActive (false);
+		}
+	}
+}
+
+	/*
 	public GameObject player;
 
 	private StatePatternEnemy enemy;
-
 
 	void Awake () {
 		currentHealth = startingHealth;
@@ -65,7 +81,6 @@ public class EnemyStats : MonoBehaviour {
 
 	private IEnumerator Rebirth() {
 		
-
 		yield return new WaitForSeconds(4.0f);
 		isDead = false;
 
@@ -85,4 +100,4 @@ public class EnemyStats : MonoBehaviour {
 		enemy.state = enemyState.WAIT;
 		enemy.currentState = enemy.waitState;
 	}
-}
+*/
