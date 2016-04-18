@@ -7,5 +7,6 @@
 		<Tense key="3" english="Exit" spanish="Salir" catalan="Sortir" galician="Saír" />
 		<Tense key="4" english="Back" spanish="Volver" catalan="Tornar" galician="Tornar" />
 		<Tense key="5" english="Language" spanish="Idioma" catalan="Idioma" galician="Idioma" />
+		<Tense key="6" english="Music By" spanish="Músicos" catalan="Músics" galician="Músicos" />
 	</Translation>
 </Language_List>
