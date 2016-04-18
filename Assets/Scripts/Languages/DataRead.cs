@@ -8,20 +8,19 @@ public class DataRead : MonoBehaviour {
 
 	private Loading loading;
 	public TypeOfData type;
-	public Text text;
+	//public Text text;
 
 	public int idKey;
 
-	void Awake (){
+	void Start (){
 		loading = Camera.main.GetComponent<Loading> ();
-		loading.LoadWords (idKey);
 	}
 
 	void Update (){
 		
-		if (loading.output != this.type) {
-			this.type = loading.output;
-			loading.LoadWords (idKey);
+		if (loading.output != type) {
+			type = loading.output;
+			LoadChanges (loading.listData[idKey]);
 		}	
 	}
 
@@ -33,19 +32,19 @@ public class DataRead : MonoBehaviour {
 		switch(type)
 		{
 		case TypeOfData.key:
-			text.text = index.key.ToString();
+			gameObject.GetComponent<Text>().text = index.key.ToString();
 			break;
 		case TypeOfData.english:
-			text.text = index.english;
+			gameObject.GetComponent<Text>().text = index.english;
 			break;
 		case TypeOfData.spanish:
-			text.text = index.spanish;
+			gameObject.GetComponent<Text>().text = index.spanish;
 			break;
 		case TypeOfData.catalan:
-			text.text = index.catalan;
+			gameObject.GetComponent<Text>().text = index.catalan;
 			break;
 		case TypeOfData.galician:
-			text.text = index.galician;
+			gameObject.GetComponent<Text>().text = index.galician;
 			break;
 
 		}
