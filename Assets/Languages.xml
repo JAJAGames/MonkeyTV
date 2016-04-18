@@ -6,5 +6,6 @@
 		<Tense key="2" english="Options" spanish="Opciones" catalan="Opcions" galician="Opcións" />
 		<Tense key="3" english="Exit" spanish="Salir" catalan="Sortir" galician="Saír" />
 		<Tense key="4" english="Back" spanish="Volver" catalan="Tornar" galician="Tornar" />
+		<Tense key="5" english="Language" spanish="Idioma" catalan="Idioma" galician="Idioma" />
 	</Translation>
 </Language_List>

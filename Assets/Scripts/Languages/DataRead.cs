@@ -6,14 +6,13 @@ using System.IO;
 
 public class DataRead : MonoBehaviour {
 
-	public Loading loading;
+	private Loading loading;
 	public TypeOfData type;
-	public Text input;
+	public Text text;
 
 	public int idKey;
 
 	void Awake (){
-		input.text = "a";
 		loading = Camera.main.GetComponent<Loading> ();
 		loading.LoadWords (idKey);
 	}
@@ -34,19 +33,19 @@ public class DataRead : MonoBehaviour {
 		switch(type)
 		{
 		case TypeOfData.key:
-			input.text = index.key.ToString();
+			text.text = index.key.ToString();
 			break;
 		case TypeOfData.english:
-			input.text = index.english;
+			text.text = index.english;
 			break;
 		case TypeOfData.spanish:
-			input.text = index.spanish;
+			text.text = index.spanish;
 			break;
 		case TypeOfData.catalan:
-			input.text = index.catalan;
+			text.text = index.catalan;
 			break;
 		case TypeOfData.galician:
-			input.text = index.galician;
+			text.text = index.galician;
 			break;
 
 		}

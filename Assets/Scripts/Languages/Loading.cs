@@ -6,10 +6,9 @@ using System.IO;
 
 public class Loading : MonoBehaviour {
 
-	public DataRead[] data;
 	public TypeOfData output;
+	public DataRead[] data;
 
-	public int currentIndex = 0;
 	int amount = 0;
 
 	void Awake () {
@@ -34,5 +33,9 @@ public class Loading : MonoBehaviour {
 		}
 	}
 
+	public void SetOutput (int value)
+	{
+		output = (TypeOfData) value;
+	}
 
 }
