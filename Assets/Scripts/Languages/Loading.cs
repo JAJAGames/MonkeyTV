@@ -12,7 +12,12 @@ public class Loading : MonoBehaviour {
 	int amount = 0;
 
 	void Awake () {
+		
 		output = TypeOfData.english;
+		if (Application.systemLanguage.ToString() == "Spanish")
+			output = TypeOfData.spanish;
+		if (Application.systemLanguage.ToString() == "Catalan")
+			output = TypeOfData.catalan;
 	}
 
 	public void LoadWords (int index)

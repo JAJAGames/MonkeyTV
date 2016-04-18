@@ -5,14 +5,17 @@ public class MenuDropDown : MonoBehaviour {
 
 	public Dropdown myDropdown;
 	private Loading loading;
+
 	void Awake (){
 		loading = Camera.main.GetComponent<Loading> ();
 	}
+
 	void Start() {
 		myDropdown.onValueChanged.AddListener( delegate 
 		{ 
 			myDropdownValueChangedHandler(myDropdown);	
 		});
+		myDropdown.value = (int) loading.output - 1;
 	}
 
 	void Destroy() {
