@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language_List xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Translation>
+		<Tense key="0" english="Play" spanish="Jugar" catalan="Jugar" galician="Xogar" />
+		<Tense key="1" english="Credits" spanish="Créditos" catalan="Crèdits" galician="Créditos" />
+		<Tense key="2" english="Options" spanish="Opciones" catalan="Opcions" galician="Opcións" />
+		<Tense key="3" english="Exit" spanish="Salir" catalan="Sortir" galician="Saír" />
+		<Tense key="4" english="Back" spanish="Volver" catalan="Tornar" galician="Tornar" />
+	</Translation>
+</Language_List>
