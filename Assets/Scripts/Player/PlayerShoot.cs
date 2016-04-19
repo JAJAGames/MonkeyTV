@@ -2,7 +2,7 @@
 using System.Collections;
 
 /* PLAYERSHOOT.CS
- * (C) COPYRIGHT "JAJA GAMES", 2.016
+ * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
  * 

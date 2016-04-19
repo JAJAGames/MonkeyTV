@@ -1,43 +1,42 @@
-﻿using UnityEngine;
-using System.Collections;
-
-/* ENEMYSTATS.CS
+﻿/* BARLIFE.CS
  * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
- * Manages the next Enemy Stats:
- * - Health
+ * this script actuallizes the hud bar of player life.	
  * ------------------------------------------------------------------------------------------------------------------------------------
  * FUNCTIONS LIST:
  * 
- * TakeDamage	(int)
- * Death		()
+ * Awake()
+ * Update()
  * ------------------------------------------------------------------------------------------------------------------------------------
  * MODIFICATIONS:
  * DATA			DESCRIPCTION
  * ----------	-----------------------------------------------------------------------------------------------------------------------
- * XX/XX/XXXX	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ * 19/04/2016	this script is attached to bar life gameObject in dynamic HUD. 
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 
-public class EnemyStats : MonoBehaviour {
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
 
-	public int startingHealth = 4;            
-	public int currentHealth;
-	public bool isDead;
-	public GameObject EnemySideLine;
+public class Barlife : MonoBehaviour {
 
-	void Awake () {
-		currentHealth = startingHealth;
+	PlayerStats playerStats;
+	RectTransform rTransform;
+
+	void Awake ()
+	{
+		 rTransform = gameObject.GetComponent<RectTransform> ();
+		playerStats = GameObject.FindWithTag ("Player").GetComponent<PlayerStats> ();
 	}
 
-	public void TakeDamage (int damage) {
-		if(isDead)
-			return;
-		currentHealth -= damage;
+	void Update(){
+		
+		Vector3 scale = Vector3.one;
 
-		if(currentHealth <= 0) {
-			gameObject.SetActive (false);
-		}
+		scale.x = (float)playerStats.currentHealth / playerStats.startingHealth;
+		rTransform.localScale = scale;
+
 	}
 }
