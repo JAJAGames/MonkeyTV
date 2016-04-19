@@ -13,7 +13,7 @@
  * MODIFICATIONS:
  * DATA			DESCRIPCTION
  * ----------	-----------------------------------------------------------------------------------------------------------------------
- * XX/XX/XXXX	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ * 19/04/2016	Var GOD added to enable or disable mode GOD
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 

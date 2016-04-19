@@ -12,11 +12,13 @@
  * ButtonCollidersPressed ()
  * ButtonWireframePressed ()
  * ButtonBackPressed ()
+ * ButtonModeGodPressed ()
  * ------------------------------------------------------------------------------------------------------------------------------------
  * MODIFICATIONS:
  * DATA			DESCRIPCTION	
  * ----------	-----------------------------------------------------------------------------------------------------------------------
  * 28/03/2016	CODE BASE MATCHED TO Canvas GAMEOBJECT IN Level1MasterChef SCENE
+ * 19/04/2016	God Mode Added
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 using UnityEngine;
@@ -42,9 +44,11 @@ public class panelDebug : MonoBehaviour {
 	private float minPosition;
 	private float initPosition;
 	private bool togglePanel;
+
 	[Header("God Mode")]
+	public GameObject textGod;
+	public GameObject ShieldSphere;
 	private PlayerStats stats;
-	public GameObject text;
 
 	[Header("Shader")]
 	public Shader wireframe;
@@ -85,6 +89,8 @@ public class panelDebug : MonoBehaviour {
 
 	void Update()
 	{
+		if (Input.GetKeyUp (KeyCode.G))
+				ButtonModeGodPressed();
 
 		if (Input.GetKeyUp (KeyCode.P) && !togglePanel) {
 			togglePanel = true;
@@ -141,7 +147,8 @@ public class panelDebug : MonoBehaviour {
 
 	public void ButtonModeGodPressed () {
 		stats.GOD = !stats.GOD;
-		text.SetActive (!text.activeSelf);
+		textGod.SetActive (!textGod.activeSelf);
+		ShieldSphere.SetActive (!ShieldSphere.activeSelf);
 	}
 
 	public void ButtonBackPressed () 
