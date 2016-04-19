@@ -1,5 +1,5 @@
 ﻿/* PLAYERSTATS.CS
- * (C) COPYRIGHT "JAJA GAMES", 2.016
+ * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
  * Manages the next player Stats:
@@ -25,6 +25,7 @@ public class PlayerStats : MonoBehaviour {
 	public int startingHealth = 4;            
 	public int currentHealth;
 	public bool isDead;
+	public GameObject panelFX;
 
 	void Awake () {
 		currentHealth = startingHealth;
@@ -33,6 +34,9 @@ public class PlayerStats : MonoBehaviour {
 	public void TakeDamage (int damage) {
 		if(isDead)
 			return;
+
+		panelFX.SetActive (true);
+		Invoke ("StopFX", 0.1f);
 
 		currentHealth -= damage;
 
@@ -44,5 +48,9 @@ public class PlayerStats : MonoBehaviour {
 	private IEnumerator Death () {
 		isDead = true;
 		yield return new WaitForSeconds(1.0f);
+	}
+
+	private void StopFX(){
+		panelFX.SetActive (false);
 	}
 }

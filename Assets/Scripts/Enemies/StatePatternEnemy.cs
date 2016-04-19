@@ -150,7 +150,10 @@ public class StatePatternEnemy : MonoBehaviour {
 			emJump.enabled = true;													//enable agent, disable physics and resume navigation
 			navMeshAgent.enabled = true;
 			rigidbody.isKinematic = true;
-			navMeshAgent.Resume ();
+
+//TO DO: BUG DETECTED Next line--> SOMETIMES show error cos no have navmesh under enemy
+
+			navMeshAgent.Resume ();													
 			if (currentState == patrolState)										//if the enemy was in patrol mode he needs to recover the last waypoint.
 				navMeshAgent.destination = wayPoints [lastWayPoint].position;
 		}else if( rigidbody.velocity.y <=0)

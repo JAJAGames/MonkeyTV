@@ -10,13 +10,14 @@ using System.Collections;
  * ------------------------------------------------------------------------------------------------------------------------------------
  * FUNCTIONS LIST:
  * 
- * TakeDamage	(int)
- * Death		()
+ * Awake ()
+ * TakeDamage ()
+ * Recolor ()
  * ------------------------------------------------------------------------------------------------------------------------------------
  * MODIFICATIONS:
  * DATA			DESCRIPCTION
  * ----------	-----------------------------------------------------------------------------------------------------------------------
- * XX/XX/XXXX	XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+ * 19/04/2016	Added feedback changing color on TakeDamage
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 
@@ -26,9 +27,13 @@ public class EnemyStats : MonoBehaviour {
 	public int currentHealth;
 	public bool isDead;
 	public GameObject EnemySideLine;
+	private MeshRenderer meshRenderer;
+	private Color originalColor;
 
 	void Awake () {
 		currentHealth = startingHealth;
+		meshRenderer = gameObject.GetComponent<MeshRenderer> ();
+		originalColor = meshRenderer.material.color;
 	}
 
 	public void TakeDamage (int damage) {
@@ -36,8 +41,15 @@ public class EnemyStats : MonoBehaviour {
 			return;
 		currentHealth -= damage;
 
+		meshRenderer.material.color = Color.white;
+		Invoke ("Recolor",0.2f);
+
 		if(currentHealth <= 0) {
 			gameObject.SetActive (false);
 		}
+	}
+
+	private void Recolor(){
+		meshRenderer.material.color = originalColor;
 	}
 }
