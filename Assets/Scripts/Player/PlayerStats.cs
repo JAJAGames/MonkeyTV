@@ -26,13 +26,15 @@ public class PlayerStats : MonoBehaviour {
 	public int currentHealth;
 	public bool isDead;
 	public GameObject panelFX;
+	public bool GOD;
 
 	void Awake () {
 		currentHealth = startingHealth;
+		GOD = false;
 	}
 
 	public void TakeDamage (int damage) {
-		if(isDead)
+		if(isDead || GOD)
 			return;
 
 		panelFX.SetActive (true);

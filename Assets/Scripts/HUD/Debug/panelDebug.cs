@@ -20,6 +20,7 @@
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class panelDebug : MonoBehaviour {
@@ -41,6 +42,9 @@ public class panelDebug : MonoBehaviour {
 	private float minPosition;
 	private float initPosition;
 	private bool togglePanel;
+	[Header("God Mode")]
+	private PlayerStats stats;
+	public GameObject text;
 
 	[Header("Shader")]
 	public Shader wireframe;
@@ -67,7 +71,8 @@ public class panelDebug : MonoBehaviour {
 			colliderRenders[i].GetComponent<MeshRenderer> ().material.shader = Shader.Find ("Transparent/Diffuse");
 			colliderRenders[i].GetComponent<MeshRenderer> ().enabled = false;
 		}
-			
+
+		stats = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStats>();
 	}
 		
 	void Start(){
@@ -132,6 +137,11 @@ public class panelDebug : MonoBehaviour {
 				colliderRenders [i].GetComponent<MeshRenderer> ().material.shader = wireframe;
 		}
 
+	}
+
+	public void ButtonModeGodPressed () {
+		stats.GOD = !stats.GOD;
+		text.SetActive (!text.activeSelf);
 	}
 
 	public void ButtonBackPressed () 
