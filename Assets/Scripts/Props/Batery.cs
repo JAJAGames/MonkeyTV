@@ -23,17 +23,30 @@ public class Batery : MonoBehaviour {
 
 	private ParticleSystem smoke;
 	ParticleSystem.EmissionModule emSmoke;
+	public Transform sphere;
 
 	void Awake () {
 		anim = gameObject.GetComponent<Animation>();
 		smoke = gameObject.GetComponent<ParticleSystem> ();
 		emSmoke = smoke.emission;
 		emSmoke.enabled = false;
+		sphere = transform.GetChild (4).transform;
+		sphere.gameObject.SetActive (false);
+	}
+
+	void Update (){
+		if (sphere.gameObject.activeSelf) {
+			sphere.transform.localScale +=  Vector3.one * Time.deltaTime * 10;
+			if (sphere.transform.localScale.x > 2)
+				sphere.gameObject.SetActive (false);
+		}
 	}
 
 	void OnTriggerEnter(Collider other) {
 
 		other.gameObject.SetActive (false);
+		sphere.transform.localScale = Vector3.one;
+		sphere.gameObject.SetActive (true);
 
 		if (anim.isPlaying)
 			return;
@@ -42,7 +55,7 @@ public class Batery : MonoBehaviour {
 			gameObject.SetActive (false);
 
 		if (other.CompareTag ("PlayerShoot")) {
-			
+
 			anim.Play ();
 			Invoke ("StopAnim",anim.clip.length);  		//play once time
 			emSmoke.enabled = true;
