@@ -80,7 +80,6 @@ public class PlayerMovement : MonoBehaviour  {
 
 	//Adding phisics to player... 
 	void OnControllerColliderHit(ControllerColliderHit other) {
-	
 																					//if the player collides with one enemy he can move him depending on their mass
 		if (other.gameObject.CompareTag ("Enemy") && controller.isGrounded) { 		//the player must be grtounded
 
@@ -91,7 +90,7 @@ public class PlayerMovement : MonoBehaviour  {
 			direction.z = 0;
 
 			//smoothness
-			float smoothPush = 1 / (movementSpeed * 2);
+			float smoothPush = 0.5f / movementSpeed;
 			// and mass
 			float mass = other.gameObject.GetComponent<Rigidbody> ().mass;
 			other.transform.position += direction * mass * smoothPush; 

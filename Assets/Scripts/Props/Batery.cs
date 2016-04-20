@@ -23,31 +23,33 @@ public class Batery : MonoBehaviour {
 
 	private ParticleSystem smoke;
 	ParticleSystem.EmissionModule emSmoke;
-	public Transform sphere;
+	private bool big;
+	public Transform scalable;
 
 	void Awake () {
 		anim = gameObject.GetComponent<Animation>();
 		smoke = gameObject.GetComponent<ParticleSystem> ();
 		emSmoke = smoke.emission;
 		emSmoke.enabled = false;
-		sphere = transform.GetChild (4).transform;
-		sphere.gameObject.SetActive (false);
+		big = false;
+		scalable = transform.GetChild (0).transform;
 	}
 
 	void Update (){
-		if (sphere.gameObject.activeSelf) {
-			sphere.transform.localScale +=  Vector3.one * Time.deltaTime * 10;
-			if (sphere.transform.localScale.x > 2)
-				sphere.gameObject.SetActive (false);
+		if (big) {
+			scalable.localScale +=  Vector3.one * Time.deltaTime * 10;
 		}
+		if (scalable.localScale.x > 1.5) {
+			scalable.localScale = Vector3.one;
+			big = false;
+		}
+	
 	}
 
 	void OnTriggerEnter(Collider other) {
 
 		other.gameObject.SetActive (false);
-		sphere.transform.localScale = Vector3.one;
-		sphere.gameObject.SetActive (true);
-
+		big = true;
 		if (anim.isPlaying)
 			return;
 		
@@ -72,4 +74,5 @@ public class Batery : MonoBehaviour {
 	private void StopAnim(){
 		anim.Stop();
 	}
+
 }
