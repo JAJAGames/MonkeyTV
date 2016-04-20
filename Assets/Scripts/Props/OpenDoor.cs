@@ -8,11 +8,13 @@
  * 
  * OnTriggerEnter 	(Collider)
  * Update			()
+ * void Open(){
  * ------------------------------------------------------------------------------------------------------------------------------------
  * MODIFICATIONS:
  * DATA			DESCRIPCTION
  * ----------	-----------------------------------------------------------------------------------------------------------------------
  * 23/03/2016	CODE BASE MATCHED TO NMC03_Door GAMEOBJECT IN Level1MasterChef SCENE
+ * 20/04/2016	Code changend from key object to Root object of prefab.  erased mR variable and added Open Method
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 
@@ -29,26 +31,16 @@ public class OpenDoor : MonoBehaviour {
 	public float stopAngle = 90;
 	private float rotation = 0;
 	private bool closed = true;
-	private MeshRenderer mR;
 
-	void Awake()
-	{
-		mR = gameObject.GetComponent<MeshRenderer> ();	
-	}
 
-	//when player enter in the key area open the door
-	void OnTriggerEnter(Collider other) {
-		if (other.CompareTag ("Player")) 
-		{
-			closed = false;
-			mR.enabled = false;
-		}
+	public void Open(){
+		closed = false;
 	}
 
 	//update the angle position and increment till the door is opened
 	void Update ()
 	{
-		if (closed)
+		if (closed || stopAngle < 0)
 			return;
 
 		rotation += Time.deltaTime * 20.0f ;
@@ -58,7 +50,10 @@ public class OpenDoor : MonoBehaviour {
 			rightDoor.Rotate (rotation * Vector3.down, Space.World);
 
 		stopAngle -= rotation;
-		if (stopAngle < 0)
-			gameObject.SetActive (!gameObject.activeSelf);
+	}
+
+	void OnTriggerEnter(Collider other) {
+		if (other.CompareTag ("Player"))
+			closed = false;
 	}
 }

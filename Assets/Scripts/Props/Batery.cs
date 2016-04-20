@@ -24,7 +24,8 @@ public class Batery : MonoBehaviour {
 	private ParticleSystem smoke;
 	ParticleSystem.EmissionModule emSmoke;
 	private bool big;
-	public Transform scalable;
+	private Transform scalable;
+	public OpenDoor door;
 
 	void Awake () {
 		anim = gameObject.GetComponent<Animation>();
@@ -48,27 +49,35 @@ public class Batery : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 
-		other.gameObject.SetActive (false);
-		big = true;
-		if (anim.isPlaying)
+
+		if (!other.CompareTag("PlayerShoot"))
 			return;
+
+		other.gameObject.SetActive (false);					//feedback of impact
+		big = true;
+
+		emSmoke.enabled = true;								//enable smoke particles
+
 		
-		if (smoke.startSize > 1.5f)
-			gameObject.SetActive (false);
-
-		if (other.CompareTag ("PlayerShoot")) {
-
-			anim.Play ();
-			Invoke ("StopAnim",anim.clip.length);  		//play once time
-			emSmoke.enabled = true;
-
-			if (emSmoke.rate.constantMax < 5) {
-				var rate = emSmoke.rate;
-				rate.constantMax += 1;
-				emSmoke.rate = rate;
-			} else
-				smoke.startSize += 0.1f;
+		if (anim.isPlaying) {								//if animation is playing the battery have inmunity
+			return;
 		}
+		anim.Play ();										//play once time, so Invoke StopAnim when it's over.
+		Invoke ("StopAnim",anim.clip.length);  		
+
+
+		if (smoke.startSize > 1.5f) {						//If particles size is upper than 1.5 --> kill the battery ingame
+			gameObject.SetActive (false);
+			door.Open ();
+		}
+
+		if (emSmoke.rate.constantMax < 5) {					//If the number of particles per second is 5 change the size
+			var rate = emSmoke.rate;
+			rate.constantMax += 1;
+			emSmoke.rate = rate;
+		} else
+			smoke.startSize += 0.1f;
+		
 	}
 
 	private void StopAnim(){

@@ -47,7 +47,7 @@ public class StatePatternEnemy : MonoBehaviour {
 	public bool autoRepath;
 	public float remainingDistance;
 
-	public Rigidbody rigidbody;
+	[HideInInspector]	public Rigidbody body;
 	[HideInInspector]	public Transform chaseTarget;
 	[HideInInspector]	public IEnemyState currentState;
 	[HideInInspector]	public WaitState waitState;
@@ -75,9 +75,9 @@ public class StatePatternEnemy : MonoBehaviour {
 		navMeshAgent.enabled = true;
 		navMeshAgent.speed = speed;
 
-		rigidbody = GetComponent<Rigidbody> ();									//get phisics
-		rigidbody.isKinematic = true;
-		rigidbody.detectCollisions = true;
+		body = GetComponent<Rigidbody> ();									//get phisics
+		body.isKinematic = true;
+		body.detectCollisions = true;
 
 		emWalk = walkParticles.emission;										//get particles
 		emWalk.enabled = false;
@@ -132,9 +132,9 @@ public class StatePatternEnemy : MonoBehaviour {
 
 		} else {																	//enemy with disabled agent is the same as landed enemy
 			emWalk.enabled = false;
-			yVelocity = rigidbody.velocity.y;
+			yVelocity = body.velocity.y;
 		}
-		rigidbody.AddForce (Vector3.down * speed * GRAVITY);						//gravity
+		body.AddForce (Vector3.down * speed * GRAVITY);						//gravity
 	}
 
 	private void OnTriggerEnter (Collider other)
@@ -149,11 +149,11 @@ public class StatePatternEnemy : MonoBehaviour {
 		if (other.CompareTag ("Floor")) {											//when touch the floor set landed mode:
 			emJump.enabled = true;													//enable agent, disable physics and resume navigation
 			navMeshAgent.enabled = true;
-			rigidbody.isKinematic = true;
+			body.isKinematic = true;
 				
 			if (currentState == patrolState)										//if the enemy was in patrol mode he needs to recover the last waypoint.
 				navMeshAgent.destination = wayPoints [lastWayPoint].position;
-		}else if( rigidbody.velocity.y <=0)
+		}else if( body.velocity.y <=0)
 			ForceJump ();															//if the other object is not the floor force monkey to jump.
 	}
 
@@ -162,7 +162,7 @@ public class StatePatternEnemy : MonoBehaviour {
 		GameObject other = collision.collider.gameObject;
 
 		if (other.CompareTag("Enemy"))												//colliding with other enemies needs to set backward force.
-			rigidbody.AddForce (- transform.forward * 100);
+			body.AddForce (- transform.forward * 100);
 	}
     
 
@@ -173,16 +173,16 @@ public class StatePatternEnemy : MonoBehaviour {
 		float alpha = Vector3.Angle(dest.normalized, transform.forward.normalized);
 		if (alpha < 5) {															//if the angles is lower than 5 degrees the monkey enemy can jump
 			navMeshAgent.enabled = false;
-			rigidbody.isKinematic = false;
+			body.isKinematic = false;
 			Vector3 velocity = Vector3.up * (jumpForce + Random.Range(-10.0F, 10.0F)) + transform.forward * speed; //we add a random value to the jump force.
-			rigidbody.AddForce (velocity, ForceMode.VelocityChange);
+			body.AddForce (velocity, ForceMode.VelocityChange);
 		}
 	}
 
 	public void ForceJump()															//to do the jumps is necessary to set their velocity to 0 first;
 	{
-		rigidbody.velocity = Vector3.zero;
+		body.velocity = Vector3.zero;
 		Vector3 velocity = Vector3.up * (jumpForce + Random.Range(-10.0F, 10.0F))   + transform.forward * speed;
-		rigidbody.AddForce(velocity, ForceMode.VelocityChange);
+		body.AddForce(velocity, ForceMode.VelocityChange);
 	}
 }
