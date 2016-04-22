@@ -4,7 +4,7 @@ using System.Collections;
 public class Chase : IEnemyState {
 	
 	//NEW
-	public float timeBetweenBullets = 1.0f;
+	public float timeBetweenBullets = 2.0f;
 	float timer;
 	
 	private readonly StatePatternEnemy enemy;

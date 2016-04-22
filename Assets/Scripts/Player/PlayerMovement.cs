@@ -19,7 +19,6 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour  {
 
-	public bool IsDead = false;
 	public float movementSpeed = 6.0F;
 	public float jumpSpeed = 8.0F;
 	public float gravity = 20.0F;
@@ -29,6 +28,7 @@ public class PlayerMovement : MonoBehaviour  {
 	public ParticleSystem walkParticles;
 	public ParticleSystem jumpParticles;
 	private Animator anim;
+	private PlayerStats pStats;
 #if UNITY_5_3
 	ParticleSystem.EmissionModule emWalk;
 	ParticleSystem.EmissionModule emJump;
@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour  {
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
 		anim = transform.GetChild(0).GetComponent<Animator>();
+		pStats = gameObject.GetComponent<PlayerStats> ();
 #if UNITY_5_3
 		emWalk = walkParticles.emission;
 		emWalk.enabled = false;
@@ -49,7 +50,7 @@ public class PlayerMovement : MonoBehaviour  {
 
 	private void FixedUpdate ()  {
 																			//no update for deads... no Zombies please!
-		if (IsDead || anim.GetBool("Hurted"))
+		if (pStats.isDead)
 			return;
 #if UNITY_5_3
 		if (emJump.enabled)
