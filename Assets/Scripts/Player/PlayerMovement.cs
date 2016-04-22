@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour  {
 	public CharacterController controller;
 	public ParticleSystem walkParticles;
 	public ParticleSystem jumpParticles;
+	private Animator anim;
 #if UNITY_5_3
 	ParticleSystem.EmissionModule emWalk;
 	ParticleSystem.EmissionModule emJump;
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour  {
 
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
+		anim = transform.GetChild(0).GetComponent<Animator>();
 #if UNITY_5_3
 		emWalk = walkParticles.emission;
 		emWalk.enabled = false;
@@ -54,6 +56,7 @@ public class PlayerMovement : MonoBehaviour  {
 			emJump.enabled = false;
 #endif																		//if grounded get input
 		if (controller.isGrounded) {
+			anim.SetBool("jump",false);
 #if UNITY_5_3
 			if (!grounded) {
 				grounded = true;
@@ -63,7 +66,10 @@ public class PlayerMovement : MonoBehaviour  {
 			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 			moveDirection *= movementSpeed;
 			moveDirection = transform.TransformDirection(moveDirection);
-
+			if (moveDirection != Vector3.zero)
+				anim.SetBool("walk", true);
+			else
+				anim.SetBool("walk", false);
 #if UNITY_5_3
 			if (moveDirection != Vector3.zero) 								//enable or disable emitter of ParticleSystem
 			{
@@ -74,6 +80,9 @@ public class PlayerMovement : MonoBehaviour  {
 #endif
 			if (Input.GetButton ("Jump")) 									//jump go up y axis!! and no particles...
 			{
+				anim.SetBool("jump",true);
+				//anim.GetCurrentAnimatorStateInfo(0).length;
+				moveDirection.y = jumpSpeed;
 				moveDirection.y = jumpSpeed;
 #if UNITY_5_3
 				grounded = false;
@@ -86,7 +95,7 @@ public class PlayerMovement : MonoBehaviour  {
 		moveDirection.y -= gravity * Time.deltaTime;						//calculate translation
 		controller.Move(moveDirection * Time.deltaTime);
 	}
-
+	
 	//Adding phisics to player... 
 	void OnControllerColliderHit(ControllerColliderHit other) {
 																					//if the player collides with one enemy he can move him depending on their mass
@@ -112,4 +121,10 @@ public class PlayerMovement : MonoBehaviour  {
 			other.gameObject.GetComponent<Rigidbody> ().AddForce(direction ,ForceMode.Impulse); 
 		}
 	}
+
+	float ShowCurrentClipLength()
+	{
+		return ( anim.GetCurrentAnimatorStateInfo(0).length);
+	}
+
 }

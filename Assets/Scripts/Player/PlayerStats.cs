@@ -31,8 +31,10 @@ public class PlayerStats : MonoBehaviour {
 	public GameObject panelFX;
 	public bool GOD;
 	private const int MENUID = 0;
+	private Animator anim;
 
 	void Awake () {
+		anim = transform.GetChild(0).GetComponent<Animator>();
 		currentHealth = startingHealth;
 		GOD = false;
 	}
@@ -53,6 +55,7 @@ public class PlayerStats : MonoBehaviour {
 
 	private IEnumerator Death () {
 		isDead = true;
+		anim.SetBool ("Dead", true);
 		yield return new WaitForSeconds(2.0f);
 #if UNITY_5_3
 		SceneManager.LoadScene(MENUID);
