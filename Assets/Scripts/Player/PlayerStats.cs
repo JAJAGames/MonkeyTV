@@ -32,16 +32,22 @@ public class PlayerStats : MonoBehaviour {
 	public bool GOD;
 	private const int MENUID = 0;
 	private Animator anim;
+	private PlayerMovement pMove;
 
 	void Awake () {
 		anim = transform.GetChild(0).GetComponent<Animator>();
 		currentHealth = startingHealth;
 		GOD = false;
+		isDead = false;
+		pMove = gameObject.GetComponent<PlayerMovement> ();
 	}
 
 	public void TakeDamage (int damage) {
 		if(isDead || GOD)
 			return;
+		pMove.enabled = false;
+		anim.SetTrigger ("Damaged");
+		Invoke ("EnableMove", ShowCurrentClipLength());
 
 		panelFX.SetActive (true);
 		Invoke ("StopFX", 0.1f);
@@ -56,7 +62,8 @@ public class PlayerStats : MonoBehaviour {
 	private IEnumerator Death () {
 		isDead = true;
 		anim.SetBool ("Dead", true);
-		yield return new WaitForSeconds(2.0f);
+		Invoke ("StopAnimator", anim.GetCurrentAnimatorStateInfo(0).length);
+		yield return new WaitForSeconds (2.0f);
 #if UNITY_5_3
 		SceneManager.LoadScene(MENUID);
 #endif
@@ -65,6 +72,9 @@ public class PlayerStats : MonoBehaviour {
 #endif
 	}
 
+	private void EnableMove(){
+		pMove.enabled = true;
+	}
 	private void StopFX(){
 		panelFX.SetActive (false);
 	}
@@ -85,4 +95,15 @@ public class PlayerStats : MonoBehaviour {
 			GUI.Label (rect, "GAME OVER", style);
 		}
 	}
+
+	void StopAnimator()
+	{
+		anim.Stop ();
+	}
+
+	float ShowCurrentClipLength()
+	{
+		return ( anim.GetCurrentAnimatorStateInfo(0).length);
+	}
+
 }
