@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour  {
 
 	private void FixedUpdate ()  {
 																			//no update for deads... no Zombies please!
-		if (IsDead)
+		if (IsDead || anim.GetBool("Hurted"))
 			return;
 #if UNITY_5_3
 		if (emJump.enabled)
