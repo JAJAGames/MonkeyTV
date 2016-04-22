@@ -20,10 +20,10 @@
 
 using UnityEngine;
 using System.Collections;
-
 #if UNITY_5_3
-	using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 #endif
+
 public class MenuClick : MonoBehaviour {
 
 	// 3 MENU PANELS WITCH WE CAN TOGGLE 

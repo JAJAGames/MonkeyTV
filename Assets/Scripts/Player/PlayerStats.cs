@@ -30,6 +30,7 @@ public class PlayerStats : MonoBehaviour {
 	public bool isDead;
 	public GameObject panelFX;
 	public bool GOD;
+	private const int MENUID = 0;
 
 	void Awake () {
 		currentHealth = startingHealth;
@@ -54,10 +55,10 @@ public class PlayerStats : MonoBehaviour {
 		isDead = true;
 		yield return new WaitForSeconds(2.0f);
 #if UNITY_5_3
-		gamestate.Instance.SetLevel(sceneLevel.MENU);
+		SceneManager.LoadScene(MENUID);
 #endif
 #if UNITY_5_2
-		Application.LoadLevel("MainMenu");
+		Application.LoadLevel(MENUID);
 #endif
 	}
 

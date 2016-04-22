@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class WinScript : MonoBehaviour {
 
-	bool youWin;
+	private bool youWin;
+	private const int MENUID = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -23,10 +24,10 @@ public class WinScript : MonoBehaviour {
 		youWin = true;
 		yield return new WaitForSeconds(3f);
 #if UNITY_5_3
-		gamestate.Instance.SetLevel(sceneLevel.MENU);
+		SceneManager.LoadScene(MENUID);
 #endif
 #if UNITY_5_2
-		Application.LoadLevel("MainMenu");
+		Application.LoadLevel(MENUID);
 #endif
 	}
 	
