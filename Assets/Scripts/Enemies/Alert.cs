@@ -1,39 +1,39 @@
 using UnityEngine;
 using System.Collections;
 
-public class AlertState : IEnemyState {
-
-	private readonly StatePatternEnemyJump enemy;
+public class Alert : IEnemyState {
+	
+	private readonly StatePatternEnemy enemy;
 	private float searchTime;
-
-	public AlertState(StatePatternEnemyJump statePatternEnemy)
+	
+	public Alert(StatePatternEnemy statePatternEnemy)
 	{
 		enemy = statePatternEnemy;
 		enemy.state = enemyState.ALERT;
 	}
-
-
+	
+	
 	public void UpdateState()
 	{
 		Look();
 		Search();
 	}
-
+	
 	public void OnTriggerEnter (Collider other)
 	{
-
+		
 		if (other.gameObject.CompareTag ("Player"))
 		{
 			enemy.chaseTarget = other.transform;
 			ToChaseState();
 		}
 	}
-
+	
 	public void ToWaitState() {
 		enemy.state = enemyState.WAIT;
 		enemy.currentState = enemy.waitState;
 	}
-
+	
 	public void ToIdleState ()
 	{
 		enemy.state = enemyState.IDLE;
@@ -41,21 +41,21 @@ public class AlertState : IEnemyState {
 		enemy.navMeshAgent.Resume ();
 		enemy.currentState = enemy.idleState;
 	}
-
+	
 	public void ToPatrolState ()
 	{
 		enemy.state = enemyState.PATROL;
 		searchTime = 0;
 		enemy.navMeshAgent.Resume ();
 		enemy.currentState = enemy.patrolState;
-
+		
 	}
-
+	
 	public void ToAlertState ()
 	{
 		// Can't transition to same state
 	}
-
+	
 	public void ToChaseState ()
 	{
 		enemy.state = enemyState.CHASE;
@@ -63,7 +63,7 @@ public class AlertState : IEnemyState {
 		enemy.currentState = enemy.chaseState;
 		searchTime = 0;
 	}
-
+	
 	private void Look()
 	{
 		RaycastHit hit;
@@ -76,18 +76,18 @@ public class AlertState : IEnemyState {
 			}
 			Debug.DrawLine(enemy.eyes.transform.position, hit.point, Color.blue);
 		}
-			
+		
 	}
-
+	
 	private void Search()
 	{
 		enemy.navMeshAgent.Stop ();
 		enemy.transform.Rotate (0, enemy.navMeshAgent.angularSpeed * Time.deltaTime, 0);
 		searchTime += Time.deltaTime;
-
+		
 		if (searchTime >= enemy.searchingDuration) 
 		{
-			if (enemy.type == enemyTypeJumper.Simple || enemy.type == enemyTypeJumper.Simple_Shooter)
+			if (enemy.type == enemyTypeLanded.Simple || enemy.type == enemyTypeLanded.Simple_Shooter)
 				ToIdleState ();
 			else
 				ToPatrolState ();
