@@ -22,7 +22,9 @@ public class Batery : MonoBehaviour {
 	private Animation anim;
 
 	private ParticleSystem smoke;
+#if UNITY_5_3
 	ParticleSystem.EmissionModule emSmoke;
+#endif
 	private bool big;
 	private Transform scalable;
 	public OpenDoor door;
@@ -30,8 +32,10 @@ public class Batery : MonoBehaviour {
 	void Awake () {
 		anim = gameObject.GetComponent<Animation>();
 		smoke = gameObject.GetComponent<ParticleSystem> ();
+#if UNITY_5_3
 		emSmoke = smoke.emission;
 		emSmoke.enabled = false;
+#endif
 		big = false;
 		scalable = transform.GetChild (0).transform;
 	}
@@ -55,9 +59,9 @@ public class Batery : MonoBehaviour {
 
 		other.gameObject.SetActive (false);					//feedback of impact
 		big = true;
-
+#if UNITY_5_3
 		emSmoke.enabled = true;								//enable smoke particles
-
+#endif
 		
 		if (anim.isPlaying) {								//if animation is playing the battery have inmunity
 			return;
@@ -70,14 +74,14 @@ public class Batery : MonoBehaviour {
 			gameObject.SetActive (false);
 			door.Open ();
 		}
-
+#if UNITY_5_3
 		if (emSmoke.rate.constantMax < 5) {					//If the number of particles per second is 5 change the size
 			var rate = emSmoke.rate;
 			rate.constantMax += 1;
 			emSmoke.rate = rate;
 		} else
 			smoke.startSize += 0.1f;
-		
+#endif
 	}
 
 	private void StopAnim(){

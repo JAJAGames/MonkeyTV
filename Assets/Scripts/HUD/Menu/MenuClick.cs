@@ -20,8 +20,10 @@
 
 using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
+#if UNITY_5_3
+	using UnityEngine.SceneManagement;
+#endif
 public class MenuClick : MonoBehaviour {
 
 	// 3 MENU PANELS WITCH WE CAN TOGGLE 
@@ -32,7 +34,12 @@ public class MenuClick : MonoBehaviour {
 	//CHANGE TO NEW SCENE. IN INSPECTOR WE CAN SET THE BUILD INDEX OF THE NEW SCENE.
 	public void LoadScene(int level)
 	{
+#if UNITY_5_3
 		SceneManager.LoadScene(level);
+#endif
+#if UNITY_5 
+		Application.LoadLevel(level);
+#endif
 	}
 
 	//TOGGLE PANEL MENU WITH PANEL CREDITS AND BACK

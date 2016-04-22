@@ -16,10 +16,11 @@ public class StatePatternEnemy : MonoBehaviour {
 	[Header ("Fx movement")]
 	public ParticleSystem walkParticles;
 	public ParticleSystem jumpParticles;
+#if UNITY_5_3
 	ParticleSystem.EmissionModule emWalk;
 	ParticleSystem.EmissionModule emJump;
 	private bool stopJumpParticles;
-
+#endif
 	[Header ("Enemy Settings")]
 	public enemyType type;
 	public enemyState state;
@@ -78,18 +79,17 @@ public class StatePatternEnemy : MonoBehaviour {
 		body = GetComponent<Rigidbody> ();									//get phisics
 		body.isKinematic = true;
 		body.detectCollisions = true;
-
+#if UNITY_5_3
 		emWalk = walkParticles.emission;										//get particles
 		emWalk.enabled = false;
 		emJump = jumpParticles.emission;
 		emJump.enabled = false;
 		stopJumpParticles = false;
-
+#endif
 	}
 
 
-	void Start ()
-	{
+	void Start (){
 		if (type == enemyType.Patrol)												//for non patrol enemies they must being in idle state
 			currentState = patrolState;
 		else 
@@ -97,18 +97,19 @@ public class StatePatternEnemy : MonoBehaviour {
 	}
 
 
-	void Update () 
-	{
+	void Update () {
+#if UNITY_5_3
 		if (stopJumpParticles) {													//stop fx landing effect
 			stopJumpParticles = false;
 			emJump.enabled = false;
 		}
-
+#endif	
 		if (navMeshAgent.enabled) {													//navmeshagent is enabled only for landed enemies
-
+#if UNITY_5_3
 			if (emJump.enabled)														//next frame disable landing particles
 				stopJumpParticles = true;
-														
+#endif	
+													
 			//Trace Navmesh Agent status on inspector
 			hasPath = navMeshAgent.hasPath;
 			isOnNavMesh = navMeshAgent.isOnNavMesh;
@@ -129,9 +130,11 @@ public class StatePatternEnemy : MonoBehaviour {
 								
 			if (type == enemyType.JumperSimple && !blocked)							//can jump with clear path
 				Jump ();
-
-		} else {																	//enemy with disabled agent is the same as landed enemy
+		}
+		else {																	//enemy with disabled agent is the same as landed enemy
+#if UNITY_5_3
 			emWalk.enabled = false;
+#endif
 			yVelocity = body.velocity.y;
 		}
 		body.AddForce (Vector3.down * speed * GRAVITY);						//gravity
@@ -147,7 +150,9 @@ public class StatePatternEnemy : MonoBehaviour {
 		GameObject other = collision.collider.gameObject;
 
 		if (other.CompareTag ("Floor")) {											//when touch the floor set landed mode:
+#if UNITY_5_3
 			emJump.enabled = true;													//enable agent, disable physics and resume navigation
+#endif	
 			navMeshAgent.enabled = true;
 			body.isKinematic = true;
 				
