@@ -121,12 +121,15 @@ public class panelDebug : MonoBehaviour {
 		
 	public void ButtonRendersPressed ()
 	{
-		if (rendersMCS01 [0].activeSelf)								//show  colliders if renders will disapear
-			for (int i = 0; i < colliderRenders.Length; i++) 
-				colliderRenders[i].GetComponent<MeshRenderer> ().enabled = true;
-		else
-			for (int i = 0; i < colliderRenders.Length; i++) 
-				colliderRenders[i].GetComponent<MeshRenderer> ().enabled = false;
+		if (rendersMCS01 [0].activeSelf) {								//show  colliders if renders will disapear
+			GameObject.FindGameObjectWithTag ("Player").transform.GetChild (1).gameObject.SetActive (true);
+			for (int i = 0; i < colliderRenders.Length; i++)
+				colliderRenders [i].GetComponent<MeshRenderer> ().enabled = true;
+		} else {
+			GameObject.FindGameObjectWithTag ("Player").transform.GetChild (1).gameObject.SetActive (false);
+			for (int i = 0; i < colliderRenders.Length; i++)
+				colliderRenders [i].GetComponent<MeshRenderer> ().enabled = false;
+		}
 		//show & hide renders
 		for (int i = 0; i < rendersMCS01.Length; i++)
 			rendersMCS01 [i].SetActive (!rendersMCS01 [i].activeSelf);
@@ -135,9 +138,13 @@ public class panelDebug : MonoBehaviour {
 
 	public void ButtonCollidersPressed () 
 	{
-		if (!rendersMCS01 [0].activeSelf)								//show  renders if colliders will disapear
+		if (!rendersMCS01 [0].activeSelf) {								//show  renders if colliders will disapear
+			//Player collider
+			GameObject.FindGameObjectWithTag ("Player").transform.GetChild (1).gameObject.SetActive (false);
 			for (int i = 0; i < rendersMCS01.Length; i++)
 				rendersMCS01 [i].SetActive (!rendersMCS01 [i].activeSelf);
+		}else
+			GameObject.FindGameObjectWithTag ("Player").transform.GetChild (1).gameObject.SetActive (true);
 		//show & hide colliders
 		for (int i = 0; i < colliderRenders.Length; i++) 
 			colliderRenders[i].GetComponent<MeshRenderer> ().enabled = !colliderRenders[i].GetComponent<MeshRenderer> ().enabled;
