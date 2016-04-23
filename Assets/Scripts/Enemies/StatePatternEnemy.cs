@@ -2,7 +2,7 @@
 using System.Collections;
 
 public enum enemyType {Simple, Simple_Shooter, Patrol, Patrol_Shooter}
-public enum enemyState {IDLE,PATROL,CHASE,ALERT, MELEATTACK}
+public enum enemyState {WAIT,IDLE,PATROL,CHASE,ALERT}
 
 public class StatePatternEnemy : MonoBehaviour {
 	
@@ -17,7 +17,7 @@ public class StatePatternEnemy : MonoBehaviour {
 	[Header ("Enemy Settings")]
 	public enemyType type;
 	public enemyState state;
-	public float shootsColldown = 2.0f;
+	
 	[Header ("NavMeshAgent Points and References")]
 	public Transform eyes;
 	public Transform[] wayPoints;
@@ -43,7 +43,7 @@ public class StatePatternEnemy : MonoBehaviour {
 	[HideInInspector]	public Rigidbody body;
 	[HideInInspector]	public Transform chaseTarget;
 	[HideInInspector]	public IEnemyState currentState;
-	[HideInInspector]	public MeleAttackState meleAttack;
+	[HideInInspector]	public WaitState waitState;
 	[HideInInspector]	public AlertState alertState;
 	[HideInInspector]	public ChaseState chaseState;
 	[HideInInspector]	public PatrolState patrolState;
@@ -56,7 +56,7 @@ public class StatePatternEnemy : MonoBehaviour {
 
 	void Awake () {
 
-		meleAttack = new MeleAttackState (this);
+		waitState = new WaitState (this);
 		alertState	= new AlertState(this);
 		chaseState	= new ChaseState(this);
 		patrolState	= new PatrolState(this);

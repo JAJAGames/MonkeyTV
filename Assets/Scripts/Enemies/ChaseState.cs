@@ -4,6 +4,7 @@ using System.Collections;
 public class ChaseState : IEnemyState {
 	
 	//NEW
+	public float timeBetweenBullets = 2.0f;
 	float timer;
 
 	private readonly StatePatternEnemy enemy;
@@ -19,7 +20,6 @@ public class ChaseState : IEnemyState {
 
 
 	public void UpdateState() {
-		
 		Vector3 lookAt = enemy.navMeshAgent.destination;
 		lookAt.y = enemy.transform.position.y;
 		enemy.transform.LookAt (lookAt);
@@ -29,7 +29,7 @@ public class ChaseState : IEnemyState {
 		//NEW
 		timer += Time.deltaTime;
 		if (enemy.type == enemyType.Simple_Shooter || enemy.type == enemyType.Patrol_Shooter)
-			if (Vector3.Distance(enemy.transform.position, enemy.player.position) < 20.0f && timer >= enemy.shootsColldown) {
+			if (Vector3.Distance(enemy.transform.position, enemy.player.position) < 20.0f && timer >= timeBetweenBullets) {
 				Shoot ();
 			}
 					
@@ -38,9 +38,9 @@ public class ChaseState : IEnemyState {
 	public void OnTriggerEnter (Collider other)
 	{}
 
-	public void ToMeleAttackState() {
-		enemy.state = enemyState.MELEATTACK;
-		enemy.currentState = enemy.meleAttack;
+	public void ToWaitState() {
+		enemy.state = enemyState.WAIT;
+		enemy.currentState = enemy.waitState;
 	}
 
 	public void ToIdleState ()

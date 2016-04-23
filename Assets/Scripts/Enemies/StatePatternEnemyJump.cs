@@ -5,7 +5,27 @@ public class StatePatternEnemyJump : StatePatternEnemy {
 
 
 	[Range(5,15)]	public float jumpForce = 10;
-			
+
+	void Awake () {
+
+		waitState	= new WaitState	(this);										//define states
+		alertState	= new AlertState  (this);
+		chaseState	= new ChaseState  (this);
+		patrolState	= new PatrolState (this);
+		idleState	= new IdleState (this);
+
+		startPosition = transform.position;										//start position for idle enemies
+
+		navMeshAgent = GetComponent<NavMeshAgent>();							//get de agent
+		navMeshAgent.enabled = true;
+		navMeshAgent.speed = speed;
+
+		body = GetComponent<Rigidbody> ();									//get phisics
+		body.isKinematic = true;
+		body.detectCollisions = true;
+
+	}
+		
 	override public void CustomUpdate(){ 
 
 		if (navMeshAgent.enabled) {													//navmeshagent is enabled only for landed enemies

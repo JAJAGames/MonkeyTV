@@ -1,13 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class MeleAttackState : IEnemyState {
+public class WaitState : IEnemyState {
 
 	private readonly StatePatternEnemy enemy;
 
-	public MeleAttackState(StatePatternEnemy statePatternEnemy) {
+	public WaitState(StatePatternEnemy statePatternEnemy) {
 		enemy = statePatternEnemy;
-		enemy.state = enemyState.MELEATTACK;
+		enemy.state = enemyState.WAIT;
 	}
 
 	public void UpdateState() {
@@ -18,7 +18,7 @@ public class MeleAttackState : IEnemyState {
 		
 	}
 
-	public void ToMeleAttackState() {
+	public void ToWaitState() {
 		// Can't transition to same state
 	}
 
