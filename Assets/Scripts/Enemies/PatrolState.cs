@@ -38,9 +38,9 @@ public class PatrolState : IEnemyState {
 		}
 	}
 
-	public void ToWaitState() {
-		enemy.state = enemyState.WAIT;
-		enemy.currentState = enemy.waitState;
+	public void ToMeleAttackState() {
+		enemy.state = enemyState.MELEATTACK;
+		enemy.currentState = enemy.meleAttack;
 	}
 
 	public void ToIdleState ()
