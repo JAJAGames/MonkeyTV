@@ -7,7 +7,7 @@ public interface IEnemyState
 
 	void OnTriggerEnter (Collider other);
 
-	void ToWaitState ();
+	void ToMeleAttackState ();
 	void ToIdleState ();
 	void ToPatrolState ();
 	void ToAlertState ();
