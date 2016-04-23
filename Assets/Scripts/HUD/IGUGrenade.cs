@@ -1,18 +1,19 @@
-﻿/* BARLIFE.CS
+﻿/* IGUGRENADE.CS
  * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
- * this script actuallizes the hud bar of player life.	
+ * Show enabled and disabled grenade in IGU.
+ * Only uses public function Setactive with a boolean to change color
  * ------------------------------------------------------------------------------------------------------------------------------------
  * FUNCTIONS LIST:
  * 
  * Awake()
- * Update()
+ * SetActive(bool)
  * ------------------------------------------------------------------------------------------------------------------------------------
  * MODIFICATIONS:
  * DATA			DESCRIPCTION
  * ----------	-----------------------------------------------------------------------------------------------------------------------
- * 19/04/2016	this script is attached to bar life gameObject in dynamic HUD. 
+ * 23/04/2016	this script is attached to grenade gameObject in dynamic HUD. 
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 
@@ -20,23 +21,28 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class Barlife : MonoBehaviour {
+public class IGUGrenade : MonoBehaviour {
 
-	PlayerStats playerStats;
-	RectTransform rTransform;
+	private Image image;
 
-	void Awake ()
-	{
-		 rTransform = gameObject.GetComponent<RectTransform> ();
-		playerStats = GameObject.FindWithTag ("Player").GetComponent<PlayerStats> ();
+	// Use this for initialization
+	void Awake () {
+		image = gameObject.GetComponent<Image> ();
+		SetActive (false);
+	}
+	
+
+	public void SetActive(bool bolean){
+
+		Color color = Color.green;
+
+		if (bolean)
+			color.a = 1f;
+		else
+			color.a = 0.25f;
+
+		image.color = color;
 	}
 
-	void Update(){
-		
-		Vector3 scale = Vector3.one;
 
-		scale.x = (float)playerStats.currentHealth / playerStats.startingHealth;
-		rTransform.localScale = scale;
-
-	}
 }

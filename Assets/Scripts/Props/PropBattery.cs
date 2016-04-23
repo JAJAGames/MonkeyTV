@@ -1,5 +1,5 @@
-﻿/* BATERY.CS
- * (C) COPYRIGHT "JAJA GAMES", 2.016
+﻿/* PROPBATTERY.CS
+ * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
  * This script allows the behaviour of Batery prop
@@ -18,7 +18,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Batery : MonoBehaviour {
+public class PropBattery : MonoBehaviour {
 
 	private Animation anim;
 
