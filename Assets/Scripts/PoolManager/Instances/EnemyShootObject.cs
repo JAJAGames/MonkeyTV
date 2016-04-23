@@ -4,7 +4,6 @@ using System.Collections;
 public class EnemyShootObject : PoolObject {
 
 	public float speed = 20.0f;
-	public GameObject player;
 	private PlayerStats playerStats;
 
 	void Awake() {
