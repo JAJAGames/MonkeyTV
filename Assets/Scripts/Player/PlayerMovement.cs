@@ -2,7 +2,7 @@
 using System.Collections;
 
 /* PLAYERMOVEMENT.CS
- * (C) COPYRIGHT "JAJA GAMES", 2.016
+ * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
  * Control the player movement

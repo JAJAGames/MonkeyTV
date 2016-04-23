@@ -1,4 +1,23 @@
-﻿using UnityEngine;
+﻿/* CAMERAMANAGER.CS
+ * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * EXPLANATION: 
+ * CLASS FOR GET VALUE USING THE INDEX KEY
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * FUNCTIONS LIST:
+ * 
+ * Start ()
+ * Update ()
+ * SaveChanges (Words)
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * MODIFICATIONS:
+ * DATA			DESCRIPCTION	
+ * ----------	-----------------------------------------------------------------------------------------------------------------------
+ * 15/04/2016	USEN IN MENU SCENE
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Collections;
@@ -8,7 +27,6 @@ public class DataRead : MonoBehaviour {
 
 	private Loading loading;
 	public TypeOfData type;
-	//public Text text;
 
 	public int idKey;
 
@@ -16,6 +34,7 @@ public class DataRead : MonoBehaviour {
 		loading = Camera.main.GetComponent<Loading> ();
 	}
 
+	//CHANGE THE TEXT OF gameObject.GetComponent<Text>().text IF THE LANGUAGE IS DIFFERENT FROM LANGUAGE SELECTED.
 	void Update (){
 		
 		if (loading.output != type) {
@@ -24,7 +43,7 @@ public class DataRead : MonoBehaviour {
 		}	
 	}
 
-
+	//GET THE VALUE USING THE INDEX KEY
 	public void LoadChanges (Words index){
 
 		if (index.key != idKey)

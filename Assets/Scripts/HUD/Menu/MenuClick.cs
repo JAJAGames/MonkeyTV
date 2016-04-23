@@ -1,5 +1,5 @@
 ﻿/* MENUCLICK.CS
- * (C) COPYRIGHT "JAJA GAMES", 2.016
+ * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
  * EVENTS AND ACTIONS SCRIPT OF MENU BUTTONS  
@@ -15,12 +15,14 @@
  * DATA			DESCRIPCTION
  * ----------	-----------------------------------------------------------------------------------------------------------------------
  * 23/03/2016	CODE BASE MATCHED TO MENU BUTTONS OF THE MENU SCENE
+ * 22/04/2016	ADDED COMPILER DIRECTIVES
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 
 using UnityEngine;
 using System.Collections;
-#if UNITY_5_3
+
+#if UNITY_5_3_OR_NEWER
 using UnityEngine.SceneManagement;
 #endif
 
@@ -34,12 +36,14 @@ public class MenuClick : MonoBehaviour {
 	//CHANGE TO NEW SCENE. IN INSPECTOR WE CAN SET THE BUILD INDEX OF THE NEW SCENE.
 	public void LoadScene(int level)
 	{
-#if UNITY_5_3
+
+#if UNITY_5_3_OR_NEWER
 		SceneManager.LoadScene(level);
-#endif
-#if UNITY_5 
+#else 
 		Application.LoadLevel(level);
 #endif
+
+
 	}
 
 	//TOGGLE PANEL MENU WITH PANEL CREDITS AND BACK

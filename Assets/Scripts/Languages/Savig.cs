@@ -1,4 +1,26 @@
-﻿using UnityEngine;
+﻿/* CAMERAMANAGER.CS
+ * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * EXPLANATION: 
+ * THIS IS THE CORE LOGIC FOR THE INPUTDATA SCENE TOOL WHERE WE CAN READ AND STORE NEW INFO IN OUR XML FILE
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * FUNCTIONS LIST:
+ * 
+ * Awake ()
+ * Update ()
+ * SaveWords ()
+ * LoadWords (int)
+ * LoadWordsRight ()
+ * LoadWordsLeft ()
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ * MODIFICATIONS:
+ * DATA			DESCRIPCTION	
+ * ----------	-----------------------------------------------------------------------------------------------------------------------
+ * 15/04/2016	USEN IN INPUTDATA SCENE TOOL
+ * ------------------------------------------------------------------------------------------------------------------------------------
+ */
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.IO;

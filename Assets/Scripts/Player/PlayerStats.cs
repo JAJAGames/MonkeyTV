@@ -14,12 +14,13 @@
  * DATA			DESCRIPCTION
  * ----------	-----------------------------------------------------------------------------------------------------------------------
  * 19/04/2016	Var GOD added to enable or disable mode GOD
+ * 22/04/2016	added compiler directives
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 
 using UnityEngine;
 using System.Collections;
-#if UNITY_5_3
+#if UNITY_5_3_OR_NEWER
 using UnityEngine.SceneManagement;
 #endif
 
@@ -64,10 +65,9 @@ public class PlayerStats : MonoBehaviour {
 		anim.SetBool ("Dead", true);
 		Invoke ("StopAnimator", anim.GetCurrentAnimatorStateInfo(0).length);
 		yield return new WaitForSeconds (2.0f);
-#if UNITY_5_3
+#if UNITY_5_3_OR_NEWER
 		SceneManager.LoadScene(MENUID);
-#endif
-#if UNITY_5_2
+#else
 		Application.LoadLevel(MENUID);
 #endif
 	}

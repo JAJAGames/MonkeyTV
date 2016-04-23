@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-#if UNITY_5_3
+#if UNITY_5_3_OR_NEWER
 using UnityEngine.SceneManagement;
 #endif
 
@@ -23,10 +23,9 @@ public class WinScript : MonoBehaviour {
 	private IEnumerator WinTheGame() {
 		youWin = true;
 		yield return new WaitForSeconds(3f);
-#if UNITY_5_3
+#if UNITY_5_3_OR_NEWER
 		SceneManager.LoadScene(MENUID);
-#endif
-#if UNITY_5_2
+#else
 		Application.LoadLevel(MENUID);
 #endif
 	}
