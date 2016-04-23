@@ -14,7 +14,8 @@
  * DATA			DESCRIPCTION
  * ----------	-----------------------------------------------------------------------------------------------------------------------
  * 19/04/2016	Var GOD added to enable or disable mode GOD
- * 22/04/2016	added compiler directives
+ * 22/04/2016	added compiler directives and animation events
+ * 23/04/2016	disable shoots when player take damage
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 
@@ -34,6 +35,7 @@ public class PlayerStats : MonoBehaviour {
 	private const int MENUID = 0;
 	private Animator anim;
 	private PlayerMovement pMove;
+	private PlayerShoot pShoot;
 
 	void Awake () {
 		anim = transform.GetChild(0).GetComponent<Animator>();
@@ -41,14 +43,18 @@ public class PlayerStats : MonoBehaviour {
 		GOD = false;
 		isDead = false;
 		pMove = gameObject.GetComponent<PlayerMovement> ();
+		pShoot = gameObject.GetComponent<PlayerShoot> ();
 	}
 
 	public void TakeDamage (int damage) {
 		if(isDead || GOD)
 			return;
-		pMove.enabled = false;
-		anim.SetTrigger ("Damaged");
-		Invoke ("EnableMove", ShowCurrentClipLength());
+
+		pMove.enabled = false;																//disable movement and shoots when take damage
+		pShoot.enabled = false;
+
+		anim.SetTrigger ("Damaged");														//activate damaged animation 					
+		Invoke ("EnableMoveAndShoots", anim.GetCurrentAnimatorStateInfo(0).length);			//enable movement and shoots when animation is over
 
 		panelFX.SetActive (true);
 		Invoke ("StopFX", 0.1f);
@@ -61,9 +67,11 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	private IEnumerator Death () {
-		isDead = true;
-		anim.SetBool ("Dead", true);
-		Invoke ("StopAnimator", anim.GetCurrentAnimatorStateInfo(0).length);
+		isDead = true;																//is dead
+										
+		anim.SetBool ("Dead", true);												//activate death animation 
+		Invoke ("StopAnimator", anim.GetCurrentAnimatorStateInfo(0).length);		//stop animator just at end of death
+
 		yield return new WaitForSeconds (2.0f);
 #if UNITY_5_3_OR_NEWER
 		SceneManager.LoadScene(MENUID);
@@ -72,8 +80,11 @@ public class PlayerStats : MonoBehaviour {
 #endif
 	}
 
-	private void EnableMove(){
+	private void EnableMoveAndShoots(){
+		if (isDead)
+			return;
 		pMove.enabled = true;
+		pShoot.enabled = true;
 	}
 	private void StopFX(){
 		panelFX.SetActive (false);
@@ -99,11 +110,6 @@ public class PlayerStats : MonoBehaviour {
 	void StopAnimator()
 	{
 		anim.Stop ();
-	}
-
-	float ShowCurrentClipLength()
-	{
-		return ( anim.GetCurrentAnimatorStateInfo(0).length);
 	}
 
 }

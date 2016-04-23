@@ -11,7 +11,7 @@ Shader "Custom/Wireframe"
         Pass
         {
             Blend SrcAlpha OneMinusSrcAlpha
-            Cull Front
+            Cull Off
             ZWrite On
             CGPROGRAM
  
