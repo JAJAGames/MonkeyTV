@@ -3,9 +3,9 @@ using System.Collections;
 
 public class IdleState : IEnemyState {
 
-	private readonly StatePatternEnemyJump enemy;
+	private readonly StatePatternEnemy enemy;
 
-	public IdleState(StatePatternEnemyJump statePatternEnemy)
+	public IdleState(StatePatternEnemy statePatternEnemy)
 	{
 		enemy = statePatternEnemy;
 		enemy.state = enemyState.IDLE;

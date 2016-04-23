@@ -3,9 +3,9 @@ using System.Collections;
 
 public class WaitState : IEnemyState {
 
-	private readonly StatePatternEnemyJump enemy;
+	private readonly StatePatternEnemy enemy;
 
-	public WaitState(StatePatternEnemyJump statePatternEnemy) {
+	public WaitState(StatePatternEnemy statePatternEnemy) {
 		enemy = statePatternEnemy;
 		enemy.state = enemyState.WAIT;
 	}

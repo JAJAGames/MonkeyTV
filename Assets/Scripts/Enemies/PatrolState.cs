@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PatrolState : IEnemyState {
 
-	private readonly StatePatternEnemyJump enemy;
+	private readonly StatePatternEnemy enemy;
 	private Vector3 destination;
-	public PatrolState(StatePatternEnemyJump statePatternEnemy)
+	public PatrolState(StatePatternEnemy statePatternEnemy)
 	{
 		enemy = statePatternEnemy;
 		enemy.state = enemyState.PATROL;

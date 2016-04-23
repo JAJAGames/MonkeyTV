@@ -3,10 +3,10 @@ using System.Collections;
 
 public class AlertState : IEnemyState {
 
-	private readonly StatePatternEnemyJump enemy;
+	private readonly StatePatternEnemy enemy;
 	private float searchTime;
 
-	public AlertState(StatePatternEnemyJump statePatternEnemy)
+	public AlertState(StatePatternEnemy statePatternEnemy)
 	{
 		enemy = statePatternEnemy;
 		enemy.state = enemyState.ALERT;
@@ -87,7 +87,7 @@ public class AlertState : IEnemyState {
 
 		if (searchTime >= enemy.searchingDuration) 
 		{
-			if (enemy.type == enemyTypeJumper.Simple || enemy.type == enemyTypeJumper.Simple_Shooter)
+			if (enemy.type == enemyType.Simple || enemy.type == enemyType.Simple_Shooter)
 				ToIdleState ();
 			else
 				ToPatrolState ();

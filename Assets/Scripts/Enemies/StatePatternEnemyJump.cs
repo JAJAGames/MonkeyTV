@@ -1,66 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum enemyTypeJumper {Simple, Simple_Shooter, Patrol, Patrol_Shooter}
-public enum enemyState {WAIT,IDLE,PATROL,CHASE,ALERT}
-
-public class StatePatternEnemyJump : MonoBehaviour {
-
-	//NEW
-	[Header ("Prefab")]
-	public GameObject prefab;
-	//END NEW
-
-	[Header ("Target")]
-	public Transform player;
-	[Header ("Fx movement")]
-	public ParticleSystem walkParticles;
-	public ParticleSystem jumpParticles;
-#if UNITY_5_3
-	ParticleSystem.EmissionModule emWalk;
-	ParticleSystem.EmissionModule emJump;
-	private bool stopJumpParticles;
-#endif
-	[Header ("Enemy Settings")]
-	public enemyTypeJumper type;
-	public enemyState state;
-
-	[Header ("NavMeshAgent Points and References")]
-	public Transform eyes;
-	public Transform[] wayPoints;
-	public int lastWayPoint, nextWayPoint;
+public class StatePatternEnemyJump : StatePatternEnemy {
 
 
-	const float GRAVITY = 20f;  
-	[Header("Physics definitions")]
-	public float yVelocity;
-	[Range(2,10)]	public float speed = 4f; 
-	[Range(10,30)]	public float jumpForce = 20;
-	[Range(0,5)]	public float searchingDuration = 1f;
-	[Range(1,100)]	public float sightRange = 10f;
-
-	[Header("Navigation Variables & Values")]
-	public bool hasPath;
-	public bool isOnNavMesh;
-	public NavMeshPathStatus pathStatus;
-	public Vector3 steeringTarget;
-	public bool isPathStale;
-	public bool autoRepath;
-	public float remainingDistance;
-
-	[HideInInspector]	public Rigidbody body;
-	[HideInInspector]	public Transform chaseTarget;
-	[HideInInspector]	public IEnemyState currentState;
-	[HideInInspector]	public WaitState waitState;
-	[HideInInspector]	public AlertState alertState;
-	[HideInInspector]	public ChaseState chaseState;
-	[HideInInspector]	public PatrolState patrolState;
-	[HideInInspector]	public IdleState idleState;
-	[HideInInspector]	public NavMeshAgent navMeshAgent;
-	[HideInInspector]	public Vector3 startPosition;
-
-
-
+	[Range(5,15)]	public float jumpForce = 10;
 
 	void Awake () {
 
@@ -79,37 +23,13 @@ public class StatePatternEnemyJump : MonoBehaviour {
 		body = GetComponent<Rigidbody> ();									//get phisics
 		body.isKinematic = true;
 		body.detectCollisions = true;
-#if UNITY_5_3
-		emWalk = walkParticles.emission;										//get particles
-		emWalk.enabled = false;
-		emJump = jumpParticles.emission;
-		emJump.enabled = false;
-		stopJumpParticles = false;
-#endif
+
 	}
+		
+	override public void CustomUpdate(){ 
 
-
-	void Start (){
-		if (type == enemyTypeJumper.Patrol)												//for non patrol enemies they must being in idle state
-			currentState = patrolState;
-		else 
-			currentState = idleState;
-	}
-
-
-	void Update () {
-#if UNITY_5_3
-		if (stopJumpParticles) {													//stop fx landing effect
-			stopJumpParticles = false;
-			emJump.enabled = false;
-		}
-#endif	
 		if (navMeshAgent.enabled) {													//navmeshagent is enabled only for landed enemies
-#if UNITY_5_3
-			if (emJump.enabled)														//next frame disable landing particles
-				stopJumpParticles = true;
-#endif	
-													
+	
 			//Trace Navmesh Agent status on inspector
 			hasPath = navMeshAgent.hasPath;
 			isOnNavMesh = navMeshAgent.isOnNavMesh;
@@ -132,27 +52,18 @@ public class StatePatternEnemyJump : MonoBehaviour {
 				Jump ();
 		}
 		else {																	//enemy with disabled agent is the same as landed enemy
-#if UNITY_5_3
-			emWalk.enabled = false;
-#endif
+
 			yVelocity = body.velocity.y;
 		}
-		body.AddForce (Vector3.down * speed * GRAVITY);						//gravity
 	}
 
-	private void OnTriggerEnter (Collider other)
-	{
-		currentState.OnTriggerEnter (other);										//execute triggers of states
-	}
 
 	private void  OnCollisionStay(Collision collision)
 	{
 		GameObject other = collision.collider.gameObject;
 
 		if (other.CompareTag ("Floor")) {											//when touch the floor set landed mode:
-#if UNITY_5_3
-			emJump.enabled = true;													//enable agent, disable physics and resume navigation
-#endif	
+
 			navMeshAgent.enabled = true;
 			body.isKinematic = true;
 				
@@ -160,14 +71,6 @@ public class StatePatternEnemyJump : MonoBehaviour {
 				navMeshAgent.destination = wayPoints [lastWayPoint].position;
 		}else if( body.velocity.y <=0)
 			ForceJump ();															//if the other object is not the floor force monkey to jump.
-	}
-
-	private void OnCollisionEnter(Collision collision)
-	{
-		GameObject other = collision.collider.gameObject;
-
-		if (other.CompareTag("Enemy"))												//colliding with other enemies needs to set backward force.
-			body.AddForce (- transform.forward * 100);
 	}
     
 
@@ -187,7 +90,7 @@ public class StatePatternEnemyJump : MonoBehaviour {
 	public void ForceJump()															//to do the jumps is necessary to set their velocity to 0 first;
 	{
 		body.velocity = Vector3.zero;
-		Vector3 velocity = Vector3.up * (jumpForce + Random.Range(-10.0F, 10.0F))   + transform.forward * speed;
+		Vector3 velocity = Vector3.up * (jumpForce + Random.Range(-jumpForce/4, jumpForce/2))   + transform.forward * speed;
 		body.AddForce(velocity, ForceMode.VelocityChange);
 	}
 }

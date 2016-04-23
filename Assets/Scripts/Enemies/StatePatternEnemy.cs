@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum enemyTypeLanded {Simple, Simple_Shooter, Patrol, Patrol_Shooter}
+public enum enemyType {Simple, Simple_Shooter, Patrol, Patrol_Shooter}
+public enum enemyState {WAIT,IDLE,PATROL,CHASE,ALERT}
+
 public class StatePatternEnemy : MonoBehaviour {
 	
 	//NEW
@@ -11,13 +13,9 @@ public class StatePatternEnemy : MonoBehaviour {
 	
 	[Header ("Target")]
 	public Transform player;
-	[Header ("Fx movement")]
-	public ParticleSystem walkParticles;
-	#if UNITY_5_3
-	ParticleSystem.EmissionModule emWalk;
-	#endif
+
 	[Header ("Enemy Settings")]
-	public enemyTypeLanded type;
+	public enemyType type;
 	public enemyState state;
 	
 	[Header ("NavMeshAgent Points and References")]
@@ -45,24 +43,24 @@ public class StatePatternEnemy : MonoBehaviour {
 	[HideInInspector]	public Rigidbody body;
 	[HideInInspector]	public Transform chaseTarget;
 	[HideInInspector]	public IEnemyState currentState;
-	[HideInInspector]	public Wait waitState;
-	[HideInInspector]	public Alert alertState;
-	[HideInInspector]	public Chase chaseState;
-	[HideInInspector]	public Patrol patrolState;
-	[HideInInspector]	public Idle idleState;
+	[HideInInspector]	public WaitState waitState;
+	[HideInInspector]	public AlertState alertState;
+	[HideInInspector]	public ChaseState chaseState;
+	[HideInInspector]	public PatrolState patrolState;
+	[HideInInspector]	public IdleState idleState;
 	[HideInInspector]	public NavMeshAgent navMeshAgent;
 	[HideInInspector]	public Vector3 startPosition;
 	
 	
 	
-	
+
 	void Awake () {
 
-		waitState = new Wait (this);
-		alertState	= new Alert(this);
-		chaseState	= new Chase(this);
-		patrolState	= new Patrol(this);
-		idleState	= new Idle (this);
+		waitState = new WaitState (this);
+		alertState	= new AlertState(this);
+		chaseState	= new ChaseState(this);
+		patrolState	= new PatrolState(this);
+		idleState	= new IdleState (this);
 		
 		startPosition = transform.position;										//start position for idle enemies
 		
@@ -73,15 +71,12 @@ public class StatePatternEnemy : MonoBehaviour {
 		body = GetComponent<Rigidbody> ();									//get phisics
 		body.isKinematic = true;
 		body.detectCollisions = true;
-		#if UNITY_5_3
-		emWalk = walkParticles.emission;										//get particles
-		emWalk.enabled = false;
-		#endif
+
 	}
 	
 	
 	void Start (){
-		if (type == enemyTypeLanded.Patrol)												//for non patrol enemies they must being in idle state
+		if (type == enemyType.Patrol)												//for non patrol enemies they must being in idle state
 			currentState = patrolState;
 		else 
 			currentState = idleState;
@@ -89,17 +84,21 @@ public class StatePatternEnemy : MonoBehaviour {
 	
 	
 	void Update () {
+		CustomUpdate ();
+		body.AddForce (Vector3.down * speed * GRAVITY);						//gravity
+	}
+
+	public virtual void CustomUpdate(){
 		currentState.UpdateState ();											//do the update loop of the current state
-			
+
 		//forward direction guizmo
 		NavMeshHit hit;
 		bool blocked = false;
 		blocked = NavMesh.Raycast (eyes.position, navMeshAgent.destination, out hit, NavMesh.AllAreas);
 		Debug.DrawLine (eyes.position, navMeshAgent.destination, blocked ? Color.red : Color.green);
-
-		body.AddForce (Vector3.down * speed * GRAVITY);						//gravity
+			
 	}
-	
+
 	private void OnTriggerEnter (Collider other)
 	{
 		currentState.OnTriggerEnter (other);										//execute triggers of states

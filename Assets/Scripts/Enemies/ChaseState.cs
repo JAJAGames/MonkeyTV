@@ -7,8 +7,8 @@ public class ChaseState : IEnemyState {
 	public float timeBetweenBullets = 2.0f;
 	float timer;
 
-	private readonly StatePatternEnemyJump enemy;
-	public ChaseState(StatePatternEnemyJump statePatternEnemy)
+	private readonly StatePatternEnemy enemy;
+	public ChaseState(StatePatternEnemy statePatternEnemy)
 	{
 		enemy = statePatternEnemy;
 	}
@@ -28,7 +28,7 @@ public class ChaseState : IEnemyState {
 
 		//NEW
 		timer += Time.deltaTime;
-		if (enemy.type == enemyTypeJumper.Simple_Shooter || enemy.type == enemyTypeJumper.Patrol_Shooter)
+		if (enemy.type == enemyType.Simple_Shooter || enemy.type == enemyType.Patrol_Shooter)
 			if (Vector3.Distance(enemy.transform.position, enemy.player.position) < 20.0f && timer >= timeBetweenBullets) {
 				Shoot ();
 			}
