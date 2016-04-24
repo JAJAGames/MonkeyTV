@@ -41,7 +41,6 @@ public class StatePatternEnemyJump : StatePatternEnemy {
 	private void  OnCollisionStay(Collision collision)
 	{
 		GameObject other = collision.collider.gameObject;
-
 		if (other.CompareTag ("Floor")) {											//when touch the floor set landed mode:
 
 			navMeshAgent.enabled = true;

@@ -26,7 +26,6 @@ public class GrenadeAmmo : MonoBehaviour {
 	[Range (2,7)]
 	public float impulse = 2.0f;
 	// Add the tag PlayerShoot to use it in props and other scripts.
-	private bool move;
 	private Rigidbody body;
 	private Transform player;
 
@@ -34,7 +33,6 @@ public class GrenadeAmmo : MonoBehaviour {
 		tag = "Grenade";
 		body = gameObject.GetComponent<Rigidbody> ();
 		player = GameObject.Find ("Player").transform.GetChild (0).transform;
-		move = false;
 	}
 
 	//When enabled we add new force to throw grenades 
