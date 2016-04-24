@@ -15,7 +15,6 @@ public class EnemyShootObject : PoolObject {
 		gameObject.transform.Translate(Vector3.forward * speed/5);
 	}
 
-
 	void OnTriggerEnter (Collider other) {
 		if (other.CompareTag ("Player")) {
 			playerStats.TakeDamage (1);

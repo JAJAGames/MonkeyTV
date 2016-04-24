@@ -6,11 +6,9 @@ public enum enemyState {IDLE,PATROL,CHASE,ALERT, MELEATTACK}
 
 public class StatePatternEnemy : MonoBehaviour {
 	
-	//NEW
 	[Header ("Prefab")]
 	public GameObject prefab;
-	//END NEW
-	
+
 	[Header ("Target")]
 	public Transform player;
 
@@ -22,7 +20,6 @@ public class StatePatternEnemy : MonoBehaviour {
 	public Transform eyes;
 	public Transform[] wayPoints;
 	public int lastWayPoint, nextWayPoint;
-	
 	
 	const float GRAVITY = 20f;  
 	[Header("Physics definitions")]
@@ -50,9 +47,7 @@ public class StatePatternEnemy : MonoBehaviour {
 	[HideInInspector]	public IdleState idleState;
 	[HideInInspector]	public NavMeshAgent navMeshAgent;
 	[HideInInspector]	public Vector3 startPosition;
-	
-	
-	
+	[HideInInspector]	public Animator animator;
 
 	void Awake () {
 
@@ -72,6 +67,8 @@ public class StatePatternEnemy : MonoBehaviour {
 		body.isKinematic = true;
 		body.detectCollisions = true;
 
+		//animator = GetComponent<Animator>();
+		animator = transform.GetChild(0).GetComponent<Animator>();
 	}
 	
 	

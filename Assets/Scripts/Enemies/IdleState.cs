@@ -13,6 +13,8 @@ public class IdleState : IEnemyState {
 
 	public void UpdateState()
 	{
+		enemy.animator.SetBool("Walk",false);
+
 		if (enemy.transform.position != enemy.startPosition) {
 			enemy.navMeshAgent.destination = enemy.startPosition; 
 			enemy.navMeshAgent.Resume ();

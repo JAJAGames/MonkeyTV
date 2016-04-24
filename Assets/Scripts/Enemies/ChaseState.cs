@@ -19,7 +19,8 @@ public class ChaseState : IEnemyState {
 
 
 	public void UpdateState() {
-		
+		enemy.animator.SetBool("Walk",true);
+
 		Vector3 lookAt = enemy.navMeshAgent.destination;
 		lookAt.y = enemy.transform.position.y;
 		enemy.transform.LookAt (lookAt);
@@ -70,6 +71,7 @@ public class ChaseState : IEnemyState {
 	//NEW
 	public void Shoot() {
 		timer = 0f;
+		enemy.animator.SetTrigger("Attack");
 		PoolManager.instance.ReuseObject (enemy.prefab, enemy.transform.position + new Vector3(0.0f, 1.0f, 0.0f), enemy.transform.rotation);
 	}
 		

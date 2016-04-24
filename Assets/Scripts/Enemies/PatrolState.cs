@@ -14,6 +14,8 @@ public class PatrolState : IEnemyState {
 
 	public void UpdateState()
 	{
+		enemy.animator.SetBool("Walk",true);
+
 		enemy.navMeshAgent.destination = enemy.wayPoints [enemy.nextWayPoint].position;
 		enemy.navMeshAgent.Resume ();
 

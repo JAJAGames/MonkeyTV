@@ -66,6 +66,12 @@ public class PlayerStats : MonoBehaviour {
 		}
 	}
 
+	public void Heal (int life) {
+		currentHealth += life;
+		if (currentHealth > startingHealth)
+			currentHealth = startingHealth;
+	}
+
 	private IEnumerator Death () {
 		isDead = true;																//is dead
 										

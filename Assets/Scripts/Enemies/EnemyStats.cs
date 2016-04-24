@@ -27,12 +27,13 @@ public class EnemyStats : MonoBehaviour {
 	public int currentHealth;
 	public bool isDead;
 	public GameObject EnemySideLine;
-	private MeshRenderer meshRenderer;
+	private SkinnedMeshRenderer meshRenderer;
 	private Color originalColor;
 
 	void Awake () {
 		currentHealth = startingHealth;
-		meshRenderer = gameObject.GetComponent<MeshRenderer> ();
+		//meshRenderer = gameObject.GetComponent<MeshRenderer> ();
+		meshRenderer = transform.GetChild(0).GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer> ();
 		originalColor = meshRenderer.material.color;
 	}
 
@@ -45,6 +46,7 @@ public class EnemyStats : MonoBehaviour {
 		Invoke ("Recolor",0.2f);
 
 		if(currentHealth <= 0) {
+			GetComponent<StatePatternEnemy>().animator.SetBool("Dead",true);
 			gameObject.SetActive (false);
 		}
 	}

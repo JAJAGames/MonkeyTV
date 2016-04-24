@@ -81,6 +81,7 @@ public class AlertState : IEnemyState {
 
 	private void Search()
 	{
+		enemy.animator.SetBool("Walk",true);
 		enemy.navMeshAgent.Stop ();
 		enemy.transform.Rotate (0, enemy.navMeshAgent.angularSpeed * Time.deltaTime, 0);
 		searchTime += Time.deltaTime;
