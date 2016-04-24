@@ -22,7 +22,7 @@ public class PlayerGrenadeShoot : MonoBehaviour {
 	void Update()
 	{
 		if (Input.GetKey (KeyCode.E) && active) {
-			PoolManager.instance.ReuseObject (prefab, render.position, render.rotation);
+			PoolManager.instance.ReuseObject (prefab, render.position + render.forward * 2 + Vector3.up, render.rotation);
 			SetActive (false);
 		}
 	}

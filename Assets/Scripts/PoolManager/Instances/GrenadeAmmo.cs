@@ -32,10 +32,10 @@ public class GrenadeAmmo : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update () {/*
 		Vector3 direction = Vector3.forward;
 		direction.y += -9.81f * Time.deltaTime;
-		gameObject.transform.Translate(direction * speed/5);
+		gameObject.transform.Translate(direction * speed/5);*/
 	}
 
 	//Cos the enemies have one big sphere collider we ought to verify the distance from enemy position and not the start collision.
