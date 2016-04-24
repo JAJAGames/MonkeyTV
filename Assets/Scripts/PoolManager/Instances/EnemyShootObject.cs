@@ -10,6 +10,14 @@ public class EnemyShootObject : PoolObject {
 		playerStats = GameObject.FindWithTag("Player").GetComponent<PlayerStats> ();
 	}
 
+	void OnEnable(){
+		Invoke ("Sleep", 2.0f);
+	}
+
+	void Sleep(){
+		gameObject.SetActive (false);
+	}
+
 	// Update is called once per frame
 	void Update () {
 		gameObject.transform.Translate(Vector3.forward * speed/5);

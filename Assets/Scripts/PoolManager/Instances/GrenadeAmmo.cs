@@ -38,8 +38,12 @@ public class GrenadeAmmo : MonoBehaviour {
 	//When enabled we add new force to throw grenades 
 	public void OnEnable(){
 		body.AddForce ((player.forward.normalized + Vector3.up) * impulse, ForceMode.Impulse);
+		Invoke ("Sleep", 2.0f);
 	}
 
+	void Sleep(){
+		gameObject.SetActive (false);
+	}
 	// Update Gravity
 	void Update(){
 		body.AddForce ( 20f * Vector3.down);

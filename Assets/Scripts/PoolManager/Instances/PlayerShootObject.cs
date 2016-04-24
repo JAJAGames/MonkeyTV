@@ -30,6 +30,13 @@ public class PlayerShootObject : PoolObject {
 		gameObject.tag = "PlayerShoot";	
 	}
 
+	void OnEnable(){
+		Invoke ("Sleep", 2.0f);
+	}
+
+	void Sleep(){
+		gameObject.SetActive (false);
+	}
 	// Update is called once per frame
 	void Update () {
 		gameObject.transform.Translate(Vector3.forward * speed/5);
