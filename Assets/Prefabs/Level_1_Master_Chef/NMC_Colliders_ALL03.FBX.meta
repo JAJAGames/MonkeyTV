@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 90e2550b7a83f1f42b3528ac3556adf9
-timeCreated: 1460458176
+guid: 59bb0a6203c7feb49827cc223c666805
+timeCreated: 1461487761
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -77,22 +77,23 @@ ModelImporter:
     100138: NMC_Collider70
     100140: NMC_Collider71
     100142: NMC_Collider72
-    100144: NMC_Collider73
-    100146: NMC_Collider74
-    100148: NMC_Collider75
-    100150: NMC_Collider76
-    100152: NMC_Collider77
-    100154: NMC_Collider78
-    100156: NMC_Collider79
-    100158: NMC_Collider80
-    100160: NMC_Collider81
-    100162: NMC_Collider82
-    100164: NMC_Collider83
-    100166: NMC_Collider84
-    100168: NMC_Collider85
-    100170: NMC_Collider86
-    100172: NMC_Collider87
-    100174: //RootNode
+    100144: NMC_Collider75
+    100146: NMC_Collider76
+    100148: NMC_Collider77
+    100150: NMC_Collider78
+    100152: NMC_Collider79
+    100154: NMC_Collider80
+    100156: NMC_Collider81
+    100158: NMC_Collider82
+    100160: NMC_Collider83
+    100162: NMC_Collider84
+    100164: NMC_Collider85
+    100166: NMC_Collider86
+    100168: NMC_Collider87
+    100170: NMC_Collider88
+    100172: NMC_Collider89
+    100174: NMC_Collider90
+    100176: //RootNode
     400000: NMC_Collider01
     400002: NMC_Collider02
     400004: NMC_Collider03
@@ -165,22 +166,23 @@ ModelImporter:
     400138: NMC_Collider70
     400140: NMC_Collider71
     400142: NMC_Collider72
-    400144: NMC_Collider73
-    400146: NMC_Collider74
-    400148: NMC_Collider75
-    400150: NMC_Collider76
-    400152: NMC_Collider77
-    400154: NMC_Collider78
-    400156: NMC_Collider79
-    400158: NMC_Collider80
-    400160: NMC_Collider81
-    400162: NMC_Collider82
-    400164: NMC_Collider83
-    400166: NMC_Collider84
-    400168: NMC_Collider85
-    400170: NMC_Collider86
-    400172: NMC_Collider87
-    400174: //RootNode
+    400144: NMC_Collider75
+    400146: NMC_Collider76
+    400148: NMC_Collider77
+    400150: NMC_Collider78
+    400152: NMC_Collider79
+    400154: NMC_Collider80
+    400156: NMC_Collider81
+    400158: NMC_Collider82
+    400160: NMC_Collider83
+    400162: NMC_Collider84
+    400164: NMC_Collider85
+    400166: NMC_Collider86
+    400168: NMC_Collider87
+    400170: NMC_Collider88
+    400172: NMC_Collider89
+    400174: NMC_Collider90
+    400176: //RootNode
     2300000: NMC_Collider01
     2300002: NMC_Collider02
     2300004: NMC_Collider03
@@ -253,21 +255,22 @@ ModelImporter:
     2300138: NMC_Collider70
     2300140: NMC_Collider71
     2300142: NMC_Collider72
-    2300144: NMC_Collider73
-    2300146: NMC_Collider74
-    2300148: NMC_Collider75
-    2300150: NMC_Collider76
-    2300152: NMC_Collider77
-    2300154: NMC_Collider78
-    2300156: NMC_Collider79
-    2300158: NMC_Collider80
-    2300160: NMC_Collider81
-    2300162: NMC_Collider82
-    2300164: NMC_Collider83
-    2300166: NMC_Collider84
-    2300168: NMC_Collider85
-    2300170: NMC_Collider86
-    2300172: NMC_Collider87
+    2300144: NMC_Collider75
+    2300146: NMC_Collider76
+    2300148: NMC_Collider77
+    2300150: NMC_Collider78
+    2300152: NMC_Collider79
+    2300154: NMC_Collider80
+    2300156: NMC_Collider81
+    2300158: NMC_Collider82
+    2300160: NMC_Collider83
+    2300162: NMC_Collider84
+    2300164: NMC_Collider85
+    2300166: NMC_Collider86
+    2300168: NMC_Collider87
+    2300170: NMC_Collider88
+    2300172: NMC_Collider89
+    2300174: NMC_Collider90
     3300000: NMC_Collider01
     3300002: NMC_Collider02
     3300004: NMC_Collider03
@@ -340,21 +343,22 @@ ModelImporter:
     3300138: NMC_Collider70
     3300140: NMC_Collider71
     3300142: NMC_Collider72
-    3300144: NMC_Collider73
-    3300146: NMC_Collider74
-    3300148: NMC_Collider75
-    3300150: NMC_Collider76
-    3300152: NMC_Collider77
-    3300154: NMC_Collider78
-    3300156: NMC_Collider79
-    3300158: NMC_Collider80
-    3300160: NMC_Collider81
-    3300162: NMC_Collider82
-    3300164: NMC_Collider83
-    3300166: NMC_Collider84
-    3300168: NMC_Collider85
-    3300170: NMC_Collider86
-    3300172: NMC_Collider87
+    3300144: NMC_Collider75
+    3300146: NMC_Collider76
+    3300148: NMC_Collider77
+    3300150: NMC_Collider78
+    3300152: NMC_Collider79
+    3300154: NMC_Collider80
+    3300156: NMC_Collider81
+    3300158: NMC_Collider82
+    3300160: NMC_Collider83
+    3300162: NMC_Collider84
+    3300164: NMC_Collider85
+    3300166: NMC_Collider86
+    3300168: NMC_Collider87
+    3300170: NMC_Collider88
+    3300172: NMC_Collider89
+    3300174: NMC_Collider90
     4300000: NMC_Collider01
     4300002: NMC_Collider02
     4300004: NMC_Collider03
@@ -427,22 +431,22 @@ ModelImporter:
     4300138: NMC_Collider70
     4300140: NMC_Collider71
     4300142: NMC_Collider72
-    4300144: NMC_Collider73
-    4300146: NMC_Collider74
-    4300148: NMC_Collider75
-    4300150: NMC_Collider76
-    4300152: NMC_Collider77
-    4300154: NMC_Collider78
-    4300156: NMC_Collider79
-    4300158: NMC_Collider80
-    4300160: NMC_Collider81
-    4300162: NMC_Collider82
-    4300164: NMC_Collider83
-    4300166: NMC_Collider84
-    4300168: NMC_Collider85
-    4300170: NMC_Collider86
-    4300172: NMC_Collider87
-    9500000: //RootNode
+    4300144: NMC_Collider75
+    4300146: NMC_Collider76
+    4300148: NMC_Collider77
+    4300150: NMC_Collider78
+    4300152: NMC_Collider79
+    4300154: NMC_Collider80
+    4300156: NMC_Collider81
+    4300158: NMC_Collider82
+    4300160: NMC_Collider83
+    4300162: NMC_Collider84
+    4300164: NMC_Collider85
+    4300166: NMC_Collider86
+    4300168: NMC_Collider87
+    4300170: NMC_Collider88
+    4300172: NMC_Collider89
+    4300174: NMC_Collider90
   materials:
     importMaterials: 1
     materialName: 0
@@ -501,7 +505,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
