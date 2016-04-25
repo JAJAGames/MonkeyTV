@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour  {
 			emJump.enabled = false;
 #endif																		//if grounded get input
 		if (controller.isGrounded) {
-			anim.SetBool("jump",false);
+			anim.SetBool("Jump",false);
 #if UNITY_5_3
 			if (!grounded) {
 				grounded = true;
@@ -68,9 +68,9 @@ public class PlayerMovement : MonoBehaviour  {
 			moveDirection *= movementSpeed;
 			moveDirection = transform.TransformDirection(moveDirection);
 			if (moveDirection != Vector3.zero)
-				anim.SetBool("walk", true);
+				anim.SetBool("Walk", true);
 			else
-				anim.SetBool("walk", false);
+				anim.SetBool("Walk", false);
 #if UNITY_5_3
 			if (moveDirection != Vector3.zero) 								//enable or disable emitter of ParticleSystem
 			{
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour  {
 #endif
 			if (Input.GetButton ("Jump")) 									//jump go up y axis!! and no particles...
 			{
-				anim.SetBool("jump",true);
+				anim.SetBool("Jump",true);
 				//anim.GetCurrentAnimatorStateInfo(0).length;
 				moveDirection.y = jumpSpeed;
 				moveDirection.y = jumpSpeed;
