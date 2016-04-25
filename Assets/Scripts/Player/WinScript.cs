@@ -16,12 +16,14 @@ public class WinScript : MonoBehaviour {
 	
 	void OnTriggerEnter (Collider other) {
 		if (other.gameObject.CompareTag ("Player")) {
-			StartCoroutine (WinTheGame());
+			StartCoroutine (WinTheGame(other));
 		}
 	}
-	
-	private IEnumerator WinTheGame() {
+
+	private IEnumerator WinTheGame(Collider player) {
 		youWin = true;
+		player.gameObject.transform.GetChild (0).GetComponent<Animator> ().SetTrigger("Win");
+
 		yield return new WaitForSeconds(3f);
 #if UNITY_5_3_OR_NEWER
 		SceneManager.LoadScene(MENUID);
