@@ -1,35 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PropFlower : MonoBehaviour {
+public class AnimationOnCollisionSingle : MonoBehaviour {
 
 	private Animation animation;
+	private bool isAnimated;
 
 	void Awake () {
 		animation = gameObject.GetComponent<Animation> ();
+		isAnimated = false;
 	}
 
 	void OnTriggerEnter (Collider other){
-		if (other.CompareTag ("Player") || other.CompareTag ("Enemy")) {
-			StartAnimation ();
-		}
-	}
-
-	void OnTriggerExit (Collider other){
-		if (other.CompareTag ("Player") || other.CompareTag ("Enemy")) {
+		if (!isAnimated && other.CompareTag ("Player")) {
 			StartAnimation ();
 		}
 	}
 
 	private void StartAnimation() {
-		if (animation.isPlaying) {
-			return;
-		}
+		isAnimated = true;
 		animation.Play ();
 		Invoke ("StopAnim",animation.clip.length); 
 	}
 
 	private void StopAnim(){
 		animation.Stop();
+		this.enabled = false;
 	}
 }
