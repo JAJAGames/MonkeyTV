@@ -74,7 +74,7 @@ public class PlayerStats : MonoBehaviour {
 
 	private IEnumerator Death () {
 		isDead = true;																//is dead
-										
+		anim.Rebind ();
 		anim.SetBool ("Dead", true);												//activate death animation 
 		Invoke ("StopAnimator", anim.GetCurrentAnimatorStateInfo(0).length);		//stop animator just at end of death
 
