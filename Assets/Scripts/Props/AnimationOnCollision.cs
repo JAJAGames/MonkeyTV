@@ -3,10 +3,10 @@ using System.Collections;
 
 public class AnimationOnCollision : MonoBehaviour {
 
-	private Animation animation;
+	private Animation anim;
 
 	void Awake () {
-		animation = gameObject.GetComponent<Animation> ();
+		anim = gameObject.GetComponent<Animation> ();
 	}
 
 	void OnTriggerEnter (Collider other){
@@ -22,14 +22,14 @@ public class AnimationOnCollision : MonoBehaviour {
 	}
 
 	private void StartAnimation() {
-		if (animation.isPlaying) {
+		if (anim.isPlaying) {
 			return;
 		}
-		animation.Play ();
-		Invoke ("StopAnim",animation.clip.length); 
+		anim.Play ();
+		Invoke ("StopAnim",anim.clip.length); 
 	}
 
 	private void StopAnim(){
-		animation.Stop();
+		anim.Stop();
 	}
 }

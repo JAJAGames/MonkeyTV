@@ -3,11 +3,11 @@ using System.Collections;
 
 public class AnimationOnCollisionSingle : MonoBehaviour {
 
-	private Animation animation;
+	private Animation anim;
 	private bool isAnimated;
 
 	void Awake () {
-		animation = gameObject.GetComponent<Animation> ();
+		anim = gameObject.GetComponent<Animation> ();
 		isAnimated = false;
 	}
 
@@ -19,12 +19,12 @@ public class AnimationOnCollisionSingle : MonoBehaviour {
 
 	private void StartAnimation() {
 		isAnimated = true;
-		animation.Play ();
-		Invoke ("StopAnim",animation.clip.length); 
+		anim.Play ();
+		Invoke ("StopAnim",anim.clip.length); 
 	}
 
 	private void StopAnim(){
-		animation.Stop();
+		anim.Stop();
 		this.enabled = false;
 	}
 }
