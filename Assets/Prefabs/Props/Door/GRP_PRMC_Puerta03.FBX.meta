@@ -1,17 +1,37 @@
 fileFormatVersion: 2
-guid: fcb2fdd9995471b4b93692256538d240
-timeCreated: 1459159274
+guid: 15a4f5a88fc9161438c20132d4ea199c
+timeCreated: 1461585919
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: PRMC_Palo03
+    100004: Tablon09
+    100006: Tablon10
+    100008: Tablon11
+    100010: Tablon12
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Body
-    7400000: Take 001
-    9500000: //RootNode
+    400002: PRMC_Palo03
+    400004: Tablon09
+    400006: Tablon10
+    400008: Tablon11
+    400010: Tablon12
+    2300000: PRMC_Palo03
+    2300002: Tablon09
+    2300004: Tablon10
+    2300006: Tablon11
+    2300008: Tablon12
+    3300000: PRMC_Palo03
+    3300002: Tablon09
+    3300004: Tablon10
+    3300006: Tablon11
+    3300008: Tablon12
+    4300000: PRMC_Palo03
+    4300002: Tablon09
+    4300004: Tablon10
+    4300006: Tablon11
+    4300008: Tablon12
   materials:
     importMaterials: 1
     materialName: 0
@@ -70,7 +90,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
