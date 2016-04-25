@@ -71,10 +71,7 @@ public class panelDebug : MonoBehaviour {
 		
 		//set wireframe mode and hide colliders
 		for (int i = 0; i < colliderRenders.Length; i++) 
-		{
-			colliderRenders[i].GetComponent<MeshRenderer> ().material.shader = Shader.Find ("Transparent/Diffuse");
 			colliderRenders[i].GetComponent<MeshRenderer> ().enabled = false;
-		}
 
 		stats = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStats>();
 	}
@@ -150,20 +147,6 @@ public class panelDebug : MonoBehaviour {
 			colliderRenders[i].GetComponent<MeshRenderer> ().enabled = !colliderRenders[i].GetComponent<MeshRenderer> ().enabled;
 	}
 
-	public void ButtonWireframePressed () 
-	{
-		//toggle shader
-		if (colliderRenders [0].GetComponent<MeshRenderer> ().material.shader == wireframe) 
-		{
-			for (int i = 0; i < colliderRenders.Length; i++) 
-				colliderRenders [i].GetComponent<MeshRenderer> ().material.shader = Shader.Find ("Transparent/Diffuse");
-		}else
-		{
-			for (int i = 0; i < colliderRenders.Length; i++) 
-				colliderRenders [i].GetComponent<MeshRenderer> ().material.shader = wireframe;
-		}
-
-	}
 
 	public void ButtonModeGodPressed () {
 		stats.GOD = !stats.GOD;
