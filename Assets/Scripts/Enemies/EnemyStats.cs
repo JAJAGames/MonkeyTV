@@ -26,14 +26,11 @@ public class EnemyStats : MonoBehaviour {
 	public int startingHealth = 4;            
 	public int currentHealth;
 	public bool isDead;
-	//private SkinnedMeshRenderer meshRenderer;
-	//private Color originalColor;
+	private SkinnedMeshRenderer skin;
 
 	void Awake () {
 		currentHealth = startingHealth;
-		//meshRenderer = gameObject.GetComponent<SkinnedMeshRenderer> ();
-		//meshRenderer = transform.GetChild(0).GetChild(0).gameObject.GetComponent<SkinnedMeshRenderer> ();
-//		originalColor = meshRenderer.material.color;
+		skin = GetComponentInChildren<SkinnedMeshRenderer> ();
 	}
 
 	public void TakeDamage (int damage) {
@@ -41,7 +38,7 @@ public class EnemyStats : MonoBehaviour {
 			return;
 		currentHealth -= damage;
 
-//		meshRenderer.material.color = Color.white;
+		skin.material.color = Color.red;
 		Invoke ("Recolor",0.2f);
 
 		if(currentHealth <= 0) {
@@ -51,6 +48,7 @@ public class EnemyStats : MonoBehaviour {
 	}
 
 	private void Recolor(){
-//		meshRenderer.material.color = originalColor;
+		skin.material.color = Color.white;
 	}
+		
 }
