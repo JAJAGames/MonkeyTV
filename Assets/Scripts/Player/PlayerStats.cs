@@ -38,7 +38,7 @@ public class PlayerStats : MonoBehaviour {
 	private PlayerShoot pShoot;
 
 	void Awake () {
-		anim = transform.GetChild(0).GetComponent<Animator>();
+		anim = GetComponent<Animator>();
 		currentHealth = startingHealth;
 		GOD = false;
 		isDead = false;

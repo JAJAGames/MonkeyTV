@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour  {
 
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
-		anim = transform.GetChild(0).GetComponent<Animator>();
+		anim = GetComponent<Animator>();
 		pStats = gameObject.GetComponent<PlayerStats> ();
 #if UNITY_5_3
 		emWalk = walkParticles.emission;
@@ -65,8 +65,14 @@ public class PlayerMovement : MonoBehaviour  {
 			} 
 #endif
 			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+																			//Make the player face his movement direction. We ought to disable rotation script
+			if (moveDirection.sqrMagnitude != 0)							//Look to rotation viewing is not Zero
+				transform.rotation = Quaternion.LookRotation( moveDirection);
+
 			moveDirection *= movementSpeed;
-			moveDirection = transform.TransformDirection(moveDirection);
+			//moveDirection = transform.TransformDirection(moveDirection);  //This line set transform from local space movement to world movement 
+
 			if (moveDirection != Vector3.zero)
 				anim.SetBool("Walk", true);
 			else
@@ -90,7 +96,6 @@ public class PlayerMovement : MonoBehaviour  {
 				emWalk.enabled = false;
 #endif
 			} 
-
 		}
 
 		moveDirection.y -= gravity * Time.deltaTime;						//calculate translation
