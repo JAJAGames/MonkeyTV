@@ -26,24 +26,38 @@ public class CameraFollow : MonoBehaviour {
 	public PlayerMovement playerMove; 	//used in both methods
 
 	private Vector3 initDifference;
-	private float smooth;
+	private float smooth, smoothSpeed;
 	//NEVER FOLLOW PLAYER JUMPING
 
 	private void Start() 
 	{
 		initDifference = transform.position - playerMove.transform.position; 				//get the initial offset
-		smooth = playerMove.gameObject.GetComponent<PlayerMovement>().movementSpeed * 3;	//get the speed of camera. It should be faster than player
+		smoothSpeed = playerMove.gameObject.GetComponent<PlayerMovement>().movementSpeed;		//get the speed of camera. It should be faster than player
+		smooth = smoothSpeed;
     }
 
 	private void Update() 
 	{
-		 
 		Vector3 difference = transform.position - playerMove.transform.position;
+
+		if (smooth == smoothSpeed) 
+		{
+			//get the position of player in screen
+			Vector3 screenPoint = Camera.main.WorldToViewportPoint (playerMove.transform.position); 
+			//is visible?
+			if (screenPoint.z > 0.1 && screenPoint.x > 0.1 && screenPoint.x < 0.9 && screenPoint.y > 0.1 && screenPoint.y < 0.9)
+				smooth = smoothSpeed;
+			else
+				smooth = smoothSpeed * 2f;
+		} else 
+			if (difference == initDifference)
+				smooth = smoothSpeed;
+	
         
 		//player visible and not jumping -> move camera.
 		if (difference != initDifference) 
 		{
-			if (playerMove.controller.isGrounded)
+			if (playerMove.grounded)
 				transform.position = Vector3.MoveTowards (transform.position, playerMove.transform.position + initDifference, smooth * Time.deltaTime);
 			else 
 			{

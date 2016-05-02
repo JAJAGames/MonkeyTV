@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour  {
 			else
 				emWalk.enabled = false;
 #endif
-			if (Input.GetButton ("Jump")) 									//jump go up y axis!! and no particles...
+			if (Input.GetButtonDown ("Jump")) 									//jump go up y axis!! and no particles...
 			{
 				anim.SetBool("Jump",true);
 				//anim.GetCurrentAnimatorStateInfo(0).length;
