@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour  {
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
 		anim = GetComponent<Animator>();
-		pStats = gameObject.GetComponent<PlayerStats> ();
 #if UNITY_5_3
 		emWalk = walkParticles.emission;
 		emWalk.enabled = false;
@@ -50,8 +49,6 @@ public class PlayerMovement : MonoBehaviour  {
 
 	private void FixedUpdate ()  {
 																			//no update for deads... no Zombies please!
-		if (pStats.isDead)
-			return;
 #if UNITY_5_3
 		if (emJump.enabled)
 			emJump.enabled = false;
