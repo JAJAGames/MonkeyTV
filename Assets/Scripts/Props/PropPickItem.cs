@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PropPickItem : MonoBehaviour {
 
-	public PickItems.itemsListMasterChef itemType;
+	public Enums.itemsListMasterChef itemType;
 	public MeshRenderer meshRenderer;
 	public SphereCollider sphereCollider;
 
