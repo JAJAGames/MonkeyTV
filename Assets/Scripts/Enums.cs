@@ -3,6 +3,6 @@ using System.Collections;
 
 public class Enums : MonoBehaviour {
 
-	public enum itemsListMasterChef {ITEM_BANANA, ITEM_TOMATO, NO_ITEM};
+	public enum itemsListMasterChef {ITEM_MUSHROOM, ITEM_CABBAGE, ITEM_LETTUCE, ITEM_APPLE, ITEM_ORANGE, ITEM_PINEAPPLE, ITEM_BANANA, ITEM_CARROT, NO_ITEM};
 
 }
