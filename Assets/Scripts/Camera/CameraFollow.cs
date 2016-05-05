@@ -27,13 +27,17 @@ public class CameraFollow : MonoBehaviour {
 
 	private Vector3 initDifference;
 	private float smooth, smoothSpeed;
-	//NEVER FOLLOW PLAYER JUMPING
 
-	private void Start() 
-	{
-		initDifference = transform.position - playerMove.transform.position; 				//get the initial offset
+	private void Awake(){
 		smoothSpeed = playerMove.gameObject.GetComponent<PlayerMovement>().movementSpeed;		//get the speed of camera. It should be faster than player
 		smooth = smoothSpeed;
+		gamestate.Instance.SetState (state.INIT_SCENE);
+	}
+
+	//we need to be sure that player is Awake so we bust load player in Start().
+	private void Start() 
+	{
+		initDifference = transform.position - playerMove.transform.position; 					//get the initial offset
     }
 
 	private void Update() 
