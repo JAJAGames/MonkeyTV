@@ -31,7 +31,7 @@ public class CameraFollow : MonoBehaviour {
 	private void Awake(){
 		smoothSpeed = playerMove.gameObject.GetComponent<PlayerMovement>().movementSpeed;		//get the speed of camera. It should be faster than player
 		smooth = smoothSpeed;
-		gamestate.Instance.SetState (state.INIT_SCENE);
+		gamestate.Instance.SetState (Enums.state.INIT_SCENE);
 	}
 
 	//we need to be sure that player is Awake so we bust load player in Start().
