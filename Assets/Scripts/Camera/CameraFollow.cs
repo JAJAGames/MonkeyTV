@@ -26,13 +26,18 @@ public class CameraFollow : MonoBehaviour {
 
 	public PlayerMovement playerMove; 	//used in both methods
 
+	public Transform target;
+
 	private Vector3 initDifference;
+	private Quaternion initRotation;
 	private float smooth, smoothSpeed;
+
 
 	private void Awake(){
 		smoothSpeed = playerMove.gameObject.GetComponent<PlayerMovement>().movementSpeed;		//get the speed of camera. It should be faster than player
 		smooth = smoothSpeed;
 		gamestate.Instance.SetState (state.INIT_SCENE);
+		initRotation = transform.rotation;
 	}
 
 	//we need to be sure that player is Awake so we bust load player in Start().
@@ -43,33 +48,36 @@ public class CameraFollow : MonoBehaviour {
 
 	private void Update() 
 	{
-		Vector3 difference = transform.position - playerMove.transform.position;
+		if (gamestate.Instance.GetState () == state.SEARCH_OBJECTS) {
+			Vector3 difference = transform.position - playerMove.transform.position;
 
-		if (smooth == smoothSpeed) 
-		{
-			//get the position of player in screen
-			Vector3 screenPoint = Camera.main.WorldToViewportPoint (playerMove.transform.position); 
-			//is visible?
-			if (screenPoint.z > 0.1 && screenPoint.x > 0.1 && screenPoint.x < 0.9 && screenPoint.y > 0.1 && screenPoint.y < 0.9)
+			if (smooth == smoothSpeed) {
+				//get the position of player in screen
+				Vector3 screenPoint = Camera.main.WorldToViewportPoint (playerMove.transform.position); 
+				//is visible?
+				if (screenPoint.z > 0.1 && screenPoint.x > 0.1 && screenPoint.x < 0.9 && screenPoint.y > 0.1 && screenPoint.y < 0.9)
+					smooth = smoothSpeed;
+				else
+					smooth = smoothSpeed * 2f;
+			} else if (difference == initDifference)
 				smooth = smoothSpeed;
-			else
-				smooth = smoothSpeed * 2f;
-		} else 
-			if (difference == initDifference)
-				smooth = smoothSpeed;
-	
-        
-		//player visible and not jumping -> move camera.
-		if (difference != initDifference) 
-		{
-			if (playerMove.grounded)
-				transform.position = Vector3.MoveTowards (transform.position, playerMove.transform.position + initDifference, smooth * Time.deltaTime);
-			else 
-			{
-				difference = playerMove.transform.position + initDifference;
-				difference.y = transform.position.y;
-				transform.position = Vector3.MoveTowards (transform.position, difference, smooth * Time.deltaTime);
+			
+		        
+			//player visible and not jumping -> move camera.
+			if (difference != initDifference) {
+				if (playerMove.grounded)
+					transform.position = Vector3.MoveTowards (transform.position, playerMove.transform.position + initDifference, smooth * Time.deltaTime);
+				else {
+					difference = playerMove.transform.position + initDifference;
+					difference.y = transform.position.y;
+					transform.position = Vector3.MoveTowards (transform.position, difference, smooth * Time.deltaTime);
+				}
 			}
+			transform.rotation = Quaternion.Slerp(transform.rotation, initRotation, Time.deltaTime);
+		}
+		if (gamestate.Instance.GetState () == state.NEW_SEARCH) {
+			transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime );
+			transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime);
 		}
 	}
 	

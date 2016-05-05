@@ -11,14 +11,17 @@ public class Dish : MonoBehaviour {
 	private Sprite[] sprites ;
 	private bool selection = false;
 	private bool stopSelection = false;
-
+	private PlayerMovement player;
 	void Awake(){
 		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
+		player = GameObject.Find ("Player").GetComponent<PlayerMovement> ();
 	}
 
 	void Update(){
 		
 		if (Input.GetKeyDown (KeyCode.O)) {
+			gamestate.Instance.SetState (Enums.state.NEW_SEARCH);
+			player.enabled = false;
 			selection = true;
 			StartCoroutine (StartNewDish (5));
 		}
@@ -46,6 +49,8 @@ public class Dish : MonoBehaviour {
 		yield return new WaitForSeconds(waitTime);
 		stopSelection = true;
 		IGU_Dish.sprite = sprites [dishCode];
+		gamestate.Instance.SetState (Enums.state.SEARCH_OBJECTS);
+		player.enabled = true;
 	}
 
 }
