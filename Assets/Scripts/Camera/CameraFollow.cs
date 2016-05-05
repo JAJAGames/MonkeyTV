@@ -36,7 +36,7 @@ public class CameraFollow : MonoBehaviour {
 	private void Awake(){
 		smoothSpeed = playerMove.gameObject.GetComponent<PlayerMovement>().movementSpeed;		//get the speed of camera. It should be faster than player
 		smooth = smoothSpeed;
-		gamestate.Instance.SetState (state.INIT_SCENE);
+		gamestate.Instance.SetState (state.STATE_INIT);
 		initRotation = transform.rotation;
 	}
 
@@ -48,7 +48,7 @@ public class CameraFollow : MonoBehaviour {
 
 	private void Update() 
 	{
-		if (gamestate.Instance.GetState () == state.SEARCH_OBJECTS) {
+		if (gamestate.Instance.GetState () == state.STATE_CAMERA_FOLLOW_PLAYER) {
 			Vector3 difference = transform.position - playerMove.transform.position;
 
 			if (smooth == smoothSpeed) {
@@ -75,7 +75,7 @@ public class CameraFollow : MonoBehaviour {
 			}
 			transform.rotation = Quaternion.Slerp(transform.rotation, initRotation, Time.deltaTime);
 		}
-		if (gamestate.Instance.GetState () == state.NEW_SEARCH) {
+		if (gamestate.Instance.GetState () == state.STATE_STATIC_CAMERA) {
 			transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime );
 			transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime);
 		}

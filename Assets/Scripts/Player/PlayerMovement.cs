@@ -32,8 +32,8 @@ public class PlayerMovement : MonoBehaviour  {
 #if UNITY_5_3
 	ParticleSystem.EmissionModule emWalk;
 	ParticleSystem.EmissionModule emJump;
+#endif	
 	public bool grounded;
-#endif
 
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
@@ -43,8 +43,8 @@ public class PlayerMovement : MonoBehaviour  {
 		emWalk.enabled = false;
 		emJump = jumpParticles.emission;
 		emJump.enabled = false;
-		grounded = false;
 #endif
+		grounded = false;
 	}
 
 	private void FixedUpdate ()  {
@@ -55,12 +55,14 @@ public class PlayerMovement : MonoBehaviour  {
 #endif																		//if grounded get input
 		if (controller.isGrounded) {
 			anim.SetBool("Jump",false);
-#if UNITY_5_3
+
 			if (!grounded) {
 				grounded = true;
+#if UNITY_5_3
 				emJump.enabled = true;
-			} 
 #endif
+			} 
+
 			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
 																			//Make the player face his movement direction. We ought to disable rotation script
@@ -88,8 +90,8 @@ public class PlayerMovement : MonoBehaviour  {
 				//anim.GetCurrentAnimatorStateInfo(0).length;
 				moveDirection.y = jumpSpeed;
 				moveDirection.y = jumpSpeed;
-#if UNITY_5_3
 				grounded = false;
+#if UNITY_5_3
 				emWalk.enabled = false;
 #endif
 			} 

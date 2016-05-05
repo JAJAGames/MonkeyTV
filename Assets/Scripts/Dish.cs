@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -20,7 +20,7 @@ public class Dish : MonoBehaviour {
 	void Update(){
 		
 		if (Input.GetKeyDown (KeyCode.O)) {
-			gamestate.Instance.SetState (Enums.state.NEW_SEARCH);
+			gamestate.Instance.SetState (Enums.state.STATE_STATIC_CAMERA);
 			player.enabled = false;
 			selection = true;
 			StartCoroutine (StartNewDish (5));
@@ -49,7 +49,7 @@ public class Dish : MonoBehaviour {
 		yield return new WaitForSeconds(waitTime);
 		stopSelection = true;
 		IGU_Dish.sprite = sprites [dishCode];
-		gamestate.Instance.SetState (Enums.state.SEARCH_OBJECTS);
+		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		Invoke ("ToSearch", 5.0f);
 	}
 

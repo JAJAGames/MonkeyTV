@@ -1,4 +1,4 @@
-﻿/* gamestate.CS
+/* gamestate.CS
  * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
@@ -57,7 +57,7 @@ public class gamestate : MonoBehaviour {
 
 #endif
 
-		stateOfScene = state.INIT_SCENE;  
+		stateOfScene = state.STATE_INIT;  
 	}
 
 	// Sets the instance to null when the application quits
@@ -106,7 +106,7 @@ public class gamestate : MonoBehaviour {
 
 #endif
 
-		SetState (state.INIT_SCENE);
+		SetState (state.STATE_INIT);
 	}
 
 
