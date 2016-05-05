@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Enums;
 
 public class PropPickItem : MonoBehaviour {
 
-	public Enums.itemsListMasterChef itemType;
+	public itemsListMasterChef itemType;
 	public MeshRenderer meshRenderer;
 	public SphereCollider sphereCollider;
 

@@ -18,6 +18,7 @@
 
 using UnityEngine;
 using System.Collections;
+using Enums;
 
 #if UNITY_5_3_OR_NEWER	
 using UnityEngine.SceneManagement;
@@ -27,8 +28,8 @@ public class gamestate : MonoBehaviour {
 	
 	// Declare properties
 	private static gamestate instance;
-	[SerializeField] private Enums.state stateOfScene;
-	[SerializeField] private Enums.sceneLevel levelOfGame;
+	[SerializeField] private state stateOfScene;
+	[SerializeField] private sceneLevel levelOfGame;
 
 	// Creates an instance of gamestate as a gameobject if an instance does not exist
 
@@ -52,11 +53,11 @@ public class gamestate : MonoBehaviour {
 		
 #if UNITY_5_3_OR_NEWER	
 
-		levelOfGame = (Enums.sceneLevel) SceneManager.GetActiveScene ().buildIndex;
+		levelOfGame = (sceneLevel) SceneManager.GetActiveScene ().buildIndex;
 
 #endif
 
-		stateOfScene = Enums.state.INIT_SCENE;  
+		stateOfScene = state.INIT_SCENE;  
 	}
 
 	// Sets the instance to null when the application quits
@@ -66,31 +67,31 @@ public class gamestate : MonoBehaviour {
 	}
 
 	// Get and Set state of the game
-	public void SetState(Enums.state newState)
+	public void SetState(state newState)
 	{
 		stateOfScene = newState;
 	}
 
-	public Enums.state GetState()
+	public state GetState()
 	{
 		return stateOfScene;
 	}
 	
 
 	// Get and Set levels
-	public Enums.sceneLevel GetLevel()
+	public sceneLevel GetLevel()
 	{
 		
 #if UNITY_5_3_OR_NEWER	
 
-		levelOfGame = (Enums.sceneLevel) SceneManager.GetActiveScene ().buildIndex;
+		levelOfGame = (sceneLevel) SceneManager.GetActiveScene ().buildIndex;
 
 #endif
 
 		return levelOfGame;
 	}
 
-	public void SetLevel(Enums.sceneLevel newLevel)
+	public void SetLevel(sceneLevel newLevel)
 	{
 		// Set activeLevel to newLevel
 		levelOfGame = newLevel;
@@ -105,7 +106,7 @@ public class gamestate : MonoBehaviour {
 
 #endif
 
-		SetState (Enums.state.INIT_SCENE);
+		SetState (state.INIT_SCENE);
 	}
 
 

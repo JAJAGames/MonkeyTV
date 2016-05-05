@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-/* CAMERAFOLLOW.CS
+﻿/* CAMERAFOLLOW.CS
  * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
@@ -21,6 +18,10 @@ using System.Collections;
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
 
+using UnityEngine;
+using System.Collections;
+using Enums;
+
 public class CameraFollow : MonoBehaviour {
 
 	public PlayerMovement playerMove; 	//used in both methods
@@ -31,7 +32,7 @@ public class CameraFollow : MonoBehaviour {
 	private void Awake(){
 		smoothSpeed = playerMove.gameObject.GetComponent<PlayerMovement>().movementSpeed;		//get the speed of camera. It should be faster than player
 		smooth = smoothSpeed;
-		gamestate.Instance.SetState (Enums.state.INIT_SCENE);
+		gamestate.Instance.SetState (state.INIT_SCENE);
 	}
 
 	//we need to be sure that player is Awake so we bust load player in Start().

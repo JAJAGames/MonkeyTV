@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Enums;
 
 public class PickItems : MonoBehaviour {
 
-	public Enums.itemsListMasterChef actualItem;
+	public itemsListMasterChef actualItem;
 
 	[Tooltip("Items")]
 	public Transform Items;
@@ -11,7 +12,7 @@ public class PickItems : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		actualItem = Enums.itemsListMasterChef.NO_ITEM;
+		actualItem = itemsListMasterChef.NO_ITEM;
 
 		allItems = HelperMethods.GetChildren (Items);
 		for (int i = 0; i < allItems.Length; i++) 
@@ -20,7 +21,7 @@ public class PickItems : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Throw") && actualItem != Enums.itemsListMasterChef.NO_ITEM) {
+		if (Input.GetButtonDown ("Throw") && actualItem != itemsListMasterChef.NO_ITEM) {
 			throwItem ();
 		}
 	}
@@ -32,14 +33,14 @@ public class PickItems : MonoBehaviour {
 	public void throwItem() {
 		//Throw item animation
 		allItems[(int)actualItem].GetComponent<MeshRenderer> ().enabled = false;
-		actualItem = Enums.itemsListMasterChef.NO_ITEM;
+		actualItem = itemsListMasterChef.NO_ITEM;
 	}
 
 	public bool haveItem() {
-		return actualItem == Enums.itemsListMasterChef.NO_ITEM;
+		return actualItem == itemsListMasterChef.NO_ITEM;
 	}
 
-	public void changeItem(Enums.itemsListMasterChef newItem) {
+	public void changeItem(itemsListMasterChef newItem) {
 		actualItem = newItem;
 		allItems[(int)newItem].GetComponent<MeshRenderer> ().enabled = true;
 	}
