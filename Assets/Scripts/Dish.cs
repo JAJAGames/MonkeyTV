@@ -50,7 +50,10 @@ public class Dish : MonoBehaviour {
 		stopSelection = true;
 		IGU_Dish.sprite = sprites [dishCode];
 		gamestate.Instance.SetState (Enums.state.SEARCH_OBJECTS);
-		player.enabled = true;
+		Invoke ("ToSearch", 5.0f);
 	}
 
+	void ToSearch(){
+		player.enabled = true;
+	} 
 }
