@@ -16,7 +16,7 @@ public class PickItems : MonoBehaviour {
 
 		allItems = HelperMethods.GetChildren (Items);
 		for (int i = 0; i < allItems.Length; i++) 
-			allItems[i].GetComponent<MeshRenderer> ().enabled = false;
+			allItems[i].SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -32,7 +32,7 @@ public class PickItems : MonoBehaviour {
 
 	public void throwItem() {
 		//Throw item animation
-		allItems[(int)actualItem].GetComponent<MeshRenderer> ().enabled = false;
+		allItems[(int)actualItem].SetActive (false);
 		actualItem = itemsListMasterChef.NO_ITEM;
 	}
 
@@ -42,6 +42,6 @@ public class PickItems : MonoBehaviour {
 
 	public void changeItem(itemsListMasterChef newItem) {
 		actualItem = newItem;
-		allItems[(int)newItem].GetComponent<MeshRenderer> ().enabled = true;
+		allItems[(int)newItem].SetActive(true);
 	}
 }

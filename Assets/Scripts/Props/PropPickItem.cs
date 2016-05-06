@@ -11,6 +11,7 @@ public class PropPickItem : MonoBehaviour {
 	public PickItems player;
 	private Color _color;
 	private Material _material;
+
 	// Use this for initialization
 	void Start () {
 		meshRenderer = GetComponent<MeshRenderer> ();
@@ -24,28 +25,29 @@ public class PropPickItem : MonoBehaviour {
 
 		_color = meshRenderer.material.GetColor ("_EmissionColor");
 	}
-
-	// Update is called once per frame
-	void Update () {
-		if (Vector3.Distance (player.transform.position, transform.position) < 2) {
-			meshRenderer.material.SetColor ("_EmissionColor", Color.gray);
-		}
-		else
-			meshRenderer.material.SetColor ("_EmissionColor",_color);
-	}
-
+		
 	void OnTriggerStay (Collider other){
 
-		if (other.CompareTag ("Player") && Input.GetButtonDown ("Pick")) {
-			if (player.haveItem()) {
+		if (other.CompareTag ("Player") ) {
+			if (Input.GetButtonDown ("Pick") && player.haveItem()){
 				player.changeItem(itemType);
 				StartCoroutine (Respawn ());
 			}
 		}
-
 	}
 
+	void OnTriggerEnter (Collider other){
+		if (other.CompareTag ("Player"))
+			meshRenderer.material.SetColor ("_EmissionColor", Color.gray);
+	}
+
+	void OnTriggerExit (Collider other){
+		if (other.CompareTag ("Player"))
+			meshRenderer.material.SetColor ("_EmissionColor",_color);
+	}
+	
 	private IEnumerator Respawn() {
+		meshRenderer.material.SetColor ("_EmissionColor",_color);
 		meshRenderer.enabled = false;
 		sphereCollider.enabled = false;
 		yield return new WaitForSeconds (5.0f);
