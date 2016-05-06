@@ -13,7 +13,7 @@ Shader "Custom/seethrough" {
         // occluded pass
         Pass {
             ZWrite Off
-            Blend One Zero
+            Blend SrcAlpha OneMinusSrcAlpha 
             ZTest Greater
             Color [_OccludeColor]
         }
