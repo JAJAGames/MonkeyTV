@@ -26,6 +26,11 @@ public class PropPickItem : MonoBehaviour {
 		_color = meshRenderer.material.GetColor ("_EmissionColor");
 	}
 		
+	void Update (){
+		transform.RotateAround(transform.position, Vector3.up, Time.deltaTime * 90f);
+
+	}
+
 	void OnTriggerStay (Collider other){
 
 		if (other.CompareTag ("Player") ) {
