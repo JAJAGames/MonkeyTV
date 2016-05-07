@@ -1,57 +1,15 @@
 fileFormatVersion: 2
-guid: 841a4e9cb599c654d9eede5222cd5e0b
-timeCreated: 1462291545
+guid: 363237fbcb6ae493081d137b44ee81a1
+timeCreated: 1462616429
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: ITMC_Pinya_01
-    100004: ITMC_Pinya_02
-    100006: ITMC_Pinya_03
-    100008: ITMC_Pinya_04
-    100010: ITMC_Pinya_05
-    100012: ITMC_Pinya_06
-    100014: ITMC_Pinya_07
-    100016: ITMC_Pinya_08
-    100018: ITMC_Pinya_09
     400000: //RootNode
-    400002: ITMC_Pinya_01
-    400004: ITMC_Pinya_02
-    400006: ITMC_Pinya_03
-    400008: ITMC_Pinya_04
-    400010: ITMC_Pinya_05
-    400012: ITMC_Pinya_06
-    400014: ITMC_Pinya_07
-    400016: ITMC_Pinya_08
-    400018: ITMC_Pinya_09
-    2300000: ITMC_Pinya_01
-    2300002: ITMC_Pinya_02
-    2300004: ITMC_Pinya_03
-    2300006: ITMC_Pinya_04
-    2300008: ITMC_Pinya_05
-    2300010: ITMC_Pinya_06
-    2300012: ITMC_Pinya_07
-    2300014: ITMC_Pinya_08
-    2300016: ITMC_Pinya_09
-    3300000: ITMC_Pinya_01
-    3300002: ITMC_Pinya_02
-    3300004: ITMC_Pinya_03
-    3300006: ITMC_Pinya_04
-    3300008: ITMC_Pinya_05
-    3300010: ITMC_Pinya_06
-    3300012: ITMC_Pinya_07
-    3300014: ITMC_Pinya_08
-    3300016: ITMC_Pinya_09
-    4300000: ITMC_Pinya_09
-    4300002: ITMC_Pinya_08
-    4300004: ITMC_Pinya_07
-    4300006: ITMC_Pinya_06
-    4300008: ITMC_Pinya_05
-    4300010: ITMC_Pinya_04
-    4300012: ITMC_Pinya_03
-    4300014: ITMC_Pinya_02
-    4300016: ITMC_Pinya_01
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: ITMC_Pinya
   materials:
     importMaterials: 1
     materialName: 0

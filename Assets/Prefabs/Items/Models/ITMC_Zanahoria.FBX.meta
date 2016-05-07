@@ -1,32 +1,15 @@
 fileFormatVersion: 2
-guid: f8a57794af5888a44a9488a424084e9b
-timeCreated: 1462357367
+guid: a60707d406bd0474b81ac2279f949d57
+timeCreated: 1462616429
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: ITMC_Zanahoria_01
-    100004: ITMC_Zanahoria_02
-    100006: ITMC_Zanahoria_03
-    100008: ITMC_Zanahoria_04
     400000: //RootNode
-    400002: ITMC_Zanahoria_01
-    400004: ITMC_Zanahoria_02
-    400006: ITMC_Zanahoria_03
-    400008: ITMC_Zanahoria_04
-    2300000: ITMC_Zanahoria_01
-    2300002: ITMC_Zanahoria_02
-    2300004: ITMC_Zanahoria_03
-    2300006: ITMC_Zanahoria_04
-    3300000: ITMC_Zanahoria_01
-    3300002: ITMC_Zanahoria_02
-    3300004: ITMC_Zanahoria_03
-    3300006: ITMC_Zanahoria_04
-    4300000: ITMC_Zanahoria_01
-    4300002: ITMC_Zanahoria_02
-    4300004: ITMC_Zanahoria_03
-    4300006: ITMC_Zanahoria_04
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: ITMC_Zanahoria
   materials:
     importMaterials: 1
     materialName: 0

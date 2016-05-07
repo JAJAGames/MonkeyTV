@@ -1,27 +1,15 @@
 fileFormatVersion: 2
-guid: 9ccb934a86728b74fb2a87427662d1a6
-timeCreated: 1462291541
+guid: df4928f6fde0f4dc49c1c4f6b76d4b3f
+timeCreated: 1462616429
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: ITMC_Naranja_01
-    100004: ITMC_Naranja_02
-    100006: ITMC_Naranja_03
     400000: //RootNode
-    400002: ITMC_Naranja_01
-    400004: ITMC_Naranja_02
-    400006: ITMC_Naranja_03
-    2300000: ITMC_Naranja_01
-    2300002: ITMC_Naranja_02
-    2300004: ITMC_Naranja_03
-    3300000: ITMC_Naranja_01
-    3300002: ITMC_Naranja_02
-    3300004: ITMC_Naranja_03
-    4300000: ITMC_Naranja_01
-    4300002: ITMC_Naranja_02
-    4300004: ITMC_Naranja_03
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: ITMC_Naranja
   materials:
     importMaterials: 1
     materialName: 0

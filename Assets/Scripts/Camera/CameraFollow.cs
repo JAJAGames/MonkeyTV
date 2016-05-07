@@ -44,6 +44,7 @@ public class CameraFollow : MonoBehaviour {
 	private void Start() 
 	{
 		initDifference = transform.position - playerMove.transform.position; 					//get the initial offset
+		gamestate.Instance.SetState (state.STATE_CAMERA_FOLLOW_PLAYER);
     }
 
 	private void Update() 
