@@ -11,48 +11,57 @@ public class Dish : MonoBehaviour {
 
 	public int dishCode;
 	private Sprite[] sprites ;
-	private bool selection = false;
-	private bool stopSelection = false;
+	private bool showSelection = false;
 	private PlayerMovement player;
+	private DishSelection clockDish;
+
 	void Awake(){
 		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
 		player = GameObject.Find ("Player").GetComponent<PlayerMovement> ();
+		clockDish = GameObject.Find ("Clock").GetComponent<DishSelection> ();
 	}
 
 	void Update(){
 		
 		if (Input.GetKeyDown (KeyCode.O)) {
-			canvas.gameObject.SetActive(true);
-			gamestate.Instance.SetState (Enums.state.STATE_STATIC_CAMERA);
-			player.enabled = false;
-			selection = true;
-			StartCoroutine (StartNewDish (5));
-		}
-		
-		if (selection && !stopSelection) {
-			StartCoroutine(NeWDish());
+			ShowNewDish ();
 		}
 
 	}
+
+
+	void ShowNewDish(){
+		
+		canvas.gameObject.SetActive(true);
+		gamestate.Instance.SetState (Enums.state.STATE_STATIC_CAMERA);
+		player.enabled = false;
+		StartCoroutine (StartNewDish (5));		
+	}
+
 
 	IEnumerator NeWDish() {
 
-		selection = false;
-		yield return new WaitForSeconds(0.25f);
-		selection = true;
-
-		if (!stopSelection) {
+		if (showSelection) {
+			yield return new WaitForSeconds(0.25f);
 			dishCode = Random.Range (0, sprites.Length);
-			image.sprite = sprites [dishCode];
+			StartCoroutine(NeWDish());
 		}
+
+		image.sprite = sprites [dishCode];
+
 	}
 
 	IEnumerator StartNewDish (float waitTime){
-		stopSelection = false;
+		
+		showSelection = true;
+		StartCoroutine(NeWDish());
 		yield return new WaitForSeconds(waitTime);
-		stopSelection = true;
+		showSelection = false;
+		dishCode = clockDish.GetCurrent ();
+		clockDish.AddCourse ();
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		Invoke ("ToSearch", 5.0f);
+
 	}
 
 	void ToSearch(){
