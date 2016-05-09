@@ -1,0 +1,985 @@
+fileFormatVersion: 2
+guid: 764ad8db4791d5f4c84bf1d2263734ea
+timeCreated: 1462814425
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: montaje alarma tiles 320x240_0
+    21300002: montaje alarma tiles 320x240_1
+    21300004: montaje alarma tiles 320x240_2
+    21300006: montaje alarma tiles 320x240_3
+    21300008: montaje alarma tiles 320x240_4
+    21300010: montaje alarma tiles 320x240_5
+    21300012: montaje alarma tiles 320x240_6
+    21300014: montaje alarma tiles 320x240_7
+    21300016: montaje alarma tiles 320x240_8
+    21300018: montaje alarma tiles 320x240_9
+    21300020: montaje alarma tiles 320x240_10
+    21300022: montaje alarma tiles 320x240_11
+    21300024: montaje alarma tiles 320x240_12
+    21300026: montaje alarma tiles 320x240_13
+    21300028: montaje alarma tiles 320x240_14
+    21300030: montaje alarma tiles 320x240_15
+    21300032: montaje alarma tiles 320x240_16
+    21300034: montaje alarma tiles 320x240_17
+    21300036: montaje alarma tiles 320x240_18
+    21300038: montaje alarma tiles 320x240_19
+    21300040: montaje alarma tiles 320x240_20
+    21300042: montaje alarma tiles 320x240_21
+    21300044: montaje alarma tiles 320x240_22
+    21300046: montaje alarma tiles 320x240_23
+    21300048: montaje alarma tiles 320x240_24
+    21300050: montaje alarma tiles 320x240_25
+    21300052: montaje alarma tiles 320x240_26
+    21300054: montaje alarma tiles 320x240_27
+    21300056: montaje alarma tiles 320x240_28
+    21300058: montaje alarma tiles 320x240_29
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: montaje alarma tiles 320x240_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 69, y: 101}
+        - {x: 61, y: 99}
+        - {x: 54, y: 89}
+        - {x: 48, y: 79}
+        - {x: -21, y: 31}
+        - {x: -21, y: -32}
+        - {x: 5, y: -41}
+        - {x: 50, y: -79}
+        - {x: 69, y: -91}
+        - {x: 138, y: -91}
+        - {x: 138, y: 99}
+        - {x: 113, y: 101}
+    - name: montaje alarma tiles 320x240_1
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 126, y: 100}
+        - {x: 7, y: 100}
+        - {x: -21, y: 37}
+        - {x: -21, y: -51}
+        - {x: 53, y: -91}
+        - {x: 122, y: -91}
+        - {x: 126, y: -90}
+        - {x: 137, y: -31}
+        - {x: 137, y: 73}
+        - {x: 127, y: 99}
+    - name: montaje alarma tiles 320x240_2
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 101}
+        - {x: -18, y: 26}
+        - {x: -18, y: -46}
+        - {x: 56, y: -85}
+        - {x: 123, y: -85}
+        - {x: 138, y: -51}
+        - {x: 138, y: 81}
+        - {x: 130, y: 101}
+    - name: montaje alarma tiles 320x240_3
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4, y: 102}
+        - {x: -21, y: 96}
+        - {x: -21, y: -44}
+        - {x: -8, y: -80}
+        - {x: 74, y: -80}
+        - {x: 105, y: -77}
+        - {x: 132, y: -38}
+        - {x: 132, y: 39}
+        - {x: 100, y: 102}
+    - name: montaje alarma tiles 320x240_4
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 105}
+        - {x: -41, y: -17}
+        - {x: -34, y: -48}
+        - {x: 7, y: -74}
+        - {x: 105, y: -74}
+        - {x: 123, y: -24}
+        - {x: 123, y: 87}
+        - {x: 117, y: 105}
+    - name: montaje alarma tiles 320x240_5
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 960
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 104, y: 57}
+        - {x: 76, y: 88}
+        - {x: 61, y: 96}
+        - {x: 61, y: 90}
+        - {x: 63, y: 86}
+        - {x: 62, y: 88}
+        - {x: 59, y: 91}
+        - {x: 61, y: 94}
+        - {x: 51, y: 101}
+        - {x: 34, y: 104}
+        - {x: -2, y: 104}
+        - {x: -16, y: 100}
+        - {x: -65, y: 79}
+        - {x: -65, y: -44}
+        - {x: -7, y: -73}
+        - {x: 55, y: -73}
+        - {x: 82, y: -51}
+        - {x: 107, y: -24}
+        - {x: 109, y: -16}
+        - {x: 109, y: 36}
+    - name: montaje alarma tiles 320x240_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 40, y: 106}
+        - {x: -41, y: 106}
+        - {x: -85, y: 63}
+        - {x: -85, y: -12}
+        - {x: -46, y: -68}
+        - {x: 45, y: -68}
+        - {x: 93, y: -51}
+        - {x: 93, y: 72}
+        - {x: 52, y: 102}
+    - name: montaje alarma tiles 320x240_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 39, y: 90}
+        - {x: 36, y: 90}
+        - {x: 35, y: 87}
+        - {x: 36, y: 86}
+        - {x: 35, y: 87}
+        - {x: 36, y: 90}
+        - {x: 30, y: 97}
+        - {x: 17, y: 106}
+        - {x: -55, y: 106}
+        - {x: -89, y: 97}
+        - {x: -103, y: 53}
+        - {x: -103, y: -61}
+        - {x: -75, y: -70}
+        - {x: 35, y: -70}
+        - {x: 75, y: -32}
+        - {x: 75, y: 47}
+        - {x: 49, y: 83}
+      - - {x: -102, y: 8}
+        - {x: -99, y: 9}
+        - {x: -99, y: 12}
+        - {x: -102, y: 13}
+        - {x: -104, y: 11}
+    - name: montaje alarma tiles 320x240_8
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42, y: 106}
+        - {x: -102, y: 106}
+        - {x: -113, y: 82}
+        - {x: -113, y: -40}
+        - {x: -110, y: -61}
+        - {x: -64, y: -68}
+        - {x: -41, y: -71}
+        - {x: -23, y: -71}
+        - {x: 23, y: -58}
+        - {x: 50, y: -31}
+        - {x: 56, y: -2}
+        - {x: 56, y: 77}
+      - - {x: -80, y: -57}
+        - {x: -77, y: -56}
+        - {x: -77, y: -53}
+        - {x: -80, y: -52}
+        - {x: -82, y: -54}
+      - - {x: -98, y: -38}
+        - {x: -95, y: -37}
+        - {x: -95, y: -34}
+        - {x: -98, y: -33}
+        - {x: -100, y: -35}
+      - - {x: 0, y: 99}
+        - {x: 3, y: 100}
+        - {x: 3, y: 103}
+        - {x: 0, y: 104}
+        - {x: -2, y: 102}
+    - name: montaje alarma tiles 320x240_9
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 105}
+        - {x: -92, y: 105}
+        - {x: -129, y: 55}
+        - {x: -129, y: -36}
+        - {x: -123, y: -50}
+        - {x: -79, y: -75}
+        - {x: -22, y: -75}
+        - {x: 28, y: -47}
+        - {x: 28, y: 71}
+        - {x: 24, y: 103}
+    - name: montaje alarma tiles 320x240_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -91, y: 106}
+        - {x: -111, y: 88}
+        - {x: -123, y: 66}
+        - {x: -137, y: 33}
+        - {x: -137, y: -10}
+        - {x: -127, y: -52}
+        - {x: -121, y: -51}
+        - {x: -119, y: -49}
+        - {x: -116, y: -51}
+        - {x: -116, y: -50}
+        - {x: -117, y: -51}
+        - {x: -118, y: -50}
+        - {x: -121, y: -52}
+        - {x: -112, y: -69}
+        - {x: -101, y: -80}
+        - {x: -41, y: -80}
+        - {x: 18, y: -53}
+        - {x: 18, y: 55}
+        - {x: -35, y: 106}
+    - name: montaje alarma tiles 320x240_11
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 720
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -41, y: 103}
+        - {x: -103, y: 103}
+        - {x: -113, y: 101}
+        - {x: -138, y: 45}
+        - {x: -138, y: -37}
+        - {x: -116, y: -88}
+        - {x: -41, y: -88}
+        - {x: 18, y: -40}
+        - {x: 18, y: 22}
+        - {x: 14, y: 39}
+    - name: montaje alarma tiles 320x240_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -60, y: 100}
+        - {x: -120, y: 100}
+        - {x: -141, y: 56}
+        - {x: -141, y: -32}
+        - {x: -123, y: -84}
+        - {x: -111, y: -94}
+        - {x: -64, y: -94}
+        - {x: 18, y: -42}
+        - {x: 18, y: 27}
+        - {x: -45, y: 96}
+    - name: montaje alarma tiles 320x240_13
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -119, y: 101}
+        - {x: -142, y: 48}
+        - {x: -142, y: -41}
+        - {x: -130, y: -60}
+        - {x: -108, y: -97}
+        - {x: -54, y: -97}
+        - {x: 18, y: -53}
+        - {x: 18, y: 38}
+        - {x: 16, y: 43}
+        - {x: -52, y: 101}
+    - name: montaje alarma tiles 320x240_14
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -107, y: 101}
+        - {x: -111, y: 98}
+        - {x: -139, y: 57}
+        - {x: -139, y: -50}
+        - {x: -136, y: -78}
+        - {x: -93, y: -103}
+        - {x: -73, y: -103}
+        - {x: -66, y: -96}
+        - {x: 21, y: -42}
+        - {x: 21, y: 56}
+        - {x: -26, y: 101}
+    - name: montaje alarma tiles 320x240_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -143, y: 60}
+        - {x: -143, y: -68}
+        - {x: -114, y: -106}
+        - {x: -39, y: -106}
+        - {x: 18, y: -70}
+        - {x: 18, y: 34}
+        - {x: 16, y: 41}
+        - {x: -66, y: 98}
+        - {x: -111, y: 98}
+        - {x: -142, y: 75}
+    - name: montaje alarma tiles 320x240_16
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -102, y: 97}
+        - {x: -142, y: 63}
+        - {x: -142, y: -78}
+        - {x: -88, y: -111}
+        - {x: -42, y: -111}
+        - {x: 18, y: -40}
+        - {x: 18, y: 30}
+        - {x: -38, y: 97}
+    - name: montaje alarma tiles 320x240_17
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 480
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -52, y: -117}
+        - {x: -49, y: -116}
+        - {x: -49, y: -113}
+        - {x: -52, y: -112}
+        - {x: -54, y: -114}
+      - - {x: -40, y: 95}
+        - {x: -105, y: 95}
+        - {x: -140, y: 39}
+        - {x: -140, y: -60}
+        - {x: -94, y: -115}
+        - {x: -21, y: -115}
+        - {x: -19, y: -114}
+        - {x: 18, y: -69}
+        - {x: 18, y: 26}
+        - {x: -11, y: 89}
+    - name: montaje alarma tiles 320x240_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 83}
+        - {x: -28, y: 89}
+        - {x: -92, y: 89}
+        - {x: -117, y: 81}
+        - {x: -138, y: 35}
+        - {x: -138, y: -48}
+        - {x: -122, y: -100}
+        - {x: -71, y: -120}
+        - {x: 2, y: -120}
+        - {x: 36, y: -86}
+        - {x: 36, y: -13}
+        - {x: 22, y: 41}
+    - name: montaje alarma tiles 320x240_19
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: -118}
+        - {x: 59, y: -113}
+        - {x: 59, y: 63}
+        - {x: -23, y: 89}
+        - {x: -47, y: 89}
+        - {x: -47, y: 85}
+        - {x: -48, y: 89}
+        - {x: -134, y: 89}
+        - {x: -135, y: 83}
+        - {x: -135, y: -102}
+        - {x: -82, y: -120}
+        - {x: 7, y: -120}
+        - {x: 3, y: -114}
+        - {x: 6, y: -113}
+        - {x: 6, y: -115}
+    - name: montaje alarma tiles 320x240_20
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 52, y: 53}
+        - {x: 41, y: 56}
+        - {x: 40, y: 56}
+        - {x: 41, y: 56}
+        - {x: 45, y: 58}
+        - {x: 50, y: 83}
+        - {x: 23, y: 87}
+        - {x: -89, y: 87}
+        - {x: -114, y: 41}
+        - {x: -111, y: 36}
+        - {x: -109, y: 34}
+        - {x: -113, y: 36}
+        - {x: -125, y: 34}
+        - {x: -126, y: 28}
+        - {x: -126, y: -76}
+        - {x: -107, y: -120}
+        - {x: 69, y: -120}
+        - {x: 84, y: -117}
+        - {x: 84, y: 2}
+        - {x: 82, y: 6}
+      - - {x: 58, y: 40}
+        - {x: 61, y: 41}
+        - {x: 61, y: 44}
+        - {x: 58, y: 45}
+        - {x: 56, y: 43}
+      - - {x: -40, y: 83}
+        - {x: -37, y: 84}
+        - {x: -37, y: 87}
+        - {x: -40, y: 88}
+        - {x: -42, y: 86}
+    - name: montaje alarma tiles 320x240_21
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 60, y: 86}
+        - {x: -96, y: 86}
+        - {x: -119, y: 19}
+        - {x: -119, y: -47}
+        - {x: -89, y: -95}
+        - {x: -78, y: -97}
+        - {x: -76, y: -97}
+        - {x: -79, y: -99}
+        - {x: -79, y: -100}
+        - {x: -70, y: -120}
+        - {x: 52, y: -120}
+        - {x: 78, y: -116}
+        - {x: 92, y: -69}
+        - {x: 98, y: -63}
+        - {x: 98, y: 46}
+      - - {x: 91, y: -55}
+        - {x: 94, y: -54}
+        - {x: 94, y: -51}
+        - {x: 91, y: -50}
+        - {x: 89, y: -52}
+      - - {x: 81, y: 32}
+        - {x: 84, y: 33}
+        - {x: 84, y: 36}
+        - {x: 81, y: 37}
+        - {x: 79, y: 35}
+      - - {x: -69, y: 67}
+        - {x: -66, y: 68}
+        - {x: -66, y: 71}
+        - {x: -69, y: 72}
+        - {x: -71, y: 70}
+    - name: montaje alarma tiles 320x240_22
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 68, y: 70}
+        - {x: 65, y: 66}
+        - {x: 65, y: 64}
+        - {x: 68, y: 62}
+        - {x: 67, y: 61}
+        - {x: 65, y: 65}
+        - {x: 62, y: 68}
+        - {x: 31, y: 88}
+        - {x: 14, y: 88}
+        - {x: 12, y: 86}
+        - {x: 11, y: 88}
+        - {x: -49, y: 88}
+        - {x: -103, y: 25}
+        - {x: -103, y: 12}
+        - {x: -100, y: 4}
+        - {x: -98, y: 2}
+        - {x: -97, y: 2}
+        - {x: -101, y: 3}
+        - {x: -103, y: 3}
+        - {x: -103, y: -68}
+        - {x: -82, y: -116}
+        - {x: -58, y: -120}
+        - {x: 63, y: -120}
+        - {x: 113, y: -81}
+        - {x: 113, y: 40}
+        - {x: 79, y: 66}
+    - name: montaje alarma tiles 320x240_23
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 240
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 50, y: 85}
+        - {x: 49, y: 85}
+        - {x: 47, y: 82}
+        - {x: 43, y: 77}
+        - {x: 40, y: 77}
+        - {x: 44, y: 78}
+        - {x: 44, y: 81}
+        - {x: 42, y: 85}
+        - {x: -26, y: 85}
+        - {x: -87, y: 58}
+        - {x: -87, y: -82}
+        - {x: -60, y: -120}
+        - {x: 109, y: -120}
+        - {x: 123, y: -75}
+        - {x: 123, y: 59}
+        - {x: 82, y: 76}
+      - - {x: 122, y: -12}
+        - {x: 125, y: -11}
+        - {x: 125, y: -8}
+        - {x: 122, y: -7}
+        - {x: 120, y: -9}
+      - - {x: -82, y: 7}
+        - {x: -79, y: 8}
+        - {x: -79, y: 11}
+        - {x: -82, y: 12}
+        - {x: -84, y: 10}
+    - name: montaje alarma tiles 320x240_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 83, y: -102}
+        - {x: 89, y: -114}
+        - {x: 131, y: -81}
+        - {x: 131, y: 49}
+        - {x: 109, y: 87}
+        - {x: -27, y: 87}
+        - {x: -69, y: 19}
+        - {x: -69, y: -43}
+        - {x: -62, y: -64}
+        - {x: -50, y: -89}
+        - {x: -37, y: -105}
+        - {x: -12, y: -117}
+        - {x: -7, y: -120}
+        - {x: 65, y: -120}
+        - {x: 71, y: -118}
+        - {x: 83, y: -104}
+        - {x: 83, y: -101}
+      - - {x: -28, y: -111}
+        - {x: -25, y: -110}
+        - {x: -25, y: -107}
+        - {x: -28, y: -106}
+        - {x: -30, y: -108}
+      - - {x: -61, y: 12}
+        - {x: -58, y: 13}
+        - {x: -58, y: 16}
+        - {x: -61, y: 17}
+        - {x: -63, y: 15}
+      - - {x: -38, y: 118}
+        - {x: -38, y: 120}
+        - {x: -43, y: 120}
+        - {x: -41, y: 117}
+      - - {x: -29, y: 118}
+        - {x: -29, y: 120}
+        - {x: -34, y: 120}
+        - {x: -32, y: 117}
+    - name: montaje alarma tiles 320x240_25
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 90, y: 84}
+        - {x: 83, y: 82}
+        - {x: 80, y: 80}
+        - {x: 78, y: 78}
+        - {x: 79, y: 80}
+        - {x: 82, y: 81}
+        - {x: 86, y: 86}
+        - {x: 81, y: 88}
+        - {x: 30, y: 88}
+        - {x: 3, y: 74}
+        - {x: 3, y: 63}
+        - {x: 3, y: 64}
+        - {x: 2, y: 67}
+        - {x: -6, y: 65}
+        - {x: -37, y: 28}
+        - {x: -45, y: 7}
+        - {x: -45, y: -82}
+        - {x: -16, y: -120}
+        - {x: 88, y: -120}
+        - {x: 122, y: -112}
+        - {x: 136, y: -56}
+        - {x: 136, y: 39}
+        - {x: 117, y: 66}
+      - - {x: -36, y: 118}
+        - {x: -36, y: 120}
+        - {x: -41, y: 120}
+        - {x: -39, y: 117}
+      - - {x: -4, y: 118}
+        - {x: -4, y: 120}
+        - {x: -9, y: 120}
+        - {x: -7, y: 117}
+    - name: montaje alarma tiles 320x240_26
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 40, y: 92}
+        - {x: 20, y: 88}
+        - {x: -18, y: 42}
+        - {x: -18, y: -51}
+        - {x: -7, y: -115}
+        - {x: 23, y: -120}
+        - {x: 89, y: -120}
+        - {x: 142, y: -56}
+        - {x: 142, y: 39}
+        - {x: 120, y: 92}
+      - - {x: -21, y: 120}
+        - {x: -24, y: 118}
+        - {x: -24, y: 117}
+        - {x: -23, y: 114}
+        - {x: -14, y: 114}
+        - {x: -10, y: 118}
+        - {x: -10, y: 120}
+      - - {x: -30, y: 120}
+        - {x: -31, y: 119}
+        - {x: -30, y: 116}
+        - {x: -28, y: 116}
+        - {x: -25, y: 119}
+        - {x: -25, y: 120}
+      - - {x: -5, y: 116}
+        - {x: -2, y: 117}
+        - {x: -2, y: 120}
+        - {x: -6, y: 120}
+        - {x: -7, y: 119}
+      - - {x: 8, y: 116}
+        - {x: 11, y: 117}
+        - {x: 11, y: 120}
+        - {x: 7, y: 120}
+        - {x: 6, y: 119}
+    - name: montaje alarma tiles 320x240_27
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 119, y: 91}
+        - {x: 34, y: 91}
+        - {x: -21, y: 29}
+        - {x: -21, y: -53}
+        - {x: 40, y: -116}
+        - {x: 95, y: -116}
+        - {x: 139, y: -78}
+        - {x: 139, y: 85}
+      - - {x: -7, y: 120}
+        - {x: -7, y: 115}
+        - {x: -4, y: 114}
+        - {x: 14, y: 114}
+        - {x: 17, y: 115}
+        - {x: 22, y: 119}
+        - {x: 22, y: 120}
+      - - {x: -21, y: 120}
+        - {x: -21, y: 116}
+        - {x: -18, y: 115}
+        - {x: -8, y: 115}
+        - {x: -7, y: 117}
+        - {x: -8, y: 120}
+      - - {x: -29, y: 118}
+        - {x: -29, y: 120}
+        - {x: -34, y: 120}
+        - {x: -32, y: 117}
+      - - {x: -23, y: 118}
+        - {x: -23, y: 120}
+        - {x: -28, y: 120}
+        - {x: -26, y: 117}
+    - name: montaje alarma tiles 320x240_28
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 72, y: 94}
+        - {x: 67, y: 89}
+        - {x: -19, y: 31}
+        - {x: -21, y: 11}
+        - {x: -21, y: -40}
+        - {x: -16, y: -43}
+        - {x: 50, y: -110}
+        - {x: 125, y: -110}
+        - {x: 138, y: -60}
+        - {x: 138, y: 83}
+        - {x: 109, y: 94}
+      - - {x: -12, y: 120}
+        - {x: -12, y: 117}
+        - {x: -7, y: 114}
+        - {x: 9, y: 114}
+        - {x: 9, y: 120}
+      - - {x: -21, y: 120}
+        - {x: -21, y: 117}
+        - {x: -18, y: 116}
+        - {x: -14, y: 116}
+        - {x: -12, y: 117}
+        - {x: -12, y: 120}
+      - - {x: 11, y: 116}
+        - {x: 14, y: 117}
+        - {x: 14, y: 120}
+        - {x: 8, y: 120}
+        - {x: 8, y: 119}
+      - - {x: 15, y: 120}
+        - {x: 14, y: 119}
+        - {x: 15, y: 116}
+        - {x: 22, y: 116}
+        - {x: 24, y: 118}
+        - {x: 23, y: 120}
+      - - {x: -25, y: 118}
+        - {x: -25, y: 120}
+        - {x: -30, y: 120}
+        - {x: -28, y: 117}
+    - name: montaje alarma tiles 320x240_29
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 320
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24, y: -100}
+        - {x: 103, y: -100}
+        - {x: 138, y: -61}
+        - {x: 138, y: 70}
+        - {x: 124, y: 95}
+        - {x: 44, y: 95}
+        - {x: -21, y: 52}
+        - {x: -21, y: -63}
+      - - {x: 22, y: 114}
+        - {x: 24, y: 111}
+        - {x: 35, y: 114}
+        - {x: 40, y: 118}
+        - {x: 40, y: 120}
+        - {x: 0, y: 120}
+        - {x: 0, y: 111}
+        - {x: 1, y: 110}
+        - {x: 18, y: 110}
+        - {x: 21, y: 115}
+        - {x: 23, y: 116}
+        - {x: 23, y: 118}
+      - - {x: -15, y: 120}
+        - {x: -15, y: 114}
+        - {x: -10, y: 112}
+        - {x: -2, y: 112}
+        - {x: -1, y: 114}
+        - {x: -2, y: 120}
+      - - {x: -24, y: 120}
+        - {x: -24, y: 117}
+        - {x: -21, y: 116}
+        - {x: -17, y: 116}
+        - {x: -15, y: 117}
+        - {x: -15, y: 120}
+      - - {x: 48, y: 118}
+        - {x: 48, y: 120}
+        - {x: 43, y: 120}
+        - {x: 45, y: 117}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
