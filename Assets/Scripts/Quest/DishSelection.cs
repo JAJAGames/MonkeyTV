@@ -37,9 +37,11 @@ public class DishSelection : MonoBehaviour {
 		if (currentCourse + 1 == course.Length)
 			return;
 		currentCourse += 1;
-		clock = 65;
 	}
-		
+
+	public void SetClock(float time){
+		clock = time;
+	}
 
 	//compare indexes.	
 	public bool CompareCourse (int i){
