@@ -45,7 +45,9 @@ public class Dish : MonoBehaviour {
 			yield return new WaitForSeconds(0.25f);
 			dishCode = Random.Range (0, sprites.Length);
 			StartCoroutine(NeWDish());
-		}
+		}else
+			dishCode = clockDish.GetCurrent ();
+
 
 		image.sprite = sprites [dishCode];
 
@@ -57,8 +59,6 @@ public class Dish : MonoBehaviour {
 		StartCoroutine(NeWDish());
 		yield return new WaitForSeconds(waitTime);
 		showSelection = false;
-		dishCode = clockDish.GetCurrent ();
-		clockDish.AddCourse ();
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		Invoke ("ToSearch", 5.0f);
 
