@@ -4,44 +4,45 @@ using Enums;
 
 public class PickItems : MonoBehaviour {
 
-	public itemsListMasterChef actualItem;
+	public itemsListMC actualItem;
 
 	[Tooltip("Items")]
 	public Transform Items;
 	public GameObject[] allItems;
+	private BoxCollider boxCollider;
 
 	// Use this for initialization
 	void Start () {
-		actualItem = itemsListMasterChef.NO_ITEM;
+		actualItem = itemsListMC.NO_ITEM;
 
 		allItems = HelperMethods.GetChildren (Items);
 		for (int i = 0; i < allItems.Length; i++) 
 			allItems[i].SetActive(false);
+
+		boxCollider = Items.GetComponent<BoxCollider> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Throw") && actualItem != itemsListMasterChef.NO_ITEM) {
+		if (Input.GetButtonDown ("Throw") && actualItem != itemsListMC.NO_ITEM) {
 			throwItem ();
 		}
-	}
-
-	void change() {
-	
 	}
 
 	public void throwItem() {
 		//Throw item animation
 		allItems[(int)actualItem].SetActive (false);
-		actualItem = itemsListMasterChef.NO_ITEM;
+		boxCollider.enabled = false;
+		actualItem = itemsListMC.NO_ITEM;
 	}
 
 	public bool haveItem() {
-		return actualItem == itemsListMasterChef.NO_ITEM;
+		return !(actualItem == itemsListMC.NO_ITEM);
 	}
 
-	public void changeItem(itemsListMasterChef newItem) {
+	public void changeItem(itemsListMC newItem) {
 		actualItem = newItem;
 		allItems[(int)newItem].SetActive(true);
+		boxCollider.enabled = true;
 	}
 }

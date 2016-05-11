@@ -4,9 +4,9 @@ using Enums;
 
 public class PropPickItem : MonoBehaviour {
 
-	public itemsListMasterChef itemType;
+	public itemsListMC itemType;
 	public MeshRenderer meshRenderer;
-	public SphereCollider sphereCollider;
+	public CapsuleCollider capsuleCollider;
 
 	public PickItems player;
 	private Color _color;
@@ -15,7 +15,7 @@ public class PropPickItem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		meshRenderer = GetComponent<MeshRenderer> ();
-		sphereCollider = GetComponent<SphereCollider> ();
+		capsuleCollider = GetComponent<CapsuleCollider> ();
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
 
 		_material = meshRenderer.sharedMaterial;
@@ -35,7 +35,7 @@ public class PropPickItem : MonoBehaviour {
 	void OnTriggerStay (Collider other){
 
 		if (other.CompareTag ("Player") ) {
-			if (Input.GetButtonDown ("Pick") && player.haveItem()){
+			if (Input.GetButtonDown ("Pick") && !player.haveItem()){
 				player.changeItem(itemType);
 				StartCoroutine (Respawn ());
 			}
@@ -59,12 +59,12 @@ public class PropPickItem : MonoBehaviour {
 	private IEnumerator Respawn() {
 		meshRenderer.material.SetColor ("_EmissionColor",_color);
 		meshRenderer.enabled = false;
-		sphereCollider.enabled = false;
+		capsuleCollider.enabled = false;
 		yield return new WaitForSeconds (5.0f);
 
 		//Respawn animation
 
 		meshRenderer.enabled = true;
-		sphereCollider.enabled = true;
+		capsuleCollider.enabled = true;
 	}
 }

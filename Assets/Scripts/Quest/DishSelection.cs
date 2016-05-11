@@ -6,7 +6,7 @@ public class DishSelection : MonoBehaviour {
 
 	private int [] course = new int[3];
 
-	private int currentCourse;
+	public int currentCourse;
 	private float clock = Mathf.Infinity;
 	public Text text;
 
@@ -59,5 +59,9 @@ public class DishSelection : MonoBehaviour {
 	//read the current course
 	public int GetCurrent(){
 		return course[currentCourse];
+	}
+
+	public int[] GetCourses(){
+		return course;
 	}
 }
