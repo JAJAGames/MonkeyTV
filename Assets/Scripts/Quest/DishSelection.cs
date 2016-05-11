@@ -7,7 +7,7 @@ public class DishSelection : MonoBehaviour {
 	private int [] course = new int[3];
 
 	private int currentCourse;
-	private float clock;
+	private float clock = Mathf.Infinity;
 	public Text text;
 
 	//Set all coruses before countdown
@@ -22,6 +22,9 @@ public class DishSelection : MonoBehaviour {
 	}
 
 	void Update(){
+
+		if (gamestate.Instance.GetState () == Enums.state.STATE_LOOSE)
+			return;
 		
 		if (clock > 0) {
 			text.text = string.Format("{0:#0}:{1:00}",
@@ -30,6 +33,8 @@ public class DishSelection : MonoBehaviour {
 		}
 
 		clock -= Time.deltaTime;
+		if (clock < 0)
+			gamestate.Instance.SetState (Enums.state.STATE_LOOSE);
 	}
 
 	//index plus 1 but never more than array lenght	
