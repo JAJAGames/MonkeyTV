@@ -21,7 +21,7 @@
 
 using UnityEngine;
 using System.Collections;
-
+using Enums;
 #if UNITY_5_3_OR_NEWER
 using UnityEngine.SceneManagement;
 #endif
@@ -36,7 +36,7 @@ public class MenuClick : MonoBehaviour {
 	//CHANGE TO NEW SCENE. IN INSPECTOR WE CAN SET THE BUILD INDEX OF THE NEW SCENE.
 	public void LoadScene(int level)
 	{
-		gamestate.Instance.SetLevel ((Enums.sceneLevel)level);
+		gamestate.Instance.SetLevel ((sceneLevel)level);
 
 	}
 
