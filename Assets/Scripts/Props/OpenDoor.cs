@@ -37,6 +37,10 @@ public class OpenDoor : MonoBehaviour {
 		closed = false;
 	}
 
+	public bool isClosed(){
+		return closed;
+	}
+
 	//update the angle position and increment till the door is opened
 	void Update ()
 	{

@@ -4,12 +4,15 @@ using Enums;
 
 public class PropDropItem : MonoBehaviour {
 
+
 	public MeshRenderer meshRenderer;
 	public PickItems player;
+
 	private Color _color;
 	private Material _material;
-
 	private DishSelection dishSelection;
+
+	public OpenDoor keyDoor;
 	public int[] courses;
 	public DishList.FoodMenu[] menu;
 
@@ -78,6 +81,9 @@ public class PropDropItem : MonoBehaviour {
 		} else { 																//ja no te ingredient deixa d'il.luminar
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
 			Debug.Log("GOT IT!");
+			if (currentDish == 0 && keyDoor.isClosed ())
+				keyDoor.Open ();
+				
 		}
 	}
 }
