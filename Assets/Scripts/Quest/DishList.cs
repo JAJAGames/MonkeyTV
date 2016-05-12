@@ -38,7 +38,7 @@ public class DishList : MonoBehaviour {
 
 	public static FoodMenu[] menu = new FoodMenu[10];
 
-	void Start() {
+	void Awake() {
 		menu[0] = new FoodMenu(itemsListMC.ITEM_MUSHROOM, itemsListMC.ITEM_LETTUCE, itemsListMC.ITEM_CABBAGE);
 		menu[1] = new FoodMenu(itemsListMC.ITEM_LETTUCE, itemsListMC.ITEM_APPLE, itemsListMC.ITEM_ORANGE);
 		menu[2] = new FoodMenu(itemsListMC.ITEM_LETTUCE, itemsListMC.ITEM_CARROT, itemsListMC.ITEM_MUSHROOM, itemsListMC.ITEM_ORANGE);

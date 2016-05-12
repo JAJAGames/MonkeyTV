@@ -48,9 +48,9 @@ public class PropDropItem : MonoBehaviour {
 		}
 	}
 
-	private void OnTriggerEnter (Collider other){
-		if (other.CompareTag ("Player")) {
-			meshRenderer.material.SetColor ("_EmissionColor", Color.gray);
+	private void OnTriggerEnter (Collider other){	//Si el player no porta ingredient no s'ha d'il.luminar
+		if (other.CompareTag ("Player") && player.haveItem()) {
+			meshRenderer.material.SetColor ("_EmissionColor", Color.red);
 		}
 	}
 
@@ -73,8 +73,11 @@ public class PropDropItem : MonoBehaviour {
 		} 
 
 		if (!foundIngredient) {
-			//fer algun feedback de que no es l'ingredient correcte
-			Debug.Log("NO MATCH");
+																				//fer algun feedback de que no es l'ingredient correcte
+			Debug.Log ("NO MATCH");
+		} else { 																//ja no te ingredient deixa d'il.luminar
+			meshRenderer.material.SetColor ("_EmissionColor", _color);
+			Debug.Log("GOT IT!");
 		}
 	}
 }
