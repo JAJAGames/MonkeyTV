@@ -39,9 +39,9 @@ public class DishSelection : MonoBehaviour {
 		clock -= Time.deltaTime;
 
 		if (fullFilled > 0)
-			Disk.fillAmount = 1 -(clock / fullFilled);
+			Disk.fillAmount = (clock / fullFilled);
 		else
-			Disk.fillAmount = 0;
+			Disk.fillAmount = 1;
 		
 		if (clock < 0)
 			gamestate.Instance.SetState (Enums.state.STATE_LOOSE);
