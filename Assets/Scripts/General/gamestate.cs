@@ -57,7 +57,10 @@ public class gamestate : MonoBehaviour {
 		levelOfGame = (sceneLevel) SceneManager.GetActiveScene ().buildIndex;
 
 #endif
-
+		if (levelOfGame > 0)
+			Cursor.visible = false;
+		else
+			Cursor.visible = true;
 		stateOfScene = state.STATE_INIT;  
 	}
 
@@ -99,7 +102,13 @@ public class gamestate : MonoBehaviour {
 
 #if UNITY_5_3_OR_NEWER	
 
+		if (levelOfGame > 0)
+			Cursor.visible = false;
+		else
+			Cursor.visible = true;
+
 		SceneManager.LoadScene((int)levelOfGame);
+
 
 #else
 

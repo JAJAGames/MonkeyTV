@@ -19,6 +19,7 @@ public class DishSelection : MonoBehaviour {
 		course[1] = (int) Random.Range (3, 6);		//first course sprites sliced from Fast_Food_Icons 3,4,5,6 
 		course[2] = (int) Random.Range (7, 9);		//the rest...
 
+		text.gameObject.SetActive (false);
 	}
 
 	void Update(){
@@ -46,6 +47,10 @@ public class DishSelection : MonoBehaviour {
 
 	public void SetClock(float time){
 		clock = time;
+		if (time == Mathf.Infinity)
+			text.gameObject.SetActive (false);
+		else
+			text.gameObject.SetActive (true);
 	}
 
 	//compare indexes.	
