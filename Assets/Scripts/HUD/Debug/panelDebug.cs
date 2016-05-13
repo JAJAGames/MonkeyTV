@@ -160,6 +160,7 @@ public class panelDebug : MonoBehaviour {
 	{
 		statsText.active = !statsText.active;
 		togglePanel = true;
+		Cursor.visible = !Cursor.visible;
 		initPosition = _panelDebug.position.x;
 		currentPosition = initPosition;
 	}
