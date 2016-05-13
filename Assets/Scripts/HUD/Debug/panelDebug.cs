@@ -91,6 +91,7 @@ public class panelDebug : MonoBehaviour {
 
 		if (Input.GetKeyUp (KeyCode.P) && !togglePanel) {
 			togglePanel = true;
+			Cursor.visible = !Cursor.visible;
 			statsText.active = !statsText.active; 
 			initPosition = _panelDebug.position.x;
 			currentPosition = initPosition;
@@ -114,6 +115,7 @@ public class panelDebug : MonoBehaviour {
 			}
 
 		}
+
 	}
 		
 	public void ButtonRendersPressed ()
