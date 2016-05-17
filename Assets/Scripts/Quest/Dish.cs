@@ -59,7 +59,7 @@ public class Dish : MonoBehaviour {
 		StartCoroutine(NeWDish());
 		yield return new WaitForSeconds(waitTime);
 		showSelection = false;
-		clockDish.SetClock (65);
+		clockDish.SetClock (125);
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		Invoke ("ToSearch", 5.0f);
 

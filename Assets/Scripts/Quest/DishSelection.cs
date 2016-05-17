@@ -31,15 +31,19 @@ public class DishSelection : MonoBehaviour {
 			return;
 		
 		if (clock > 0) {
-			text.text = string.Format("{0:#0}:{1:00}",
+			text.text = string.Format("{00:00}:{1:00}",
 									Mathf.Floor(clock / 60),//minutes
 									Mathf.Floor(clock) % 60);//seconds
 		}
 
 		clock -= Time.deltaTime;
 
-		if (fullFilled > 0)
+		if (fullFilled > 0) {
 			Disk.fillAmount = (clock / fullFilled);
+			Color color = Color.white -  Color.cyan *  (1 - Disk.fillAmount);
+			color.a = 1;
+			Disk.color = color;
+		}
 		else
 			Disk.fillAmount = 1;
 		
