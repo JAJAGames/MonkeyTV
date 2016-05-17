@@ -15,6 +15,11 @@ public class PropDropItem : MonoBehaviour {
 	public OpenDoor keyDoor;
 	public int[] courses;
 	public DishList.FoodMenu[] menu;
+	public Dish dish;
+
+	//PROVES
+	int currentDish;
+	bool firsTime = true;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +40,8 @@ public class PropDropItem : MonoBehaviour {
 		menu [0] = new DishList.FoodMenu(DishList.menu[courses[0]]);
 		menu [1] = new DishList.FoodMenu(DishList.menu[courses[1]]);
 		menu [2] = new DishList.FoodMenu(DishList.menu[courses[2]]);
+
+		dish = (Dish)GameObject.FindObjectOfType(typeof(Dish));
 	}
 
 	// Update is called once per frame
@@ -65,25 +72,39 @@ public class PropDropItem : MonoBehaviour {
 
 	private void checkItem () {
 		bool foundIngredient = false;
-		int currentDish = dishSelection.currentCourse;
 
-		for (int i = 0; i < DishList.FoodMenu.itemsCount; ++i) {
+		if (firsTime) {
+			currentDish = dishSelection.currentCourse;
+			firsTime = false;
+		}
+
+		for (int i = 0; i < DishList.ITEMSCOUNT; ++i) {
 			if (!foundIngredient && menu[currentDish].ingredients[i] == player.actualItem) {
-				menu [dishSelection.currentCourse].ingredients [i] = itemsListMC.NO_ITEM;
+				menu[dishSelection.currentCourse].ingredients [i] = itemsListMC.NO_ITEM;
 				player.throwItem ();
 				foundIngredient = true;
+				--menu[dishSelection.currentCourse].itemsLeft;
 			} 
 		} 
 
-		if (!foundIngredient) {
-																				//fer algun feedback de que no es l'ingredient correcte
+		if (!foundIngredient) {																//fer algun feedback de que no es l'ingredient correcte
 			Debug.Log ("NO MATCH");
 		} else { 																//ja no te ingredient deixa d'il.luminar
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
 			Debug.Log("GOT IT!");
+
 			if (currentDish == 0 && keyDoor.isClosed ())
 				keyDoor.Open ();
-				
+
+			if (menu [dishSelection.currentCourse].itemsLeft == 0) {
+				if (dishSelection.currentCourse < 2) {
+					Debug.Log("DISH COMPLETE");
+					++currentDish;
+					dish.ShowNewDish ();
+				} else {
+					gamestate.Instance.SetState (Enums.state.STATE_WIN);
+				}
+			}
 		}
 	}
 }

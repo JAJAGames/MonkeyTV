@@ -30,7 +30,7 @@ public class Dish : MonoBehaviour {
 	}
 
 
-	void ShowNewDish(){
+	public void ShowNewDish(){
 		
 		canvas.gameObject.SetActive(true);
 		gamestate.Instance.SetState (Enums.state.STATE_STATIC_CAMERA);

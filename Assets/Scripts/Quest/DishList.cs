@@ -3,15 +3,20 @@ using System.Collections;
 using Enums;
 
 public class DishList : MonoBehaviour {
+
+	public const int ITEMSCOUNT = 4;
+
 	public class FoodMenu {
-		public static int itemsCount = 4;
-		public itemsListMC[] ingredients = new itemsListMC[itemsCount];
+		
+		public itemsListMC[] ingredients = new itemsListMC[ITEMSCOUNT];
+		public int itemsLeft;
 
 		public FoodMenu (itemsListMC ing0, itemsListMC ing1) {
 			ingredients [0] = ing0;
 			ingredients [1] = ing1;
 			ingredients [2] = itemsListMC.NO_ITEM;
 			ingredients [3] = itemsListMC.NO_ITEM;
+			itemsLeft = 2;
 		}
 
 		public FoodMenu (itemsListMC ing0, itemsListMC ing1, itemsListMC ing2) {
@@ -19,6 +24,7 @@ public class DishList : MonoBehaviour {
 			ingredients [1] = ing1;
 			ingredients [2] = ing2;
 			ingredients [3] = itemsListMC.NO_ITEM;
+			itemsLeft = 3;
 		}
 
 		public FoodMenu (itemsListMC ing0, itemsListMC ing1, itemsListMC ing2, itemsListMC ing3) {
@@ -26,6 +32,7 @@ public class DishList : MonoBehaviour {
 			ingredients [1] = ing1;
 			ingredients [2] = ing2;
 			ingredients [3] = ing3;
+			itemsLeft = 4;
 		}
 
 		public FoodMenu (FoodMenu menu) {
@@ -33,6 +40,7 @@ public class DishList : MonoBehaviour {
 			ingredients [1] = menu.ingredients[1];
 			ingredients [2] = menu.ingredients[2];
 			ingredients [3] = menu.ingredients[3];
+			itemsLeft = menu.itemsLeft;
 		}
 	}
 

@@ -36,7 +36,7 @@ public class WinLoseScript : MonoBehaviour {
 	void Update () {
 		if (gamestate.Instance.GetState () == Enums.state.STATE_WIN)
 			StartCoroutine(WinTheGame (3));
-		if (gamestate.Instance.GetState () == Enums.state.STATE_LOOSE)
+		if (gamestate.Instance.GetState () == Enums.state.STATE_LOSE)
 			StartCoroutine (LoseTheGame(2));
 	}
 

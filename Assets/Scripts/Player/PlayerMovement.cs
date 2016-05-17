@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour  {
 
 	private void FixedUpdate ()  {
 
-		if (gamestate.Instance.GetState () == Enums.state.STATE_LOOSE)		//skip update for game Losed 
+		if (gamestate.Instance.GetState () == Enums.state.STATE_LOSE)		//skip update for game Losed 
 			return;
 																			//no update for deads... no Zombies please!
 #if UNITY_5_3
@@ -104,7 +104,7 @@ public class PlayerMovement : MonoBehaviour  {
 		controller.Move(moveDirection * Time.deltaTime);
 
 		if (transform.position.y < -10) 											//falling under floor dies;
-			gamestate.Instance.SetState (Enums.state.STATE_LOOSE);
+			gamestate.Instance.SetState (Enums.state.STATE_LOSE);
 		
 	}
 	

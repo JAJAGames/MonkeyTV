@@ -27,7 +27,7 @@ public class DishSelection : MonoBehaviour {
 
 	void Update(){
 
-		if (gamestate.Instance.GetState () == Enums.state.STATE_LOOSE)
+		if (gamestate.Instance.GetState () == Enums.state.STATE_LOSE)
 			return;
 		
 		if (clock > 0) {
@@ -48,7 +48,7 @@ public class DishSelection : MonoBehaviour {
 			Disk.fillAmount = 1;
 		
 		if (clock < 0)
-			gamestate.Instance.SetState (Enums.state.STATE_LOOSE);
+			gamestate.Instance.SetState (Enums.state.STATE_LOSE);
 	}
 
 	//index plus 1 but never more than array lenght	
