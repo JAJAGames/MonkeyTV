@@ -100,6 +100,7 @@ public class PropDropItem : MonoBehaviour {
 				if (dishSelection.currentCourse < 2) {
 					Debug.Log("DISH COMPLETE");
 					++currentDish;
+					dishSelection.AddCourse ();
 					dish.ShowNewDish ();
 				} else {
 					gamestate.Instance.SetState (Enums.state.STATE_WIN);
