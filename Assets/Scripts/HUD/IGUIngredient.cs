@@ -23,9 +23,9 @@ public class IGUIngredient : MonoBehaviour {
 		SetVisible (true);
 		SetCheckVisible (false);
 		animate = false;
-		HUDPoint = img.rectTransform.localPosition;					//gameobject must be child of canvas and the anchorpoint only can be set on the center.
+	
 	}
-		
+
 
 	public void Update(){
 
@@ -41,7 +41,6 @@ public class IGUIngredient : MonoBehaviour {
 				animate = false;
 			}
 			Vector2 final = HUDPoint * (1 - alpha) + RectTransformUtility.WorldToScreenPoint (Camera.main, target.position) * alpha;
-			//Vector2 sinfinal = HUDPoint * Mathf.Sin(1 - alpha) + RectTransformUtility.WorldToScreenPoint (Camera.main, target.position) * Mathf.Sin(alpha);
 
 			img.transform.position = final;
 		}
@@ -49,6 +48,7 @@ public class IGUIngredient : MonoBehaviour {
 	}
 
 	private void GetHUDPoint(){
+		HUDPoint = img.rectTransform.position;					//gameobject must be child of canvas and the anchorpoint only can be set on the center.
 		alpha = 1f;
 		animate = true;
 	}
