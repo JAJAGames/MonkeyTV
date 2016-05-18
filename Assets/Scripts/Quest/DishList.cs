@@ -47,15 +47,14 @@ public class DishList : MonoBehaviour {
 	public static FoodMenu[] menu = new FoodMenu[10];
 
 	void Awake() {
-		menu[0] = new FoodMenu(itemsListMC.ITEM_MUSHROOM, itemsListMC.ITEM_LETTUCE, itemsListMC.ITEM_CABBAGE);
-		menu[1] = new FoodMenu(itemsListMC.ITEM_LETTUCE, itemsListMC.ITEM_APPLE, itemsListMC.ITEM_ORANGE);
-		menu[2] = new FoodMenu(itemsListMC.ITEM_LETTUCE, itemsListMC.ITEM_CARROT, itemsListMC.ITEM_MUSHROOM, itemsListMC.ITEM_ORANGE);
-		menu[3] = new FoodMenu(itemsListMC.ITEM_ORANGE, itemsListMC.ITEM_APPLE, itemsListMC.ITEM_BANANA, itemsListMC.ITEM_MUSHROOM);
-		menu[4] = new FoodMenu(itemsListMC.ITEM_CABBAGE, itemsListMC.ITEM_MUSHROOM, itemsListMC.ITEM_CARROT);
-		menu[5] = new FoodMenu(itemsListMC.ITEM_PINEAPPLE, itemsListMC.ITEM_BANANA, itemsListMC.ITEM_APPLE, itemsListMC.ITEM_APPLE);
-		menu[6] = new FoodMenu(itemsListMC.ITEM_CARROT, itemsListMC.ITEM_PINEAPPLE, itemsListMC.ITEM_BANANA);
-		menu[7] = new FoodMenu(itemsListMC.ITEM_ORANGE, itemsListMC.ITEM_APPLE, itemsListMC.ITEM_BANANA);
-		menu[8] = new FoodMenu(itemsListMC.ITEM_ORANGE, itemsListMC.ITEM_APPLE);
-		menu[9] = new FoodMenu(itemsListMC.ITEM_BANANA, itemsListMC.ITEM_APPLE);
+		menu[0] = new FoodMenu(itemsListMC.ITEM_LETTUCE, 	itemsListMC.ITEM_CABBAGE);
+		menu[1] = new FoodMenu(itemsListMC.ITEM_LETTUCE, 	itemsListMC.ITEM_PINEAPPLE);
+		menu[2] = new FoodMenu(itemsListMC.ITEM_PINEAPPLE, 	itemsListMC.ITEM_CABBAGE);
+		menu[3] = new FoodMenu(itemsListMC.ITEM_CABBAGE,	itemsListMC.ITEM_CARROT,	itemsListMC.ITEM_MUSHROOM);
+		menu[4] = new FoodMenu(itemsListMC.ITEM_CARROT,		itemsListMC.ITEM_LETTUCE,	itemsListMC.ITEM_MUSHROOM);
+		menu[5] = new FoodMenu(itemsListMC.ITEM_CABBAGE,	itemsListMC.ITEM_LETTUCE,	itemsListMC.ITEM_MUSHROOM);
+		menu[6] = new FoodMenu(itemsListMC.ITEM_MUSHROOM,	itemsListMC.ITEM_APPLE,		itemsListMC.ITEM_BANANA);
+		menu[7] = new FoodMenu(itemsListMC.ITEM_CARROT,		itemsListMC.ITEM_APPLE,		itemsListMC.ITEM_ORANGE);
+		menu[8] = new FoodMenu(itemsListMC.ITEM_MUSHROOM,	itemsListMC.ITEM_BANANA,	itemsListMC.ITEM_ORANGE);
 	}
 }
