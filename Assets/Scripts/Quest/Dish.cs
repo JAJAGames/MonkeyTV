@@ -23,7 +23,7 @@ public class Dish : MonoBehaviour {
 
 	void Update(){
 		
-		if (Input.GetKeyDown (KeyCode.O)) {
+		if (gamestate.Instance.GetState() == Enums.state.STATE_INIT) {
 			ShowNewDish ();
 		}
 
