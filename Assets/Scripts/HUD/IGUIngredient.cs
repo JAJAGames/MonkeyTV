@@ -5,16 +5,21 @@ using UnityEngine.UI;
 
 public class IGUIngredient : MonoBehaviour {
 
-
-	public uint counter;
+	public Texture2D texture;
+	public uint ingredientNumber;
 	public float speedAnimation;
 	public Transform target;
+
+	private Vector2 HUDPoint;
+	private float alpha;
 	private Image img;
 	private Image checkOk;
-	public float alpha;
-	public Vector2 screenPoint;
-	public Vector2 HUDPoint;
 	private bool animate;
+	private int course;
+	private DishSelection dishSelection;
+	private DishList.FoodMenu ingredients;
+	private Sprite[] sprites ;
+
 
 
 	void Awake () {
@@ -23,10 +28,11 @@ public class IGUIngredient : MonoBehaviour {
 		SetVisible (true);
 		SetCheckVisible (false);
 		animate = false;
-	
+
+		dishSelection = GameObject.Find ("Clock").GetComponent<DishSelection> ();
+		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
 	}
-
-
+		
 	public void Update(){
 
 		if (Input.GetKeyDown (KeyCode.L))
@@ -64,4 +70,12 @@ public class IGUIngredient : MonoBehaviour {
 		color.a = Convert.ToUInt16 (visible);
 		checkOk.color = color;
 	}
+
+	public void GetIcon(){
+		course = dishSelection.GetCurrent ();
+		ingredients = new DishList.FoodMenu(DishList.menu[course]);
+		img.sprite = sprites [(int)ingredients.ingredients [ingredientNumber]];
+		
+	}
+
 }

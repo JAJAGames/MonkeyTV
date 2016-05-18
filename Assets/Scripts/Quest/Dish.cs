@@ -9,6 +9,10 @@ public class Dish : MonoBehaviour {
 	public Image IGU_Dish;
 	public Texture2D texture;
 
+	public IGUIngredient iconFirst;
+	public IGUIngredient iconSecond;
+	public IGUIngredient iconThird;
+
 	public int dishCode;
 	private Sprite[] sprites ;
 	private bool showSelection = false;
@@ -61,6 +65,7 @@ public class Dish : MonoBehaviour {
 		showSelection = false;
 		clockDish.SetClock (125);
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
+		player.enabled = true;
 		Invoke ("ToSearch", 5.0f);
 
 	}
@@ -69,6 +74,9 @@ public class Dish : MonoBehaviour {
 		canvas.gameObject.SetActive(false);
 		IGU_Dish.gameObject.SetActive(true);
 		IGU_Dish.sprite = sprites [dishCode];
+		iconFirst.GetIcon ();
+		iconSecond.GetIcon ();
+		iconThird.GetIcon ();
 		player.enabled = true;
 	} 
 }
