@@ -9,7 +9,7 @@ public class BouncingItems : MonoBehaviour {
 	private Vector3 tempPos;
 	MeshRenderer mesh;
 	private Material _material;
-	private Color color;
+	public Color color;
 
 	void Awake () 
 	{
@@ -18,7 +18,6 @@ public class BouncingItems : MonoBehaviour {
 		speed = speed * Random.Range (0.8f, 1.2f);
 
 		_material = mesh.sharedMaterial;
-		color = mesh.material.GetColor ("_EmissionColor");
 	}
 
 	void Update () 
@@ -30,8 +29,8 @@ public class BouncingItems : MonoBehaviour {
 		tempPos.y = 2 * tempVal + amplitude * Mathf.Sin(speed  * Time.time);
 		transform.position = tempPos;
 
-		color = Color.grey * Mathf.Cos (Time.time /5 * speed);
-		mesh.material.SetColor ("_EmissionColor", color);
+
+		mesh.material.SetColor ("_EmissionColor", (color * Mathf.Cos (Time.time /5 * speed)));
 	}
 
 }
