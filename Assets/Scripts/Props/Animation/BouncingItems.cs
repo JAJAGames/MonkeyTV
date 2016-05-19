@@ -30,7 +30,7 @@ public class BouncingItems : MonoBehaviour {
 		transform.position = tempPos;
 
 
-		mesh.material.SetColor ("_EmissionColor", (color * Mathf.Cos (Time.time /5 * speed)));
+		mesh.material.SetColor ("_EmissionColor", (color * Mathf.Abs( Mathf.Cos (Time.time /5 * speed))));
 	}
 
 }
