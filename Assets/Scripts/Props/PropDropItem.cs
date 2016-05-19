@@ -17,6 +17,7 @@ public class PropDropItem : MonoBehaviour {
 	public DishList.FoodMenu[] menu;
 	public Dish dish;
 
+	public IGUfromWorld[] IGUchek = new IGUfromWorld[3];
 	//PROVES
 	int currentDish;
 	bool firsTime = true;
@@ -81,6 +82,8 @@ public class PropDropItem : MonoBehaviour {
 		for (int i = 0; i < DishList.ITEMSCOUNT; ++i) {
 			if (!foundIngredient && menu[currentDish].ingredients[i] == player.actualItem) {
 				menu[dishSelection.currentCourse].ingredients [i] = itemsListMC.NO_ITEM;
+				IGUchek [i].gameObject.SetActive (true);
+				IGUchek [i].StartAnimation ();
 				player.throwItem ();
 				foundIngredient = true;
 				--menu[dishSelection.currentCourse].itemsLeft;
