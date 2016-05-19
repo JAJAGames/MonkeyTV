@@ -5,8 +5,8 @@ using Enums;
 public class PropPickItem : MonoBehaviour {
 
 	public itemsListMC itemType;
-	public MeshRenderer meshRenderer;
-	public CapsuleCollider capsuleCollider;
+	private MeshRenderer meshRenderer;
+	private CapsuleCollider capsuleCollider;
 
 	public PickItems player;
 	private Color _color;
