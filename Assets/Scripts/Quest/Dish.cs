@@ -73,6 +73,7 @@ public class Dish : MonoBehaviour {
 	void ToSearch(){
 		canvas.gameObject.SetActive(false);
 		IGU_Dish.gameObject.SetActive(true);
+		IGU_Dish.gameObject.GetComponent<IGUfromWorld> ().StartAnimation ();
 		IGU_Dish.sprite = sprites [dishCode];
 		iconFirst.GetIcon ();
 		iconSecond.GetIcon ();
