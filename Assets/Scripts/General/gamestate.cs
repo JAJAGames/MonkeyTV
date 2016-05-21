@@ -33,7 +33,6 @@ public class gamestate : MonoBehaviour {
 	[SerializeField] private sceneLevel levelOfGame;
 
 	// Creates an instance of gamestate as a gameobject if an instance does not exist
-
 	public static gamestate Instance
 	{
 		get

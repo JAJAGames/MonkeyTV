@@ -16,7 +16,7 @@ public class PropDropItem : MonoBehaviour {
 	public int[] courses;
 	public DishList.FoodMenu[] menu;
 	public Dish dish;
-
+	private AudioSource _audio; 
 	public IGUfromWorld[] IGUchek = new IGUfromWorld[3];
 	//PROVES
 	int currentDish;
@@ -26,7 +26,7 @@ public class PropDropItem : MonoBehaviour {
 	void Start () {
 		meshRenderer = GetComponent<MeshRenderer> ();
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
-
+		_audio = GetComponent<AudioSource> ();
 		_material = meshRenderer.sharedMaterial;
 
 		//can be set in the inspector
@@ -94,7 +94,8 @@ public class PropDropItem : MonoBehaviour {
 			Debug.Log ("NO MATCH");
 		} else { 																//ja no te ingredient deixa d'il.luminar
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
-			Debug.Log("GOT IT!");
+			_audio.Play ();
+			//Debug.Log("GOT IT!");
 
 			if (currentDish == 0 && keyDoor.isClosed ())
 				keyDoor.Open ();
