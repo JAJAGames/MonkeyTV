@@ -26,7 +26,7 @@ public class BouncingItems : MonoBehaviour {
 			return;
 		
 		tempPos = transform.position;
-		tempPos.y = 2 * tempVal + amplitude * Mathf.Sin(speed  * Time.time);
+		tempPos.y = tempVal + amplitude * Mathf.Cos(speed  * Time.time);
 		transform.position = tempPos;
 
 
