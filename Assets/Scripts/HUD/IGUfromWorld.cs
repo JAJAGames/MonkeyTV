@@ -30,8 +30,9 @@ public class IGUfromWorld : MonoBehaviour {
 				alpha = 0;
 				animate = false;
 			}
-			Vector3 final = HUDPoint * (1 - alpha) + target.position * alpha;
-
+			Vector3 final =  HUDPoint * (1 - alpha) +  target.position  * alpha;
+			float dist =  Vector3.Distance (final, HUDPoint);
+			img.transform.localScale = new Vector3 (dist, dist, 0);
 			img.transform.position = final;
 		}
 
