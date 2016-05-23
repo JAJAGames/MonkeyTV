@@ -25,7 +25,7 @@ public class EnemyShootObject : PoolObject {
 
 	void OnTriggerEnter (Collider other) {
 		if (other.CompareTag ("Player")) {
-			playerStats.TakeDamage (1);
+			//playerStats.TakeDamage (1);
 			gameObject.SetActive (false);
 		}
 

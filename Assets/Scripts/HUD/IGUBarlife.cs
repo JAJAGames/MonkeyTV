@@ -35,7 +35,7 @@ public class IGUBarlife : MonoBehaviour {
 		
 		Vector3 scale = Vector3.one;
 
-		scale.x = (float)playerStats.currentHealth / playerStats.startingHealth;
+		//scale.x = (float)playerStats.currentHealth / playerStats.startingHealth;
 		rTransform.localScale = scale;
 
 	}

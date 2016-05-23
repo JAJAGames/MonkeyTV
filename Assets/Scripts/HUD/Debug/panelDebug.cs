@@ -151,7 +151,7 @@ public class panelDebug : MonoBehaviour {
 
 
 	public void ButtonModeGodPressed () {
-		stats.GOD = !stats.GOD;
+		stats.godMode();
 		textGod.SetActive (!textGod.activeSelf);
 		ShieldSphere.SetActive (!ShieldSphere.activeSelf);
 	}
