@@ -4,11 +4,11 @@ using UnityEngine.UI;
 
 public class IGUfromWorld : MonoBehaviour {
 
-	[Range (1,3)]
-	public float speedAnimation = 1;
+	[Range (0,3)]
+	public float speedAnimation = 1f;
 	public Transform target;
 
-	private Vector2 HUDPoint;
+	private Vector3 HUDPoint;
 	private float alpha;
 	private Image img;
 	private bool animate;
@@ -30,7 +30,7 @@ public class IGUfromWorld : MonoBehaviour {
 				alpha = 0;
 				animate = false;
 			}
-			Vector2 final = HUDPoint * (1 - alpha) + RectTransformUtility.WorldToScreenPoint (Camera.main, target.position) * alpha;
+			Vector3 final = HUDPoint * (1 - alpha) + target.position * alpha;
 
 			img.transform.position = final;
 		}
