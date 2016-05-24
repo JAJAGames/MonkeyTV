@@ -30,17 +30,16 @@ public class IGUfromWorld : MonoBehaviour {
 				alpha = 0;
 				animate = false;
 			}
-			Vector3 final =  HUDPoint * (1 - alpha) +  target.position  * alpha;
-			float dist =  Vector3.Distance (final, HUDPoint);
-			img.transform.localScale = new Vector3 (dist, dist, 0);
-			img.transform.position = final;
+			Vector3 final = HUDPoint *(1-alpha) +new Vector3(Camera.main.WorldToScreenPoint (target.position).x ,Camera.main.WorldToScreenPoint (target.position).y,0) * alpha  ;
+			img.rectTransform.anchoredPosition = final;
 		}
+
 
 	}
 
 	public void StartAnimation(){
 		
-		HUDPoint = img.rectTransform.position;					//gameobject must be child of canvas and the anchorpoint only can be set on the center.
+		HUDPoint = img.rectTransform.anchoredPosition;					//gameobject must be child of canvas and the anchorpoint only can be set on the center.
 		alpha = 1f;
 		animate = true;
 	}

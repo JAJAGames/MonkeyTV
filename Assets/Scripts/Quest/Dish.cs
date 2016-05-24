@@ -76,12 +76,9 @@ public class Dish : MonoBehaviour {
 		IGU_Dish.gameObject.SetActive(true);
 		IGU_Dish.gameObject.GetComponent<IGUfromWorld> ().StartAnimation ();
 		IGU_Dish.sprite = sprites [dishCode];
-		iconFirst.transform.GetChild (0).gameObject.SetActive (false);
-		iconFirst.GetIcon ();
-		iconSecond.transform.GetChild (0).gameObject.SetActive (false);
-		iconSecond.GetIcon ();
-		iconThird.GetIcon ();
-		iconThird.transform.GetChild (0).gameObject.SetActive (false);
+		iconFirst.GetIcon();
+		iconSecond.GetIcon();
+		iconThird.GetIcon();
 		player.enabled = true;
 	} 
 }

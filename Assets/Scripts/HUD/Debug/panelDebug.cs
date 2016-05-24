@@ -87,7 +87,10 @@ public class panelDebug : MonoBehaviour {
 			statsText.active = !statsText.active; 
 
 		}
-			
+
+		if (Input.GetKeyUp (KeyCode.C))
+			Cursor.visible = !Cursor.visible;
+
 		if (togglePanel) {
 			if (statsText.active) {
 				_panelDebug.localPosition = showPos;
