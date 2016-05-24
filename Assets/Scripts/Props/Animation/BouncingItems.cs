@@ -8,6 +8,7 @@ public class BouncingItems : MonoBehaviour {
 	private float tempVal;
 	private Vector3 tempPos;
 	MeshRenderer mesh;
+	public bool lightningColor;
 	private Material _material;
 	public Color color;
 
@@ -29,8 +30,8 @@ public class BouncingItems : MonoBehaviour {
 		tempPos.y = tempVal + amplitude * Mathf.Cos(speed  * Time.time);
 		transform.position = tempPos;
 
-
-		mesh.material.SetColor ("_EmissionColor", (color * Mathf.Abs( Mathf.Cos (Time.time /5 * speed))));
+		if (lightningColor)
+			mesh.material.SetColor ("_EmissionColor", (color * Mathf.Abs( Mathf.Cos (Time.time /5 * speed))));
 	}
 
 }

@@ -36,18 +36,12 @@ public class panelDebug : MonoBehaviour {
 	public Transform colliders;
 	private  GameObject[] colliderRenders;
 
-	[Header("Panel Debug")]
-	public RectTransform _panelDebug; 
-	public float smoothMovement = 20.0f; 
-	private float currentPosition;
-	private float maxPosition;
-	private float minPosition;
-	private float initPosition;
+	private RectTransform _panelDebug; 
 	private bool togglePanel;
-
+	private Vector3 showPos, hidePos;
 	[Header("God Mode")]
 	public GameObject textGod;
-	public GameObject ShieldSphere;
+	public GameObject torus;
 	private PlayerStats stats;
 
 	[Header("Shader")]
@@ -72,16 +66,14 @@ public class panelDebug : MonoBehaviour {
 		//set wireframe mode and hide colliders
 		for (int i = 0; i < colliderRenders.Length; i++) 
 			colliderRenders[i].GetComponent<MeshRenderer> ().enabled = false;
-
-		stats = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerStats>();
+		_panelDebug = GameObject.Find ("Dynamic").GetComponent<RectTransform>();
+		stats = GameObject.Find("Player").GetComponent<PlayerStats>();
 	}
 		
 	void Start(){
-		
 		togglePanel = false;
-		maxPosition = _panelDebug.rect.position.x;
-		minPosition = currentPosition - _panelDebug.rect.width;
-		_panelDebug.position = new Vector3 (minPosition,0,0);
+		hidePos = _panelDebug.localPosition;
+		showPos = _panelDebug.localPosition + new Vector3 (-400, 0, 0);
 	}
 
 	void Update()
@@ -93,29 +85,16 @@ public class panelDebug : MonoBehaviour {
 			togglePanel = true;
 			Cursor.visible = !Cursor.visible;
 			statsText.active = !statsText.active; 
-			initPosition = _panelDebug.position.x;
-			currentPosition = initPosition;
-		}
-
-		if (togglePanel) 
-		{
-			if (initPosition == minPosition) {
-
-				currentPosition += smoothMovement;
-				_panelDebug.position = new Vector3 (currentPosition,0,0);
-				if (currentPosition - maxPosition > - smoothMovement ) 
-					togglePanel = false;
-			} 
-			else 
-			{
-				currentPosition -= smoothMovement;
-				_panelDebug.position = new Vector3 (currentPosition,0,0);
-				if (currentPosition - minPosition < smoothMovement) 
-					togglePanel = false;
-			}
 
 		}
-
+			
+		if (togglePanel) {
+			if (statsText.active) {
+				_panelDebug.localPosition = showPos;
+			}else
+				_panelDebug.localPosition = hidePos;
+			togglePanel = false;
+		}
 	}
 		
 	public void ButtonRendersPressed ()
@@ -151,9 +130,8 @@ public class panelDebug : MonoBehaviour {
 
 
 	public void ButtonModeGodPressed () {
-		stats.godMode();
 		textGod.SetActive (!textGod.activeSelf);
-		ShieldSphere.SetActive (!ShieldSphere.activeSelf);
+		torus.SetActive (!torus.activeSelf);
 	}
 
 	public void ButtonBackPressed () 
@@ -161,7 +139,5 @@ public class panelDebug : MonoBehaviour {
 		statsText.active = !statsText.active;
 		togglePanel = true;
 		Cursor.visible = !Cursor.visible;
-		initPosition = _panelDebug.position.x;
-		currentPosition = initPosition;
 	}
 }

@@ -63,5 +63,6 @@ public class CameraManager : MonoBehaviour {
 			else
 				cams [i].camera.SetActive (true);
 		}
+		GetComponent<Canvas> ().worldCamera = Camera.main;
 	}
 }
