@@ -13,7 +13,7 @@ public class PickKey : MonoBehaviour {
 		ifw = GameObject.Find ("Image Key").GetComponent<IGUfromWorld>();
 		ifw.gameObject.SetActive (false);
 		for (int i = 0; i < sprites.Length; i++)
-			sprites [i].gameObject.SetActive (false);
+			sprites [i].color = Color.white;
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -28,11 +28,14 @@ public class PickKey : MonoBehaviour {
 
 		if (other.name == "GRP_PRMC_Jaula" && HasKey) {
 			other.gameObject.SetActive (false);
+			ifw.friendImage.color = Color.white;
 			ifw.gameObject.SetActive (false);
 			key.SetActive (true);
 			key = null;
 			HasKey = false;
-			sprites [counter].gameObject.SetActive (true);
+			Color newCol;
+			if (ColorUtility.TryParseHtmlString("#FFDB96FF", out newCol))
+				sprites [counter].color = newCol;
 			counter++;
 		}
 	}

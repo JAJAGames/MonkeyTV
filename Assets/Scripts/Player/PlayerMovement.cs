@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour  {
 
 	private void FixedUpdate ()  {
 
-		if (gamestate.Instance.GetState () == Enums.state.STATE_LOSE)		//skip update for game Losed 
+		if (gamestate.Instance.GetState () == Enums.state.STATE_LOSE || gamestate.Instance.GetState() == Enums.state.STATE_PLAYER_PAUSED)		//skip update for game Losed 
 			return;
 																			//no update for deads... no Zombies please!
 #if UNITY_5_3

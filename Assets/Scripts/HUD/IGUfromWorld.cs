@@ -12,15 +12,17 @@ public class IGUfromWorld : MonoBehaviour {
 	private float alpha;
 	private Image img;
 	private bool animate;
-
+	public bool disableOnStop;
+	public Color friendColor;
+	public Image friendImage;
 	void Awake () {
 		img = GetComponent<Image> ();
 		animate = false;
-		Vector3 tmpPos = img.rectTransform.localPosition;
+		Vector3 tmpPos = img.rectTransform.anchoredPosition;
 		img.rectTransform.anchorMin = Vector2.zero;
 		img.rectTransform.anchorMax = Vector2.zero;
 		tmpPos.y = transform.parent.GetComponent<Canvas> ().pixelRect.height + tmpPos.y;
-		img.rectTransform.localPosition = tmpPos;
+		img.rectTransform.anchoredPosition = tmpPos;
 	}
 
 	void Update(){
@@ -36,6 +38,9 @@ public class IGUfromWorld : MonoBehaviour {
 			Vector3 final = HUDPoint * (1 - alpha) + new Vector3 (Camera.main.WorldToScreenPoint (target.position).x, Camera.main.WorldToScreenPoint (target.position).y, 0) * alpha;
 			img.rectTransform.anchoredPosition = final;
 		} 
+		if (alpha == 0)
+			Invoke ("OnStop", .25f);
+
 	}
 
 	public void StartAnimation(){
@@ -44,5 +49,11 @@ public class IGUfromWorld : MonoBehaviour {
 		alpha = 1f;
 		animate = true;
 	}
-		
+
+	private void OnStop(){
+		if (friendImage)
+			friendImage.color = friendColor;
+		if (disableOnStop)
+			gameObject.SetActive (false);
+	}
 }

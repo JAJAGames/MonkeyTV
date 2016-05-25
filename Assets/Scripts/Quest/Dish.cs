@@ -59,19 +59,28 @@ public class Dish : MonoBehaviour {
 	}
 
 	IEnumerator StartNewDish (float waitTime){
-		
+
+		IGU_Dish.gameObject.SetActive(false);
 		showSelection = true;
 		StartCoroutine(NeWDish());
+		clockDish.countDown = true;
 		yield return new WaitForSeconds(waitTime);
 		showSelection = false;
-		clockDish.SetClock (125);
-		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
+
+		clockDish.SetClock (5);
+		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		player.enabled = true;
+
 		Invoke ("ToSearch", 5.0f);
 
 	}
 
 	void ToSearch(){
+
+		clockDish.countDown = false;
+		clockDish.text.rectTransform.localScale = Vector3.one;
+		clockDish.SetClock (120);
+		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		canvas.gameObject.SetActive(false);
 		IGU_Dish.gameObject.SetActive(true);
 		IGU_Dish.gameObject.GetComponent<IGUfromWorld> ().StartAnimation ();

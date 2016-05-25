@@ -32,7 +32,6 @@ public class CameraFollow : MonoBehaviour {
 	private Quaternion initRotation;
 	private float smooth, smoothSpeed;
 
-
 	private void Awake(){
 		smoothSpeed = playerMove.gameObject.GetComponent<PlayerMovement>().movementSpeed;		//get the speed of camera. It should be faster than player
 		smooth = smoothSpeed;
@@ -76,10 +75,20 @@ public class CameraFollow : MonoBehaviour {
 			}
 			transform.rotation = Quaternion.Slerp(transform.rotation, initRotation, Time.deltaTime);
 		}
+
 		if (gamestate.Instance.GetState () == state.STATE_STATIC_CAMERA) {
 			transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime );
 			transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime);
 		}
+
+		if (gamestate.Instance.GetState () == state.STATE_PLAYER_PAUSED) {
+			
+			transform.position = Vector3.MoveTowards (transform.position, playerMove.transform.position + initDifference, smooth * Time.deltaTime);
+			transform.rotation = Quaternion.Slerp(transform.rotation, initRotation, Time.deltaTime);
+
+			Vector3 difference = transform.position - playerMove.transform.position;
+		}
+
 	}
 	
 }

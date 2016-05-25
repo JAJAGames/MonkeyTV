@@ -11,6 +11,8 @@ public class DishSelection : MonoBehaviour {
 	public Text text;
 	private Image Disk;
 	private float fullFilled;
+	public bool countDown;
+
 	//Set all coruses before countdown
 	void Awake(){
 		
@@ -23,6 +25,7 @@ public class DishSelection : MonoBehaviour {
 		text.gameObject.SetActive (false);
 		fullFilled = 0;
 		Disk = GetComponent<Image> ();
+		countDown = false;
 	}
 
 	void Update(){
@@ -38,16 +41,23 @@ public class DishSelection : MonoBehaviour {
 
 		clock -= Time.deltaTime;
 
-		if (fullFilled > 0) {
+		if (fullFilled > 0 && !countDown) {
 			Disk.fillAmount = (clock / fullFilled);
-			Color color = Color.white -  Color.cyan *  (1 - Disk.fillAmount);
+			Color color = Color.white - Color.cyan * (1 - Disk.fillAmount);
 			color.a = 1;
 			Disk.color = color;
-		}
-		else
+		} else {
+			Disk.color = Color.white;
 			Disk.fillAmount = 1;
-		
-		if (clock < 0)
+		}
+
+		if (countDown && clock < Mathf.Infinity){
+			
+			Vector3 a = new Vector3 (1,0.9f + (0.1f * Mathf.Sin(clock * 6)),0);
+			text.rectTransform.localScale = a;
+		}
+
+		if (clock < 0 && !countDown)
 			gamestate.Instance.SetState (Enums.state.STATE_LOSE);
 	}
 
@@ -66,7 +76,7 @@ public class DishSelection : MonoBehaviour {
 			fullFilled = 0;
 		} else {
 			text.gameObject.SetActive (true);
-			fullFilled = time - 5;
+			fullFilled = time;
 		}
 	}
 
