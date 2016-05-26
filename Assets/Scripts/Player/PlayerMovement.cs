@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour  {
 			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
 																			//Make the player face his movement direction. We ought to disable rotation script
-			if (moveDirection.sqrMagnitude != 0)							//Look to rotation viewing is not Zero
+			if (moveDirection != Vector3.zero)							//Look to rotation viewing is not Zero
 				transform.rotation = Quaternion.LookRotation( moveDirection);
 
 			moveDirection *= movementSpeed;
