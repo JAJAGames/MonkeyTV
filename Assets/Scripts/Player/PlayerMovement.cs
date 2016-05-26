@@ -103,7 +103,7 @@ public class PlayerMovement : MonoBehaviour  {
 		moveDirection.y -= gravity * Time.deltaTime;							//calculate translation
 		controller.Move(moveDirection * Time.deltaTime);
 
-		if (transform.position.y < -10) 											//falling under floor dies;
+		if (transform.position.y < -100) 											//falling under floor dies;
 			gamestate.Instance.SetState (Enums.state.STATE_LOSE);
 		
 	}

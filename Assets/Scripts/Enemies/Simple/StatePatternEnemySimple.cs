@@ -24,14 +24,6 @@ public class StatePatternEnemySimple : MonoBehaviour {
 	[Range(0,5)]	public float searchingDuration = 1f;
 	[Range(1,100)]	public float sightRange = 10f;
 
-	[Header("Navigation Variables & Values")]
-	public bool hasPath;
-	public bool isOnNavMesh;
-	public NavMeshPathStatus pathStatus;
-	public Vector3 steeringTarget;
-	public bool isPathStale;
-	public bool autoRepath;
-	public float remainingDistance;
 
 	[HideInInspector]	public Rigidbody body;
 	[HideInInspector]	public Transform chaseTarget;
@@ -81,9 +73,12 @@ public class StatePatternEnemySimple : MonoBehaviour {
 
 
 	void Update () {
+		if (navMeshAgent.pathStatus == NavMeshPathStatus.PathPartial || navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid)
+			currentState = idleState;
 		CustomUpdate ();
 		body.AddForce (Vector3.down * speed * GRAVITY);						//gravity
-	}
+
+	}	
 
 	public virtual void CustomUpdate(){
 		currentState.UpdateState ();											//do the update loop of the current state
