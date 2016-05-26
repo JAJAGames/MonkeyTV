@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Enums;
 
 public class ChaseStateSimple : IEnemyStateSimple {
 
@@ -11,7 +12,7 @@ public class ChaseStateSimple : IEnemyStateSimple {
 
 	public ChaseStateSimple(StatePatternEnemySimple statePatternEnemy) {
 		enemy = statePatternEnemy;
-		enemy.state = enemyStateSimple.SIMPLE_STATE_CHASE;
+		enemy.actualState = enemyStateSimple.SIMPLE_STATE_CHASE;
 		enemy.nextWayPoint = 0;
 		playerItems = enemy.player.GetComponent<PickItems> ();
 		jail = GameObject.FindWithTag ("Jail").transform;
@@ -47,12 +48,12 @@ public class ChaseStateSimple : IEnemyStateSimple {
 
 	public void ToEscapeState() {
 		enemy.navMeshAgent.Resume ();
-		enemy.state = enemyStateSimple.SIMPLE_STATE_ESCAPE;
+		enemy.actualState = enemyStateSimple.SIMPLE_STATE_ESCAPE;
 		enemy.currentState = enemy.escapeState;
 	}
 
 	public void ToIdleState () {
-		enemy.state = enemyStateSimple.SIMPLE_STATE_IDLE;
+		enemy.actualState = enemyStateSimple.SIMPLE_STATE_IDLE;
 		enemy.currentState = enemy.idleState;
 	}
 

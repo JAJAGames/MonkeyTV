@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-public enum enemyTypeSimple {SIMPLE_TYPE_RUNNER, SIMPLE_TYPE_JUMPER}
-public enum enemyStateSimple {SIMPLE_STATE_IDLE, SIMPLE_STATE_CHASE, SIMPLE_STATE_ESCAPE}
+using Enums;
 
 public class StatePatternEnemySimple : MonoBehaviour {
 	[Header ("Target")]
 	public Transform player;
-	public PlayerStats playerStats;
+	[HideInInspector] public PlayerStats playerStats;
 
 	[Header ("Enemy Settings")]
 	public enemyTypeSimple type;
-	public enemyStateSimple state;
+	public enemyStateSimple actualState;
+	public enemyStateSimple inititalState;
 	public float shootsColldown = 2.0f;
 	[Header ("NavMeshAgent Points and References")]
 	public Transform eyes;
@@ -67,10 +66,17 @@ public class StatePatternEnemySimple : MonoBehaviour {
 
 
 	void Start (){
-		if (type == enemyTypeSimple.SIMPLE_TYPE_RUNNER)
-			currentState = chaseState;
-		else 
+		switch (inititalState) {
+		case enemyStateSimple.SIMPLE_STATE_IDLE:
 			currentState = idleState;
+			break;
+		case enemyStateSimple.SIMPLE_STATE_CHASE:
+			currentState = chaseState;
+			break;
+		case enemyStateSimple.SIMPLE_STATE_ESCAPE:
+			currentState = escapeState;
+			break;
+		}
 	}
 
 

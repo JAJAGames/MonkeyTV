@@ -14,8 +14,8 @@ public class DishList : MonoBehaviour {
 		public FoodMenu (itemsListMC ing0, itemsListMC ing1) {
 			ingredients [0] = ing0;
 			ingredients [1] = ing1;
-			ingredients [2] = itemsListMC.NO_ITEM;
-			ingredients [3] = itemsListMC.NO_ITEM;
+			ingredients [2] = itemsListMC.NO_ITEM_MC;
+			ingredients [3] = itemsListMC.NO_ITEM_MC;
 			itemsLeft = 2;
 		}
 
@@ -23,7 +23,7 @@ public class DishList : MonoBehaviour {
 			ingredients [0] = ing0;
 			ingredients [1] = ing1;
 			ingredients [2] = ing2;
-			ingredients [3] = itemsListMC.NO_ITEM;
+			ingredients [3] = itemsListMC.NO_ITEM_MC;
 			itemsLeft = 3;
 		}
 

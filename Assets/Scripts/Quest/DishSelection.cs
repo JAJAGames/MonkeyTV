@@ -13,6 +13,8 @@ public class DishSelection : MonoBehaviour {
 	private float fullFilled;
 	public bool countDown;
 
+	[HideInInspector] public PlayerStats playerStats;
+
 	//Set all coruses before countdown
 	void Awake(){
 		
@@ -26,6 +28,8 @@ public class DishSelection : MonoBehaviour {
 		fullFilled = 0;
 		Disk = GetComponent<Image> ();
 		countDown = false;
+
+		playerStats = GameObject.FindWithTag ("Player").GetComponent<PlayerStats> ();
 	}
 
 	void Update(){
@@ -39,7 +43,8 @@ public class DishSelection : MonoBehaviour {
 									Mathf.Floor(clock) % 60);//seconds
 		}
 
-		clock -= Time.deltaTime;
+		if (!playerStats.godModeActive())
+			clock -= Time.deltaTime;
 
 		if (fullFilled > 0 && !countDown) {
 			Disk.fillAmount = (clock / fullFilled);

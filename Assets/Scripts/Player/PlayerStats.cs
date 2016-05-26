@@ -20,12 +20,14 @@
 
 using UnityEngine;
 using System.Collections;
+using Enums;
 
 public class PlayerStats : MonoBehaviour {
-	private bool bonusUniform;
+	//private bool bonusUniform;
+	public playerState state;
 
 	void Awake () {
-		bonusUniform = false;
+		state = playerState.PLAYER_STATE_MORTAL;
 	}
 
 	public void activeBonus (float time) {
@@ -33,16 +35,27 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	private IEnumerator bonusCooldown(float time) {
-		bonusUniform = true;
+		state = playerState.PLAYER_STATE_BONUS_UNIFORM;
 		yield return new WaitForSeconds (time);
-		bonusUniform = false;
+		state = playerState.PLAYER_STATE_MORTAL;
 	}
 
 	public void godMode() {
-		bonusUniform = true;
+		switch (state) {
+		case playerState.PLAYER_STATE_GOD:
+			state = playerState.PLAYER_STATE_MORTAL;
+			break;
+		default:
+			state = playerState.PLAYER_STATE_GOD;
+			break;
+		}
 	}
 
 	public bool uniformBonusActive() {
-		return bonusUniform;
+		return state == playerState.PLAYER_STATE_BONUS_UNIFORM;
+	}
+
+	public bool godModeActive() {
+		return state == playerState.PLAYER_STATE_GOD;
 	}
 }

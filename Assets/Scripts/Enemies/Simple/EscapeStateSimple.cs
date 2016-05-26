@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Enums;
 
 public class EscapeStateSimple : IEnemyStateSimple {
 
@@ -10,7 +11,7 @@ public class EscapeStateSimple : IEnemyStateSimple {
 
 	public EscapeStateSimple(StatePatternEnemySimple statePatternEnemy) {
 		enemy = statePatternEnemy;
-		enemy.state = enemyStateSimple.SIMPLE_STATE_ESCAPE;
+		enemy.actualState = enemyStateSimple.SIMPLE_STATE_ESCAPE;
 		enemy.nextWayPoint = Random.Range (0, enemy.wayPoints.Length - 1);
 	}
 
@@ -39,8 +40,12 @@ public class EscapeStateSimple : IEnemyStateSimple {
 
 	private void changeWayPoint() {
 		auxWayPoint = Random.Range (0, enemy.wayPoints.Length - 1);
-		if (auxWayPoint == enemy.nextWayPoint)
+		if (auxWayPoint == enemy.nextWayPoint) {
 			++auxWayPoint;
+			if (auxWayPoint == enemy.wayPoints.Length) {
+				auxWayPoint = 0;
+			}
+		}
 		enemy.nextWayPoint = auxWayPoint;
 	}
 
@@ -49,13 +54,13 @@ public class EscapeStateSimple : IEnemyStateSimple {
 	}
 
 	public void ToIdleState() {
-		enemy.state = enemyStateSimple.SIMPLE_STATE_IDLE;
+		enemy.actualState = enemyStateSimple.SIMPLE_STATE_IDLE;
 		enemy.currentState = enemy.idleState;
 	}
 
 	public void ToChaseState() {
 		enemy.navMeshAgent.Resume ();
-		enemy.state = enemyStateSimple.SIMPLE_STATE_CHASE;
+		enemy.actualState = enemyStateSimple.SIMPLE_STATE_CHASE;
 		enemy.currentState = enemy.chaseState;
 	}
 }

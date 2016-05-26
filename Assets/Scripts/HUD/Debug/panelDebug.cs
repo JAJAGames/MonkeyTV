@@ -135,6 +135,7 @@ public class panelDebug : MonoBehaviour {
 	public void ButtonModeGodPressed () {
 		textGod.SetActive (!textGod.activeSelf);
 		torus.SetActive (!torus.activeSelf);
+		stats.godMode ();
 	}
 
 	public void ButtonBackPressed () 

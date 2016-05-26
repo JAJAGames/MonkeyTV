@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Enums;
 
 public class IdleStateSimple : IEnemyStateSimple {
 
@@ -7,7 +8,7 @@ public class IdleStateSimple : IEnemyStateSimple {
 
 	public IdleStateSimple(StatePatternEnemySimple statePatternEnemy) {
 		enemy = statePatternEnemy;
-		enemy.state = enemyStateSimple.SIMPLE_STATE_IDLE;
+		enemy.actualState = enemyStateSimple.SIMPLE_STATE_IDLE;
 	}
 
 	public void UpdateState() {
@@ -33,7 +34,7 @@ public class IdleStateSimple : IEnemyStateSimple {
 
 	public void ToEscapeState() {
 		enemy.navMeshAgent.Resume ();
-		enemy.state = enemyStateSimple.SIMPLE_STATE_ESCAPE;
+		enemy.actualState = enemyStateSimple.SIMPLE_STATE_ESCAPE;
 		enemy.currentState = enemy.escapeState;
 	}
 
@@ -43,7 +44,7 @@ public class IdleStateSimple : IEnemyStateSimple {
 
 	public void ToChaseState () {
 		enemy.navMeshAgent.Resume ();
-		enemy.state = enemyStateSimple.SIMPLE_STATE_CHASE;
+		enemy.actualState = enemyStateSimple.SIMPLE_STATE_CHASE;
 		enemy.currentState = enemy.chaseState;
 	}
 }

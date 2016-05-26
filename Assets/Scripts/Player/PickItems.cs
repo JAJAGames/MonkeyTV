@@ -13,7 +13,7 @@ public class PickItems : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		actualItem = itemsListMC.NO_ITEM;
+		actualItem = itemsListMC.NO_ITEM_MC;
 
 		allItems = HelperMethods.GetChildren (Items);
 		for (int i = 0; i < allItems.Length; i++) 
@@ -24,7 +24,7 @@ public class PickItems : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Throw") && actualItem != itemsListMC.NO_ITEM) {
+		if (Input.GetButtonDown ("Throw") && actualItem != itemsListMC.NO_ITEM_MC) {
 			throwItem ();
 		}
 	}
@@ -33,11 +33,11 @@ public class PickItems : MonoBehaviour {
 		//Throw item animation
 		allItems[(int)actualItem].SetActive (false);
 		boxCollider.enabled = false;
-		actualItem = itemsListMC.NO_ITEM;
+		actualItem = itemsListMC.NO_ITEM_MC;
 	}
 
 	public bool haveItem() {
-		return !(actualItem == itemsListMC.NO_ITEM);
+		return !(actualItem == itemsListMC.NO_ITEM_MC);
 	}
 
 	public void changeItem(itemsListMC newItem) {
