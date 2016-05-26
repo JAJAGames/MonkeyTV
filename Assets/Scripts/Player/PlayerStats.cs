@@ -23,7 +23,6 @@ using System.Collections;
 using Enums;
 
 public class PlayerStats : MonoBehaviour {
-	//private bool bonusUniform;
 	public playerState state;
 
 	void Awake () {

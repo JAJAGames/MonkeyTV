@@ -31,13 +31,14 @@ public class PropBonus : MonoBehaviour {
 	}
 
 
-	private void bonusTime(){
+	private void bonusTime() {
 		// Add time to total time
 	}
 
-	private void bonusUniform(){
+	private void bonusUniform() {
 		//Activate bonus for time seconds
-		player.activeBonus(time);
+		if (!player.godModeActive)
+			player.activeBonus(time);
 	}
 
 	private void bonusKey(){
