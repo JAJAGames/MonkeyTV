@@ -31,7 +31,9 @@ public class IGUIngredient : MonoBehaviour {
 		course = dishSelection.GetCurrent ();
 		ingredients = new DishList.FoodMenu(DishList.menu[course]);
 		img.sprite = sprites [(int)ingredients.ingredients [ingredientNumber]];
-		img.color = Color.white;
+		Color c = Color.grey;
+		c.a = 0.5f;
+		img.color = c;
 	}
 
 }
