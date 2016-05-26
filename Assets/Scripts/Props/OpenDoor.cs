@@ -60,4 +60,8 @@ public class OpenDoor : MonoBehaviour {
 		if (other.CompareTag ("Player"))
 			closed = false;
 	}
+
+	public void  SetCloset(bool close){
+		closed = close;
+	}
 }
