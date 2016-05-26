@@ -37,7 +37,7 @@ public class PropBonus : MonoBehaviour {
 
 	private void bonusUniform() {
 		//Activate bonus for time seconds
-		if (!player.godModeActive)
+		if (!player.godModeActive())
 			player.activeBonus(time);
 	}
 
