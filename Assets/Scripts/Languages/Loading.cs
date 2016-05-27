@@ -34,9 +34,9 @@ public class Loading : MonoBehaviour {
 		//initialize file
 		xml = new LanguageXMLSerializer ();
 
-		if (!File.Exists (Path.Combine (Application.dataPath, "Languages.xml")))
+		if (!File.Exists (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml")))
 			return;
-		xml = LanguageXMLSerializer.Load (Path.Combine (Application.dataPath, "Languages.xml"));
+		xml = LanguageXMLSerializer.Load (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml"));
 		GetList ();
 	}
 		

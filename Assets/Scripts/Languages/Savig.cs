@@ -46,8 +46,8 @@ public class Savig : MonoBehaviour {
 	public void SaveWords(){
 
 		LanguageXMLSerializer xml = new LanguageXMLSerializer ();
-		if (File.Exists (Path.Combine (Application.dataPath, "Languages.xml")))
-			xml.languages = LanguageXMLSerializer.Load (Path.Combine (Application.dataPath, "Languages.xml")).languages;
+		if (File.Exists (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml")))
+			xml.languages = LanguageXMLSerializer.Load (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml")).languages;
 		
 		if (currentIndex > xml.languages.Count - 1)
 				xml.languages.Add (new Words ());
@@ -56,7 +56,7 @@ public class Savig : MonoBehaviour {
 				data [i].SaveChanges (xml.languages [currentIndex]);
 			}
 
-		xml.Save (Path.Combine (Application.dataPath, "Languages.xml"));
+		xml.Save (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml"));
 		LoadWords (currentIndex);
 	}
 
@@ -66,9 +66,9 @@ public class Savig : MonoBehaviour {
 		
 		LanguageXMLSerializer xml = new LanguageXMLSerializer ();
 
-		if (!File.Exists (Path.Combine (Application.dataPath, "Languages.xml")))
+		if (!File.Exists (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml")))
 			SaveWords ();
-		xml = LanguageXMLSerializer.Load (Path.Combine (Application.dataPath, "Languages.xml"));
+		xml = LanguageXMLSerializer.Load (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml"));
 		amount = xml.languages.Count;
 
 		if (index > amount - 1)
@@ -105,11 +105,11 @@ public class Savig : MonoBehaviour {
 
 	public void RemoveWord ()
 	{
-		if (File.Exists (Path.Combine (Application.dataPath, "Languages.xml"))) {
-			LanguageXMLSerializer xml = LanguageXMLSerializer.Load (Path.Combine (Application.dataPath, "Languages.xml"));
+		if (File.Exists (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml"))) {
+			LanguageXMLSerializer xml = LanguageXMLSerializer.Load (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml"));
 			xml.languages.RemoveAt (currentIndex);
 
-			xml.Save (Path.Combine (Application.dataPath, "Languages.xml"));
+			xml.Save (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml"));
 			if (currentIndex > xml.languages.Count - 1) {
 				currentIndex--;
 			}
@@ -121,7 +121,7 @@ public class Savig : MonoBehaviour {
 			if (amount > 1)
 				amount--;
 
-			xml.Save (Path.Combine (Application.dataPath, "Languages.xml"));
+			xml.Save (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml"));
 			LoadWords (currentIndex);
 		}
 	}
