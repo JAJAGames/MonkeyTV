@@ -12,13 +12,14 @@ public class IdleStateSimple : IEnemyStateSimple {
 	}
 
 	public void UpdateState() {
-		enemy.animator.SetBool("Walk",false);
-
 		if (enemy.transform.position != enemy.startPosition) {
 			enemy.navMeshAgent.destination = enemy.startPosition; 
 			enemy.navMeshAgent.Resume ();
-		} else
+		} else {
+			Debug.Log ("Ha entrat");
 			enemy.navMeshAgent.Stop ();
+			enemy.animator.SetBool("Walk",false);
+		}
 
 		if (enemy.playerStats.uniformBonusActive()) {
 			ToEscapeState ();
