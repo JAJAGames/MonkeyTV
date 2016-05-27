@@ -9,7 +9,8 @@ public class PickKey : MonoBehaviour {
 	public 	Image[] 		sprites = new Image[3];
 	public GameObject 		particleSystemKey;
 	public GameObject[] 	particleMonekys = new GameObject[3];
-	private int counter = 0;
+	private int 			counter = 0;
+	private GameObject 		otherToDestroy;
 
 	void Awake(){
 		for (int i = 0; i < sprites.Length; i++)
@@ -17,6 +18,7 @@ public class PickKey : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
+
 
 		if (other.name == "PRMC_Llave") {
 			IGU_Key_Background.color = Color.yellow;
@@ -27,8 +29,15 @@ public class PickKey : MonoBehaviour {
 		}
 
 		if (other.name == "GRP_PRMC_Jaula" && HasKey) {
+			otherToDestroy = other.gameObject;
+			otherToDestroy.transform.GetChild (0).gameObject.SetActive (false);
+			otherToDestroy.transform.GetChild (1).gameObject.SetActive (false);
+			otherToDestroy.transform.GetChild (2).gameObject.SetActive (false);
+			otherToDestroy.transform.GetChild (3).gameObject.SetActive (true);
+			otherToDestroy.transform.GetChild (4).gameObject.SetActive (false);
 			IGU_Key_Background.color = Color.white;
-			other.gameObject.SetActive (false);
+			Invoke ("DestroyOther", 1f);
+		
 			key.SetActive (true);
 			key = null;
 			HasKey = false;
@@ -38,5 +47,9 @@ public class PickKey : MonoBehaviour {
 				sprites [counter].color = newCol;
 			counter++;
 		}
+	}
+
+	private void DestroyOther(){
+		otherToDestroy.gameObject.SetActive (false);
 	}
 }
