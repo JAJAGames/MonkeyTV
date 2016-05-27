@@ -73,8 +73,7 @@ public class StatePatternEnemySimple : MonoBehaviour {
 
 
 	void Update () {
-		if (navMeshAgent.pathStatus == NavMeshPathStatus.PathPartial || navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid)
-			currentState = idleState;
+
 		CustomUpdate ();
 		body.AddForce (Vector3.down * speed * GRAVITY);						//gravity
 

@@ -32,6 +32,9 @@ public class ChaseStateSimple : IEnemyStateSimple {
 		if (enemy.playerStats.uniformBonusActive()) {
 			ToEscapeState ();
 		}
+
+		if (enemy.navMeshAgent.pathStatus == NavMeshPathStatus.PathPartial || enemy.navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid)
+			ToIdleState();	
 	}
 
 	public void OnTriggerEnter (Collider other) {

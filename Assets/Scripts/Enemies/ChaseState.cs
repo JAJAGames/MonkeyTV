@@ -27,13 +27,8 @@ public class ChaseState : IEnemyState {
 
 		enemy.navMeshAgent.destination = enemy.player.position;
 
-		//NEW
-		timer += Time.deltaTime;
-		if (enemy.type == enemyType.Simple_Shooter || enemy.type == enemyType.Patrol_Shooter)
-			if (Vector3.Distance(enemy.transform.position, enemy.player.position) < 20.0f && timer >= enemy.shootsColldown) {
-				Shoot ();
-			}
-					
+		if (enemy.navMeshAgent.pathStatus == NavMeshPathStatus.PathPartial || enemy.navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid)
+			ToIdleState();			
 	}
 
 	public void OnTriggerEnter (Collider other)
@@ -66,13 +61,6 @@ public class ChaseState : IEnemyState {
 	public void ToChaseState ()
 	{
 		// Can't transition to same state
-	}
-
-	//NEW
-	public void Shoot() {
-		timer = 0f;
-		enemy.animator.SetTrigger("Attack");
-		PoolManager.instance.ReuseObject (enemy.prefab, enemy.transform.position + new Vector3(0.0f, 1.0f, 0.0f), enemy.transform.rotation);
 	}
 		
 }
