@@ -12,11 +12,11 @@ public class IdleStateSimple : IEnemyStateSimple {
 	}
 
 	public void UpdateState() {
-		if (enemy.transform.position != enemy.startPosition) {
+		if (enemy.navMeshAgent.remainingDistance > enemy.navMeshAgent.stoppingDistance) {
 			enemy.navMeshAgent.destination = enemy.startPosition; 
+			enemy.animator.SetBool("Walk",true);
 			enemy.navMeshAgent.Resume ();
 		} else {
-			Debug.Log ("Ha entrat");
 			enemy.navMeshAgent.Stop ();
 			enemy.animator.SetBool("Walk",false);
 		}
