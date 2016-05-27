@@ -4,14 +4,14 @@ using System.Collections;
 public class PickKey : MonoBehaviour {
 
 	private bool 			HasKey;
-	private IGUfromWorld 	ifw;
 	private GameObject 		key = null;
+	public Image			IGU_Key_Background;
 	public 	Image[] 		sprites = new Image[3];
+	public GameObject 		particleSystemKey;
+	public GameObject[] 	particleMonekys = new GameObject[3];
 	private int counter = 0;
 
 	void Awake(){
-		ifw = GameObject.Find ("Image Key").GetComponent<IGUfromWorld>();
-		ifw.gameObject.SetActive (false);
 		for (int i = 0; i < sprites.Length; i++)
 			sprites [i].color = Color.white;
 	}
@@ -19,22 +19,22 @@ public class PickKey : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 
 		if (other.name == "PRMC_Llave") {
-			ifw.gameObject.SetActive (true);
+			IGU_Key_Background.color = Color.yellow;
+			particleSystemKey.SetActive (true);
 			HasKey = true;
 			key = other.gameObject;
 			key.SetActive (false);
-			ifw.StartAnimation ();
 		}
 
 		if (other.name == "GRP_PRMC_Jaula" && HasKey) {
+			IGU_Key_Background.color = Color.white;
 			other.gameObject.SetActive (false);
-			ifw.friendImage.color = Color.white;
-			ifw.gameObject.SetActive (false);
 			key.SetActive (true);
 			key = null;
 			HasKey = false;
 			Color newCol;
-			if (ColorUtility.TryParseHtmlString("#FFDB96FF", out newCol))
+			if (ColorUtility.TryParseHtmlString ("#FFDB96FF", out newCol))
+				particleMonekys [counter].SetActive (true);
 				sprites [counter].color = newCol;
 			counter++;
 		}

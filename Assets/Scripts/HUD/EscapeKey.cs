@@ -19,8 +19,6 @@ using System.Collections;
 
 public class EscapeKey : MonoBehaviour {
 	
-	private const int MENUID = 0;
-
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Escape))

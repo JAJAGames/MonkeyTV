@@ -15,6 +15,7 @@ public class IGUfromWorld : MonoBehaviour {
 	public bool disableOnStop;
 	public Color friendColor;
 	public Image friendImage;
+	public GameObject particleSystemFriend;
 	void Awake () {
 		img = GetComponent<Image> ();
 		animate = false;
@@ -38,13 +39,22 @@ public class IGUfromWorld : MonoBehaviour {
 			Vector3 final = HUDPoint * (1 - alpha) + new Vector3 (Camera.main.WorldToScreenPoint (target.position).x, Camera.main.WorldToScreenPoint (target.position).y, 0) * alpha;
 			img.rectTransform.anchoredPosition = final;
 		} 
-		if (alpha == 0)
-			Invoke ("OnStop", .25f);
+		if (alpha == 0) {
+			if (particleSystemFriend) {
+				Color c = img.color;
+				c.a = 0f;
+				img.color = c;
+				particleSystemFriend.SetActive (true);
+			}
+
+			Invoke ("OnStop", 0.25f);
+		}
 
 	}
 
 	public void StartAnimation(){
 
+		img.color = Color.white;
 		HUDPoint = img.rectTransform.anchoredPosition;					//gameobject must be child of canvas and the anchorpoint only can be set on the center.
 		alpha = 1f;
 		animate = true;

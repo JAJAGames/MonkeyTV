@@ -81,7 +81,10 @@ public class StatePatternEnemySimple : MonoBehaviour {
 
 	public virtual void CustomUpdate(){
 		currentState.UpdateState ();											//do the update loop of the current state
-
+		//Look at
+		Vector3 lookAt = navMeshAgent.destination;
+		lookAt.y = transform.position.y;
+		transform.LookAt (lookAt);
 		//forward direction guizmo
 		NavMeshHit hit;
 		bool blocked = false;
