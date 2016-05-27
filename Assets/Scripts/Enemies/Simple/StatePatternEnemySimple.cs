@@ -6,6 +6,7 @@ public class StatePatternEnemySimple : MonoBehaviour {
 	[Header ("Target")]
 	public Transform player;
 	[HideInInspector] public PlayerStats playerStats;
+	public GameObject psPlayer;
 
 	[Header ("Enemy Settings")]
 	public enemyTypeSimple type;
@@ -37,7 +38,8 @@ public class StatePatternEnemySimple : MonoBehaviour {
 
 	void Awake () {
 		playerStats = GameObject.FindWithTag ("Player").GetComponent<PlayerStats> ();
-
+		psPlayer = GameObject.Find ("PS_Player_change");
+		psPlayer.GetComponent<ParticleSystem>().Stop();
 		chaseState	= new ChaseStateSimple(this);
 		idleState	= new IdleStateSimple(this);
 		escapeState	= new EscapeStateSimple(this);

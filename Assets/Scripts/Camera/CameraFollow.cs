@@ -86,7 +86,6 @@ public class CameraFollow : MonoBehaviour {
 			transform.position = Vector3.MoveTowards (transform.position, playerMove.transform.position + initDifference, smooth * Time.deltaTime);
 			transform.rotation = Quaternion.Slerp(transform.rotation, initRotation, Time.deltaTime);
 
-			Vector3 difference = transform.position - playerMove.transform.position;
 		}
 
 	}

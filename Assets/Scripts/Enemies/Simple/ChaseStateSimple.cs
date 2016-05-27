@@ -35,17 +35,18 @@ public class ChaseStateSimple : IEnemyStateSimple {
 
 		if (enemy.navMeshAgent.pathStatus == NavMeshPathStatus.PathPartial || enemy.navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid)
 			ToIdleState();	
+
 	}
 
 	public void OnTriggerEnter (Collider other) {
 		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem()) {
-			enemy.player.transform.position = jail.position;
+			ToJail ();
 		}
 	}
 
 	public void OnTriggerStay (Collider other) {
 		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem()) {
-			enemy.player.transform.position = jail.position;
+			ToJail ();
 		}
 	}
 
@@ -68,5 +69,12 @@ public class ChaseStateSimple : IEnemyStateSimple {
 		//timer = 0f;
 		//enemy.animator.SetTrigger("Attack");
 		//PoolManager.instance.ReuseObject (enemy.prefab, enemy.transform.position + new Vector3(0.0f, 1.0f, 0.0f), enemy.transform.rotation);
+	}
+
+
+	private void ToJail(){
+		enemy.psPlayer.SetActive (true);
+		ToIdleState ();
+		enemy.player.position = jail.position;
 	}
 }
