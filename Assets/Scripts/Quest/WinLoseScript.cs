@@ -27,13 +27,15 @@ public class WinLoseScript : MonoBehaviour {
 	public Text text;
 	Animator anim;
 
-	private AudioSource _lose;
+	public AudioClip fxWin;
+	public AudioClip fxLose;
+	private AudioSource _source;
 
 	// Use this for initialization
 	void Awake () {
 		anim = GetComponent<Animator> ();
 		text.gameObject.SetActive (false);
-		_lose = GetComponent<AudioSource> ();
+		_source = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -45,7 +47,7 @@ public class WinLoseScript : MonoBehaviour {
 	}
 
 	private IEnumerator LoseTheGame (float t) {
-		_lose.Play ();
+		_source.PlayOneShot(fxLose);
 		anim.SetTrigger("Dead");												//activate death animation 
 		text.text = "GAME OVER";
 		text.gameObject.SetActive(true);
@@ -56,14 +58,14 @@ public class WinLoseScript : MonoBehaviour {
 	}
 
 	private IEnumerator WinTheGame(float t) {
-		
+		_source.PlayOneShot(fxWin);
 		anim.SetTrigger("Win");
 		text.text = "YOU WIN!";
 		text.gameObject.SetActive(true);
 		gamestate.Instance.SetState (Enums.state.STATE_INIT);
 		yield return new WaitForSeconds(t);
-		gamestate.Instance.SetLevel (0);
 
+		gamestate.Instance.SetLevel (0);
 	}
 		
 }
