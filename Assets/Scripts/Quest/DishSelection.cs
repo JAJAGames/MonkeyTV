@@ -85,6 +85,10 @@ public class DishSelection : MonoBehaviour {
 		}
 	}
 
+	public void addTimeToClock(float time){
+		clock += time;
+	}
+
 	//compare indexes.	
 	public bool CompareCourse (int i){
 		if (i > course.Length)						//course.Length == 3
