@@ -7,10 +7,12 @@ public class PropBonus : MonoBehaviour {
 	public enumBonus type;
 	public float time;
 	private PlayerStats player;
+	private DishSelection clockDish;
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindWithTag ("Player").GetComponent<PlayerStats> ();	
+		player = GameObject.FindWithTag ("Player").GetComponent<PlayerStats> ();
+		clockDish = GameObject.Find ("Clock").GetComponent<DishSelection> ();
 	}
 	
 	void OnTriggerEnter(Collider other) {
@@ -32,7 +34,8 @@ public class PropBonus : MonoBehaviour {
 
 
 	private void bonusTime() {
-		// Add time to total time
+		//Add seconds to total time
+		clockDish.addTimeToClock(time);
 	}
 
 	private void bonusUniform() {
