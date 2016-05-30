@@ -26,10 +26,14 @@ public class WinLoseScript : MonoBehaviour {
 
 	public Text text;
 	Animator anim;
+
+	private AudioSource _lose;
+
 	// Use this for initialization
 	void Awake () {
 		anim = GetComponent<Animator> ();
 		text.gameObject.SetActive (false);
+		_lose = GetComponent<AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -41,7 +45,7 @@ public class WinLoseScript : MonoBehaviour {
 	}
 
 	private IEnumerator LoseTheGame (float t) {
-		
+		_lose.Play ();
 		anim.SetTrigger("Dead");												//activate death animation 
 		text.text = "GAME OVER";
 		text.gameObject.SetActive(true);

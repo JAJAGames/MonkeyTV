@@ -20,10 +20,13 @@ public class Dish : MonoBehaviour {
 	private PlayerMovement player;
 	private DishSelection clockDish;
 
+	private AudioSource _countdown;
+
 	void Awake(){
 		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
 		player = GameObject.Find ("Player").GetComponent<PlayerMovement> ();
 		clockDish = GameObject.Find ("Clock").GetComponent<DishSelection> ();
+		_countdown = GetComponent<AudioSource> ();
 	}
 
 	void Update(){
@@ -59,7 +62,6 @@ public class Dish : MonoBehaviour {
 	}
 
 	IEnumerator StartNewDish (float waitTime){
-
 		IGU_Dish.gameObject.SetActive(false);
 		showSelection = true;
 		StartCoroutine(NeWDish());
@@ -68,6 +70,8 @@ public class Dish : MonoBehaviour {
 		showSelection = false;
 
 		clockDish.SetClock (5);
+		_countdown.Play ();
+
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		player.enabled = true;
 
@@ -76,7 +80,6 @@ public class Dish : MonoBehaviour {
 	}
 
 	void ToSearch(){
-
 		clockDish.countDown = false;
 		clockDish.text.rectTransform.localScale = Vector3.one;
 		clockDish.SetClock (120);

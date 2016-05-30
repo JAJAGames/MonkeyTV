@@ -94,7 +94,6 @@ public class PropDropItem : MonoBehaviour {
 			Debug.Log ("NO MATCH");
 		} else { 																//ja no te ingredient deixa d'il.luminar
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
-			_audio.Play ();
 			//Debug.Log("GOT IT!");
 
 			if (currentDish == 0 && keyDoor.isClosed ())
@@ -110,6 +109,7 @@ public class PropDropItem : MonoBehaviour {
 					gamestate.Instance.SetState (Enums.state.STATE_WIN);
 				}
 			}
+			_audio.Play ();
 		}
 	}
 }
