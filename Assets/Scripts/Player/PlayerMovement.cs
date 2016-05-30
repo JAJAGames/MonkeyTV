@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour  {
 			else
 				emWalk.enabled = false;
 #endif
-			if (Input.GetButtonDown ("Jump")) 									//jump go up y axis!! and no particles...
+			if (Input.GetButton ("Jump")) 									//jump go up y axis!! and no particles...
 			{
 				anim.SetBool("Jump",true);
 				//anim.GetCurrentAnimatorStateInfo(0).length;
@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour  {
 	//Adding phisics to player... 
 	void OnControllerColliderHit(ControllerColliderHit other) {
 																					//if the player collides with one enemy he can move him depending on their mass
-		if (other.gameObject.CompareTag ("Enemy") && controller.isGrounded) { 		//the player must be grtounded
+		if (other.gameObject.CompareTag ("Enemy") && controller.isGrounded) { 		//the player must be grounded
 
 			//Vector direction 
 			Vector3 direction = other.transform.position - transform.position;	
