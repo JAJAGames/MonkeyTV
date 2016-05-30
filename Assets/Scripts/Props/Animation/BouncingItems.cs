@@ -9,7 +9,6 @@ public class BouncingItems : MonoBehaviour {
 	private Vector3 tempPos;
 	MeshRenderer mesh;
 	public bool lightningColor;
-	private Material _material;
 	public Color color;
 
 	void Awake () 
@@ -18,7 +17,6 @@ public class BouncingItems : MonoBehaviour {
 		tempVal = transform.position.y;
 		speed = speed * Random.Range (0.8f, 1.2f);
 
-		_material = mesh.sharedMaterial;
 	}
 
 	void Update () 
