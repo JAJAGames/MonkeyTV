@@ -12,9 +12,16 @@ public class PickKey : MonoBehaviour {
 	private int 			counter = 0;
 	private GameObject 		otherToDestroy;
 
-	void Awake(){
+	//Audio
+	[Header("Audio Clips")]
+	public AudioClip fxJail;
+	private AudioSource _source;
+
+	void Awake() {
 		for (int i = 0; i < sprites.Length; i++)
 			sprites [i].color = Color.white;
+
+		_source = GetComponent<AudioSource> ();
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -29,6 +36,7 @@ public class PickKey : MonoBehaviour {
 		}
 
 		if (other.name == "GRP_PRMC_Jaula" && HasKey) {
+			_source.PlayOneShot(fxJail);
 			otherToDestroy = other.gameObject;
 			otherToDestroy.transform.GetChild (0).gameObject.SetActive (false);
 			otherToDestroy.transform.GetChild (1).gameObject.SetActive (false);

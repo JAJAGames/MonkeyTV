@@ -32,6 +32,14 @@ public class OpenDoor : MonoBehaviour {
 	private float rotation = 0;
 	private bool closed = true;
 
+	//Audio
+	[Header("Audio Clips")]
+	public AudioClip fxOpen;
+	private AudioSource _source;
+
+	void Awake() {
+		_source = GetComponent<AudioSource> ();
+	}
 
 	public void Open(){
 		closed = false;
@@ -57,8 +65,10 @@ public class OpenDoor : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.CompareTag ("Player"))
+		if (other.CompareTag ("Player")) {
 			closed = false;
+			_source.PlayOneShot(fxOpen);
+		}
 	}
 
 	public void  SetCloset(bool close){

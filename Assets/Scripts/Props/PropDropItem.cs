@@ -16,17 +16,21 @@ public class PropDropItem : MonoBehaviour {
 	public int[] courses;
 	public DishList.FoodMenu[] menu;
 	public Dish dish;
-	private AudioSource _audio; 
 	public IGUfromWorld[] IGUchek = new IGUfromWorld[3];
 	//PROVES
 	int currentDish;
 	bool firsTime = true;
 
+	//Audio
+	[Header("Audio Clips")]
+	public AudioClip fxDrop;
+	private AudioSource _source;
+
 	// Use this for initialization
 	void Start () {
 		meshRenderer = GetComponent<MeshRenderer> ();
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
-		_audio = GetComponent<AudioSource> ();
+		_source = GetComponent<AudioSource> ();
 		_material = meshRenderer.sharedMaterial;
 
 		//can be set in the inspector
@@ -109,7 +113,7 @@ public class PropDropItem : MonoBehaviour {
 					gamestate.Instance.SetState (Enums.state.STATE_WIN);
 				}
 			}
-			_audio.Play ();
+			_source.PlayOneShot(fxDrop);
 		}
 	}
 }

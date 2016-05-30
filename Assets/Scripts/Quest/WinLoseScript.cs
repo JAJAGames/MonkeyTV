@@ -27,6 +27,8 @@ public class WinLoseScript : MonoBehaviour {
 	public Text text;
 	Animator anim;
 
+	//Audio
+	[Header("Audio Clips")]
 	public AudioClip fxWin;
 	public AudioClip fxLose;
 	private AudioSource _source;
