@@ -39,13 +39,13 @@ public class ChaseStateSimple : IEnemyStateSimple {
 	}
 
 	public void OnTriggerEnter (Collider other) {
-		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem()) {
+		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem() && !enemy.playerStats.godModeActive()) {
 			ToJail ();
 		}
 	}
 
 	public void OnTriggerStay (Collider other) {
-		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem()) {
+		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem() && !enemy.playerStats.godModeActive()) {
 			ToJail ();
 		}
 	}
@@ -64,13 +64,6 @@ public class ChaseStateSimple : IEnemyStateSimple {
 	public void ToChaseState () {
 		// Can't transition to same state
 	}
-
-	public void Attack() {
-		//timer = 0f;
-		//enemy.animator.SetTrigger("Attack");
-		//PoolManager.instance.ReuseObject (enemy.prefab, enemy.transform.position + new Vector3(0.0f, 1.0f, 0.0f), enemy.transform.rotation);
-	}
-
 
 	private void ToJail(){
 		enemy.psPlayer.SetActive (true);

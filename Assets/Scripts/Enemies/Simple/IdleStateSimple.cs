@@ -20,7 +20,7 @@ public class IdleStateSimple : IEnemyStateSimple {
 			enemy.navMeshAgent.Stop ();
 			enemy.animator.SetBool("Walk",false);
 		}
-
+			
 		if (enemy.playerStats.uniformBonusActive()) {
 			ToEscapeState ();
 		}
