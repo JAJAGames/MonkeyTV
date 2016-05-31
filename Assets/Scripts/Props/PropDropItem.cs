@@ -12,6 +12,10 @@ public class PropDropItem : MonoBehaviour {
 	private Material _material;
 	private DishSelection dishSelection;
 
+	public Transform cameraStaticPosition;
+	private CameraFollow cam;
+	private Transform cameraStaticDoor;
+
 	public OpenDoor keyDoor;
 	public int[] courses;
 	public DishList.FoodMenu[] menu;
@@ -27,10 +31,16 @@ public class PropDropItem : MonoBehaviour {
 	private AudioSource _source;
 
 	// Use this for initialization
-	void Start () {
+	void Awake (){
+		cam = Camera.main.GetComponent<CameraFollow> ();
 		meshRenderer = GetComponent<MeshRenderer> ();
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
 		_source = GetComponent<AudioSource> ();
+		dishSelection = GameObject.Find ("Clock").GetComponent<DishSelection> ();
+	}
+
+	void Start () {
+		
 		_material = meshRenderer.sharedMaterial;
 
 		//can be set in the inspector
@@ -38,7 +48,7 @@ public class PropDropItem : MonoBehaviour {
 
 		_color = meshRenderer.material.GetColor ("_EmissionColor");
 
-		dishSelection = GameObject.Find ("Clock").GetComponent<DishSelection> ();
+
 		courses = dishSelection.GetCourses ();
 
 		menu = new DishList.FoodMenu[3];
@@ -100,8 +110,14 @@ public class PropDropItem : MonoBehaviour {
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
 			//Debug.Log("GOT IT!");
 
-			if (currentDish == 0 && keyDoor.isClosed ())
-				keyDoor.Open ();
+			if (currentDish == 0 && keyDoor.isClosed ()) {
+				gamestate.Instance.SetState (state.STATE_STATIC_CAMERA);
+				cameraStaticDoor = cam.target;
+				cam.target = cameraStaticPosition;
+				Invoke ("OpenDoor", 1f);
+				Invoke ("CameraToFollow", 3f);
+			}
+				
 
 			if (menu [dishSelection.currentCourse].itemsLeft == 0) {
 				if (dishSelection.currentCourse < 2) {
@@ -115,6 +131,15 @@ public class PropDropItem : MonoBehaviour {
 			}
 			_source.PlayOneShot(fxDrop);
 		}
+	}
+
+	void OpenDoor(){
+		keyDoor.Open ();
+	}
+
+	void CameraToFollow(){
+		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
+		cam.target = cameraStaticDoor;
 	}
 }
 
