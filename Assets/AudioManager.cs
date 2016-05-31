@@ -2,7 +2,6 @@
 using System.Collections;
 
 public enum fxClip {BUTTON_HOVER, BUTTON_PRESSED, NO_FX}
-public enum musicClip {MENU_SCENE, NO_MUSIC}
 
 public class AudioManager : MonoBehaviour {
 
@@ -13,28 +12,14 @@ public class AudioManager : MonoBehaviour {
 	private AudioSource _musicSource;
 
 	private fxClip _currentFX;
-	private musicClip _currentMusic;
 
 
 	void Awake(){
-		_currentMusic = musicClip.MENU_SCENE;
 		_currentFX = fxClip.NO_FX;
 		_fxSource = GetComponent<AudioSource> ();
 		_musicSource = Camera.main.GetComponent<AudioSource> ();
 		_musicSource.loop = true;
-	}
-
-	void Start(){
-		switch (gamestate.Instance.GetLevel ()) {
-		case Enums.sceneLevel.MENU:
-			_currentMusic = musicClip.MENU_SCENE;
-			break;
-		case Enums.sceneLevel.LEVEL_1:
-			_currentMusic = musicClip.MENU_SCENE;
-			break;
-		}
-
-		PlayMusic ();
+		PlayMusic (gamestate.Instance.GetLevel ());
 	}
 
 	public void SetFX(fxClip fx){
@@ -56,22 +41,13 @@ public class AudioManager : MonoBehaviour {
 		_currentFX = fxClip.NO_FX;
 	}
 
-	public void SetMusic(musicClip music){
-		_currentMusic = music;
-	}
-
-	public void PlayMusic ()
+	public void PlayMusic (Enums.sceneLevel music)
 	{
-		_musicSource.PlayOneShot(arrayMusic[(int) _currentMusic]);
+		_musicSource.clip = arrayMusic [(int)music];
+		_musicSource.Play();
 	}
 
-	public void PlayMusic (musicClip Music)
-	{
-		_currentMusic = musicClip.NO_MUSIC;
-		_musicSource.PlayOneShot(arrayMusic[(int) _currentMusic]);
-	}
-
-	public void RemoveMusic(){
-		_currentMusic = musicClip.NO_MUSIC;
+	public void StopMusic(){
+		_musicSource.Stop();
 	}
 }

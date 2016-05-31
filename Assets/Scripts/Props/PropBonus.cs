@@ -17,6 +17,7 @@ public class PropBonus : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag ("Player")) {
+			other.transform.position = transform.position;
 			switch (type) {
 			case enumBonus.BONUS_TIME:
 				bonusTime ();
@@ -28,11 +29,16 @@ public class PropBonus : MonoBehaviour {
 				bonusKey ();
 				break;
 			}
-			gameObject.SetActive (false);
+			gameObject.transform.GetChild (0).gameObject.SetActive (true);
+			gameObject.GetComponent<MeshRenderer> ().enabled = false;
+			Invoke ("DisableSelf", 1f);
+	
 		}
 	}
 
-
+	private void DisableSelf(){
+		gameObject.SetActive (false);
+	}
 	private void bonusTime() {
 		//Add seconds to total time
 		clockDish.addTimeToClock(time);

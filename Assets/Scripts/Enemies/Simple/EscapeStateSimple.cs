@@ -7,7 +7,6 @@ public class EscapeStateSimple : IEnemyStateSimple {
 	private readonly StatePatternEnemySimple enemy;
 	private Vector3 destination;
 	private float timePlayerChasing;
-	private int auxWayPoint;
 
 	public EscapeStateSimple(StatePatternEnemySimple statePatternEnemy) {
 		enemy = statePatternEnemy;
@@ -21,9 +20,13 @@ public class EscapeStateSimple : IEnemyStateSimple {
 		enemy.navMeshAgent.destination = enemy.wayPoints [enemy.nextWayPoint].position;
 		enemy.navMeshAgent.Resume ();
 
+		if (enemy.navMeshAgent.remainingDistance <= enemy.navMeshAgent.stoppingDistance)
+			changeWayPoint ();
 		if (!enemy.playerStats.uniformBonusActive()) {
 			ToChaseState ();
 		}
+
+
 	}
 
 	public void OnTriggerEnter (Collider other) {
@@ -39,14 +42,17 @@ public class EscapeStateSimple : IEnemyStateSimple {
 	}
 
 	private void changeWayPoint() {
-		auxWayPoint = Random.Range (0, enemy.wayPoints.Length - 1);
-		if (auxWayPoint == enemy.nextWayPoint) {
+
+		enemy.nextWayPoint = Random.Range (0, enemy.wayPoints.Length - 1);
+		while (Vector3.Distance(enemy.wayPoints[enemy.nextWayPoint].position, enemy.transform.position) <= enemy.navMeshAgent.stoppingDistance)
+			enemy.nextWayPoint = Random.Range (0, enemy.wayPoints.Length - 1);
+		/*if (auxWayPoint == enemy.nextWayPoint) {
 			++auxWayPoint;
 			if (auxWayPoint == enemy.wayPoints.Length) {
 				auxWayPoint = 0;
 			}
-		}
-		enemy.nextWayPoint = auxWayPoint;
+		}*/
+		enemy.navMeshAgent.destination = enemy.wayPoints[enemy.nextWayPoint].position;
 	}
 
 	public void ToEscapeState() {
