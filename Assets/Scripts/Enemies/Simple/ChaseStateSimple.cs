@@ -51,12 +51,18 @@ public class ChaseStateSimple : IEnemyStateSimple {
 	}
 
 	public void ToEscapeState() {
+		enemy.admirationStick.SetActive (false);
+		enemy.admirationSphere.SetActive (false);
+
 		enemy.navMeshAgent.Resume ();
 		enemy.actualState = enemyStateSimple.SIMPLE_STATE_ESCAPE;
 		enemy.currentState = enemy.escapeState;
 	}
 
 	public void ToIdleState () {
+		enemy.admirationStick.SetActive (false);
+		enemy.admirationSphere.SetActive (false);
+
 		enemy.actualState = enemyStateSimple.SIMPLE_STATE_IDLE;
 		enemy.currentState = enemy.idleState;
 	}

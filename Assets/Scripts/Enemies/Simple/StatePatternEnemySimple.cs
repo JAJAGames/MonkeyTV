@@ -25,6 +25,8 @@ public class StatePatternEnemySimple : MonoBehaviour {
 	[Range(0,5)]	public float searchingDuration = 1f;
 	[Range(1,100)]	public float sightRange = 10f;
 
+	public GameObject admirationStick;
+	public GameObject admirationSphere;
 
 	[HideInInspector]	public Rigidbody body;
 	[HideInInspector]	public Transform chaseTarget;

@@ -59,6 +59,9 @@ public class EscapeStateSimple : IEnemyStateSimple {
 	}
 
 	public void ToChaseState() {
+		enemy.admirationStick.SetActive (true);
+		enemy.admirationSphere.SetActive (true);
+
 		enemy.navMeshAgent.Resume ();
 		enemy.actualState = enemyStateSimple.SIMPLE_STATE_CHASE;
 		enemy.currentState = enemy.chaseState;
