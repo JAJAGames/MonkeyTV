@@ -43,6 +43,7 @@ public class OpenDoor : MonoBehaviour {
 
 	public void Open(){
 		closed = false;
+		_source.PlayOneShot(fxOpen);
 	}
 
 	public bool isClosed(){
@@ -65,13 +66,10 @@ public class OpenDoor : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.CompareTag ("Player")) {
-			closed = false;
-			_source.PlayOneShot(fxOpen);
+		if (other.CompareTag ("Player") && closed) {
+			Open ();
 		}
 	}
 
-	public void  SetCloset(bool close){
-		closed = close;
-	}
+
 }

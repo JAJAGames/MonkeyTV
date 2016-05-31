@@ -24,7 +24,6 @@ public class LeverOpen : MonoBehaviour {
 		if (opened)
 			return;
 		if (Input.GetKeyDown (KeyCode.E) && other.CompareTag ("Player")) {
-			_source.PlayOneShot(fxOpen);
 			lever.Rotate (100, 0, 0);
 			Invoke ("ShowOpening", 1f);
 			gamestate.Instance.SetState(Enums.state.STATE_STATIC_CAMERA);
@@ -36,8 +35,9 @@ public class LeverOpen : MonoBehaviour {
 
 	void ShowOpening()
 	{
+		_source.PlayOneShot(fxOpen);
 		gameObject.GetComponent<OpenDoor> ().enabled = true;
-		gameObject.GetComponent<OpenDoor> ().SetCloset (false);
+		gameObject.GetComponent<OpenDoor> ().Open ();
 		Invoke ("DisableSelf", 1f);
 
 	}
