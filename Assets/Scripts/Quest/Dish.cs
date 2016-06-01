@@ -20,16 +20,10 @@ public class Dish : MonoBehaviour {
 	private PlayerMovement player;
 	private DishSelection clockDish;
 
-	//Audio
-	[Header("Audio Clips")]
-	public AudioClip fxCountdown;
-	private AudioSource _source;
-
 	void Awake(){
 		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
 		player = GameObject.Find ("Player").GetComponent<PlayerMovement> ();
 		clockDish = GameObject.Find ("Clock").GetComponent<DishSelection> ();
-		_source = GetComponent<AudioSource> ();
 	}
 
 	void Update(){
@@ -73,7 +67,7 @@ public class Dish : MonoBehaviour {
 		showSelection = false;
 
 		clockDish.SetClock (5);
-		_source.PlayOneShot(fxCountdown);
+		AudioManager.Instance.PlayFX(Enums.fxClip.COUNTDOWN);
 
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		player.enabled = true;

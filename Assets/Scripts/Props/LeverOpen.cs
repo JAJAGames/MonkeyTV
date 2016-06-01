@@ -37,6 +37,7 @@ public class LeverOpen : MonoBehaviour {
 		if (!closed)
 			return;
 		if (Input.GetKeyDown (KeyCode.E) && other.CompareTag ("Player")) {
+			AudioManager.Instance.PlayFX (Enums.fxClip.UNLOCK_LEVER);
 			lever.Rotate (100, 0, 0);
 			Invoke ("ShowOpening", 1f);
 			gamestate.Instance.SetState(Enums.state.STATE_STATIC_CAMERA);

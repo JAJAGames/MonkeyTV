@@ -18,6 +18,8 @@ public class AnimationOnCollisionSingle : MonoBehaviour {
 	}
 
 	private void StartAnimation() {
+		if (tag == "Water Cube")
+			AudioManager.Instance.PlayFX (Enums.fxClip.WATER_CUBE);
 		isAnimated = true;
 		anim.Play ();
 		Invoke ("StopAnim",anim.clip.length); 
