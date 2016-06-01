@@ -25,17 +25,11 @@ public class PropDropItem : MonoBehaviour {
 	int currentDish;
 	bool firsTime = true;
 
-	//Audio
-	[Header("Audio Clips")]
-	public AudioClip fxDrop;
-	private AudioSource _source;
-
 	// Use this for initialization
 	void Awake (){
 		cam = Camera.main.GetComponent<CameraFollow> ();
 		meshRenderer = GetComponent<MeshRenderer> ();
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
-		_source = GetComponent<AudioSource> ();
 		dishSelection = GameObject.Find ("Clock").GetComponent<DishSelection> ();
 	}
 
@@ -129,7 +123,7 @@ public class PropDropItem : MonoBehaviour {
 					gamestate.Instance.SetState (Enums.state.STATE_WIN);
 				}
 			}
-			_source.PlayOneShot(fxDrop);
+			AudioManager.Instance.PlayFX(Enums.fxClip.GUI_PICK_BONUS);
 		}
 	}
 

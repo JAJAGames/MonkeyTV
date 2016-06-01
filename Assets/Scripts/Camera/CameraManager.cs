@@ -51,6 +51,9 @@ public class CameraManager : MonoBehaviour {
 				cams [i].camera.SetActive (true);
 		}
 		currentCamera = camType.MAIN;							//control the current camera
+		Enums.sceneLevel level = gamestate.Instance.GetLevel();
+
+		AudioManager.Instance.PlayMusic (level);
 	}
 	
 	public void ButtonCameraPressed () {
@@ -64,5 +67,7 @@ public class CameraManager : MonoBehaviour {
 				cams [i].camera.SetActive (true);
 		}
 		GetComponent<Canvas> ().worldCamera = Camera.main;
+
+		AudioManager.Instance.PlayMusic (gamestate.Instance.GetLevel());
 	}
 }

@@ -32,18 +32,10 @@ public class OpenDoor : MonoBehaviour {
 	private float rotation = 0;
 	private bool closed = true;
 
-	//Audio
-	[Header("Audio Clips")]
-	public AudioClip fxOpen;
-	private AudioSource _source;
-
-	void Awake() {
-		_source = GetComponent<AudioSource> ();
-	}
 
 	public void Open(){
 		closed = false;
-		_source.PlayOneShot(fxOpen);
+		AudioManager.Instance.PlayFX(Enums.fxClip.OPEN_DOOR);
 	}
 
 	public bool isClosed(){

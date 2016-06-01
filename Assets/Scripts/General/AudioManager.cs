@@ -35,8 +35,6 @@ public class AudioManager : MonoBehaviour {
 		_currentFX = fxClip.NO_FX;
 		//_fxSource = gameObject.GetComponent<AudioSource> ();
 
-
-		GetCameraSource ();
 		arrayFx =  Resources.LoadAll("Audio/FX", typeof(AudioClip));
 		arrayMusic =  Resources.LoadAll("Audio/Music", typeof(AudioClip));
 		PlayMusic (gamestate.Instance.GetLevel ());
@@ -72,6 +70,7 @@ public class AudioManager : MonoBehaviour {
 
 	public void PlayMusic (Enums.sceneLevel music)
 	{
+		GetCameraSource ();
 		_musicSource.clip = arrayMusic [(int)music] as AudioClip;
 		_musicSource.Play();
 	}

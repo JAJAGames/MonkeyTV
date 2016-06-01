@@ -8,20 +8,33 @@ public class LeverOpen : MonoBehaviour {
 	public Transform cameraStaticPosition;
 	private CameraFollow cam;
 	private Transform cameraStaticGorilla;
-	private bool opened = false;
 
-	//Audio
-	[Header("Audio Clips")]
-	public AudioClip fxOpen;
-	private AudioSource _source;
+	public Transform door;
+
+	//angle rotated, incremet of rotation and door initial state closed
+	public float stopAngle = 90;
+	private float rotation = 0;
+	private bool closed = true;
 
 	void Awake(){
 		cam = Camera.main.GetComponent<CameraFollow> ();
-		_source = GetComponent<AudioSource> ();
+	}
+
+	//update the angle position and increment till the door is opened
+	void Update ()
+	{
+		if (closed || stopAngle < 0)
+			return;
+
+		rotation += Time.deltaTime * 20.0f ;
+		if (door)
+			door.Rotate (rotation * Vector3.down, Space.World);
+
+		stopAngle -= rotation;
 	}
 
 	void OnTriggerStay (Collider other){
-		if (opened)
+		if (!closed)
 			return;
 		if (Input.GetKeyDown (KeyCode.E) && other.CompareTag ("Player")) {
 			lever.Rotate (100, 0, 0);
@@ -29,15 +42,14 @@ public class LeverOpen : MonoBehaviour {
 			gamestate.Instance.SetState(Enums.state.STATE_STATIC_CAMERA);
 			cameraStaticGorilla = cam.target;
 			cam.target = cameraStaticPosition;
-			opened = true;
+
 		}
 	}
 
 	void ShowOpening()
 	{
-		_source.PlayOneShot(fxOpen);
-		gameObject.GetComponent<OpenDoor> ().enabled = true;
-		gameObject.GetComponent<OpenDoor> ().Open ();
+		AudioManager.Instance.PlayFX (Enums.fxClip.OPEN_DOOR);
+		closed = false;
 		Invoke ("DisableSelf", 1f);
 
 	}
