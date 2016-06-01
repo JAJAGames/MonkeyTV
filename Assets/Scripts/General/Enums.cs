@@ -8,6 +8,9 @@ namespace Enums {
 	//Game Level Scene
 	public enum sceneLevel {MENU, LEVEL_1, LEVEL_2, LEVEL_BOSS};
 
+	//Game FX
+	public enum fxClip {BUTTON_HOVER, BUTTON_PRESSED, NO_FX};
+
 	//PLAYER
 	public enum playerState {PLAYER_STATE_MORTAL, PLAYER_STATE_BONUS_UNIFORM, PLAYER_STATE_GOD};
 

@@ -33,15 +33,14 @@ public class MenuClick : MonoBehaviour {
 	public GameObject panelCredits;
 	public GameObject panelOptions;
 
-	private AudioManager audio;
-
 	void Awake(){
-		audio = GameObject.Find ("Audio Manager").GetComponent<AudioManager> ();
+		sceneLevel level =  gamestate.Instance.GetLevel ();
+		AudioManager.Instance.PlayMusic (level);
 	}
 	//CHANGE TO NEW SCENE. IN INSPECTOR WE CAN SET THE BUILD INDEX OF THE NEW SCENE.
 	public void LoadScene(int level)
 	{
-		audio.PlayFX (fxClip.BUTTON_PRESSED);
+		AudioManager.Instance.PlayFX (fxClip.BUTTON_PRESSED);
 		gamestate.Instance.SetLevel ((sceneLevel)level);
 
 	}
@@ -49,7 +48,7 @@ public class MenuClick : MonoBehaviour {
 	//TOGGLE PANEL MENU WITH PANEL CREDITS AND BACK
 	public void ToggleCredits()
 	{
-		audio.PlayFX (fxClip.BUTTON_PRESSED);
+		AudioManager.Instance.PlayFX (fxClip.BUTTON_PRESSED);
 		panelMenu.SetActive (!panelMenu.activeSelf);
 		panelCredits.SetActive (!panelCredits.activeSelf);
 	}
@@ -57,7 +56,7 @@ public class MenuClick : MonoBehaviour {
 	//TOGGLE PANEL MENU WITH PANEL OPTIONS AND BACK
 	public void ToggleOptions()
 	{
-		audio.PlayFX (fxClip.BUTTON_PRESSED);
+		AudioManager.Instance.PlayFX (fxClip.BUTTON_PRESSED);
 		panelMenu.SetActive (!panelMenu.activeSelf);
 		panelOptions.SetActive (!panelOptions.activeSelf);
 	}
@@ -65,7 +64,7 @@ public class MenuClick : MonoBehaviour {
 	//CLOSE GAME
 	public void CloseGame()
 	{
-		audio.PlayFX (fxClip.BUTTON_PRESSED);
+		AudioManager.Instance.PlayFX (fxClip.BUTTON_PRESSED);
 		Application.Quit ();
 	}
 }
