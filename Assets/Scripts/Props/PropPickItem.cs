@@ -11,12 +11,14 @@ public class PropPickItem : MonoBehaviour {
 	public PickItems player;
 	private Color _color;
 	private Material _material;
+	private Animator anim;
 
 	// Use this for initialization
 	void Start () {
 		meshRenderer = GetComponent<MeshRenderer> ();
 		capsuleCollider = GetComponent<CapsuleCollider> ();
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
+		anim = GameObject.FindWithTag ("Player").GetComponent<Animator>();
 
 		_material = meshRenderer.sharedMaterial;
 
@@ -36,6 +38,7 @@ public class PropPickItem : MonoBehaviour {
 
 		if (other.CompareTag ("Player") ) {
 			if (Input.GetButtonDown ("Pick") && !player.haveItem()){
+				anim.SetBool("Pick_Object",true);
 				player.changeItem(itemType);
 				StartCoroutine (Respawn ());
 			}

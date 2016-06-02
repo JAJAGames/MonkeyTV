@@ -11,6 +11,8 @@ public class PickItems : MonoBehaviour {
 	public GameObject[] allItems;
 	private BoxCollider boxCollider;
 
+	private Animator anim;
+
 	// Use this for initialization
 	void Start () {
 		actualItem = itemsListMC.NO_ITEM_MC;
@@ -20,6 +22,8 @@ public class PickItems : MonoBehaviour {
 			allItems[i].SetActive(false);
 
 		boxCollider = Items.GetComponent<BoxCollider> ();
+
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -31,6 +35,7 @@ public class PickItems : MonoBehaviour {
 
 	public void throwItem() {
 		//Throw item animation
+		anim.SetBool("Pick_Object",false);
 		allItems[(int)actualItem].SetActive (false);
 		boxCollider.enabled = false;
 		actualItem = itemsListMC.NO_ITEM_MC;

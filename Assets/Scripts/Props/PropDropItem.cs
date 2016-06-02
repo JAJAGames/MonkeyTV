@@ -7,6 +7,7 @@ public class PropDropItem : MonoBehaviour {
 
 	public MeshRenderer meshRenderer;
 	public PickItems player;
+	private Animator anim;
 
 	private Color _color;
 	private Material _material;
@@ -30,6 +31,7 @@ public class PropDropItem : MonoBehaviour {
 		cam = Camera.main.GetComponent<CameraFollow> ();
 		meshRenderer = GetComponent<MeshRenderer> ();
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
+		anim = GameObject.FindWithTag ("Player").GetComponent<Animator>();
 		dishSelection = GameObject.Find ("Clock").GetComponent<DishSelection> ();
 	}
 
@@ -101,6 +103,7 @@ public class PropDropItem : MonoBehaviour {
 		if (!foundIngredient) {																//fer algun feedback de que no es l'ingredient correcte
 			Debug.Log ("NO MATCH");
 		} else { 																//ja no te ingredient deixa d'il.luminar
+			anim.SetBool("Pick_Object",false);
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
 			//Debug.Log("GOT IT!");
 
