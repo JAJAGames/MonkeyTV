@@ -100,43 +100,52 @@ public class PropDropItem : MonoBehaviour {
 			} 
 		} 
 
-		if (!foundIngredient) {																//fer algun feedback de que no es l'ingredient correcte
+		if (!foundIngredient) {													//fer algun feedback de que no es l'ingredient correcte
 			Debug.Log ("NO MATCH");
 		} else { 																//ja no te ingredient deixa d'il.luminar
 			anim.SetBool("Pick_Object",false);
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
-			//Debug.Log("GOT IT!");
 
-			if (currentDish == 0 && keyDoor.isClosed ()) {
-				gamestate.Instance.SetState (state.STATE_STATIC_CAMERA);
-				cameraStaticDoor = cam.target;
-				cam.target = cameraStaticPosition;
-				Invoke ("OpenDoor", 1f);
-				Invoke ("CameraToFollow", 3f);
-			}
 				
 
 			if (menu [dishSelection.currentCourse].itemsLeft == 0) {
-				if (dishSelection.currentCourse < 2) {
-					Debug.Log("DISH COMPLETE");
-					++currentDish;
-					dishSelection.AddCourse ();
-					dish.ShowNewDish ();
-				} else {
-					gamestate.Instance.SetState (Enums.state.STATE_WIN);
-				}
+				dishSelection.clock = Mathf.Infinity;
+				if (dishSelection.currentCourse == 0 ) {
+					StartCoroutine (OpenDoor (1f));
+				}else
+					if (dishSelection.currentCourse < 2) {
+						Debug.Log("DISH COMPLETE");
+						NewCourse ();
+					}else 
+						if (dishSelection.currentCourse == 2)
+							gamestate.Instance.SetState (Enums.state.STATE_WIN);
 			}
 			AudioManager.Instance.PlayFX(Enums.fxClip.GUI_PICK_BONUS);
 		}
 	}
 
-	void OpenDoor(){
+	IEnumerator OpenDoor(float waitTime){
+		gamestate.Instance.SetState (state.STATE_STATIC_CAMERA);
+		cameraStaticDoor = cam.target;
+		cam.target = cameraStaticPosition;
+		yield return new WaitForSeconds(waitTime);
 		keyDoor.Open ();
+		yield return new WaitForSeconds(waitTime + 3f);
+		CameraToFollow ();
+		yield return new WaitForSeconds(waitTime + 7f);
+		NewCourse ();
 	}
 
 	void CameraToFollow(){
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		cam.target = cameraStaticDoor;
+	}
+
+
+	void NewCourse(){
+		++currentDish;
+		dishSelection.AddCourse ();
+		dish.ShowNewDish ();
 	}
 }
 
