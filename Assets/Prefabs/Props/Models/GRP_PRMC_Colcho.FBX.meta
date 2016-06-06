@@ -1,0 +1,258 @@
+fileFormatVersion: 2
+guid: e606ea16f2cdd9b4c91bb120bb3e34be
+timeCreated: 1465212033
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Colch_Bone01
+    100002: Colch_Bone02
+    100004: Colch_Bone03
+    100006: Colch_Bone04
+    100008: Colch_Bone05
+    100010: Colch_Bone06
+    100012: Colch_Bone07
+    100014: Colch_Bone08
+    100016: Colch_Bone09
+    100018: Colch_Bone10
+    100020: Colch_Bone11
+    100022: Colch_Bone12
+    100024: Colch_Bone13
+    100026: Colch_Bone14
+    100028: Colch_Bone15
+    100030: Colch_Bone16
+    100032: Colch_Bone17
+    100034: Colch_Bone18
+    100036: Colch_Bone19
+    100038: Colch_Bone20
+    100040: //RootNode
+    100042: PRMC_Colcho_Liana01
+    100044: PRMC_Colcho_Liana02
+    100046: PRMC_Colcho_Liana03
+    100048: PRMC_Colcho_Liana04
+    100050: PRMC_Colcho_Palo01
+    100052: PRMC_Colcho_Palo02
+    100054: PRMC_Colcho_Palo03
+    100056: PRMC_Colcho_Palo04
+    100058: PRMC_Colcho_Tela
+    100060: PRMC_Colcho_Tela001
+    100062: PRMC_Colcho_Tela002
+    400000: Colch_Bone01
+    400002: Colch_Bone02
+    400004: Colch_Bone03
+    400006: Colch_Bone04
+    400008: Colch_Bone05
+    400010: Colch_Bone06
+    400012: Colch_Bone07
+    400014: Colch_Bone08
+    400016: Colch_Bone09
+    400018: Colch_Bone10
+    400020: Colch_Bone11
+    400022: Colch_Bone12
+    400024: Colch_Bone13
+    400026: Colch_Bone14
+    400028: Colch_Bone15
+    400030: Colch_Bone16
+    400032: Colch_Bone17
+    400034: Colch_Bone18
+    400036: Colch_Bone19
+    400038: Colch_Bone20
+    400040: //RootNode
+    400042: PRMC_Colcho_Liana01
+    400044: PRMC_Colcho_Liana02
+    400046: PRMC_Colcho_Liana03
+    400048: PRMC_Colcho_Liana04
+    400050: PRMC_Colcho_Palo01
+    400052: PRMC_Colcho_Palo02
+    400054: PRMC_Colcho_Palo03
+    400056: PRMC_Colcho_Palo04
+    400058: PRMC_Colcho_Tela
+    400060: PRMC_Colcho_Tela001
+    400062: PRMC_Colcho_Tela002
+    2300000: PRMC_Colcho_Liana01
+    2300002: PRMC_Colcho_Liana02
+    2300004: PRMC_Colcho_Liana03
+    2300006: PRMC_Colcho_Liana04
+    2300008: PRMC_Colcho_Tela001
+    2300010: PRMC_Colcho_Tela002
+    3300000: PRMC_Colcho_Liana01
+    3300002: PRMC_Colcho_Liana02
+    3300004: PRMC_Colcho_Liana03
+    3300006: PRMC_Colcho_Liana04
+    3300008: PRMC_Colcho_Tela001
+    3300010: PRMC_Colcho_Tela002
+    4300000: PRMC_Colcho_Tela
+    4300002: PRMC_Colcho_Liana01
+    4300004: PRMC_Colcho_Liana02
+    4300006: PRMC_Colcho_Liana03
+    4300008: PRMC_Colcho_Liana04
+    4300010: PRMC_Colcho_Palo01
+    4300012: PRMC_Colcho_Palo02
+    4300014: PRMC_Colcho_Palo03
+    4300016: PRMC_Colcho_Palo04
+    4300018: PRMC_Colcho_Tela001
+    4300020: PRMC_Colcho_Tela002
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: PRMC_Colcho_Palo01
+    13700002: PRMC_Colcho_Palo02
+    13700004: PRMC_Colcho_Palo03
+    13700006: PRMC_Colcho_Palo04
+    13700008: PRMC_Colcho_Tela
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Colch_Bone01
+        weight: 1
+      - path: Colch_Bone01/Colch_Bone02
+        weight: 1
+      - path: Colch_Bone01/Colch_Bone02/Colch_Bone03
+        weight: 1
+      - path: Colch_Bone01/Colch_Bone02/Colch_Bone03/Colch_Bone04
+        weight: 1
+      - path: Colch_Bone01/Colch_Bone02/Colch_Bone03/Colch_Bone04/Colch_Bone05
+        weight: 1
+      - path: Colch_Bone06
+        weight: 1
+      - path: Colch_Bone06/Colch_Bone10
+        weight: 1
+      - path: Colch_Bone06/Colch_Bone10/Colch_Bone09
+        weight: 1
+      - path: Colch_Bone06/Colch_Bone10/Colch_Bone09/Colch_Bone08
+        weight: 1
+      - path: Colch_Bone06/Colch_Bone10/Colch_Bone09/Colch_Bone08/Colch_Bone07
+        weight: 1
+      - path: Colch_Bone14
+        weight: 1
+      - path: Colch_Bone14/Colch_Bone11
+        weight: 1
+      - path: Colch_Bone14/Colch_Bone11/Colch_Bone12
+        weight: 1
+      - path: Colch_Bone14/Colch_Bone11/Colch_Bone12/Colch_Bone15
+        weight: 1
+      - path: Colch_Bone14/Colch_Bone11/Colch_Bone12/Colch_Bone15/Colch_Bone13
+        weight: 1
+      - path: Colch_Bone19
+        weight: 1
+      - path: Colch_Bone19/Colch_Bone16
+        weight: 1
+      - path: Colch_Bone19/Colch_Bone16/Colch_Bone18
+        weight: 1
+      - path: Colch_Bone19/Colch_Bone16/Colch_Bone18/Colch_Bone20
+        weight: 1
+      - path: Colch_Bone19/Colch_Bone16/Colch_Bone18/Colch_Bone20/Colch_Bone17
+        weight: 1
+      - path: PRMC_Colcho_Liana01
+        weight: 1
+      - path: PRMC_Colcho_Liana02
+        weight: 1
+      - path: PRMC_Colcho_Liana03
+        weight: 1
+      - path: PRMC_Colcho_Liana04
+        weight: 1
+      - path: PRMC_Colcho_Palo01
+        weight: 1
+      - path: PRMC_Colcho_Palo02
+        weight: 1
+      - path: PRMC_Colcho_Palo03
+        weight: 1
+      - path: PRMC_Colcho_Palo04
+        weight: 1
+      - path: PRMC_Colcho_Tela
+        weight: 1
+      - path: PRMC_Colcho_Tela001
+        weight: 1
+      - path: PRMC_Colcho_Tela002
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
