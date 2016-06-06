@@ -14,10 +14,11 @@ public class PropDropItem : MonoBehaviour {
 	private DishSelection dishSelection;
 
 	public Transform cameraStaticPosition;
+	public Transform cameraStaticPosition2;
 	private CameraFollow cam;
 	private Transform cameraStaticDoor;
 
-	public OpenDoor keyDoor;
+	public OpenDoor keyDoor,secondKey;
 	public int[] courses;
 	public DishList.FoodMenu[] menu;
 	public Dish dish;
@@ -110,15 +111,19 @@ public class PropDropItem : MonoBehaviour {
 			if (menu [dishSelection.currentCourse].itemsLeft == 0) {
 				dishSelection.clock = Mathf.Infinity;
 				player.GetComponent<PlayerMovement> ().StopPlayer();
-				if (dishSelection.currentCourse == 0 ) {
+
+				if (dishSelection.currentCourse == 0) {
 					StartCoroutine (OpenDoor (1f));
-				}else
-					if (dishSelection.currentCourse < 2) {
-						Debug.Log("DISH COMPLETE");
-						NewCourse ();
-					}else 
-						if (dishSelection.currentCourse == 2)
-							gamestate.Instance.SetState (Enums.state.STATE_WIN);
+					spawn.Spawning ();
+				}
+
+				if (dishSelection.currentCourse == 1) {
+					StartCoroutine (Open2Door (2f));
+				}
+					
+				if (dishSelection.currentCourse == 2) {
+					gamestate.Instance.SetState (Enums.state.STATE_WIN);
+				}					
 			}
 			AudioManager.Instance.PlayFX(Enums.fxClip.GUI_PICK_BONUS);
 		}
@@ -136,10 +141,22 @@ public class PropDropItem : MonoBehaviour {
 		NewCourse ();
 	}
 
+	IEnumerator Open2Door(float waitTime){
+		gamestate.Instance.SetState (state.STATE_STATIC_CAMERA);
+		cameraStaticDoor = cam.target;
+		cam.target = cameraStaticPosition2;
+		yield return new WaitForSeconds(waitTime);
+		secondKey.Open ();
+		yield return new WaitForSeconds(waitTime + 3f);
+		CameraToFollow ();
+		yield return new WaitForSeconds(waitTime + 3.5f);
+		NewCourse ();
+	}
+
 	void CameraToFollow(){
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		cam.target = cameraStaticDoor;
-		spawn.Spawning ();
+
 	}
 
 
