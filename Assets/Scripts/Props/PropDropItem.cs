@@ -25,7 +25,7 @@ public class PropDropItem : MonoBehaviour {
 	//PROVES
 	int currentDish;
 	bool firsTime = true;
-
+	private InitSpawn spawn;
 	// Use this for initialization
 	void Awake (){
 		cam = Camera.main.GetComponent<CameraFollow> ();
@@ -33,6 +33,7 @@ public class PropDropItem : MonoBehaviour {
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
 		anim = GameObject.FindWithTag ("Player").GetComponent<Animator>();
 		dishSelection = GameObject.Find ("Clock").GetComponent<DishSelection> ();
+		spawn = GameObject.Find ("Spawn Point").GetComponent<InitSpawn>();
 	}
 
 	void Start () {
@@ -106,10 +107,9 @@ public class PropDropItem : MonoBehaviour {
 			anim.SetBool("Pick_Object",false);
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
 
-				
-
 			if (menu [dishSelection.currentCourse].itemsLeft == 0) {
 				dishSelection.clock = Mathf.Infinity;
+				player.GetComponent<PlayerMovement> ().StopPlayer();
 				if (dishSelection.currentCourse == 0 ) {
 					StartCoroutine (OpenDoor (1f));
 				}else
@@ -139,6 +139,7 @@ public class PropDropItem : MonoBehaviour {
 	void CameraToFollow(){
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		cam.target = cameraStaticDoor;
+		spawn.Spawning ();
 	}
 
 

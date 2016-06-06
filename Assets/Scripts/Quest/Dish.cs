@@ -39,7 +39,7 @@ public class Dish : MonoBehaviour {
 		
 		canvas.gameObject.SetActive(true);
 		gamestate.Instance.SetState (Enums.state.STATE_STATIC_CAMERA);
-		player.enabled = false;
+		player.StopPlayer ();
 		StartCoroutine (StartNewDish (5));		
 	}
 

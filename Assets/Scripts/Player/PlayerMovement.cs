@@ -139,4 +139,12 @@ public class PlayerMovement : MonoBehaviour  {
 		return ( anim.GetCurrentAnimatorStateInfo(0).length);
 	}
 
+	public void StopPlayer(){
+		anim.SetBool("Walk", false);
+#if UNITY_5_3
+		emWalk.enabled = false;
+#endif
+		this.enabled = false;
+
+	}
 }
