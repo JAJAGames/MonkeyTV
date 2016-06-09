@@ -4,7 +4,6 @@ using Enums;
 
 public class PropDropItem : MonoBehaviour {
 
-
 	public MeshRenderer meshRenderer;
 	public PickItems player;
 	private Animator anim;
@@ -23,10 +22,13 @@ public class PropDropItem : MonoBehaviour {
 	public DishList.FoodMenu[] menu;
 	public Dish dish;
 	public IGUfromWorld[] IGUchek = new IGUfromWorld[3];
-	//PROVES
+
 	int currentDish;
 	bool firsTime = true;
 	private InitSpawn spawn;
+
+	public IGUItemBar itemBar;
+
 	// Use this for initialization
 	void Awake (){
 		cam = Camera.main.GetComponent<CameraFollow> ();
@@ -35,6 +37,7 @@ public class PropDropItem : MonoBehaviour {
 		anim = GameObject.FindWithTag ("Player").GetComponent<Animator>();
 		dishSelection = GameObject.Find ("Clock").GetComponent<DishSelection> ();
 		spawn = GameObject.Find ("Spawn Point").GetComponent<InitSpawn>();
+		itemBar = GameObject.Find ("ItemBarMask").GetComponent<IGUItemBar> ();
 	}
 
 	void Start () {
@@ -55,6 +58,8 @@ public class PropDropItem : MonoBehaviour {
 		menu [2] = new DishList.FoodMenu(DishList.menu[courses[2]]);
 
 		dish = (Dish)GameObject.FindObjectOfType(typeof(Dish));
+
+		itemBar.ChangeItemBarSize(menu[dishSelection.currentCourse].itemsLeft);
 	}
 
 	// Update is called once per frame
@@ -90,8 +95,12 @@ public class PropDropItem : MonoBehaviour {
 			currentDish = dishSelection.currentCourse;
 			firsTime = false;
 		}
-
+			
 		for (int i = 0; i < DishList.ITEMSCOUNT; ++i) {
+			if (foundIngredient) {
+				menu[dishSelection.currentCourse].ingredients [i - 1] = menu[dishSelection.currentCourse].ingredients [i];
+			}
+
 			if (!foundIngredient && menu[currentDish].ingredients[i] == player.actualItem) {
 				menu[dishSelection.currentCourse].ingredients [i] = itemsListMC.NO_ITEM_MC;
 				IGUchek [i].gameObject.SetActive (true);
@@ -99,14 +108,19 @@ public class PropDropItem : MonoBehaviour {
 				player.throwItem ();
 				foundIngredient = true;
 				--menu[dishSelection.currentCourse].itemsLeft;
-			} 
-		} 
+			}
+
+
+		}
 
 		if (!foundIngredient) {													//fer algun feedback de que no es l'ingredient correcte
 			Debug.Log ("NO MATCH");
 		} else { 																//ja no te ingredient deixa d'il.luminar
 			anim.SetBool("Pick_Object",false);
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
+			//dish.ActualizeIcons ();
+			itemBar.ChangeItemBarSize(menu[dishSelection.currentCourse].itemsLeft);
+
 
 			if (menu [dishSelection.currentCourse].itemsLeft == 0) {
 				dishSelection.clock = Mathf.Infinity;
@@ -156,13 +170,12 @@ public class PropDropItem : MonoBehaviour {
 	void CameraToFollow(){
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		cam.target = cameraStaticDoor;
-
 	}
-
 
 	void NewCourse(){
 		++currentDish;
 		dishSelection.AddCourse ();
+		itemBar.ChangeItemBarSize(menu[dishSelection.currentCourse].itemsLeft);
 		dish.ShowNewDish ();
 	}
 }

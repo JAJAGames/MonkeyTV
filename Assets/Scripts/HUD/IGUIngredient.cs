@@ -18,20 +18,31 @@ public class IGUIngredient : MonoBehaviour {
 	private DishList.FoodMenu ingredients;
 	private Sprite[] sprites ;
 
-
+	private DishList.FoodMenu[] menu;
 
 	void Awake () {
 		img = GetComponent<Image> ();
 		dishSelection = GameObject.Find ("Clock").GetComponent<DishSelection> ();
-		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
+		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name);
+		menu = GameObject.Find ("PRMC_Olla").GetComponent<PropDropItem> ().menu;
 	}
 		
 
 	public void GetIcon(){
 		course = dishSelection.GetCurrent ();
 		ingredients = new DishList.FoodMenu(DishList.menu[course]);
+		//ingredients = new DishList.FoodMenu(menu[course]);
+
 		img.sprite = sprites [(int)ingredients.ingredients [ingredientNumber]];
 		img.color = Color.white;
 	}
 
+	/*
+	public void ActualizeIcon() {
+		course = dishSelection.GetCurrent ();
+		ingredients = new DishList.FoodMenu(menu[dishSelection.currentCourse]);
+		img.sprite = sprites [(int)ingredients.ingredients [ingredientNumber]];
+		img.color = Color.white;
+	}
+	*/
 }

@@ -89,5 +89,13 @@ public class Dish : MonoBehaviour {
 		iconSecond.GetIcon();
 		iconThird.GetIcon();
 		player.enabled = true;
-	} 
+	}
+
+	/*
+	public void ActualizeIcons() {
+		iconFirst.ActualizeIcon();
+		iconSecond.ActualizeIcon();
+		iconThird.ActualizeIcon();
+	}
+	*/
 }

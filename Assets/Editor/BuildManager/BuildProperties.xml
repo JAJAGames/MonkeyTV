@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Properties>
+<Project>
+	<Name>MonkeyTV</Name>
+	<Version>v0.21</Version>
+	<WindowsVersion>true</WindowsVersion>
+	<MacOSXVersion>true</MacOSXVersion>
+	<LinuxVersion>true</LinuxVersion>
+</Project>
+<Scenes>
+	<Scene>Assests/Escenes/Release/MainMenu.unity</Scene>
+	<Scene>Assests/Escenes/Release/Level1MasterChef.unity</Scene>
+</Scenes>
+<Paths>
+	<OriginProjectPath>../../Builds/</OriginProjectPath>
+    <DestinationProjectPath>../../Google Drive/MonkeyTV/Builds</DestinationProjectPath>
+	<CompresorPath>../../Program Files (x86)/gnuWin32/bin</CompresorPath>
+</Paths>
+<ExtraFiles>
+	<File>
+		<OriginFilePath></OriginFilePath>
+		<DestinationFilePath></DestinationFilePath>
+	</File>
+</ExtraFiles>
+</Properties>
