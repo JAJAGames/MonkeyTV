@@ -8,8 +8,8 @@
 	<LinuxVersion>true</LinuxVersion>
 </Project>
 <Scenes>
-	<Scene>Assests/Escenes/Release/MainMenu.unity</Scene>
-	<Scene>Assests/Escenes/Release/Level1MasterChef.unity</Scene>
+	<Scene>Assets/Scenes/Release/MainMenu.unity</Scene>
+	<Scene>Assets/Scenes/Release/Level1MasterChef.unity</Scene>
 </Scenes>
 <Paths>
 	<OriginProjectPath>../../Builds/</OriginProjectPath>
