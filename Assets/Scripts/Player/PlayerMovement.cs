@@ -93,7 +93,6 @@ public class PlayerMovement : MonoBehaviour  {
 				anim.SetBool("Jump",true);
 				//anim.GetCurrentAnimatorStateInfo(0).length;
 				moveDirection.y = jumpSpeed;
-				moveDirection.y = jumpSpeed;
 				grounded = false;
 #if UNITY_5_3
 				emWalk.enabled = false;
