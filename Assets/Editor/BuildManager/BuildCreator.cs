@@ -1,12 +1,11 @@
-﻿using UnityEngine;
-using System.Collections;
-using System;
-using UnityEditor;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml;
+using UnityEditor;
+using UnityEngine;
 
 public class BuildCreator {
-
 	private static string buildPropertiesPath = Application.dataPath + "/Editor/BuildManager/BuildProperties.xml";
 	private static string auxPath;
 
@@ -18,7 +17,7 @@ public class BuildCreator {
 	private static Boolean linuxBuild = false;
 
 	//BuildScenes
-	private static string[] scenes;
+	private static List<string> scenes;
 
 	//BuildPaths
 	private static string originProjectPath;
@@ -37,7 +36,7 @@ public class BuildCreator {
 
 	public static void BuildGame() {
 		ReadBuildProperties ();
-		/*
+
 		if (windowsBuild)
 			BuildWindows ();
 
@@ -46,7 +45,6 @@ public class BuildCreator {
 
 		if(linuxBuild)
 			BuildLinux ();
-			*/
 	}
 
 
@@ -58,7 +56,7 @@ public class BuildCreator {
 			return;
 		
 		xmlDoc.Load(buildPropertiesPath); // load the file.
-		XmlNode xmlBuildProperties	= xmlDoc.GetElementById("Properties"); 
+		XmlNode xmlBuildProperties = xmlDoc.SelectSingleNode("Properties");
 
 		//BuildProperties
 		XmlNode xmlBuildProject		= xmlBuildProperties.SelectSingleNode("Project"); 
@@ -69,22 +67,21 @@ public class BuildCreator {
 		linuxBuild					= (xmlBuildProject.SelectSingleNode("LinuxVersion").InnerText == "true");
 
 		//BuildScenes
-		XmlNodeList xmlBuildScenes	= xmlDoc.GetElementsByTagName("Scenes");
-		scenes = new string[xmlBuildScenes.Count];
-		int i = 0;
+		XmlNode xmlBuildScenes	= xmlBuildProperties.SelectSingleNode("Scenes");
+		scenes = new List<string>();
+
 		foreach (XmlNode buildScene in xmlBuildScenes) {
-			scenes[i] = buildScene.InnerText;
-			++i;
+			scenes.Add(buildScene.InnerText);
 		}
 
 		//BuildPaths
-		XmlNode xmlBuildPaths		= xmlDoc.GetElementById("Paths");
-		originProjectPath			= xmlBuildProperties.SelectSingleNode("OriginProjectPath").InnerText;
-		destinationProjectPath		= xmlBuildProperties.SelectSingleNode("DestinationProjectPath").InnerText;
-		compresorPath				= xmlBuildProperties.SelectSingleNode("CompresorPath").InnerText;
+		XmlNode xmlBuildPaths		= xmlBuildProperties.SelectSingleNode("Paths");
+		originProjectPath			= xmlBuildPaths.SelectSingleNode("OriginProjectPath").InnerText;
+		destinationProjectPath		= xmlBuildPaths.SelectSingleNode("DestinationProjectPath").InnerText;
+		compresorPath				= xmlBuildPaths.SelectSingleNode("CompresorPath").InnerText;
 
 		//BuildExtraFiles
-		XmlNodeList xmlExtraFiles 	= xmlDoc.GetElementsByTagName ("ExtraFiles");
+		XmlNode xmlExtraFiles 		= xmlBuildProperties.SelectSingleNode("ExtraFiles");
 		foreach (XmlNode buildFile in xmlExtraFiles) {
 		
 		}
@@ -93,19 +90,21 @@ public class BuildCreator {
 	private static void BuildWindows () {
 		Debug.Log ("Starting Windows Build");
 		auxPath = originProjectPath + "/MonkeyTV_" + buildVersion + "_Windows/" + buildName + ".exe";
-		BuildPipeline.BuildPlayer( scenes, auxPath, BuildTarget.StandaloneWindows64, BuildOptions.None);
+		BuildPipeline.BuildPlayer( scenes.ToArray(), auxPath, BuildTarget.StandaloneWindows64, BuildOptions.None);
+		Debug.Log ("Windows Build Ended");
 	}
 
 	private static void BuildMacOSX () {
 		Debug.Log ("Starting MacOSX Build");
 		auxPath = originProjectPath + "/MonkeyTV_" + buildVersion + "_MacOSX/" + buildName + ".app";
-		BuildPipeline.BuildPlayer( scenes, auxPath, BuildTarget.StandaloneOSXIntel, BuildOptions.None);
+		Debug.Log ("MacOSX Build Ended");
 	}
 
 	private static void BuildLinux () {
 		Debug.Log ("Starting Linux Build");
 		auxPath = originProjectPath + "/MonkeyTV_" + buildVersion + "_Linux/" + buildName + ".x86";
-		BuildPipeline.BuildPlayer( scenes, auxPath, BuildTarget.StandaloneLinuxUniversal, BuildOptions.None);
+		BuildPipeline.BuildPlayer( scenes.ToArray(), auxPath, BuildTarget.StandaloneLinuxUniversal, BuildOptions.None);
+		Debug.Log ("Linux Build Ended");
 	}
 
 	private static void CopyFile() {
