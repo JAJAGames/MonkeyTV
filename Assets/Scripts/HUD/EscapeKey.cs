@@ -16,12 +16,13 @@
 
 using UnityEngine;
 using System.Collections;
-
+using InControl;
 public class EscapeKey : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Escape))
+		var inputDevice = InputManager.ActiveDevice;
+		if (Input.GetKeyDown (KeyCode.Escape) || inputDevice.GetControl( InputControlType.Start ).WasPressed )
 			gamestate.Instance.SetLevel (Enums.sceneLevel.MENU);
 	}
 }

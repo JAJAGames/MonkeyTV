@@ -10,9 +10,8 @@ public class JumperPad : MonoBehaviour {
 	// Update is called once per frame
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag ("Player")) {
-			Vector3 jump = other.transform.forward;
-			jump.y += 4;
-			other.GetComponent<PlayerMovement> ().controller.Move (jump);
+
+			other.GetComponent<PlayerMovement> ().AddForce (Vector3.up * 35);
 			anim.Play ();
 		}
 

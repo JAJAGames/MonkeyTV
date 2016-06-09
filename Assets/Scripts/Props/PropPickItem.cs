@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Enums;
-
+using InControl;
 public class PropPickItem : MonoBehaviour {
 
 	public itemsListMC itemType;
@@ -35,9 +35,9 @@ public class PropPickItem : MonoBehaviour {
 	}
 
 	void OnTriggerStay (Collider other){
-
+		var inputDevice = InputManager.ActiveDevice;
 		if (other.CompareTag ("Player") ) {
-			if (Input.GetButtonDown ("Pick") && !player.haveItem()){
+			if (inputDevice.Action3  && !player.haveItem()){
 				anim.SetBool("Pick_Object",true);
 				player.changeItem(itemType);
 				StartCoroutine (Respawn ());

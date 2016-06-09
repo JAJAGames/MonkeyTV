@@ -47,6 +47,7 @@ namespace InControl
 			"InControl.NatecGenesisP44Profile",
 			"InControl.OuyaLinuxProfile",
 			"InControl.OuyaWinProfile",
+			"InControl.PS3USBWinProfile",
 			"InControl.PlayStation2WinProfile",
 			"InControl.PlayStation3AndroidProfile",
 			"InControl.PlayStation3LinuxProfile",

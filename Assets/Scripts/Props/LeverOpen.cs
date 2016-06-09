@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using InControl;
 
 public class LeverOpen : MonoBehaviour {
 	
@@ -36,7 +36,9 @@ public class LeverOpen : MonoBehaviour {
 	void OnTriggerStay (Collider other){
 		if (!closed)
 			return;
-		if (Input.GetKeyDown (KeyCode.E) && other.CompareTag ("Player")) {
+		var inputDevice = InputManager.ActiveDevice;
+		if (inputDevice.Action3 && other.CompareTag ("Player")) {
+			closed = false;
 			AudioManager.Instance.PlayFX (Enums.fxClip.UNLOCK_LEVER);
 			lever.Rotate (100, 0, 0);
 			Invoke ("ShowOpening", 1f);
@@ -50,7 +52,6 @@ public class LeverOpen : MonoBehaviour {
 	void ShowOpening()
 	{
 		AudioManager.Instance.PlayFX (Enums.fxClip.OPEN_DOOR);
-		closed = false;
 		Invoke ("DisableSelf", 1f);
 
 	}
