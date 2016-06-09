@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-/* PLAYERMOVEMENT.CS
+﻿/* PLAYERMOVEMENT.CS
  * (C) COPYRIGHT "BOTIFARRA GAMES", 2.016
  * ------------------------------------------------------------------------------------------------------------------------------------
  * EXPLANATION: 
@@ -16,6 +13,10 @@ using System.Collections;
  * 06/04/2016	Added ParticleSystem to player. The new code allow to enable and disable emitter 
  * ------------------------------------------------------------------------------------------------------------------------------------
  */
+using System;
+using UnityEngine;
+using System.Collections;
+using InControl;
 
 public class PlayerMovement : MonoBehaviour  {
 
@@ -34,7 +35,6 @@ public class PlayerMovement : MonoBehaviour  {
 	ParticleSystem.EmissionModule emJump;
 #endif	
 	public bool grounded;
-
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
 		anim = GetComponent<Animator>();
@@ -48,7 +48,8 @@ public class PlayerMovement : MonoBehaviour  {
 	}
 
 	private void FixedUpdate ()  {
-
+		
+					
 		if (gamestate.Instance.GetState () == Enums.state.STATE_LOSE || gamestate.Instance.GetState() == Enums.state.STATE_PLAYER_PAUSED)		//skip update for game Losed 
 			return;
 																			//no update for deads... no Zombies please!
@@ -66,9 +67,9 @@ public class PlayerMovement : MonoBehaviour  {
 #endif
 			} 
 
-			moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
-																			//Make the player face his movement direction. We ought to disable rotation script
+			var inputDevice = InputManager.ActiveDevice;
+			moveDirection = new Vector3(inputDevice.LeftStickX, 0, inputDevice.LeftStickY);
+																		//Make the player face his movement direction. We ought to disable rotation script
 			if (moveDirection != Vector3.zero)							//Look to rotation viewing is not Zero
 				transform.rotation = Quaternion.LookRotation( moveDirection);
 
@@ -87,7 +88,7 @@ public class PlayerMovement : MonoBehaviour  {
 			else
 				emWalk.enabled = false;
 #endif
-			if (Input.GetButton ("Jump")) 									//jump go up y axis!! and no particles...
+			if (inputDevice.Action1) 									//jump go up y axis!! and no particles...
 			{
 				anim.SetBool("Jump",true);
 				//anim.GetCurrentAnimatorStateInfo(0).length;
@@ -98,6 +99,7 @@ public class PlayerMovement : MonoBehaviour  {
 				emWalk.enabled = false;
 #endif
 			} 
+				
 		}
 
 		moveDirection.y -= gravity * Time.deltaTime;							//calculate translation
