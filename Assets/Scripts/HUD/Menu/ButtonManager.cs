@@ -6,7 +6,7 @@ namespace InterfaceMovement
 {
 	public class ButtonManager : MonoBehaviour
 	{
-		public Button focusedButton;
+		public ButtonMenu focusedButton;
 
 
 		void Start()
@@ -31,7 +31,7 @@ namespace InterfaceMovement
 		}
 		
 		
-		void MoveFocusTo( Button newFocusedButton )
+		void MoveFocusTo( ButtonMenu newFocusedButton )
 		{
 			if (newFocusedButton != null)
 			{
