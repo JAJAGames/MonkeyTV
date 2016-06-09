@@ -9,19 +9,25 @@ ModelImporter:
     100002: PRMC_Jaula
     100004: PRMC_Jaula_Puerta
     100006: PRMC_Jaula_Techo
+    100008: PRMC_Candado
     400000: //RootNode
     400002: PRMC_Jaula
     400004: PRMC_Jaula_Puerta
     400006: PRMC_Jaula_Techo
+    400008: PRMC_Candado
     2300000: PRMC_Jaula
     2300002: PRMC_Jaula_Puerta
     2300004: PRMC_Jaula_Techo
+    2300006: PRMC_Candado
     3300000: PRMC_Jaula
     3300002: PRMC_Jaula_Puerta
     3300004: PRMC_Jaula_Techo
+    3300006: PRMC_Candado
     4300000: PRMC_Jaula
     4300002: PRMC_Jaula_Techo
     4300004: PRMC_Jaula_Puerta
+    4300006: PRMC_Candado
+    7400000: ITEM_Candado
     11100000: //RootNode
   materials:
     importMaterials: 1
@@ -41,9 +47,47 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 0
+    animationWrapMode: 2
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ITEM_Candado
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: PRMC_Candado
+        weight: 1
+      - path: PRMC_Jaula
+        weight: 1
+      - path: PRMC_Jaula_Puerta
+        weight: 1
+      - path: PRMC_Jaula_Techo
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
