@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using InControl;
-
+using UnityEngine.UI;
 
 namespace InterfaceMovement
 {
@@ -9,27 +9,43 @@ namespace InterfaceMovement
 	{
 		public Button up = null;
 		public Button down = null;
-		public Button left = null;
-		public Button right = null;
-		Renderer cubeRenderer;
+		public bool hasFocus;
+		public Color defaultColor;
+		public Color onSelectedColor;
+		public Color onPressedColor;
+		private Image image;
 
-
-		void Start()
+		void Awake()
 		{
-			cubeRenderer = GetComponent<Renderer>();
+			image = GetComponent<Image>();
 		}
 
 
 		void Update()
 		{
-			// Find out if we're the focused button.
-			bool hasFocus = transform.parent.GetComponent<ButtonManager>().focusedButton == this;
-
-			// Fade alpha in and out depending on focus.
-			var color = cubeRenderer.material.color;
-			color.a = Mathf.MoveTowards( color.a, hasFocus ? 1.0f : 0.5f, Time.deltaTime * 3.0f );
-			cubeRenderer.material.color = color;
+			if (!hasFocus)
+				return;
+			
+			var inputDevice = InputManager.ActiveDevice;
+			if (inputDevice.Action1.IsPressed)
+				image.color = onPressedColor;
+			else {
+				image.color = onSelectedColor;
+				Debug.Log (gameObject.name);
+			}
 		}
+
+		public void GetFocus(){
+			hasFocus = true;
+			image.color = onSelectedColor;
+		}
+
+		public void LeaveFocus(){
+			hasFocus = false;
+			image.color = defaultColor;
+		}
+
+
 	}
 }
 

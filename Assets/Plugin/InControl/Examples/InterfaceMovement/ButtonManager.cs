@@ -9,9 +9,10 @@ namespace InterfaceMovement
 		public Button focusedButton;
 
 
-		void Awake()
+		void Start()
 		{
 			TwoAxisInputControl.StateThreshold = 0.7f;
+			focusedButton.GetFocus ();
 		}
 
 
@@ -26,12 +27,7 @@ namespace InterfaceMovement
 			
 			if (inputDevice.Direction.Down.WasPressed) 
 				MoveFocusTo( focusedButton.down );
-			
-			if (inputDevice.Direction.Left.WasPressed) 
-				MoveFocusTo( focusedButton.left );
-			
-			if (inputDevice.Direction.Right.WasPressed)
-				MoveFocusTo( focusedButton.right );
+
 		}
 		
 		
@@ -39,7 +35,9 @@ namespace InterfaceMovement
 		{
 			if (newFocusedButton != null)
 			{
+				focusedButton.LeaveFocus ();
 				focusedButton = newFocusedButton;
+				focusedButton.GetFocus ();
 			}
 		}
 	}
