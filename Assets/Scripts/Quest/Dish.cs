@@ -9,9 +9,8 @@ public class Dish : MonoBehaviour {
 	public Image IGU_Dish;
 	public Texture2D texture;
 
-	public IGUIngredient iconFirst;
-	public IGUIngredient iconSecond;
-	public IGUIngredient iconThird;
+
+	private IGUIngredients ingredientsBar;
 
 
 	public int dishCode;
@@ -24,6 +23,7 @@ public class Dish : MonoBehaviour {
 		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
 		player = GameObject.Find ("Player").GetComponent<PlayerMovement> ();
 		clockDish = GameObject.Find ("Clock").GetComponent<DishSelection> ();
+		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
 	}
 
 	void Update(){
@@ -85,17 +85,9 @@ public class Dish : MonoBehaviour {
 		IGU_Dish.gameObject.SetActive(true);
 		IGU_Dish.gameObject.GetComponent<IGUfromWorld> ().StartAnimation ();
 		IGU_Dish.sprite = sprites [dishCode];
-		iconFirst.GetIcon();
-		iconSecond.GetIcon();
-		iconThird.GetIcon();
+
+		ingredientsBar.ActualizeIcons();
+
 		player.enabled = true;
 	}
-
-	/*
-	public void ActualizeIcons() {
-		iconFirst.ActualizeIcon();
-		iconSecond.ActualizeIcon();
-		iconThird.ActualizeIcon();
-	}
-	*/
 }

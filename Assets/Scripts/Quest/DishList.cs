@@ -42,6 +42,10 @@ public class DishList : MonoBehaviour {
 			ingredients [3] = menu.ingredients[3];
 			itemsLeft = menu.itemsLeft;
 		}
+
+		public int GetIngredient (int ingredientNumber) {
+			return (int)ingredients[ingredientNumber];
+		}
 	}
 
 	public static FoodMenu[] menu = new FoodMenu[10];

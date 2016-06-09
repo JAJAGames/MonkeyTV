@@ -28,6 +28,7 @@ public class PropDropItem : MonoBehaviour {
 	private InitSpawn spawn;
 
 	public IGUItemBar itemBar;
+	private IGUIngredients ingredientsBar;
 
 	// Use this for initialization
 	void Awake (){
@@ -38,6 +39,7 @@ public class PropDropItem : MonoBehaviour {
 		dishSelection = GameObject.Find ("Clock").GetComponent<DishSelection> ();
 		spawn = GameObject.Find ("Spawn Point").GetComponent<InitSpawn>();
 		itemBar = GameObject.Find ("ItemBarMask").GetComponent<IGUItemBar> ();
+		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
 	}
 
 	void Start () {
@@ -95,7 +97,8 @@ public class PropDropItem : MonoBehaviour {
 			currentDish = dishSelection.currentCourse;
 			firsTime = false;
 		}
-			
+
+
 		for (int i = 0; i < DishList.ITEMSCOUNT; ++i) {
 			if (foundIngredient) {
 				menu[dishSelection.currentCourse].ingredients [i - 1] = menu[dishSelection.currentCourse].ingredients [i];
@@ -109,19 +112,14 @@ public class PropDropItem : MonoBehaviour {
 				foundIngredient = true;
 				--menu[dishSelection.currentCourse].itemsLeft;
 			}
-
-
 		}
-
+			
 		if (!foundIngredient) {													//fer algun feedback de que no es l'ingredient correcte
 			Debug.Log ("NO MATCH");
 		} else { 																//ja no te ingredient deixa d'il.luminar
 			anim.SetBool("Pick_Object",false);
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
-			//dish.ActualizeIcons ();
-			itemBar.ChangeItemBarSize(menu[dishSelection.currentCourse].itemsLeft);
-
-
+		
 			if (menu [dishSelection.currentCourse].itemsLeft == 0) {
 				dishSelection.clock = Mathf.Infinity;
 				player.GetComponent<PlayerMovement> ().StopPlayer();
@@ -140,6 +138,8 @@ public class PropDropItem : MonoBehaviour {
 				}					
 			}
 			AudioManager.Instance.PlayFX(Enums.fxClip.GUI_PICK_BONUS);
+
+			StartCoroutine(ActualizeIngredientsBar ());
 		}
 	}
 
@@ -178,6 +178,14 @@ public class PropDropItem : MonoBehaviour {
 		itemBar.ChangeItemBarSize(menu[dishSelection.currentCourse].itemsLeft);
 		dish.ShowNewDish ();
 	}
+
+	private IEnumerator ActualizeIngredientsBar(){
+		yield return new WaitForSeconds(0.5f);
+		ingredientsBar.ActualizeIcons ();
+		itemBar.ChangeItemBarSize(menu[dishSelection.currentCourse].itemsLeft);
+	}
+
+	public int GetIngredient(int ingredientNumber) {
+		return (int)menu [dishSelection.currentCourse].ingredients [ingredientNumber];
+	}
 }
-
-

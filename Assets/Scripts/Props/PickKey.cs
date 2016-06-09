@@ -6,15 +6,15 @@ public class PickKey : MonoBehaviour {
 	private bool 			HasKey;
 	private GameObject 		key = null;
 	public Image			IGU_Key_Background;
-	public 	Image[] 		sprites = new Image[3];
+	//public 	Image[] 		sprites = new Image[3]; //Falta integrar IGU Micos alliberats
 	public GameObject 		particleSystemKey;
 	public GameObject[] 	particleMonekys = new GameObject[3];
 	private int 			counter = 0;
 	private GameObject 		otherToDestroy;
 
 	void Awake() {
-		for (int i = 0; i < sprites.Length; i++)
-			sprites [i].color = Color.white;
+		//for (int i = 0; i < sprites.Length; i++)
+		//	sprites [i].color = Color.white;
 	}
 
 	void OnTriggerEnter(Collider other) {
@@ -46,7 +46,7 @@ public class PickKey : MonoBehaviour {
 			Color newCol;
 			if (ColorUtility.TryParseHtmlString ("#FFDB96FF", out newCol))
 				particleMonekys [counter].SetActive (true);
-				sprites [counter].color = newCol;
+				//sprites [counter].color = newCol;
 			counter++;
 		}
 	}

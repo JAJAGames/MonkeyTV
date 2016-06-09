@@ -57,13 +57,17 @@ public class DishSelection : MonoBehaviour {
 		}
 
 		if (countDown && clock < Mathf.Infinity){
-			
-			Vector3 a = new Vector3 (1,0.9f + (0.1f * Mathf.Sin(clock * 6)),0);
+			Vector3 a = new Vector3 (-1, 0.9f + (0.1f * Mathf.Sin(clock * 6)),0);
 			text.rectTransform.localScale = a;
-		}else
-			if (clock == Mathf.Infinity)
+		} else {
+			if (clock == Mathf.Infinity) {
 				text.text = "";
-
+			} else {
+				Vector3 a = new Vector3 (-1, 1,0);
+				text.rectTransform.localScale = a;
+			}
+		}
+		
 		if (clock < 0 && !countDown)
 			gamestate.Instance.SetState (Enums.state.STATE_LOSE);
 	}
