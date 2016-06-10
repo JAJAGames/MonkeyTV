@@ -3,6 +3,8 @@ using System.Collections;
 
 public class JumperPad : MonoBehaviour {
 
+	public float jumpForce;
+
 	Animation anim;
 	void Awake(){
 		anim = GetComponent<Animation> ();
@@ -11,7 +13,7 @@ public class JumperPad : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag ("Player")) {
 
-			other.GetComponent<PlayerMovement> ().AddForce (Vector3.up * 35);
+			other.GetComponent<PlayerMovement> ().AddForce (new Vector3(0,jumpForce,0));
 			anim.Play ();
 		}
 

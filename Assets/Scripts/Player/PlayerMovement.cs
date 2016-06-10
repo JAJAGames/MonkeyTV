@@ -24,7 +24,8 @@ public class PlayerMovement : MonoBehaviour  {
 	public float jumpSpeed = 8.0F;
 	public float gravity = 20.0F;
 
-	private Vector3 moveDirection = Vector3.zero;
+
+	public Vector3 moveDirection = Vector3.zero;
 	private Vector3 externalForce = Vector3.zero;
 	public CharacterController controller;
 	public ParticleSystem walkParticles;
@@ -102,9 +103,16 @@ public class PlayerMovement : MonoBehaviour  {
 				
 		}
 
-		moveDirection.y -= gravity * Time.deltaTime;							//calculate translation
+		if (externalForce.y != 0) {
+			moveDirection.y = 0;
+			grounded = false;
+		}
+
 		moveDirection += externalForce;
 		externalForce = Vector3.zero;
+
+		moveDirection.y -= gravity * Time.deltaTime;							//calculate translation
+
 		controller.Move(moveDirection * Time.deltaTime);
 
 		if (transform.position.y < -100) 											//falling under floor dies;

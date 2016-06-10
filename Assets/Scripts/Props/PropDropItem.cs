@@ -82,7 +82,7 @@ public class PropDropItem : MonoBehaviour {
 
 	private void OnTriggerEnter (Collider other){	//Si el player no porta ingredient no s'ha d'il.luminar
 		if (other.CompareTag ("Player") && player.haveItem()) {
-			meshRenderer.material.SetColor ("_EmissionColor", Color.red);
+			meshRenderer.material.SetColor ("_EmissionColor", Color.grey);
 		}
 	}
 
