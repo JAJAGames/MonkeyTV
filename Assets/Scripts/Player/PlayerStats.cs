@@ -30,7 +30,7 @@ public class PlayerStats : MonoBehaviour {
 	public 	Texture 			chefTexture;
 	public 	playerState 		state;
 	public 	GameObject 			oscar;
-	public	GameObject 		_particles;
+	public	GameObject 			_particles;
 	private Animator			anim;
 	private SkinnedMeshRenderer mesh;
 	void Awake () {
@@ -48,6 +48,7 @@ public class PlayerStats : MonoBehaviour {
 
 	private IEnumerator bonusCooldown(float time) {
 		state = playerState.PLAYER_STATE_BONUS_UNIFORM;
+		transform.localScale = new Vector3 (1,1,1);
 		mesh.material.SetTexture ("_MainTex", chefTexture);
 		anim.SetTrigger ("Win");
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
@@ -55,6 +56,7 @@ public class PlayerStats : MonoBehaviour {
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		_particles.SetActive (true);
 		yield return new WaitForSeconds (time);
+		transform.localScale = new Vector3 (0.6f,0.6f,0.6f);
 		state = playerState.PLAYER_STATE_MORTAL;
 		_particles.SetActive (false);
 		mesh.material.SetTexture ("_MainTex", oscarTexture);

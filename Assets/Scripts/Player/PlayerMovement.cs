@@ -49,43 +49,43 @@ public class PlayerMovement : MonoBehaviour  {
 			return;
 																			//no update for deads... no Zombies please!
 		if (controller.isGrounded) {
-			anim.SetBool("Jump",false);
+			anim.SetBool ("Jump", false);
 
 			if (!grounded) {
 				grounded = true;
 				jumpParticles.SetActive (true);
-				StartCoroutine(ParticlesJump());
+				StartCoroutine (ParticlesJump ());
 			}
 
 			var inputDevice = InputManager.ActiveDevice;
-			moveDirection = new Vector3(inputDevice.LeftStickX, 0, inputDevice.LeftStickY);
-																		//Make the player face his movement direction. We ought to disable rotation script
+			moveDirection = new Vector3 (inputDevice.LeftStickX, 0, inputDevice.LeftStickY);
+			//Make the player face his movement direction. We ought to disable rotation script
 			if (moveDirection != Vector3.zero)							//Look to rotation viewing is not Zero
-				transform.rotation = Quaternion.LookRotation( moveDirection);
+				transform.rotation = Quaternion.LookRotation (moveDirection);
 
 			moveDirection *= movementSpeed;
 			//moveDirection = transform.TransformDirection(moveDirection);  //This line set transform from local space movement to world movement 
 
 			if (moveDirection != Vector3.zero)
-				anim.SetBool("Walk", true);
+				anim.SetBool ("Walk", true);
 			else
-				anim.SetBool("Walk", false);
+				anim.SetBool ("Walk", false);
 
 			if (moveDirection == Vector3.zero) 								//enable or disable emitter of ParticleSyste
 				walkParticles.SetActive (false);
 			else
 				walkParticles.SetActive (true);
 
-			if (inputDevice.Action1) 									//jump go up y axis!! and no particles...
-			{
-				anim.SetBool("Jump",true);
+			if (inputDevice.Action1) { 									//jump go up y axis!! and no particles...
+				anim.SetBool ("Jump", true);
 				moveDirection.y = jumpSpeed;
 				grounded = false;
 
 			} 
-				
-		}else
+
+		} else {
 			grounded = false;
+		}
 
 		if (externalForce.y != 0) {
 			moveDirection.y = 0;
