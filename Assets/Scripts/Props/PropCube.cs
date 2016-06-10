@@ -56,6 +56,7 @@ public class PropCube : MonoBehaviour {
 		if (other.CompareTag ("Player") && falling) {
 			falling = false;
 			PlayerMovement player = other.GetComponent<PlayerMovement> ();
+			player.grounded = true;
 			player.AddForce (Vector3.zero);
 		}
 	}

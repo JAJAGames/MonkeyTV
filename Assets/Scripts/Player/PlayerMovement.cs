@@ -28,24 +28,17 @@ public class PlayerMovement : MonoBehaviour  {
 	public Vector3 moveDirection = Vector3.zero;
 	private Vector3 externalForce = Vector3.zero;
 	public CharacterController controller;
-	public ParticleSystem walkParticles;
-	public ParticleSystem jumpParticles;
+	public GameObject walkParticles;
+	public GameObject jumpParticles;
 	private Animator anim;
 	private PlayerStats pStats;
-#if UNITY_5_3
-	ParticleSystem.EmissionModule emWalk;
-	ParticleSystem.EmissionModule emJump;
-#endif	
+
 	public bool grounded;
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
 		anim = GetComponent<Animator>();
-#if UNITY_5_3
-		emWalk = walkParticles.emission;
-		emWalk.enabled = false;
-		emJump = jumpParticles.emission;
-		emJump.enabled = false;
-#endif
+		walkParticles.SetActive (false);
+		jumpParticles.SetActive (false);
 		grounded = false;
 	}
 
@@ -55,19 +48,14 @@ public class PlayerMovement : MonoBehaviour  {
 		if (gamestate.Instance.GetState () == Enums.state.STATE_LOSE || gamestate.Instance.GetState() == Enums.state.STATE_PLAYER_PAUSED)		//skip update for game Losed 
 			return;
 																			//no update for deads... no Zombies please!
-#if UNITY_5_3
-		if (emJump.enabled)
-			emJump.enabled = false;
-#endif																		//if grounded get input
 		if (controller.isGrounded) {
 			anim.SetBool("Jump",false);
 
 			if (!grounded) {
 				grounded = true;
-#if UNITY_5_3
-				emJump.enabled = true;
-#endif
-			} 
+				jumpParticles.SetActive (true);
+				StartCoroutine(ParticlesJump());
+			}
 
 			var inputDevice = InputManager.ActiveDevice;
 			moveDirection = new Vector3(inputDevice.LeftStickX, 0, inputDevice.LeftStickY);
@@ -82,30 +70,25 @@ public class PlayerMovement : MonoBehaviour  {
 				anim.SetBool("Walk", true);
 			else
 				anim.SetBool("Walk", false);
-#if UNITY_5_3
-			if (moveDirection != Vector3.zero) 								//enable or disable emitter of ParticleSystem
-			{
-				emWalk.enabled = true;
-			}
+
+			if (moveDirection == Vector3.zero) 								//enable or disable emitter of ParticleSyste
+				walkParticles.SetActive (false);
 			else
-				emWalk.enabled = false;
-#endif
+				walkParticles.SetActive (true);
+
 			if (inputDevice.Action1) 									//jump go up y axis!! and no particles...
 			{
 				anim.SetBool("Jump",true);
-				//anim.GetCurrentAnimatorStateInfo(0).length;
 				moveDirection.y = jumpSpeed;
 				grounded = false;
-#if UNITY_5_3
-				emWalk.enabled = false;
-#endif
+
 			} 
 				
-		}
+		}else
+			grounded = false;
 
 		if (externalForce.y != 0) {
 			moveDirection.y = 0;
-			grounded = false;
 		}
 
 		moveDirection += externalForce;
@@ -119,7 +102,12 @@ public class PlayerMovement : MonoBehaviour  {
 			gamestate.Instance.SetState (Enums.state.STATE_LOSE);
 		
 	}
-	
+
+	IEnumerator ParticlesJump(){
+		yield return new WaitForSeconds(0.3f);
+		jumpParticles.SetActive (false);
+	}
+
 	//Adding phisics to player... 
 	void OnControllerColliderHit(ControllerColliderHit other) {
 																					//if the player collides with one enemy he can move him depending on their mass
@@ -152,11 +140,9 @@ public class PlayerMovement : MonoBehaviour  {
 
 	public void StopPlayer(){
 		anim.SetBool("Walk", false);
-#if UNITY_5_3
-		emWalk.enabled = false;
-#endif
+		walkParticles.SetActive (false);
+		jumpParticles.SetActive (false);
 		this.enabled = false;
-
 	}
 
 	public void AddForce(Vector3 force){
