@@ -29,4 +29,8 @@ public class AnimationOnCollisionSingle : MonoBehaviour {
 		anim.Stop();
 		this.enabled = false;
 	}
+
+	public bool GetAnimated(){
+		return isAnimated;
+	}
 }
