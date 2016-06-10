@@ -13,8 +13,7 @@ namespace InControl
 			Meta = "GreenAsia USB";
 
 			SupportedPlatforms = new[] {
-				"Windows",
-				"OS X"
+				"Windows"
 			};
 
 			LastResortRegex = ""; // Match anything.

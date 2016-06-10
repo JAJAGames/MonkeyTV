@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Enums;
+using InControl;
 
 public class PickItems : MonoBehaviour {
 
@@ -28,7 +29,9 @@ public class PickItems : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Throw") && actualItem != itemsListMC.NO_ITEM_MC) {
+		var inputDevice = InputManager.ActiveDevice;
+
+		if (inputDevice.Action2 && actualItem != itemsListMC.NO_ITEM_MC) {
 			throwItem ();
 		}
 	}
