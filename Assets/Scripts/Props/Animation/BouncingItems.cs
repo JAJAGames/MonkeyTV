@@ -10,18 +10,23 @@ public class BouncingItems : MonoBehaviour {
 	MeshRenderer mesh;
 	public bool lightningColor;
 	public Color color;
+	public bool questItem;
+	private PickItems player;
 
 	void Awake () 
 	{
 		mesh = GetComponent<MeshRenderer> ();
 		tempVal = transform.position.y;
 		speed = speed * Random.Range (0.8f, 1.2f);
-
+		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
 	}
 
 	void Update () 
 	{        
 		if (!mesh.enabled)
+			return;
+
+		if (questItem && player.haveItem ())
 			return;
 		
 		tempPos = transform.position;

@@ -46,7 +46,7 @@ public class PropPickItem : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other){
-		if (other.CompareTag ("Player")) {
+		if (other.CompareTag ("Player") && !player.haveItem()) {
 			meshRenderer.material.SetColor ("_EmissionColor", Color.gray);
 			GetComponent<BouncingItems> ().enabled = false;
 		}
