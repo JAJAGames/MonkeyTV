@@ -9,6 +9,9 @@ public class LeverOpen : MonoBehaviour {
 	private CameraFollow cam;
 	private Transform cameraStaticGorilla;
 
+	public MeshRenderer mesh1, mesh2;
+
+	private Color color1,color2;
 	public Transform door;
 
 	//angle rotated, incremet of rotation and door initial state closed
@@ -18,6 +21,8 @@ public class LeverOpen : MonoBehaviour {
 
 	void Awake(){
 		cam = Camera.main.GetComponent<CameraFollow> ();
+		color1 = mesh1.material.GetColor("_Color");
+		color2 = mesh2.material.GetColor("_Color");
 	}
 
 	//update the angle position and increment till the door is opened
@@ -37,18 +42,31 @@ public class LeverOpen : MonoBehaviour {
 		if (!closed)
 			return;
 		var inputDevice = InputManager.ActiveDevice;
-		if (inputDevice.Action3 && other.CompareTag ("Player")) {
-			closed = false;
-			AudioManager.Instance.PlayFX (Enums.fxClip.UNLOCK_LEVER);
-			lever.Rotate (100, 0, 0);
-			Invoke ("ShowOpening", 1f);
-			gamestate.Instance.SetState(Enums.state.STATE_STATIC_CAMERA);
-			cameraStaticGorilla = cam.target;
-			cam.target = cameraStaticPosition;
+		if (other.CompareTag ("Player"))
+		{
+			mesh1.material.SetColor("_Color", Color.white);
+			mesh2.material.SetColor("_Color", Color.white);
 
+			if (inputDevice.Action3 ) {
+				closed = false;
+				mesh1.material.SetColor ("_Color", color1);
+				mesh2.material.SetColor ("_Color", color2);
+				AudioManager.Instance.PlayFX (Enums.fxClip.UNLOCK_LEVER);
+				lever.Rotate (100, 0, 0);
+				Invoke ("ShowOpening", 1f);
+				gamestate.Instance.SetState(Enums.state.STATE_STATIC_CAMERA);
+				cameraStaticGorilla = cam.target;
+				cam.target = cameraStaticPosition;
+			}
 		}
 	}
 
+	void OnTriggerExit (Collider other){
+		if (other.CompareTag ("Player")) {
+			mesh1.material.SetColor ("_Color", color1);
+			mesh2.material.SetColor ("_Color", color2);
+		}
+	}
 	void ShowOpening()
 	{
 		AudioManager.Instance.PlayFX (Enums.fxClip.OPEN_DOOR);
