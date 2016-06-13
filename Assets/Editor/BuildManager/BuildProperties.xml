@@ -18,8 +18,11 @@
 </Paths>
 <ExtraFiles>
 	<File>
-		<OriginFilePath></OriginFilePath>
-		<DestinationFilePath></DestinationFilePath>
+		<LocationFilePath></LocationFilePath>
+		<DifferentDestinationPath>True</DifferentDestinationPath>
+		<DestinationWindowsFilePath></DestinationWindowsFilePath>
+		<DestinationMacOSXFilePath></DestinationMacOSXFilePath>
+		<DestinationLinuxFilePath></DestinationLinuxFilePath>
 	</File>
 </ExtraFiles>
 </Properties>

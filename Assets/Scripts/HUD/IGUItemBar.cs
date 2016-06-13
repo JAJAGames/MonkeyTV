@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class IGUItemBar : MonoBehaviour {
 
 	[SerializeField]
-	private Image itemBar;
+	public Image itemBar;
 
 	private float[] startPosition;
 

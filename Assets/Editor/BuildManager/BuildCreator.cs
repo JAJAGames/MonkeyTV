@@ -25,26 +25,32 @@ public class BuildCreator {
 	private static string compresorPath;
 
 	//BuildExtraFiles
+	private static List<string> extraFilesLocation;
+	private static List<string> extraFilesDestinationWindows;
+	private static List<string> extraFilesDestinationMacOSX;
+	private static List<string> extraFilesDestinationLinux;
 
-	public static void SceneSelector() {
-		//Debug.Log (PlayerSettings.bundleVersion);
-	}
-
-	public static void BuildConfiguration() {
-
-	}
 
 	public static void BuildGame() {
 		ReadBuildProperties ();
 
-		if (windowsBuild)
+		if (windowsBuild) {
 			BuildWindows ();
+			CopyWindowsFiles ();
+			CompressWindowsBuild ();
+		}
 
-		if (macOSXBuild)
+		if (macOSXBuild) {
 			BuildMacOSX ();
+			CopyMacOSXFiles ();
+			CompressMacOSXBuild ();
+		}
 
-		if(linuxBuild)
+		if(linuxBuild) {
 			BuildLinux ();
+			CopyLinuxFiles ();
+			CompressLinuxBuild ();
+		}
 	}
 
 
@@ -56,7 +62,7 @@ public class BuildCreator {
 			return;
 		
 		xmlDoc.Load(buildPropertiesPath); // load the file.
-		XmlNode xmlBuildProperties = xmlDoc.SelectSingleNode("Properties");
+		XmlNode xmlBuildProperties 	= xmlDoc.SelectSingleNode("Properties");
 
 		//BuildProperties
 		XmlNode xmlBuildProject		= xmlBuildProperties.SelectSingleNode("Project"); 
@@ -67,8 +73,8 @@ public class BuildCreator {
 		linuxBuild					= (xmlBuildProject.SelectSingleNode("LinuxVersion").InnerText == "true");
 
 		//BuildScenes
-		XmlNode xmlBuildScenes	= xmlBuildProperties.SelectSingleNode("Scenes");
-		scenes = new List<string>();
+		XmlNode xmlBuildScenes		= xmlBuildProperties.SelectSingleNode("Scenes");
+		scenes 						= new List<string>();
 
 		foreach (XmlNode buildScene in xmlBuildScenes) {
 			scenes.Add(buildScene.InnerText);
@@ -82,32 +88,62 @@ public class BuildCreator {
 
 		//BuildExtraFiles
 		XmlNode xmlExtraFiles 		= xmlBuildProperties.SelectSingleNode("ExtraFiles");
-		foreach (XmlNode buildFile in xmlExtraFiles) {
-		
+		extraFilesLocation 			= new List<string>();
+		extraFilesDestinationWindows = new List<string>();
+		extraFilesDestinationMacOSX	= new List<string>();
+		extraFilesDestinationLinux	= new List<string>();
+
+
+		foreach (XmlNode buildExtraFile in xmlExtraFiles) {
+			extraFilesLocation.Add(buildExtraFile.SelectSingleNode("LocationFilePath").InnerText);
+			extraFilesDestinationWindows.Add(buildExtraFile.SelectSingleNode("DestinationWindowsFilePath").InnerText);
+			extraFilesDestinationWindows.Add(buildExtraFile.SelectSingleNode("DestinationMacOSXFilePath").InnerText);
+			extraFilesDestinationWindows.Add(buildExtraFile.SelectSingleNode("DestinationLinuxFilePath").InnerText);
 		}
 	}
 
 	private static void BuildWindows () {
 		Debug.Log ("Starting Windows Build");
 		auxPath = originProjectPath + "/MonkeyTV_" + buildVersion + "_Windows/" + buildName + ".exe";
-		BuildPipeline.BuildPlayer( scenes.ToArray(), auxPath, BuildTarget.StandaloneWindows64, BuildOptions.None);
+		BuildPipeline.BuildPlayer(scenes.ToArray(), auxPath, BuildTarget.StandaloneWindows64, BuildOptions.None);
 		Debug.Log ("Windows Build Ended");
 	}
 
 	private static void BuildMacOSX () {
 		Debug.Log ("Starting MacOSX Build");
 		auxPath = originProjectPath + "/MonkeyTV_" + buildVersion + "_MacOSX/" + buildName + ".app";
+		BuildPipeline.BuildPlayer(scenes.ToArray(), auxPath, BuildTarget.StandaloneOSXUniversal, BuildOptions.None);
 		Debug.Log ("MacOSX Build Ended");
 	}
 
 	private static void BuildLinux () {
 		Debug.Log ("Starting Linux Build");
 		auxPath = originProjectPath + "/MonkeyTV_" + buildVersion + "_Linux/" + buildName + ".x86";
-		BuildPipeline.BuildPlayer( scenes.ToArray(), auxPath, BuildTarget.StandaloneLinuxUniversal, BuildOptions.None);
+		BuildPipeline.BuildPlayer(scenes.ToArray(), auxPath, BuildTarget.StandaloneLinuxUniversal, BuildOptions.None);
 		Debug.Log ("Linux Build Ended");
 	}
 
-	private static void CopyFile() {
+	private static void CopyWindowsFiles() {
 		
+	}
+
+	private static void CopyMacOSXFiles() {
+
+	}
+
+	private static void CopyLinuxFiles() {
+
+	}
+
+	private static void CompressWindowsBuild() {
+
+	}
+
+	private static void CompressMacOSXBuild() {
+
+	}
+
+	private static void CompressLinuxBuild() {
+
 	}
 }
