@@ -8,18 +8,28 @@ public class ButtonMenu : MonoBehaviour
 {
 	public ButtonMenu up = null;
 	public ButtonMenu down = null;
-	public bool hasFocus;
+
+	private bool hasFocus;
 	public Color defaultColor;
 	public Color onSelectedColor;
 	public Color onPressedColor;
 	private Image image;
 	public UnityEvent onClick;
+	private RectTransform trans;
+	public bool PlayOnEnable;
 
 	void Awake()
 	{
 		image = GetComponent<Image>();
+		trans = GetComponent<RectTransform> ();
 	}
 
+	void OnEnable(){
+		if (PlayOnEnable)
+			GetFocus();
+		else if(hasFocus)
+			GetFocus();
+	}
 
 	void Update()
 	{
@@ -39,11 +49,13 @@ public class ButtonMenu : MonoBehaviour
 	public void GetFocus(){
 		hasFocus = true;
 		image.color = onSelectedColor;
+		GetComponent<Animator> ().SetTrigger("OnHover");
 	}
 
 	public void LeaveFocus(){
 		hasFocus = false;
 		image.color = defaultColor;
+		trans.localScale = Vector3.one;
 	}
 		
 }

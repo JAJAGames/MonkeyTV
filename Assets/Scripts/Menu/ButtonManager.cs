@@ -27,7 +27,6 @@ namespace InterfaceMovement
 			
 			if (inputDevice.Direction.Down.WasPressed) 
 				MoveFocusTo( focusedButton.down );
-
 		}
 		
 		
