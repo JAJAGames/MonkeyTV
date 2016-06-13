@@ -47,7 +47,7 @@ public class LeverOpen : MonoBehaviour {
 			mesh1.material.SetColor("_Color", Color.white);
 			mesh2.material.SetColor("_Color", Color.white);
 
-			if (inputDevice.Action3 ) {
+			if ( Input.GetButton("Pick")){ //inputDevice.Action3 or pickNutton
 				closed = false;
 				mesh1.material.SetColor ("_Color", color1);
 				mesh2.material.SetColor ("_Color", color2);

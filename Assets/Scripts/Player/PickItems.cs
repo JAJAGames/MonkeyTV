@@ -30,10 +30,8 @@ public class PickItems : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		var inputDevice = InputManager.ActiveDevice;
-
-		if (inputDevice.Action2 && actualItem != itemsListMC.NO_ITEM_MC) {
+		if (Input.GetButton("Throw") && actualItem != itemsListMC.NO_ITEM_MC)  //inputDevice.Action2 or ThrowButton
 			throwItem ();
-		}
 	}
 
 	public void throwItem() {

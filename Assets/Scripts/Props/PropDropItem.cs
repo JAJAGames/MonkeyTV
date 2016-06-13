@@ -74,7 +74,7 @@ public class PropDropItem : MonoBehaviour {
 	private void OnTriggerStay (Collider other){
 		var inputDevice = InputManager.ActiveDevice;
 		if (other.CompareTag ("Player") ) {
-			if (inputDevice.Action3 && player.haveItem()){
+			if ( Input.GetButton("Pick") && player.haveItem()){ //inputDevice.Action3 or pickNutton
 				checkItem ();
 			}
 		}

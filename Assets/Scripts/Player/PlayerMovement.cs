@@ -58,7 +58,10 @@ public class PlayerMovement : MonoBehaviour  {
 			}
 
 			var inputDevice = InputManager.ActiveDevice;
-			moveDirection = new Vector3 (inputDevice.LeftStickX, 0, inputDevice.LeftStickY);
+			if (InputManager.ActiveDevice == InputDevice.Null)
+				moveDirection = new Vector3 (Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+			else
+				moveDirection = new Vector3 (inputDevice.LeftStickX, 0, inputDevice.LeftStickY);
 			//Make the player face his movement direction. We ought to disable rotation script
 			if (moveDirection != Vector3.zero)							//Look to rotation viewing is not Zero
 				transform.rotation = Quaternion.LookRotation (moveDirection);
@@ -76,7 +79,7 @@ public class PlayerMovement : MonoBehaviour  {
 			else
 				walkParticles.SetActive (true);
 
-			if (inputDevice.Action1) { 									//jump go up y axis!! and no particles...
+			if (inputDevice.Action1 || Input.GetButton("Jump")) { 									//jump go up y axis!! and no particles...
 				anim.SetBool ("Jump", true);
 				moveDirection.y = jumpSpeed;
 				grounded = false;

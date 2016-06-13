@@ -37,7 +37,7 @@ public class ButtonMenu : MonoBehaviour
 			return;
 			
 		var inputDevice = InputManager.ActiveDevice;
-		if (inputDevice.Action1.IsPressed && inputDevice.Action1.HasChanged) {
+		if ((inputDevice.Action1.IsPressed && inputDevice.Action1.HasChanged)||Input.GetButtonDown("Submit")) {
 			image.color = onPressedColor;
 			onClick.Invoke();
 		}

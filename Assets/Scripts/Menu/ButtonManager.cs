@@ -22,10 +22,10 @@ namespace InterfaceMovement
 			var inputDevice = InputManager.ActiveDevice;
 
 			// Move focus with directional inputs.
-			if (inputDevice.Direction.Up.WasPressed)
+			if (inputDevice.Direction.Up.WasPressed || Input.GetKeyDown(KeyCode.UpArrow))
 				MoveFocusTo( focusedButton.up );
 			
-			if (inputDevice.Direction.Down.WasPressed) 
+			if (inputDevice.Direction.Down.WasPressed || Input.GetKeyDown(KeyCode.DownArrow))
 				MoveFocusTo( focusedButton.down );
 		}
 		
