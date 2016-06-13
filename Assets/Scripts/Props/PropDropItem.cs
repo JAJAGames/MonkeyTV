@@ -9,7 +9,7 @@ public class PropDropItem : MonoBehaviour {
 	public PickItems player;
 	private Animator anim;
 
-	private Color _color;
+	private Color _color, _particleColor;
 	private Material _material;
 	private DishSelection dishSelection;
 
@@ -30,7 +30,7 @@ public class PropDropItem : MonoBehaviour {
 
 	public IGUItemBar itemBar;
 	private IGUIngredients ingredientsBar;
-
+	public ParticleSystem _particles;
 	// Use this for initialization
 	void Awake (){
 		cam = Camera.main.GetComponent<CameraFollow> ();
@@ -41,6 +41,7 @@ public class PropDropItem : MonoBehaviour {
 		spawn = GameObject.Find ("Spawn Point").GetComponent<InitSpawn>();
 		itemBar = GameObject.Find ("ItemBarMask").GetComponent<IGUItemBar> ();
 		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
+		_particleColor = _particles.startColor;
 	}
 
 	void Start () {
@@ -116,8 +117,8 @@ public class PropDropItem : MonoBehaviour {
 			}
 		}
 			
-		if (!foundIngredient) {													//fer algun feedback de que no es l'ingredient correcte
-			Debug.Log ("NO MATCH");
+		if (!foundIngredient) {	
+			StartCoroutine (WrongIngredient ());//fer algun feedback de que no es l'ingredient correcte
 		} else { 																//ja no te ingredient deixa d'il.luminar
 			anim.SetBool("Pick_Object",false);
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
@@ -185,6 +186,14 @@ public class PropDropItem : MonoBehaviour {
 		yield return new WaitForSeconds(0.5f);
 		ingredientsBar.ActualizeIcons ();
 		itemBar.ChangeItemBarSize(menu[dishSelection.currentCourse].itemsLeft);
+	}
+
+	private IEnumerator WrongIngredient(){
+		AudioManager.Instance.PlayFX (fxClip.WRONG_DELIVER);
+		_particles.startColor = Color.black;
+		player.throwItem ();
+		yield return new WaitForSeconds(1f);
+		_particles.startColor = _particleColor;
 	}
 
 	public int GetIngredient(int ingredientNumber) {
