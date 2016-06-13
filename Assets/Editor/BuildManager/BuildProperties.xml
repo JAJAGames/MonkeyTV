@@ -19,7 +19,6 @@
 <ExtraFiles>
 	<File>
 		<LocationFilePath></LocationFilePath>
-		<DifferentDestinationPath>True</DifferentDestinationPath>
 		<DestinationWindowsFilePath></DestinationWindowsFilePath>
 		<DestinationMacOSXFilePath></DestinationMacOSXFilePath>
 		<DestinationLinuxFilePath></DestinationLinuxFilePath>
