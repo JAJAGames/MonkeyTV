@@ -40,13 +40,13 @@ public class ChaseStateSimple : IEnemyStateSimple {
 
 	public void OnTriggerEnter (Collider other) {
 		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem() && !enemy.playerStats.godModeActive()) {
-			ToJail ();
+			AttackPlayer ();
 		}
 	}
 
 	public void OnTriggerStay (Collider other) {
 		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem() && !enemy.playerStats.godModeActive()) {
-			ToJail ();
+			AttackPlayer ();
 		}
 	}
 
@@ -71,7 +71,8 @@ public class ChaseStateSimple : IEnemyStateSimple {
 		// Can't transition to same state
 	}
 
-	private void ToJail(){
+	private void AttackPlayer(){
+		enemy.animator.SetTrigger ("Attack");
 		enemy.psPlayer.SetActive (true);
 		ToIdleState ();
 		enemy.player.position = jail.position;
