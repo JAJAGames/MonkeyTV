@@ -15,7 +15,8 @@ public class EscapeStateSimple : IEnemyStateSimple {
 	}
 
 	public void UpdateState() {
-		enemy.animator.SetBool("Walk",true);
+		if (!enemy.animator.GetBool("Escape"))
+			enemy.animator.SetBool("Escape",true);
 
 		enemy.navMeshAgent.destination = enemy.wayPoints [enemy.nextWayPoint].position;
 		enemy.navMeshAgent.Resume ();
@@ -60,11 +61,17 @@ public class EscapeStateSimple : IEnemyStateSimple {
 	}
 
 	public void ToIdleState() {
+		enemy.animator.SetBool("Escape",false);
+		enemy.animator.SetBool("Walk",false);
+
 		enemy.actualState = enemyStateSimple.SIMPLE_STATE_IDLE;
 		enemy.currentState = enemy.idleState;
 	}
 
 	public void ToChaseState() {
+		enemy.animator.SetBool("Escape",false);
+		enemy.animator.SetBool("Walk",true);
+
 		enemy.admirationStick.SetActive (true);
 		enemy.admirationSphere.SetActive (true);
 
