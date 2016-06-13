@@ -35,8 +35,10 @@ public class PickKey : MonoBehaviour {
 			otherToDestroy.transform.GetChild (0).gameObject.SetActive (false);
 			otherToDestroy.transform.GetChild (1).gameObject.SetActive (false);
 			otherToDestroy.transform.GetChild (2).gameObject.SetActive (false);
-			otherToDestroy.transform.GetChild (3).gameObject.SetActive (true);
+			otherToDestroy.transform.GetChild (3).gameObject.SetActive (false);
 			otherToDestroy.transform.GetChild (4).gameObject.SetActive (false);
+			otherToDestroy.transform.GetChild (5).gameObject.SetActive (true);
+			otherToDestroy.transform.GetChild (6).gameObject.SetActive (true);
 			IGU_Key_Background.color = Color.white;
 			Invoke ("DestroyOther", 1f);
 		
