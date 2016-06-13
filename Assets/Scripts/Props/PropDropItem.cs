@@ -9,7 +9,9 @@ public class PropDropItem : MonoBehaviour {
 	public PickItems player;
 	private Animator anim;
 
-	private Color _color, _particleColor;
+	private Color _color, _initParticleColor;
+	public Color _particleColor;
+
 	private Material _material;
 	private DishSelection dishSelection;
 
@@ -30,7 +32,7 @@ public class PropDropItem : MonoBehaviour {
 
 	public IGUItemBar itemBar;
 	private IGUIngredients ingredientsBar;
-	public ParticleSystem _particles;
+	public ParticleSystem _particles, _particlesPot;
 	// Use this for initialization
 	void Awake (){
 		cam = Camera.main.GetComponent<CameraFollow> ();
@@ -41,7 +43,7 @@ public class PropDropItem : MonoBehaviour {
 		spawn = GameObject.Find ("Spawn Point").GetComponent<InitSpawn>();
 		itemBar = GameObject.Find ("ItemBarMask").GetComponent<IGUItemBar> ();
 		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
-		_particleColor = _particles.startColor;
+		_initParticleColor = _particles.startColor;
 	}
 
 	void Start () {
@@ -190,10 +192,12 @@ public class PropDropItem : MonoBehaviour {
 
 	private IEnumerator WrongIngredient(){
 		AudioManager.Instance.PlayFX (fxClip.WRONG_DELIVER);
-		_particles.startColor = Color.black;
-		player.throwItem ();
-		yield return new WaitForSeconds(1f);
+		_particlesPot.startColor = _particleColor;
 		_particles.startColor = _particleColor;
+		player.throwItem ();
+		yield return new WaitForSeconds(2.5f);
+		_particles.startColor = _initParticleColor;
+		_particlesPot.startColor = _initParticleColor;
 	}
 
 	public int GetIngredient(int ingredientNumber) {
