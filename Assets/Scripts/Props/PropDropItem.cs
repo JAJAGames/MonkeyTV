@@ -154,8 +154,9 @@ public class PropDropItem : MonoBehaviour {
 		cam.target = cameraStaticPosition;
 		yield return new WaitForSeconds(waitTime);
 		keyDoor.Open ();
-		yield return new WaitForSeconds(waitTime + 2f);
+		yield return new WaitForSeconds(waitTime + 1f);
 		CameraToFollow ();
+		yield return new WaitForSeconds(waitTime + 2f);
 		NewCourse ();
 	}
 
@@ -165,8 +166,9 @@ public class PropDropItem : MonoBehaviour {
 		cam.target = cameraStaticPosition2;
 		yield return new WaitForSeconds(waitTime);
 		secondKey.Open ();
-		yield return new WaitForSeconds(waitTime + 2f);
+		yield return new WaitForSeconds(waitTime + 1f);
 		CameraToFollow ();
+		yield return new WaitForSeconds(waitTime + 2f);
 		NewCourse ();
 	}
 
