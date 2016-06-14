@@ -75,5 +75,6 @@ public class ChaseStateSimple : IEnemyStateSimple {
 		enemy.psPlayer.SetActive (true);
 		ToIdleState ();
 		enemy.player.position = jail.position;
+		enemy.playerStats.jailed = true;
 	}
 }

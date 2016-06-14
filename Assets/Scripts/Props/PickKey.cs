@@ -9,7 +9,13 @@ public class PickKey : MonoBehaviour {
 	//public 	Image[] 		sprites = new Image[3]; //Falta integrar IGU Micos alliberats
 	public GameObject 		particleSystemKey;
 	public GameObject[] 	particleMonekys = new GameObject[3];
-	private int 			counter = 0;
+
+#if UNITY_EDITOR
+	public int 				counter = 0;
+#else
+	private int				counter = 0;
+#endif
+
 	private GameObject 		otherToDestroy;
 
 	void Awake() {
@@ -55,5 +61,9 @@ public class PickKey : MonoBehaviour {
 
 	private void DestroyOther(){
 		otherToDestroy.gameObject.SetActive (false);
+	}
+
+	public int GetMonkeysSaved(){
+		return counter;
 	}
 }
