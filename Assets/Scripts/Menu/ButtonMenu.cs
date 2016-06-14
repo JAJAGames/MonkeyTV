@@ -8,6 +8,8 @@ public class ButtonMenu : MonoBehaviour
 {
 	public ButtonMenu up = null;
 	public ButtonMenu down = null;
+	public ButtonMenu left = null;
+	public ButtonMenu right = null;
 
 	private bool hasFocus;
 	public Color defaultColor;
@@ -22,6 +24,7 @@ public class ButtonMenu : MonoBehaviour
 	{
 		image = GetComponent<Image>();
 		trans = GetComponent<RectTransform> ();
+		image.color = defaultColor;
 	}
 
 	void OnEnable(){
@@ -49,7 +52,8 @@ public class ButtonMenu : MonoBehaviour
 	public void GetFocus(){
 		hasFocus = true;
 		image.color = onSelectedColor;
-		GetComponent<Animator> ().SetTrigger("OnHover");
+		if (GetComponent<Animator>())
+			GetComponent<Animator> ().SetTrigger("OnHover");
 	}
 
 	public void LeaveFocus(){

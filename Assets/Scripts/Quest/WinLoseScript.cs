@@ -24,43 +24,44 @@ using UnityEngine.UI;
 
 public class WinLoseScript : MonoBehaviour {
 
-	public Text text;
-	Animator anim;
-
+	private Transform _badgetsBackground;
+	private Color _color;
+	private bool _active = false;
 	// Use this for initialization
 	void Awake () {
-		anim = GetComponent<Animator> ();
-		text.gameObject.SetActive (false);
+
+		_badgetsBackground = transform.GetChild (0);
+		_color = Color.black;
+		_color.a = 0;
+
+		ShowBadgets (_active);
+		_color.a = 0.5f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (_active)
+			return;
 		if (gamestate.Instance.GetState () == Enums.state.STATE_WIN)
-			StartCoroutine(WinTheGame (3));
+			WinTheGame ();
 		if (gamestate.Instance.GetState () == Enums.state.STATE_LOSE)
-			StartCoroutine (LoseTheGame(2));
+			LoseTheGame();
 	}
 
-	private IEnumerator LoseTheGame (float t) {
-		AudioManager.Instance.PlayFX(Enums.fxClip.LOSE);
-		anim.SetTrigger("Dead");												//activate death animation 
-		text.text = "GAME OVER";
-		text.gameObject.SetActive(true);
-		gamestate.Instance.SetState (Enums.state.STATE_INIT);
-		yield return new WaitForSeconds (t);
-
-		gamestate.Instance.SetLevel (0);
+	private void LoseTheGame () {
+		_active = true;
+		ShowBadgets (_active);
+		AudioManager.Instance.PlayMusic(Enums.sceneLevel.LOSE);
 	}
 
-	private IEnumerator WinTheGame(float t) {
-		AudioManager.Instance.PlayFX(Enums.fxClip.WIN);
-		anim.SetTrigger("Win");
-		text.text = "YOU WIN!";
-		text.gameObject.SetActive(true);
-		gamestate.Instance.SetState (Enums.state.STATE_INIT);
-		yield return new WaitForSeconds(t);
-
-		gamestate.Instance.SetLevel (0);
+	private void WinTheGame() {
+		_active = true;
+		ShowBadgets (_active);
+		AudioManager.Instance.PlayMusic(Enums.sceneLevel.WIN);
 	}
-		
+
+	private void ShowBadgets(bool b){
+		GetComponent<Image> ().color = _color;
+		_badgetsBackground.gameObject.SetActive (b);
+	}
 }

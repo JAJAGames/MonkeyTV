@@ -156,7 +156,7 @@ public class PropDropItem : MonoBehaviour {
 		keyDoor.Open ();
 		yield return new WaitForSeconds(waitTime + 1f);
 		CameraToFollow ();
-		yield return new WaitForSeconds(waitTime + 2f);
+		//yield return new WaitForSeconds(waitTime + 2f);
 		NewCourse ();
 	}
 
@@ -168,7 +168,7 @@ public class PropDropItem : MonoBehaviour {
 		secondKey.Open ();
 		yield return new WaitForSeconds(waitTime + 1f);
 		CameraToFollow ();
-		yield return new WaitForSeconds(waitTime + 2f);
+		//yield return new WaitForSeconds(waitTime + 2f);
 		NewCourse ();
 	}
 

@@ -27,6 +27,12 @@ namespace InterfaceMovement
 			
 			if (inputDevice.Direction.Down.WasPressed || Input.GetKeyDown(KeyCode.DownArrow))
 				MoveFocusTo( focusedButton.down );
+
+			if (inputDevice.Direction.Left.WasPressed || Input.GetKeyDown(KeyCode.LeftArrow))
+				MoveFocusTo( focusedButton.left );
+
+			if (inputDevice.Direction.Right.WasPressed || Input.GetKeyDown(KeyCode.RightArrow))
+				MoveFocusTo( focusedButton.right );
 		}
 		
 		
