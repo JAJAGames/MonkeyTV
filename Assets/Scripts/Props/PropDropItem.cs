@@ -77,7 +77,7 @@ public class PropDropItem : MonoBehaviour {
 	private void OnTriggerStay (Collider other){
 		var inputDevice = InputManager.ActiveDevice;
 		if (other.CompareTag ("Player") ) {
-			if ( Input.GetButton("Pick") && player.haveItem()){ //inputDevice.Action3 or pickNutton
+			if (player.haveItem()){
 				checkItem ();
 			}
 		}
@@ -154,9 +154,8 @@ public class PropDropItem : MonoBehaviour {
 		cam.target = cameraStaticPosition;
 		yield return new WaitForSeconds(waitTime);
 		keyDoor.Open ();
-		yield return new WaitForSeconds(waitTime + 3f);
+		yield return new WaitForSeconds(waitTime + 2f);
 		CameraToFollow ();
-		yield return new WaitForSeconds(waitTime + 7f);
 		NewCourse ();
 	}
 
@@ -166,9 +165,8 @@ public class PropDropItem : MonoBehaviour {
 		cam.target = cameraStaticPosition2;
 		yield return new WaitForSeconds(waitTime);
 		secondKey.Open ();
-		yield return new WaitForSeconds(waitTime + 3f);
+		yield return new WaitForSeconds(waitTime + 2f);
 		CameraToFollow ();
-		yield return new WaitForSeconds(waitTime + 3.5f);
 		NewCourse ();
 	}
 
