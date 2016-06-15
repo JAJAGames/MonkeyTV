@@ -18,14 +18,12 @@ public class ButtonMenu : MonoBehaviour
 	public Color onPressedColor;
 	private Image image;
 	public UnityEvent onClick;
-	//private RectTransform trans;
 	public bool PlayOnEnable;
 	private Image childBackGround = null;
 
 	void Awake()
 	{
 		image = GetComponent<Image>();
-//		trans = GetComponent<RectTransform> ();
 
 		if (transform.FindChild("Image")!=null)
 			childBackGround = transform.FindChild("Image").GetComponent<Image>();
