@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using InControl;
 
 public class Dish : MonoBehaviour {
 
@@ -18,7 +19,6 @@ public class Dish : MonoBehaviour {
 	private bool showSelection = false;
 	private PlayerMovement player;
 	private DishSelection clockDish;
-
 	void Awake(){
 		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
 		player = GameObject.Find ("Player").GetComponent<PlayerMovement> ();
@@ -26,12 +26,8 @@ public class Dish : MonoBehaviour {
 		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
 	}
 
-	void Update(){
-		
-		if (gamestate.Instance.GetState() == Enums.state.STATE_INIT) {
+	void Start(){
 			ShowNewDish ();
-		}
-
 	}
 
 
@@ -63,7 +59,14 @@ public class Dish : MonoBehaviour {
 		showSelection = true;
 		StartCoroutine(NeWDish());
 		clockDish.countDown = true;
-		yield return new WaitForSeconds(waitTime);
+
+		var inputDevice = InputManager.ActiveDevice;
+
+		while( !(Input.GetButton("Pick") || inputDevice.Action3) )   // that's to have yield return new [ WaitForsomething (bool) ];
+		{
+			yield return null;
+		}
+		
 		showSelection = false;
 
 		clockDish.SetClock (5);

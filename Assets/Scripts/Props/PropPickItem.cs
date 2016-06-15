@@ -37,7 +37,7 @@ public class PropPickItem : MonoBehaviour {
 	void OnTriggerStay (Collider other){
 		var inputDevice = InputManager.ActiveDevice;
 		if (other.CompareTag ("Player") ) {
-			if ( Input.GetButton("Pick") && !player.haveItem()){ //inputDevice.Action3 or pickNutton
+			if ( (Input.GetButton("Pick") || inputDevice.Action3 ) && !player.haveItem())	{ //inputDevice.Action3 or pickNutton
 				anim.SetBool("Pick_Object",true);
 				player.changeItem(itemType);
 				StartCoroutine (Respawn ());

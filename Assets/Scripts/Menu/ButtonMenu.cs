@@ -8,6 +8,9 @@ public class ButtonMenu : MonoBehaviour
 {
 	public ButtonMenu up = null;
 	public ButtonMenu down = null;
+	public ButtonMenu left = null;
+	public ButtonMenu right = null;
+	public ButtonMenu	pressed = null;
 
 	private bool hasFocus;
 	public Color defaultColor;
@@ -15,21 +18,19 @@ public class ButtonMenu : MonoBehaviour
 	public Color onPressedColor;
 	private Image image;
 	public UnityEvent onClick;
-	private RectTransform trans;
 	public bool PlayOnEnable;
+	private Image childBackGround = null;
 
 	void Awake()
 	{
 		image = GetComponent<Image>();
-		trans = GetComponent<RectTransform> ();
-	}
 
-	void OnEnable(){
-		if (PlayOnEnable)
-			GetFocus();
-		else if(hasFocus)
-			GetFocus();
+		if (transform.FindChild("Image")!=null)
+			childBackGround = transform.FindChild("Image").GetComponent<Image>();
+
+		SetColor (defaultColor);
 	}
+		
 
 	void Update()
 	{
@@ -37,25 +38,33 @@ public class ButtonMenu : MonoBehaviour
 			return;
 			
 		var inputDevice = InputManager.ActiveDevice;
-		if ((inputDevice.Action1.IsPressed && inputDevice.Action1.HasChanged)||Input.GetButtonDown("Submit")) {
-			image.color = onPressedColor;
-			onClick.Invoke();
-		}
-		else {
-			image.color = onSelectedColor;
-		}
 	}
 
 	public void GetFocus(){
 		hasFocus = true;
-		image.color = onSelectedColor;
-		GetComponent<Animator> ().SetTrigger("OnHover");
+		SetColor(onSelectedColor);
+		if (GetComponent<Animator>())
+			GetComponent<Animator> ().SetTrigger("OnEnter");
 	}
 
 	public void LeaveFocus(){
 		hasFocus = false;
-		image.color = defaultColor;
-		trans.localScale = Vector3.one;
+		SetColor(defaultColor);
+		if (GetComponent<Animator>())
+			GetComponent<Animator> ().SetTrigger("OnExit");
+	}
+
+	private void SetColor(Color c){
+		
+		if (childBackGround != null)
+			childBackGround.GetComponent<Image> ().color = c;
+		else
+			image.color = c;
+	}
+
+	public void OnClick(){
+		SetColor (onPressedColor);
+		onClick.Invoke();
 	}
 		
 }

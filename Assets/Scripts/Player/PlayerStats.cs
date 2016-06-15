@@ -33,6 +33,8 @@ public class PlayerStats : MonoBehaviour {
 	public	GameObject 			_particles;
 	private Animator			anim;
 	private SkinnedMeshRenderer mesh;
+	public  bool 				jailed = false;
+
 	void Awake () {
 
 		mesh = oscar.GetComponent<SkinnedMeshRenderer> ();
