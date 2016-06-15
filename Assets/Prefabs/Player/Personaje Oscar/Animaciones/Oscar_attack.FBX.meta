@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8e01c6e7a8e383946880927ca5185794
-timeCreated: 1465835762
+guid: 8a9f5b7ef4568ee48bb3f1d6dd6f42f0
+timeCreated: 1465842816
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -72,6 +72,7 @@ ModelImporter:
     400062: Oscar
     400064: //RootNode
     4300000: Oscar
+    7400000: Attack
     9500000: //RootNode
     13700000: Oscar
   materials:
@@ -94,7 +95,103 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CATRigHub001
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1/CATRigLLeg2
+        weight: 1
+      - path: CATRigHub001/CATRigLLeg1/CATRigLLeg2/CATRigLLegAnkle
+        weight: 1
+      - path: CATRigHub001/CATRigRLeg1
+        weight: 1
+      - path: CATRigHub001/CATRigRLeg1/CATRigRLeg2
+        weight: 1
+      - path: CATRigHub001/CATRigRLeg1/CATRigRLeg2/CATRigRLegAnkle
+        weight: 1
+      - path: CATRigHub001/CATRigSpine
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigHub002Bone001
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigLArmCollarbone
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigPalmBone001
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigLArmCollarbone/CATRigLArm1/CATRigLArm2/CATRigLArmPalm/CATRigPalmBone002
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigRArmCollarbone
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigPalmBone001
+          1
+        weight: 1
+      - path: CATRigHub001/CATRigSpine/CATRigHub002/CATRigRArmCollarbone/CATRigRArm1/CATRigRArm2/CATRigRArmPalm/CATRigPalmBone002
+          1
+        weight: 1
+      - path: CATRigHub001/CATRigTail1
+        weight: 1
+      - path: CATRigHub001/CATRigTail1/CATRigTail2
+        weight: 1
+      - path: CATRigHub001/CATRigTail1/CATRigTail2/CATRigTail3
+        weight: 1
+      - path: CATRigHub001/CATRigTail1/CATRigTail2/CATRigTail3/CATRigTail4
+        weight: 1
+      - path: CATRigHub001/CATRigTail1/CATRigTail2/CATRigTail3/CATRigTail4/CATRigTail5
+        weight: 1
+      - path: CATRigHub001/CATRigTail1/CATRigTail2/CATRigTail3/CATRigTail4/CATRigTail5/CATRigTail6
+        weight: 1
+      - path: CATRigLLegPlatform
+        weight: 1
+      - path: CATRigRLegPlatform
+        weight: 1
+      - path: Character001
+        weight: 1
+      - path: Oscar
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

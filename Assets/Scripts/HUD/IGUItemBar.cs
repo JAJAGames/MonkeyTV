@@ -13,8 +13,8 @@ public class IGUItemBar : MonoBehaviour {
 	void Awake() {
 		startPosition = new float[4];
 		startPosition [0] = itemBar.rectTransform.localPosition.y;
-		startPosition [1] = startPosition [0] + 74;
-		startPosition [2] = startPosition [1] + 85;
+		startPosition [1] = startPosition [0] + 71;
+		startPosition [2] = startPosition [1] + 71;
 		startPosition [3] = startPosition [2] + 100;
 	}
 	

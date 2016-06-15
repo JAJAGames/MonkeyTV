@@ -28,7 +28,7 @@ public class PickKey : MonoBehaviour {
 
 		if (other.name == "PRMC_Llave") {
 			AudioManager.Instance.PlayFX (Enums.fxClip.PICK_CLOK_KEY);
-			IGU_Key_Background.color = Color.yellow;
+			//IGU_Key_Background.color = Color.yellow;
 			particleSystemKey.SetActive (true);
 			HasKey = true;
 			key = other.gameObject;

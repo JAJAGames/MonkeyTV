@@ -21,8 +21,8 @@ public class LogoImage : MonoBehaviour {
 		buttonParent = buttonManager.focusedButton;
 		Vector3 pos = buttonParent.transform.position;
 		float width = buttonParent.GetComponent<RectTransform> ().sizeDelta.x;
-		pos.x -= width/2 + 45;
-		pos.y += 10;
+		pos.x -= width/2;
+		pos.y += 3;
 		transform.position = pos;
 	}
 }
