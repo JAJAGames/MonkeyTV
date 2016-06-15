@@ -33,6 +33,11 @@ namespace InterfaceMovement
 
 			if (inputDevice.Direction.Right.WasPressed || Input.GetKeyDown(KeyCode.RightArrow))
 				MoveFocusTo( focusedButton.right );
+
+			if ((inputDevice.Action1 && inputDevice.Action1.HasChanged )|| Input.GetButtonDown ("Submit")) {
+				focusedButton.OnClick ();
+				MoveFocusTo( focusedButton.pressed );
+			}
 		}
 		
 		
@@ -40,10 +45,13 @@ namespace InterfaceMovement
 		{
 			if (newFocusedButton != null)
 			{
+				AudioManager.Instance.PlayFX (Enums.fxClip.BUTTON_HOVER);
 				focusedButton.LeaveFocus ();
 				focusedButton = newFocusedButton;
 				focusedButton.GetFocus ();
 			}
 		}
+
+
 	}
 }
