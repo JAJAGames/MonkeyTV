@@ -13,15 +13,16 @@
 </Scenes>
 <Paths>
 	<OriginProjectPath>../../Builds/</OriginProjectPath>
-    <DestinationProjectPath>../../Google Drive/MonkeyTV/Builds</DestinationProjectPath>
-	<CompresorPath>../../Program Files (x86)/gnuWin32/bin</CompresorPath>
+    <DestinationProjectPath>../../Google Drive/MonkeyTV/Builds/</DestinationProjectPath>
+	<CompressorPath>C:/Program Files (x86)/gnuwin32/bin/zip.exe</CompressorPath>
 </Paths>
 <ExtraFiles>
 	<File>
-		<LocationFilePath></LocationFilePath>
-		<DestinationWindowsFilePath></DestinationWindowsFilePath>
-		<DestinationMacOSXFilePath></DestinationMacOSXFilePath>
-		<DestinationLinuxFilePath></DestinationLinuxFilePath>
+		<FileName>Languages.xml</FileName>
+		<LocationFilePath>/Resources/</LocationFilePath>
+		<DestinationWindowsFilePath>/MonkeyTV_Data/Resources/</DestinationWindowsFilePath>
+		<DestinationMacOSXFilePath>/MonkeyTV.app/Contents/Resources/</DestinationMacOSXFilePath>
+		<DestinationLinuxFilePath>/MonkeyTV_Data/Resources/</DestinationLinuxFilePath>
 	</File>
 </ExtraFiles>
 </Properties>
