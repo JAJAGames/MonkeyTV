@@ -25,7 +25,7 @@ public class PropPickItem : MonoBehaviour {
 		//can be set in the inspector
 		_material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive;
 
-		_color = meshRenderer.material.GetColor ("_EmissionColor");
+		_color = meshRenderer.material.GetColor ("_OutlineColor");
 		GetComponent<BouncingItems> ().enabled = true;
 	}
 		
@@ -47,7 +47,7 @@ public class PropPickItem : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other){
 		if (other.CompareTag ("Player") && !player.haveItem()) {
-			meshRenderer.material.SetColor ("_EmissionColor", Color.gray);
+			meshRenderer.material.SetColor ("_OutlineColor", Color.magenta);
 			GetComponent<BouncingItems> ().enabled = false;
 		}
 	}
@@ -55,12 +55,12 @@ public class PropPickItem : MonoBehaviour {
 	void OnTriggerExit (Collider other){
 		if (other.CompareTag ("Player")) {
 			GetComponent<BouncingItems> ().enabled = true;
-			meshRenderer.material.SetColor ("_EmissionColor", _color);
+			meshRenderer.material.SetColor ("_OutlineColor", _color);
 		}
 	}
 	
 	private IEnumerator Respawn() {
-		meshRenderer.material.SetColor ("_EmissionColor",_color);
+		meshRenderer.material.SetColor ("_OutlineColor",_color);
 		meshRenderer.enabled = false;
 		capsuleCollider.enabled = false;
 		yield return new WaitForSeconds (5.0f);
