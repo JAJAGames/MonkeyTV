@@ -12,6 +12,7 @@ public class DishSelection : MonoBehaviour {
 	private Image Disk;
 	private float fullFilled;
 	public bool countDown;
+	public JailManager jail;
 
 	[HideInInspector] public PlayerStats playerStats;
 
@@ -77,6 +78,8 @@ public class DishSelection : MonoBehaviour {
 		if (currentCourse + 1 == course.Length)
 			return;
 		currentCourse += 1;
+		if (currentCourse == 2)
+			jail.SetSecond ();
 	}
 
 	public void SetClock(float time){
