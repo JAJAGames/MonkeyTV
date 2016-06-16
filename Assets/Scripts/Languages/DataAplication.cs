@@ -29,6 +29,7 @@ public enum TypeOfData
 	spanish,
 	catalan,
 	galician,
+	max_laguages
 }
 
 public class DataAplication : MonoBehaviour {

@@ -10,5 +10,6 @@
 		<Tense key="6" english="Music By" spanish="Músicos" catalan="Músics" galician="Músicos" />
 		<Tense key="7" english="fx Volume" spanish="Volumen de sonido" catalan="Volum de só" galician="Volume do son" />
 		<Tense key="8" english="Music Volume" spanish="Volúmen de la Música" catalan="Volum de la música" galician="Volume da música" />
+		<Tense key="9" english="English" spanish="Español" catalan="Català" galician="Galego" />
 	</Translation>
 </Language_List>
