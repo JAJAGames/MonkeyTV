@@ -9,7 +9,7 @@ public class Dish : MonoBehaviour {
 	public Image image;
 	public Image IGU_Dish;
 	public Texture2D texture;
-
+	public GameObject buttonPress;
 
 	private IGUIngredients ingredientsBar;
 
@@ -56,6 +56,7 @@ public class Dish : MonoBehaviour {
 
 	IEnumerator StartNewDish (float waitTime){
 		IGU_Dish.gameObject.SetActive(false);
+		buttonPress.SetActive (true);
 		showSelection = true;
 		StartCoroutine(NeWDish());
 		clockDish.countDown = true;
