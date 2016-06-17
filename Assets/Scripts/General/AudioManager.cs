@@ -98,6 +98,7 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	public void SetMusicVolume(float volume){
+		GetCameraSource ();
 		_musicVolume = volume;
 		_musicSource.volume = _musicVolume;
 	}

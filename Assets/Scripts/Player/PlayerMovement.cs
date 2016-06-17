@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour  {
 	public GameObject jumpParticles;
 	private Animator anim;
 	private PlayerStats pStats;
-
 	public bool grounded;
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
@@ -79,7 +78,7 @@ public class PlayerMovement : MonoBehaviour  {
 			else
 				walkParticles.SetActive (true);
 
-			if (inputDevice.Action1 || Input.GetButton("Jump")) { 									//jump go up y axis!! and no particles...
+			if ((inputDevice.Action1 || Input.GetButton("Jump")) && externalForce == Vector3.zero) { 									//jump go up y axis!! and no particles...
 				anim.SetBool ("Jump", true);
 				moveDirection.y = jumpSpeed;
 				grounded = false;
@@ -103,7 +102,6 @@ public class PlayerMovement : MonoBehaviour  {
 
 		if (transform.position.y < -100) 											//falling under floor dies;
 			gamestate.Instance.SetState (Enums.state.STATE_LOSE);
-		
 	}
 
 	IEnumerator ParticlesJump(){
@@ -152,4 +150,5 @@ public class PlayerMovement : MonoBehaviour  {
 		
 		externalForce += force;
 	}
+		
 }

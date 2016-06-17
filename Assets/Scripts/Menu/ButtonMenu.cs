@@ -37,7 +37,7 @@ public class ButtonMenu : MonoBehaviour
 		if (!hasFocus)
 			return;
 			
-		var inputDevice = InputManager.ActiveDevice;
+		//var inputDevice = InputManager.ActiveDevice;
 	}
 
 	public void GetFocus(){

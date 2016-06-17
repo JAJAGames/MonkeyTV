@@ -32,19 +32,24 @@ public class MenuClick : MonoBehaviour {
 	public GameObject panelMenu;
 	public GameObject panelCredits;
 	public GameObject panelOptions;
+	public GameObject panelControls;
+	public GameObject logo;
 
 	void Awake(){
 		sceneLevel level =  gamestate.Instance.GetLevel ();
 		AudioManager.Instance.SetFxVolume (0.5f);
 		AudioManager.Instance.SetMusicVolume (0.5f);
 		AudioManager.Instance.PlayMusic (level);
+		logo = GameObject.Find ("LogoTV");
 	}
+
 	//CHANGE TO NEW SCENE. IN INSPECTOR WE CAN SET THE BUILD INDEX OF THE NEW SCENE.
 	public void LoadScene(int level)
 	{
 		AudioManager.Instance.PlayFX (fxClip.BUTTON_PRESSED);
-		gamestate.Instance.SetLevel ((sceneLevel)level);
-
+		logo.SetActive (false);
+		panelMenu.SetActive (false);
+		panelControls.SetActive (true);
 	}
 
 	//TOGGLE PANEL MENU WITH PANEL CREDITS AND BACK
