@@ -17,6 +17,7 @@ public class PropDropItem : MonoBehaviour {
 
 	public Transform cameraStaticPosition;
 	public Transform cameraStaticPosition2;
+	public Transform cameraGorilla;
 	private CameraFollow cam;
 	private Transform cameraStaticDoor;
 
@@ -173,8 +174,9 @@ public class PropDropItem : MonoBehaviour {
 	}
 
 	void CameraToFollow(){
-		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
-		cam.target = cameraStaticDoor;
+		//gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
+		gamestate.Instance.SetState (state.STATE_SWAP_CAMERA);
+		cam.target = cameraGorilla;
 	}
 
 	void NewCourse(){

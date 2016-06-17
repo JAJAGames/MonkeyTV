@@ -34,7 +34,7 @@ public class Dish : MonoBehaviour {
 	public void ShowNewDish(){
 		
 		canvas.gameObject.SetActive(true);
-		gamestate.Instance.SetState (Enums.state.STATE_STATIC_CAMERA);
+		gamestate.Instance.SetState (Enums.state.STATE_SWAP_CAMERA);
 		player.StopPlayer ();
 		StartCoroutine (StartNewDish (5));		
 	}

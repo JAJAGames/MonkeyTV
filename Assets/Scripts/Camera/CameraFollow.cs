@@ -81,6 +81,11 @@ public class CameraFollow : MonoBehaviour {
 			transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, Time.deltaTime);
 		}
 
+		if (gamestate.Instance.GetState () == state.STATE_SWAP_CAMERA) {
+			transform.position = target.position;
+			transform.rotation = target.rotation;
+		}
+
 		if (gamestate.Instance.GetState () == state.STATE_PLAYER_PAUSED) {
 			
 			transform.position = Vector3.MoveTowards (transform.position, playerMove.transform.position + initDifference, smooth * Time.deltaTime);
