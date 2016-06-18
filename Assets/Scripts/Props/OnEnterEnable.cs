@@ -4,7 +4,6 @@ using System.Collections;
 public class OnEnterEnable : MonoBehaviour {
 
 	public GameObject otherObject;
-	public float waitTime;
 
 	void Awake (){
 		otherObject.SetActive(false);
@@ -12,12 +11,11 @@ public class OnEnterEnable : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Player"))
-			StartCoroutine(EnableAndWaitForDisbale());
+			otherObject.SetActive(true);
 	}
 
-	IEnumerator EnableAndWaitForDisbale() {
-		otherObject.SetActive(true);
-		yield return new WaitForSeconds(waitTime);
-		otherObject.SetActive(false);
+	void OnTriggerExit(Collider other) {
+		if (other.CompareTag("Player"))
+			otherObject.SetActive(false);
 	}
 }
