@@ -7,6 +7,7 @@ public class PropPickItem : MonoBehaviour {
 	public itemsListMC itemType;
 	private MeshRenderer meshRenderer;
 	private CapsuleCollider capsuleCollider;
+	private SphereCollider sphereCollider;
 
 	public PickItems player;
 	private Color _color;
@@ -17,6 +18,7 @@ public class PropPickItem : MonoBehaviour {
 	void Start () {
 		meshRenderer = GetComponent<MeshRenderer> ();
 		capsuleCollider = GetComponent<CapsuleCollider> ();
+		sphereCollider = GetComponent<SphereCollider> ();
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
 		anim = GameObject.FindWithTag ("Player").GetComponent<Animator>();
 
@@ -60,13 +62,15 @@ public class PropPickItem : MonoBehaviour {
 	}
 	
 	private IEnumerator Respawn() {
+		
 		meshRenderer.material.SetColor ("_OutlineColor",_color);
 		meshRenderer.enabled = false;
 		capsuleCollider.enabled = false;
+		sphereCollider.enabled = false;
 		yield return new WaitForSeconds (5.0f);
 
 		//Respawn animation
-
+		sphereCollider.enabled = true;
 		meshRenderer.enabled = true;
 		capsuleCollider.enabled = true;
 	}
