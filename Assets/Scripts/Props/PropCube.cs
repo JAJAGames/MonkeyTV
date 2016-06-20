@@ -67,7 +67,7 @@ public class PropCube : MonoBehaviour {
 	IEnumerator Freezed(){
 		yield return new WaitForSeconds (.3f);
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
-		yield return new WaitForSeconds (.6f);
+		yield return new WaitForSeconds (1f);
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 	}
 }
