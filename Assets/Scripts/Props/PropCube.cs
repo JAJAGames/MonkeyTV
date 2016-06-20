@@ -42,6 +42,9 @@ public class PropCube : MonoBehaviour {
 				Vector3 newVector = player.moveDirection * 2;
 				newVector.y += 5; 
 				player.AddForce (newVector);
+				other.GetComponent<Animator> ().SetTrigger ("Captured");
+				other.GetComponent<PickItems> ().throwItem ();
+				StartCoroutine (Freezed());
 				falling = true;
 			} else {
 				sphereCollider.center = new Vector3 (0.27f, 0.1f, 0f);
@@ -61,4 +64,10 @@ public class PropCube : MonoBehaviour {
 		}
 	}
 
+	IEnumerator Freezed(){
+		yield return new WaitForSeconds (.3f);
+		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
+		yield return new WaitForSeconds (.6f);
+		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
+	}
 }

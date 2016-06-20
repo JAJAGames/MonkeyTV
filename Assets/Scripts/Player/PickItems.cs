@@ -36,6 +36,8 @@ public class PickItems : MonoBehaviour {
 
 	public void throwItem() {
 		//Throw item animation
+		if (actualItem == itemsListMC.NO_ITEM_MC)
+			return;
 		anim.SetBool("Pick_Object",false);
 		allItems[(int)actualItem].SetActive (false);
 		boxCollider.enabled = false;
