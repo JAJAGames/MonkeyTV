@@ -10,6 +10,7 @@ public class LeverOpen : MonoBehaviour {
 	private Transform cameraStaticGorilla;
 
 	public MeshRenderer mesh1, mesh2;
+	public GameObject canvas;
 
 	private Color color1,color2;
 	public Transform door;
@@ -57,6 +58,7 @@ public class LeverOpen : MonoBehaviour {
 				gamestate.Instance.SetState(Enums.state.STATE_STATIC_CAMERA);
 				cameraStaticGorilla = cam.target;
 				cam.target = cameraStaticPosition;
+				canvas.SetActive (false);
 			}
 		}
 	}
