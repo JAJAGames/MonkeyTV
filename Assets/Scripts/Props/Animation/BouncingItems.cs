@@ -13,7 +13,7 @@ public class BouncingItems : MonoBehaviour {
 	public bool questItem;
 	private PickItems player;
 
-	void Awake () 
+	void Start () 
 	{
 		mesh = GetComponent<MeshRenderer> ();
 		tempVal = transform.position.y;

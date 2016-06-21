@@ -8,6 +8,7 @@ public class OnEnterEnable : MonoBehaviour {
 	void Awake (){
 		otherObject.SetActive(false);
 	}
+		
 
 	void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Player"))
@@ -17,5 +18,9 @@ public class OnEnterEnable : MonoBehaviour {
 	void OnTriggerExit(Collider other) {
 		if (other.CompareTag("Player"))
 			otherObject.SetActive(false);
+	}
+
+	public void DisableOther(){
+		otherObject.SetActive(false);
 	}
 }

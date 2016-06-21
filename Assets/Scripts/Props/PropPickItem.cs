@@ -47,7 +47,7 @@ public class PropPickItem : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter (Collider other){
+	void OnTriggerEnter(Collider other){
 		if (other.CompareTag ("Player") && !player.haveItem()) {
 			meshRenderer.material.SetColor ("_OutlineColor", Color.magenta);
 			GetComponent<BouncingItems> ().enabled = false;
@@ -67,11 +67,19 @@ public class PropPickItem : MonoBehaviour {
 		meshRenderer.enabled = false;
 		capsuleCollider.enabled = false;
 		sphereCollider.enabled = false;
+
+		if (GetComponent<OnEnterEnable> () != null)
+			GetComponent<OnEnterEnable> ().DisableOther ();
 		yield return new WaitForSeconds (5.0f);
 
 		//Respawn animation
-		sphereCollider.enabled = true;
-		meshRenderer.enabled = true;
-		capsuleCollider.enabled = true;
+		ShowItem();
+	}
+
+	public void ShowItem(){
+		GetComponent<BouncingItems> ().enabled = true;
+		GetComponent<SphereCollider>().enabled = true;
+		GetComponent<MeshRenderer>().enabled = true;
+		GetComponent<CapsuleCollider>().enabled = true;
 	}
 }
