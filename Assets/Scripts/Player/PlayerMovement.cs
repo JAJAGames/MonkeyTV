@@ -109,36 +109,6 @@ public class PlayerMovement : MonoBehaviour  {
 		jumpParticles.SetActive (false);
 	}
 
-	//Adding phisics to player... 
-	void OnControllerColliderHit(ControllerColliderHit other) {
-																					//if the player collides with one enemy he can move him depending on their mass
-		if (other.gameObject.CompareTag ("Enemy") && controller.isGrounded) { 		//the player must be grounded
-
-			//Vector direction 
-			Vector3 direction = other.transform.position - transform.position;	
-			direction.Normalize();
-			direction.y = 0;
-
-			//smoothness
-			float smoothPush = 0.5f / movementSpeed;
-			// and mass
-			float mass = other.gameObject.GetComponent<Rigidbody> ().mass;
-			other.transform.position += direction * mass * smoothPush; 
-		}		
-
-		if (other.gameObject.CompareTag ("Prop")) {
-			Vector3 direction = other.transform.position - transform.position;	
-			direction.y = 0;
-			direction.Normalize();
-			other.gameObject.GetComponent<Rigidbody> ().AddForce(direction ,ForceMode.Impulse); 
-		}
-	}
-
-	float ShowCurrentClipLength()
-	{
-		return ( anim.GetCurrentAnimatorStateInfo(0).length);
-	}
-
 	public void StopPlayer(){
 		anim.SetBool("Walk", false);
 		walkParticles.SetActive (false);
