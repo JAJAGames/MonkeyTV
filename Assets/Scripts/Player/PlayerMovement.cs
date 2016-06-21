@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour  {
 	private Animator anim;
 	private PlayerStats pStats;
 	public bool grounded;
+
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
 		anim = GetComponent<Animator>();
@@ -62,23 +63,22 @@ public class PlayerMovement : MonoBehaviour  {
 			else
 				moveDirection = new Vector3 (inputDevice.LeftStickX, 0, inputDevice.LeftStickY);
 			
-			//Make the player face his movement direction. We ought to disable rotation script
-			if (moveDirection != Vector3.zero)							//Look to rotation viewing is not Zero
+			//Make the player face his movement direction.
+			if (moveDirection != Vector3.zero)
 				transform.rotation = Quaternion.LookRotation (moveDirection);
 
 			moveDirection *= movementSpeed;
-			//moveDirection = transform.TransformDirection(moveDirection);  //This line set transform from local space movement to world movement 
 
-			if (moveDirection != Vector3.zero)
-				anim.SetBool ("Walk", true);
-			else
-				anim.SetBool ("Walk", false);
-
-			if (moveDirection == Vector3.zero) 								//enable or disable emitter of ParticleSyste
-				walkParticles.SetActive (false);
-			else
+			//Set particles and animations
+			if (moveDirection != Vector3.zero) {
 				walkParticles.SetActive (true);
+				anim.SetBool ("Walk", true);
+			}else {
+				walkParticles.SetActive (false);
+				anim.SetBool ("Walk", false);
+			}
 
+			//Get input jump
 			if ((inputDevice.Action1 || Input.GetButton("Jump")) && externalForce == Vector3.zero) { 									//jump go up y axis!! and no particles...
 				anim.SetBool ("Jump", true);
 				moveDirection.y = jumpSpeed;
@@ -102,18 +102,20 @@ public class PlayerMovement : MonoBehaviour  {
 			grounded = false;
 		}
 
-		if (externalForce.y != 0) {
+		//adding external force
+		if (externalForce.y != 0)
 			moveDirection.y = 0;
-		}
-
 		moveDirection += externalForce;
 		externalForce = Vector3.zero;
 
-		moveDirection.y -= gravity * Time.deltaTime;							//calculate translation
+		//calculate gravity	
+		moveDirection.y -= gravity * Time.deltaTime;		
 
-		controller.Move(moveDirection * Time.deltaTime);
+		//calculate translation
+		controller.Move(moveDirection * Time.deltaTime);							
 
-		if (transform.position.y < -100) 											//falling under floor dies;
+		//falling under floor dies;
+		if (transform.position.y < -100) 											
 			gamestate.Instance.SetState (Enums.state.STATE_LOSE);
 	}
 
