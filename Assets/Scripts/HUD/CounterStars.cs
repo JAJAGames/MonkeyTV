@@ -23,7 +23,7 @@ public class CounterStars : MonoBehaviour {
 		if (player.GetComponent<PickKey> ().GetMonkeysSaved () == 3 && !childs [1].activeSelf)
 			goals++;
 
-		if (!player.GetComponent<PlayerStats> ().jailed && 				!childs [2].activeSelf)
+		if (player.GetComponent<PlayerStats> ().suitUsed && !childs [2].activeSelf)
 			goals++;
 		
 		EnableDisableChilds (true);

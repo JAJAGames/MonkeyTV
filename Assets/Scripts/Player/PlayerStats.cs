@@ -31,10 +31,10 @@ public class PlayerStats : MonoBehaviour {
 	public 	playerState 		state;
 	public 	GameObject 			oscar;
 	public	GameObject 			_particles;
+	public  bool 				suitUsed = false;
 	private Animator			anim;
 	private SkinnedMeshRenderer mesh;
-	public  bool 				jailed = false;
-
+	
 	void Awake () {
 
 		mesh = oscar.GetComponent<SkinnedMeshRenderer> ();
@@ -49,6 +49,7 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	private IEnumerator bonusCooldown(float time) {
+		suitUsed = true;
 		state = playerState.PLAYER_STATE_BONUS_UNIFORM;
 		transform.localScale = new Vector3 (1,1,1);
 		mesh.material.SetTexture ("_MainTex", chefTexture);
