@@ -26,6 +26,9 @@ using Enums;
 
 public class PlayerStats : MonoBehaviour {
 
+	public 	GameObject 			message;
+	public 	Text 				textCountDown;
+
 	public 	Texture 			oscarTexture;
 	public 	Texture 			chefTexture;
 	public 	playerState 		state;
@@ -34,7 +37,9 @@ public class PlayerStats : MonoBehaviour {
 	public  bool 				suitUsed = false;
 	private Animator			anim;
 	private SkinnedMeshRenderer mesh;
-	
+	private float 				countDown = 0f;	
+	private  bool 				beep = false;
+
 	void Awake () {
 
 		mesh = oscar.GetComponent<SkinnedMeshRenderer> ();
@@ -44,11 +49,28 @@ public class PlayerStats : MonoBehaviour {
 		_particles.SetActive (false);
 	}
 
+	void Update(){
+		if (countDown <= 0)
+			return;
+		textCountDown.text = string.Format("{00:00}:{1:00}",
+			Mathf.Floor(countDown / 60),//minutes
+			Mathf.Floor(countDown) % 60);//seconds
+		countDown -= Time.deltaTime;
+
+		if (beep) {
+			AudioManager.Instance.PlayFX (fxClip.PICK_CLOK_KEY);
+			beep = false;
+			StartCoroutine (PlayClock ());
+		}
+	}
 	public void activeBonus (float time) {
 		StartCoroutine (bonusCooldown(time));
 	}
 
 	private IEnumerator bonusCooldown(float time) {
+		countDown = time;
+		message.SetActive (true);
+		beep = true;	
 		suitUsed = true;
 		state = playerState.PLAYER_STATE_BONUS_UNIFORM;
 		transform.localScale = new Vector3 (1,1,1);
@@ -59,10 +81,16 @@ public class PlayerStats : MonoBehaviour {
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		_particles.SetActive (true);
 		yield return new WaitForSeconds (time);
+		message.SetActive (false);
 		transform.localScale = new Vector3 (0.6f,0.6f,0.6f);
 		state = playerState.PLAYER_STATE_MORTAL;
 		_particles.SetActive (false);
 		mesh.material.SetTexture ("_MainTex", oscarTexture);
+	}
+
+	private IEnumerator PlayClock(){
+		yield return new WaitForSeconds (1f);
+		beep = true;
 	}
 
 	public void godMode() {
