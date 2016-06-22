@@ -19,6 +19,7 @@ public class PropDropItem : MonoBehaviour {
 	public Transform cameraStaticPosition2;
 	public Transform cameraGorilla;
 	private CameraFollow cam;
+	public MessageController message;
 
 	public OpenDoor keyDoor,secondKey;
 	public int[] courses;
@@ -141,6 +142,11 @@ public class PropDropItem : MonoBehaviour {
 				if (dishSelection.currentCourse == 2) {
 					gamestate.Instance.SetState (Enums.state.STATE_WIN);
 				}					
+
+				if (message.gameObject.activeSelf)
+					message.gameObject.SetActive (false);
+
+
 			}
 			AudioManager.Instance.PlayFX(Enums.fxClip.GUI_PICK_BONUS);
 
