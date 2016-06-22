@@ -20,12 +20,10 @@ public class ContinueButton : MonoBehaviour {
 		Items.SetActive (false);
 	}
 
-	void Update(){
+	public void SetActiveItems(){
 
-		var inputDevice = InputManager.ActiveDevice;
-		if (Input.GetButton ("Pick") || inputDevice.Action3) {
-			Items.SetActive (true);
-			gameObject.SetActive (false);
-		}
+		Items.SetActive (true);
+		gameObject.SetActive (false);
+
 	}
 }

@@ -9,8 +9,8 @@ public class Dish : MonoBehaviour {
 	public Image image;
 	public Image IGU_Dish;
 	public Texture2D texture;
-	public GameObject buttonPress, message;
-
+	public GameObject message;
+	public ContinueButton buttonPress;
 	private IGUIngredients ingredientsBar;
 
 
@@ -56,11 +56,12 @@ public class Dish : MonoBehaviour {
 
 	IEnumerator StartNewDish (float waitTime){
 		IGU_Dish.gameObject.SetActive(false);
-		buttonPress.SetActive (true);
+		buttonPress.gameObject.SetActive (true);
 		showSelection = true;
 		StartCoroutine(NeWDish());
 		clockDish.countDown = true;
 		var inputDevice = InputManager.ActiveDevice;
+		//yield return new WaitForSeconds(1f);
 
 		while( !(Input.GetButton("Pick") || inputDevice.Action3) )   // that's to have yield return new [ WaitForsomething (bool) ];
 		{
@@ -68,7 +69,7 @@ public class Dish : MonoBehaviour {
 		}
 		
 		showSelection = false;
-
+		buttonPress.SetActiveItems ();
 		clockDish.SetClock (5);
 		message.SetActive (true);
 		AudioManager.Instance.PlayFX(Enums.fxClip.COUNTDOWN);
