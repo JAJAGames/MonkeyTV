@@ -9,7 +9,7 @@ public class Dish : MonoBehaviour {
 	public Image image;
 	public Image IGU_Dish;
 	public Texture2D texture;
-	public GameObject buttonPress;
+	public GameObject buttonPress, message;
 
 	private IGUIngredients ingredientsBar;
 
@@ -36,7 +36,7 @@ public class Dish : MonoBehaviour {
 		canvas.gameObject.SetActive(true);
 		gamestate.Instance.SetState (Enums.state.STATE_SWAP_CAMERA);
 		player.StopPlayer ();
-		StartCoroutine (StartNewDish (5));		
+		StartCoroutine (StartNewDish (5));	
 	}
 
 
@@ -60,7 +60,6 @@ public class Dish : MonoBehaviour {
 		showSelection = true;
 		StartCoroutine(NeWDish());
 		clockDish.countDown = true;
-
 		var inputDevice = InputManager.ActiveDevice;
 
 		while( !(Input.GetButton("Pick") || inputDevice.Action3) )   // that's to have yield return new [ WaitForsomething (bool) ];
@@ -71,11 +70,16 @@ public class Dish : MonoBehaviour {
 		showSelection = false;
 
 		clockDish.SetClock (5);
+		message.SetActive (true);
 		AudioManager.Instance.PlayFX(Enums.fxClip.COUNTDOWN);
-
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		player.enabled = true;
+		canvas.gameObject.SetActive(false);
+		IGU_Dish.gameObject.SetActive(true);
+		IGU_Dish.gameObject.GetComponent<IGUfromWorld> ().StartAnimation ();
+		IGU_Dish.sprite = sprites [dishCode];
 
+		ingredientsBar.ActualizeIcons();
 		Invoke ("ToSearch", 5.0f);
 
 	}
@@ -85,13 +89,9 @@ public class Dish : MonoBehaviour {
 		clockDish.text.rectTransform.localScale = Vector3.one;
 		clockDish.SetClock (120);
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
-		canvas.gameObject.SetActive(false);
-		IGU_Dish.gameObject.SetActive(true);
-		IGU_Dish.gameObject.GetComponent<IGUfromWorld> ().StartAnimation ();
-		IGU_Dish.sprite = sprites [dishCode];
 
-		ingredientsBar.ActualizeIcons();
 
 		player.enabled = true;
+		message.SetActive (false);
 	}
 }

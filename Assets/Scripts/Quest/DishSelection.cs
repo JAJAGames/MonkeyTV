@@ -8,7 +8,7 @@ public class DishSelection : MonoBehaviour {
 
 	public int currentCourse;
 	public float clock = Mathf.Infinity;
-	public Text text;
+	public Text text,textCountDown;
 	private Image Disk;
 	private float fullFilled;
 	public bool countDown;
@@ -68,6 +68,8 @@ public class DishSelection : MonoBehaviour {
 				text.rectTransform.localScale = a;
 			}
 		}
+		if (countDown)
+			textCountDown.text = text.text;
 		
 		if (clock < 0 && !countDown)
 			gamestate.Instance.SetState (Enums.state.STATE_LOSE);
