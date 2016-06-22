@@ -13,7 +13,7 @@ public class PropDropItem : MonoBehaviour {
 	public Color _particleColor;
 
 	private Material _material;
-	private DishSelection dishSelection;
+	private DishClockController dishSelection;
 
 	public Transform cameraStaticPosition;
 	public Transform cameraStaticPosition2;
@@ -40,7 +40,7 @@ public class PropDropItem : MonoBehaviour {
 		meshRenderer = GetComponent<MeshRenderer> ();
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
 		anim = GameObject.FindWithTag ("Player").GetComponent<Animator>();
-		dishSelection = GameObject.Find ("Clock").GetComponent<DishSelection> ();
+		dishSelection = GameObject.Find ("Clock").GetComponent<DishClockController> ();
 		spawn = GameObject.Find ("Spawn Point").GetComponent<InitSpawn>();
 		itemBar = GameObject.Find ("ItemBarMask").GetComponent<IGUItemBar> ();
 		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();

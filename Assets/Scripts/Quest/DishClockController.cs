@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class DishSelection : MonoBehaviour {
+public class DishClockController : MonoBehaviour {
 
 	private int [] course = new int[3];
 

@@ -18,11 +18,11 @@ public class Dish : MonoBehaviour {
 	private Sprite[] sprites ;
 	private bool showSelection = false;
 	private PlayerMovement player;
-	private DishSelection clockDish;
+	private DishClockController clockDish;
 	void Awake(){
 		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
 		player = GameObject.Find ("Player").GetComponent<PlayerMovement> ();
-		clockDish = GameObject.Find ("Clock").GetComponent<DishSelection> ();
+		clockDish = GameObject.Find ("Clock").GetComponent<DishClockController> ();
 		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
 	}
 
