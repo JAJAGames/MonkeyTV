@@ -5,12 +5,14 @@ using InControl;
 
 public class Dish : MonoBehaviour {
 
+	private const int TIMEDELAY = 5;
 	public Canvas canvas;
 	public Image image;
 	public Image IGU_Dish;
 	public Texture2D texture;
-	public GameObject message;
+	public MessageController message;
 	public ContinueButton buttonPress;
+	public float timeQuest;
 	private IGUIngredients ingredientsBar;
 
 
@@ -70,8 +72,9 @@ public class Dish : MonoBehaviour {
 		
 		showSelection = false;
 		buttonPress.SetActiveItems ();
-		clockDish.SetClock (5);
-		message.SetActive (true);
+		clockDish.SetClock (TIMEDELAY);
+		message.gameObject.SetActive (true);
+		message.SetTime(TIMEDELAY);
 		AudioManager.Instance.PlayFX(Enums.fxClip.COUNTDOWN);
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		player.enabled = true;
@@ -88,11 +91,11 @@ public class Dish : MonoBehaviour {
 	void ToSearch(){
 		clockDish.countDown = false;
 		clockDish.text.rectTransform.localScale = Vector3.one;
-		clockDish.SetClock (120);
+		clockDish.SetClock (timeQuest);
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 
 
 		player.enabled = true;
-		message.SetActive (false);
+		message.gameObject.SetActive (false);
 	}
 }

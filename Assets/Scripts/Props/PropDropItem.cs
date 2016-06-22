@@ -19,7 +19,6 @@ public class PropDropItem : MonoBehaviour {
 	public Transform cameraStaticPosition2;
 	public Transform cameraGorilla;
 	private CameraFollow cam;
-	private Transform cameraStaticDoor;
 
 	public OpenDoor keyDoor,secondKey;
 	public int[] courses;
@@ -151,7 +150,6 @@ public class PropDropItem : MonoBehaviour {
 
 	IEnumerator OpenDoor(float waitTime){
 		gamestate.Instance.SetState (state.STATE_STATIC_CAMERA);
-		cameraStaticDoor = cam.target;
 		cam.target = cameraStaticPosition;
 		yield return new WaitForSeconds(waitTime);
 		keyDoor.Open ();
@@ -163,7 +161,6 @@ public class PropDropItem : MonoBehaviour {
 
 	IEnumerator Open2Door(float waitTime){
 		gamestate.Instance.SetState (state.STATE_STATIC_CAMERA);
-		cameraStaticDoor = cam.target;
 		cam.target = cameraStaticPosition2;
 		yield return new WaitForSeconds(waitTime);
 		secondKey.Open ();

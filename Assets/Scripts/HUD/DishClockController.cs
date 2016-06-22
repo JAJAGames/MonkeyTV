@@ -8,11 +8,12 @@ public class DishClockController : MonoBehaviour {
 
 	public int currentCourse;
 	public float clock = Mathf.Infinity;
-	public Text text,textCountDown;
+	public Text text;
 	private Image Disk;
 	private float fullFilled;
 	public bool countDown;
 	public JailManager jail;
+	public MessageController message;
 
 	[HideInInspector] public PlayerStats playerStats;
 
@@ -68,9 +69,11 @@ public class DishClockController : MonoBehaviour {
 				text.rectTransform.localScale = a;
 			}
 		}
-		if (countDown)
-			textCountDown.text = text.text;
-		
+
+		if (clock < 20 && !countDown && !message.gameObject.activeSelf){
+			message.gameObject.SetActive (true);
+			message.SetTime (clock, true);
+		}
 		if (clock < 0 && !countDown)
 			gamestate.Instance.SetState (Enums.state.STATE_LOSE);
 	}
