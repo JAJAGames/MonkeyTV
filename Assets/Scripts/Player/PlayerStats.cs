@@ -68,9 +68,6 @@ public class PlayerStats : MonoBehaviour {
 	}
 
 	private IEnumerator bonusCooldown(float time) {
-		countDown = time;
-		message.SetActive (true);
-		beep = true;	
 		suitUsed = true;
 		state = playerState.PLAYER_STATE_BONUS_UNIFORM;
 		transform.localScale = new Vector3 (1,1,1);
@@ -80,6 +77,9 @@ public class PlayerStats : MonoBehaviour {
 		yield return new WaitForSeconds (1.0f);
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		_particles.SetActive (true);
+		countDown = time;
+		message.SetActive (true);
+		beep = true;	
 		yield return new WaitForSeconds (time);
 		message.SetActive (false);
 		transform.localScale = new Vector3 (0.6f,0.6f,0.6f);
