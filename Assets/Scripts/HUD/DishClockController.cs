@@ -45,7 +45,7 @@ public class DishClockController : MonoBehaviour {
 									Mathf.Floor(clock) % 60);//seconds
 		}
 
-		if (!playerStats.godModeActive())
+		if (!playerStats.godModeActive() && !playerStats.uniformBonusActive())
 			clock -= Time.deltaTime;
 
 		if (fullFilled > 0 && !countDown) {
