@@ -45,15 +45,11 @@ public class Dish : MonoBehaviour {
 	IEnumerator NeWDish() {
 
 		if (showSelection) {
-			yield return new WaitForSeconds(0.25f);
+			yield return new WaitForSeconds (0.25f);
 			dishCode = Random.Range (0, sprites.Length);
-			StartCoroutine(NeWDish());
-		}else
-			dishCode = clockDish.GetCurrent ();
-
-
+			StartCoroutine (NeWDish ());
+		}
 		image.sprite = sprites [dishCode];
-
 	}
 
 	IEnumerator StartNewDish (float waitTime){
@@ -63,13 +59,12 @@ public class Dish : MonoBehaviour {
 		StartCoroutine(NeWDish());
 		clockDish.countDown = true;
 		var inputDevice = InputManager.ActiveDevice;
-		//yield return new WaitForSeconds(1f);
 
 		while( !(Input.GetButton("Pick") || inputDevice.Action3) )   // that's to have yield return new [ WaitForsomething (bool) ];
 		{
 			yield return null;
 		}
-		
+
 		showSelection = false;
 		buttonPress.SetActiveItems ();
 		clockDish.SetClock (TIMEDELAY);
@@ -78,6 +73,9 @@ public class Dish : MonoBehaviour {
 		AudioManager.Instance.PlayFX(Enums.fxClip.COUNTDOWN);
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		player.enabled = true;
+
+		dishCode = clockDish.GetCurrent ();
+		image.sprite = sprites [dishCode];
 		canvas.gameObject.SetActive(false);
 		IGU_Dish.gameObject.SetActive(true);
 		IGU_Dish.gameObject.GetComponent<IGUfromWorld> ().StartAnimation ();
