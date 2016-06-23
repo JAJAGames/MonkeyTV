@@ -41,7 +41,6 @@ public class PropCube : MonoBehaviour {
 				player.canJump = false;
 				player.AddForce (newVector);
 				other.GetComponent<Animator> ().SetTrigger ("Captured");
-				other.GetComponent<PickItems> ().throwItem ();
 				StartCoroutine (Freezed());
 				falling = true;
 			} else {
@@ -62,6 +61,8 @@ public class PropCube : MonoBehaviour {
 
 	IEnumerator Freezed(){
 		yield return new WaitForSeconds (.3f);
+		AudioManager.Instance.PlayFX (Enums.fxClip.FALL_ON_BACKSIDE);
+		player.GetComponent<PickItems> ().throwItem ();
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		yield return new WaitForSeconds (1f);
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);

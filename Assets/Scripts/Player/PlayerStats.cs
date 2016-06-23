@@ -46,9 +46,21 @@ public class PlayerStats : MonoBehaviour {
 		mesh.material.SetTexture ("_MainTex", oscarTexture);
 		anim = GetComponent<Animator> ();
 		_particles.SetActive (false);
+		this.enabled = false;
 	}
 
-
+	//only enabled when player whear suit
+	void Update(){
+		if (state != playerState.PLAYER_STATE_BONUS_UNIFORM) {
+			if (transform.localScale.x > 0.6f) {
+				float scale = transform.localScale.x - Time.deltaTime;
+				if (scale < 0.6f)
+					scale = 0.6f;
+				transform.localScale = new Vector3 (scale, scale, scale);
+			} else
+				this.enabled = false;
+		}
+	}
 
 	private IEnumerator bonusCooldown(float time) {
 		suitUsed = true;
@@ -62,9 +74,9 @@ public class PlayerStats : MonoBehaviour {
 		_particles.SetActive (true);
 		message.gameObject.SetActive (true);
 		message.SetTime (time,true);
+		this.enabled = true;
 		yield return new WaitForSeconds (time);
 		message.gameObject.SetActive (false);
-		transform.localScale = new Vector3 (0.6f,0.6f,0.6f);
 		state = playerState.PLAYER_STATE_MORTAL;
 		_particles.SetActive (false);
 		mesh.material.SetTexture ("_MainTex", oscarTexture);
