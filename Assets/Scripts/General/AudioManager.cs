@@ -63,6 +63,11 @@ public class AudioManager : MonoBehaviour {
 		_currentFX = fxClip.NO_FX;
 	}
 
+	public void StopFX(){
+		_fxSource.Stop();
+	}
+
+
 	public void SetMusic (Enums.sceneLevel music){
 		_musicSource.clip = arrayMusic [(int)music] as AudioClip;
 	}

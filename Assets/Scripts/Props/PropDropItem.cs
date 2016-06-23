@@ -34,6 +34,9 @@ public class PropDropItem : MonoBehaviour {
 	public IGUItemBar itemBar;
 	private IGUIngredients ingredientsBar;
 	public ParticleSystem _particles, _particlesPot;
+
+	public OnEnterEnable[] tutorial;
+
 	// Use this for initialization
 	void Awake (){
 		cam = Camera.main.GetComponent<CameraFollow> ();
@@ -102,6 +105,9 @@ public class PropDropItem : MonoBehaviour {
 		if (firsTime) {
 			currentDish = dishSelection.currentCourse;
 			firsTime = false;
+			tutorial [0].SetTutorialOff(false);
+			tutorial [1].SetTutorialOff(false);
+			tutorial [2].SetTutorialOff(false);
 		}
 
 
@@ -121,8 +127,8 @@ public class PropDropItem : MonoBehaviour {
 		}
 			
 		if (!foundIngredient) {	
-			StartCoroutine (WrongIngredient ());//fer algun feedback de que no es l'ingredient correcte
-		} else { 																//ja no te ingredient deixa d'il.luminar
+			StartCoroutine (WrongIngredient ());			//fer algun feedback de que no es l'ingredient correcte
+		} else { 											
 			anim.SetBool("Pick_Object",false);
 			meshRenderer.material.SetColor ("_EmissionColor", _color);
 		
@@ -145,8 +151,6 @@ public class PropDropItem : MonoBehaviour {
 
 				if (message.gameObject.activeSelf)
 					message.gameObject.SetActive (false);
-
-
 			}
 			AudioManager.Instance.PlayFX(Enums.fxClip.GUI_PICK_BONUS);
 

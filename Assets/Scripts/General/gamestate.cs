@@ -98,7 +98,7 @@ public class gamestate : MonoBehaviour {
 	{
 		// Set activeLevel to newLevel
 		levelOfGame = newLevel;
-
+		AudioManager.Instance.StopFX ();
 #if UNITY_5_3_OR_NEWER	
 
 		if (levelOfGame > 0)
