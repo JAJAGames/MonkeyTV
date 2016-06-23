@@ -7,12 +7,13 @@ public class PropCube : MonoBehaviour {
 	private bool isAnimated, falling;
 
 	private SphereCollider sphereCollider;
-
+	private PlayerMovement player;
 	void Awake () {
 		anim = gameObject.GetComponent<Animation> ();
 		sphereCollider = GetComponent<SphereCollider> ();
 		isAnimated = false;
 		falling = false;
+		player = GameObject.Find("Player").GetComponent<PlayerMovement> ();
 	}
 		
 	private void StartAnimation() {
@@ -36,11 +37,8 @@ public class PropCube : MonoBehaviour {
 		if (other.CompareTag ("Player")) {
 			
 			if (isAnimated) {
-				
-				PlayerMovement player = other.GetComponent<PlayerMovement> ();
-
-				Vector3 newVector = player.moveDirection * 2;
-				newVector.y += 5; 
+				Vector3 newVector = player.moveDirection * 5;
+				player.canJump = false;
 				player.AddForce (newVector);
 				other.GetComponent<Animator> ().SetTrigger ("Captured");
 				other.GetComponent<PickItems> ().throwItem ();
@@ -58,8 +56,6 @@ public class PropCube : MonoBehaviour {
 
 		if (other.CompareTag ("Player") && falling) {
 			falling = false;
-			PlayerMovement player = other.GetComponent<PlayerMovement> ();
-			player.grounded = true;
 			player.AddForce (Vector3.zero);
 		}
 	}
@@ -69,5 +65,6 @@ public class PropCube : MonoBehaviour {
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		yield return new WaitForSeconds (1f);
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
+		player.canJump = true;
 	}
 }

@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour  {
 	public GameObject jumpParticles;
 	private Animator anim;
 	private PlayerStats pStats;
-	public bool grounded;
+	public bool grounded, canJump;
 
 	private void Awake ()  {
 		controller = GetComponent<CharacterController> ();
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour  {
 		walkParticles.SetActive (false);
 		jumpParticles.SetActive (false);
 		grounded = false;
+		canJump = true;
 	}
 
 	private void FixedUpdate ()  {
@@ -79,11 +80,13 @@ public class PlayerMovement : MonoBehaviour  {
 			}
 
 			//Get input jump
-			if ((inputDevice.Action1 || Input.GetButton("Jump")) && externalForce == Vector3.zero) { 									//jump go up y axis!! and no particles...
-				anim.SetBool ("Jump", true);
-				moveDirection.y = jumpSpeed;
-				grounded = false;
-			} 
+			if (canJump) {
+				if ((inputDevice.Action1 || Input.GetButton ("Jump")) && externalForce == Vector3.zero) { 									//jump go up y axis!! and no particles...
+					anim.SetBool ("Jump", true);
+					moveDirection.y = jumpSpeed;
+					grounded = false;
+				}
+			}
 
 		} else {
 
