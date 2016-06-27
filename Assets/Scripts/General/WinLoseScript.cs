@@ -24,24 +24,19 @@ using UnityEngine.UI;
 
 public class WinLoseScript : MonoBehaviour {
 
-	private Transform _badgetsBackground;
-	private Color _color;
-	private bool _active = false;
+	private Transform _winPanel, _losePanel;
 	// Use this for initialization
 	void Awake () {
 
-		_badgetsBackground = transform.GetChild (0);
-		_color = Color.black;
-		_color.a = 0;
-
-		ShowBadgets (_active);
-		_color.a = 0.5f;
+		_winPanel = transform.GetChild (0);
+		_losePanel = transform.GetChild (1);
+		Color color = GetComponent<Image> ().color;
+		color.a = 0f;
+		GetComponent<Image> ().color = color;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (_active)
-			return;
 		if (gamestate.Instance.GetState () == Enums.state.STATE_WIN)
 			WinTheGame ();
 		if (gamestate.Instance.GetState () == Enums.state.STATE_LOSE)
@@ -49,19 +44,20 @@ public class WinLoseScript : MonoBehaviour {
 	}
 
 	private void LoseTheGame () {
-		_active = true;
-		ShowBadgets (_active);
+		Color color = GetComponent<Image> ().color;
+		color.a = 0.5f;
+		GetComponent<Image> ().color = color;
+		_losePanel.gameObject.SetActive (true);
 		AudioManager.Instance.PlayMusic(Enums.sceneLevel.LOSE);
+		this.enabled = false;
 	}
 
 	private void WinTheGame() {
-		_active = true;
-		ShowBadgets (_active);
+		Color color = GetComponent<Image> ().color;
+		color.a = 0.5f;
+		GetComponent<Image> ().color = color;
+		_winPanel.gameObject.SetActive (true);
 		AudioManager.Instance.PlayMusic(Enums.sceneLevel.WIN);
-	}
-
-	private void ShowBadgets(bool b){
-		GetComponent<Image> ().color = _color;
-		_badgetsBackground.gameObject.SetActive (b);
+		this.enabled = false;
 	}
 }

@@ -145,13 +145,16 @@ public class StatePatternEnemySimple : MonoBehaviour {
 
 		yield return new WaitForSeconds (1.0f);
 
-		//player.GetComponent<PlayerMovement> ().AddForce (Vector3.zero);
-		//yield return new WaitForSeconds (1.0f);
+		Vector3 PunchForce = transform.forward;
+		PunchForce = PunchForce.normalized * 100;
+		gamestate.Instance.SetState (Enums.state.STATE_STATIC_CAMERA);
+		player.GetComponent<PlayerMovement> ().AddForce (PunchForce);
+		yield return new WaitForSeconds (2.0f);
 
 		actualState = enemyStateSimple.SIMPLE_STATE_IDLE;
 		currentState = idleState;
 		attackState.attackDone = false;
-
+		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		player.position = jail.position;
 		gamestate.Instance.SetState (previousState);
 

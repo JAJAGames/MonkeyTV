@@ -11,5 +11,9 @@
 		<Tense key="7" english="fx Volume" spanish="Volumen de sonido" catalan="Volum de só" galician="Volume do son" />
 		<Tense key="8" english="Music Volume" spanish="Volúmen de la Música" catalan="Volum de la música" galician="Volume da música" />
 		<Tense key="9" english="English" spanish="Español" catalan="Català" galician="Galego" />
+		<Tense key="10" english="LEVEL COMPLETED" spanish="NIVEL COMPLETADO" catalan="NIVELL COMPLETAT" galician="NIVEL COMPLETADO" />
+		<Tense key="11" english="PICK SUIT" spanish="COGER TRAJE" catalan="AGAFAR VESTIT" galician="COLLER TRAXE" />
+		<Tense key="12" english="MONKEYS SAVED" spanish="MONOS SALVADOS" catalan="MICOS SALVATS" galician="MONOS SALVADOS" />
+		<Tense key="13" english="try again" spanish="inténtalo de nuevo" catalan="Torna-hi" galician="volta de novo" />
 	</Translation>
 </Language_List>
