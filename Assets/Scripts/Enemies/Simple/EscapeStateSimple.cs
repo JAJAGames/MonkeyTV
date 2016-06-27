@@ -79,4 +79,8 @@ public class EscapeStateSimple : IEnemyStateSimple {
 		enemy.actualState = enemyStateSimple.SIMPLE_STATE_CHASE;
 		enemy.currentState = enemy.chaseState;
 	}
+
+	public void ToAttackState() {
+		// Can't transition to this state
+	}
 }

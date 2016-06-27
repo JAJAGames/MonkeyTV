@@ -7,6 +7,7 @@ public class StatePatternEnemySimple : MonoBehaviour {
 	public Transform player;
 	[HideInInspector] public PlayerStats playerStats;
 	public GameObject psPlayer;
+	public Transform jail;
 
 	[Header ("Enemy Settings")]
 	public enemyTypeSimple type;
@@ -34,6 +35,7 @@ public class StatePatternEnemySimple : MonoBehaviour {
 	[HideInInspector]	public ChaseStateSimple chaseState;
 	[HideInInspector]	public IdleStateSimple idleState;
 	[HideInInspector]	public EscapeStateSimple escapeState;
+	[HideInInspector]	public AttackStateSimple attackState;
 	[HideInInspector]	public NavMeshAgent navMeshAgent;
 	[HideInInspector]	public Vector3 startPosition;
 	[HideInInspector]	public Animator animator;
@@ -45,6 +47,7 @@ public class StatePatternEnemySimple : MonoBehaviour {
 		chaseState	= new ChaseStateSimple(this);
 		idleState	= new IdleStateSimple(this);
 		escapeState	= new EscapeStateSimple(this);
+		attackState = new AttackStateSimple (this);
 
 		startPosition = transform.position;										//start position for idle enemies
 
@@ -58,6 +61,8 @@ public class StatePatternEnemySimple : MonoBehaviour {
 
 		//animator = GetComponent<Animator>();
 		animator = transform.GetChild(0).GetComponent<Animator>();
+
+		jail = GameObject.FindWithTag ("Jail").transform;
 	}
 
 
@@ -71,6 +76,9 @@ public class StatePatternEnemySimple : MonoBehaviour {
 			break;
 		case enemyStateSimple.SIMPLE_STATE_ESCAPE:
 			currentState = escapeState;
+			break;
+		case enemyStateSimple.SIMPLE_STATE_ATTACK:
+			currentState = attackState;
 			break;
 		}
 	}
@@ -109,5 +117,43 @@ public class StatePatternEnemySimple : MonoBehaviour {
 
 		if (other.CompareTag("Enemy"))												//colliding with other enemies needs to set backward force.
 			body.AddForce (- transform.forward * 100);
+	}
+
+	public bool AttackPlayer(Transform jail) {
+		StartCoroutine (AttackCoroutine(jail));
+		return true;
+	}
+
+	private IEnumerator AttackCoroutine(Transform jail) {
+
+		admirationStick.SetActive (false);
+		admirationSphere.SetActive (false);
+
+		animator.SetBool("Walk",false);
+		navMeshAgent.Stop ();
+		animator.SetTrigger ("Attack");
+
+		Enums.state previousState = gamestate.Instance.GetState ();
+		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
+		player.GetComponent<Animator> ().SetBool ("Walk", false);
+
+		yield return new WaitForSeconds (0.5f);
+
+		player.GetComponent<PickItems> ().throwItem ();
+		psPlayer.SetActive (true);
+		player.GetComponent<Animator> ().SetTrigger ("Captured");
+
+		yield return new WaitForSeconds (1.0f);
+
+		//player.GetComponent<PlayerMovement> ().AddForce (Vector3.zero);
+		//yield return new WaitForSeconds (1.0f);
+
+		actualState = enemyStateSimple.SIMPLE_STATE_IDLE;
+		currentState = idleState;
+		attackState.attackDone = false;
+
+		player.position = jail.position;
+		gamestate.Instance.SetState (previousState);
+
 	}
 }

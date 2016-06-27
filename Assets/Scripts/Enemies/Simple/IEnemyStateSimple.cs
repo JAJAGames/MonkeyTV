@@ -9,4 +9,5 @@ public interface IEnemyStateSimple {
 	void ToEscapeState();
 	void ToChaseState();
 	void ToIdleState();
+	void ToAttackState();
 }

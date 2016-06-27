@@ -8,18 +8,20 @@ public class ChaseStateSimple : IEnemyStateSimple {
 	private Vector3 destination;
 	float timer;
 	public PickItems playerItems;
-	public Transform jail;
+
+	public bool notAttacking;
 
 	public ChaseStateSimple(StatePatternEnemySimple statePatternEnemy) {
 		enemy = statePatternEnemy;
 		enemy.actualState = enemyStateSimple.SIMPLE_STATE_CHASE;
 		enemy.nextWayPoint = 0;
 		playerItems = enemy.player.GetComponent<PickItems> ();
-		jail = GameObject.FindWithTag ("Jail").transform;
+
+		notAttacking = true;
 	}
 
 	public void UpdateState() {
-		enemy.animator.SetBool("Walk",true);
+		enemy.animator.SetBool ("Walk", true);
 
 		Vector3 lookAt = enemy.navMeshAgent.destination;
 		lookAt.y = enemy.transform.position.y;
@@ -29,24 +31,25 @@ public class ChaseStateSimple : IEnemyStateSimple {
 
 		timer += Time.deltaTime;
 
-		if (enemy.playerStats.uniformBonusActive()) {
+		if (enemy.playerStats.uniformBonusActive ()) {
 			ToEscapeState ();
 		}
 
 		if (enemy.navMeshAgent.pathStatus == NavMeshPathStatus.PathPartial || enemy.navMeshAgent.pathStatus == NavMeshPathStatus.PathInvalid)
-			ToIdleState();	
-
+			ToIdleState ();	
+		
 	}
 
 	public void OnTriggerEnter (Collider other) {
 		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem() && !enemy.playerStats.godModeActive()) {
-			AttackPlayer ();
+			ToAttackState ();
+
 		}
 	}
 
 	public void OnTriggerStay (Collider other) {
 		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem() && !enemy.playerStats.godModeActive()) {
-			AttackPlayer ();
+			ToAttackState ();
 		}
 	}
 
@@ -71,10 +74,12 @@ public class ChaseStateSimple : IEnemyStateSimple {
 		// Can't transition to same state
 	}
 
-	private void AttackPlayer(){
-		enemy.animator.SetTrigger ("Attack");
-		enemy.psPlayer.SetActive (true);
-		ToIdleState ();
-		enemy.player.position = jail.position;
+	public void ToAttackState() {
+		enemy.admirationStick.SetActive (false);
+		enemy.admirationSphere.SetActive (false);
+
+		enemy.navMeshAgent.Resume ();
+		enemy.actualState = enemyStateSimple.SIMPLE_STATE_ATTACK;
+		enemy.currentState = enemy.attackState;
 	}
 }
