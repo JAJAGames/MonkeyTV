@@ -39,6 +39,7 @@ public class StatePatternEnemySimple : MonoBehaviour {
 	[HideInInspector]	public NavMeshAgent navMeshAgent;
 	[HideInInspector]	public Vector3 startPosition;
 	[HideInInspector]	public Animator animator;
+	[HideInInspector]	public SceneFadeInOut sceneFadeInOut;
 
 	void Awake () {
 		playerStats = GameObject.FindWithTag ("Player").GetComponent<PlayerStats> ();
@@ -63,6 +64,7 @@ public class StatePatternEnemySimple : MonoBehaviour {
 		animator = transform.GetChild(0).GetComponent<Animator>();
 
 		jail = GameObject.FindWithTag ("Jail").transform;
+		sceneFadeInOut = GameObject.Find ("Cameras").GetComponent<SceneFadeInOut> ();
 	}
 
 
@@ -145,18 +147,20 @@ public class StatePatternEnemySimple : MonoBehaviour {
 
 		yield return new WaitForSeconds (1.0f);
 
+		sceneFadeInOut.FadeToBlack ();
 		Vector3 PunchForce = transform.forward;
 		PunchForce = PunchForce.normalized * 100;
-		gamestate.Instance.SetState (Enums.state.STATE_STATIC_CAMERA);
 		player.GetComponent<PlayerMovement> ().AddForce (PunchForce);
-		yield return new WaitForSeconds (2.0f);
+		yield return new WaitForSeconds (1.0f);
 
 		actualState = enemyStateSimple.SIMPLE_STATE_IDLE;
 		currentState = idleState;
 		attackState.attackDone = false;
-		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		player.position = jail.position;
+
 		gamestate.Instance.SetState (previousState);
 
+		yield return new WaitForSeconds (0.5f);
+		sceneFadeInOut.FadeToClear ();
 	}
 }
