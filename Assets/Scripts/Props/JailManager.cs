@@ -3,14 +3,16 @@ using System.Collections;
 
 public class JailManager : MonoBehaviour {
 
-	public Vector3 firstPosition, secondPosition;
+	public GameObject jail1;
+	public GameObject jail2;
+
 	// Use this for initialization
 	void Awake() {
-		transform.position = firstPosition;
+		transform.position = jail1.transform.position;
 	}
 	
 	// Update is called once per frame
 	public void SetSecond() {
-		transform.position = secondPosition;
+		transform.position = jail2.transform.position;
 	}
 }
