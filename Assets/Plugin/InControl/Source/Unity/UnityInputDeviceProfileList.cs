@@ -45,6 +45,7 @@ namespace InControl
 			"InControl.NVidiaShieldAndroidProfile",
 			"InControl.NVidiaShieldTabletProfile",
 			"InControl.NatecGenesisP44Profile",
+			"InControl.Nes30Pro",
 			"InControl.OuyaLinuxProfile",
 			"InControl.OuyaWinProfile",
 			"InControl.PS3USBWinProfile",
