@@ -34,11 +34,7 @@ public class MenuClick : MonoBehaviour {
 	public GameObject panelOptions;
 	public GameObject logo;
 
-	void Awake(){
-		sceneLevel level =  gamestate.Instance.GetLevel ();
-		AudioManager.Instance.SetFxVolume (0.5f);
-		AudioManager.Instance.SetMusicVolume (0.5f);
-		AudioManager.Instance.PlayMusic (level);
+	void Awake() {
 		logo = GameObject.Find ("LogoTV");
 	}
 
