@@ -13,10 +13,11 @@ public class VideoManager : MonoBehaviour {
 	public Enums.state actualState;
 	public Enums.state nextState;
 
-	void Start() {
+	void Awake() {
 		gamestate.Instance.SetState(actualState);
 
 		screen = GetComponent<RawImage> ();
+		screen.enabled = true;
 		screen.texture = video as MovieTexture;
 		audio = GetComponent<AudioSource> ();
 		audio.clip = video.audioClip;
