@@ -65,7 +65,6 @@ public class StatePatternEnemyComplex : MonoBehaviour {
 		body.isKinematic = true;
 		body.detectCollisions = true;
 
-		//animator = GetComponent<Animator>();
 		animator = transform.GetChild(0).GetComponent<Animator>();
 
 		jail = GameObject.FindWithTag ("Jail").transform;
@@ -95,10 +94,8 @@ public class StatePatternEnemyComplex : MonoBehaviour {
 
 
 	void Update () {
-
 		CustomUpdate ();
 		body.AddForce (Vector3.down * speed * GRAVITY);						//gravity
-
 	}	
 
 	public virtual void CustomUpdate(){

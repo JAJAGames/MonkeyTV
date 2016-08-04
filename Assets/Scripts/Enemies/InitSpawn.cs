@@ -16,7 +16,6 @@ public class InitSpawn : MonoBehaviour {
 			startPositions [i] = go [i].transform.position;
 			enemies [i].SetActive (false);
 		}
-		
 	}
 
 	public void Spawning(){
