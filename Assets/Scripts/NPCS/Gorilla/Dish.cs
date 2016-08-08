@@ -21,6 +21,7 @@ public class Dish : MonoBehaviour {
 	private bool showSelection = false;
 	private PlayerMovement player;
 	private DishClockController clockDish;
+
 	void Awake(){
 		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
 		player = GameObject.Find ("Player").GetComponent<PlayerMovement> ();
@@ -29,14 +30,14 @@ public class Dish : MonoBehaviour {
 	}
 
 	void Start(){
-			ShowNewDish ();
+		ShowNewDish ();
 	}
 
 
 	public void ShowNewDish(){
 		
 		canvas.gameObject.SetActive(true);
-		gamestate.Instance.SetState (Enums.state.STATE_SWAP_CAMERA);
+		//gamestate.Instance.SetState (Enums.state.STATE_SWAP_CAMERA);
 		player.StopPlayer ();
 		StartCoroutine (StartNewDish (5));	
 	}
@@ -58,10 +59,17 @@ public class Dish : MonoBehaviour {
 		showSelection = true;
 		StartCoroutine(NeWDish());
 		clockDish.countDown = true;
-		var inputDevice = InputManager.ActiveDevice;
 
-		while( !(Input.GetButton("Pick") || inputDevice.Action3) )   // that's to have yield return new [ WaitForsomething (bool) ];
-		{
+		// that's to have yield return new [ WaitForsomething (bool) ];
+		while (gamestate.Instance.GetState () == Enums.state.STATE_PLAY_CINEMATICS) {
+			yield return null;
+		}
+
+		yield return new WaitForSeconds (3.0f);
+
+
+		var inputDevice = InputManager.ActiveDevice;
+		while(!(Input.GetButton("Pick") || inputDevice.Action3)) {
 			yield return null;
 		}
 
@@ -85,6 +93,7 @@ public class Dish : MonoBehaviour {
 		Invoke ("ToSearch", 5.0f);
 
 	}
+
 
 	void ToSearch(){
 		clockDish.countDown = false;
