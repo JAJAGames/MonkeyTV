@@ -33,4 +33,6 @@ namespace Enums {
 	//BOSS
 	public enum enemyStateBoss {BOSS_STATE_IDLE, BOSS_STATE_ATTACK}
 
+	//R2D2 States
+	public enum R2D2State {IDLE_STATE, NEXT_POINT_STATE, REPAIR_LEVELER_STATE}
 }
