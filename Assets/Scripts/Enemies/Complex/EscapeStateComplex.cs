@@ -67,7 +67,6 @@ public class EscapeStateComplex : IEnemyStateComplex {
 		enemy.animator.SetBool("Walk",true);
 
 		enemy.admirationStick.SetActive (true);
-		enemy.admirationSphere.SetActive (true);
 
 		enemy.navMeshAgent.Resume ();
 		enemy.actualState = enemyStateComplex.COMPLEX_STATE_CHASE;

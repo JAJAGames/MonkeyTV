@@ -14,7 +14,7 @@ public class InitSpawn : MonoBehaviour {
 		go = HelperMethods.GetChildren (transform);
 		for (int i = 0; i < enemies.Length; i++) {
 			startPositions [i] = go [i].transform.position;
-			enemies [i].SetActive (false);
+			if (gamestate.Instance.GetLevel() == Enums.sceneLevel.LEVEL_1) enemies [i].SetActive (false);
 		}
 	}
 

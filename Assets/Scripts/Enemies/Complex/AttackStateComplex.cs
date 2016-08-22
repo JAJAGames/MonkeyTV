@@ -28,7 +28,6 @@ public class AttackStateComplex : IEnemyStateComplex {
 
 	public void ToEscapeState() {
 		enemy.admirationStick.SetActive (false);
-		enemy.admirationSphere.SetActive (false);
 
 		enemy.navMeshAgent.Resume ();
 		enemy.actualState = enemyStateComplex.COMPLEX_STATE_ESCAPE;
@@ -47,7 +46,6 @@ public class AttackStateComplex : IEnemyStateComplex {
 		enemy.animator.SetBool("Walk",true);
 
 		enemy.admirationStick.SetActive (true);
-		enemy.admirationSphere.SetActive (true);
 
 		enemy.navMeshAgent.Resume ();
 		enemy.actualState = enemyStateComplex.COMPLEX_STATE_CHASE;
@@ -60,7 +58,6 @@ public class AttackStateComplex : IEnemyStateComplex {
 
 	public void ToPatrolState() {
 		enemy.admirationStick.SetActive (false);
-		enemy.admirationSphere.SetActive (false);
 
 		enemy.navMeshAgent.Resume ();
 		enemy.actualState = enemyStateComplex.COMPLEX_STATE_PATROL;

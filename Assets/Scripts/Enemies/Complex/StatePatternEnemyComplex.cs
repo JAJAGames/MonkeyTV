@@ -21,16 +21,12 @@ public class StatePatternEnemyComplex : MonoBehaviour {
 	public Transform[] patrolWayPoints;
 	public int lastPatrolWayPoint, nextPatrolWayPoint;
 
-
 	const float GRAVITY = 20f;  
 	[Header("Physics definitions")]
 	public float yVelocity;
 	[Range(2,10)]	public float speed = 4f; 
 	[Range(0,5)]	public float searchingDuration = 1f;
 	[Range(1,100)]	public float sightRange = 10f;
-
-	public GameObject admirationStick;
-	public GameObject admirationSphere;
 
 	[HideInInspector]	public Rigidbody body;
 	[HideInInspector]	public Transform chaseTarget;
@@ -44,6 +40,7 @@ public class StatePatternEnemyComplex : MonoBehaviour {
 	[HideInInspector]	public Vector3 startPosition;
 	[HideInInspector]	public Animator animator;
 	[HideInInspector]	public SceneFadeInOut sceneFadeInOut;
+	[HideInInspector]	public GameObject admirationStick;
 
 	void Awake () {
 		playerStats = GameObject.FindWithTag ("Player").GetComponent<PlayerStats> ();
@@ -69,6 +66,12 @@ public class StatePatternEnemyComplex : MonoBehaviour {
 
 		jail = GameObject.FindWithTag ("Jail").transform;
 		sceneFadeInOut = GameObject.Find ("Cameras").GetComponent<SceneFadeInOut> ();
+
+		foreach (Transform t in transform) {
+			if (t.name == "Admiration Stick") {
+				admirationStick = t.gameObject;
+			}
+		}
 	}
 
 
@@ -134,7 +137,6 @@ public class StatePatternEnemyComplex : MonoBehaviour {
 	private IEnumerator AttackCoroutine(Transform jail) {
 
 		admirationStick.SetActive (false);
-		admirationSphere.SetActive (false);
 
 		animator.SetBool("Walk",false);
 		navMeshAgent.Stop ();

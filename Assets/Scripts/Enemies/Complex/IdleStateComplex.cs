@@ -46,7 +46,6 @@ public class IdleStateComplex : IEnemyStateComplex {
 
 	public void ToChaseState () {
 		enemy.admirationStick.SetActive (true);
-		enemy.admirationSphere.SetActive (true);
 
 		enemy.navMeshAgent.Resume ();
 		enemy.actualState = enemyStateComplex.COMPLEX_STATE_CHASE;

@@ -16,6 +16,8 @@ public class PatrolStateComplex : IEnemyStateComplex {
 	}
 
 	public void UpdateState() {
+		enemy.animator.SetBool ("Walk", true);
+
 		enemy.navMeshAgent.destination = enemy.patrolWayPoints [enemy.nextPatrolWayPoint].position;
 		enemy.navMeshAgent.Resume ();
 
@@ -49,7 +51,6 @@ public class PatrolStateComplex : IEnemyStateComplex {
 
 	public void ToEscapeState() {
 		enemy.admirationStick.SetActive (false);
-		enemy.admirationSphere.SetActive (false);
 
 		enemy.navMeshAgent.Resume ();
 		enemy.actualState = enemyStateComplex.COMPLEX_STATE_ESCAPE;
@@ -68,7 +69,6 @@ public class PatrolStateComplex : IEnemyStateComplex {
 		enemy.animator.SetBool("Walk",true);
 
 		enemy.admirationStick.SetActive (true);
-		enemy.admirationSphere.SetActive (true);
 
 		enemy.navMeshAgent.Resume ();
 		enemy.actualState = enemyStateComplex.COMPLEX_STATE_CHASE;
@@ -77,7 +77,6 @@ public class PatrolStateComplex : IEnemyStateComplex {
 
 	public void ToAttackState() {
 		enemy.admirationStick.SetActive (false);
-		enemy.admirationSphere.SetActive (false);
 
 		enemy.navMeshAgent.Resume ();
 		enemy.actualState = enemyStateComplex.COMPLEX_STATE_ATTACK;
