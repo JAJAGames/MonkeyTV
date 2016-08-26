@@ -17,18 +17,27 @@ public class R2D2IdleState : IR2D2State {
 	}
 
 	public void OnTriggerEnter (Collider other) {
-
+		if (other.CompareTag ("Player")) {
+			Debug.Log ("enter player");
+			ToMoveState ();
+		}
 	}
 
-	public void ToNextPoint(){
-		R2D2.actualState = R2D2State.NEXT_POINT_STATE;
+	public void ToIdleState () {}
+
+	public void ToMoveState(){
+		R2D2.currentState = R2D2.moveState;
+		R2D2.actualState = R2D2State.MOVE_STATE;
+		R2D2.currentPoint++;
+		R2D2.navMeshAgent.destination = R2D2.controlPoints [R2D2.currentPoint].transform.position;
 	}
 
-	public void ToIdleState () {
+
+	public void ToAskForItemsState() {
+		R2D2.actualState = R2D2State.ASK_FOR_ITEMS_STATE;
 	}
 
-	public void ToRepairLeveler() {
-		R2D2.actualState = R2D2State.IDLE_STATE;
-	}
+	public void ToReceiveItemsState() {}
+
 
 }

@@ -34,5 +34,5 @@ namespace Enums {
 	public enum enemyStateBoss {BOSS_STATE_IDLE, BOSS_STATE_ATTACK}
 
 	//R2D2 States
-	public enum R2D2State {IDLE_STATE, NEXT_POINT_STATE, REPAIR_LEVELER_STATE}
+	public enum R2D2State {IDLE_STATE, MOVE_STATE, ASK_FOR_ITEMS_STATE, RECEIVE_ITEMS_STATE}
 }

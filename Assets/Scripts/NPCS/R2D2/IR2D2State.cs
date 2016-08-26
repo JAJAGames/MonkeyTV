@@ -7,7 +7,8 @@ public interface IR2D2State {
 
 	void OnTriggerEnter (Collider other);
 
-	void ToNextPoint();
 	void ToIdleState();
-	void ToRepairLeveler();
+	void ToMoveState();
+	void ToAskForItemsState();
+	void ToReceiveItemsState();
 }
