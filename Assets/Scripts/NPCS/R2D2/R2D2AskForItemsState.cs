@@ -24,7 +24,6 @@ public class R2D2AskForItemsState : IR2D2State {
 		R2D2.currentState = R2D2.idleState;
 		R2D2.actualState = R2D2State.IDLE_STATE;
 		gamestate.Instance.SetState(Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
-		R2D2.cameraFollowing.target = R2D2.player;
 	}
 
 	public void ToMoveState(){
@@ -40,7 +39,6 @@ public class R2D2AskForItemsState : IR2D2State {
 		R2D2.currentState = R2D2.receiveItemsState;
 		R2D2.actualState = R2D2State.RECEIVE_ITEMS_STATE;
 		gamestate.Instance.SetState(Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
-		R2D2.cameraFollowing.target = R2D2.player;
 	}
 
 

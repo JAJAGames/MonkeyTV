@@ -12,7 +12,8 @@ public class R2D2MoveState : IR2D2State {
 	}
 
 	public void UpdateState() {
-		
+		if (R2D2.navMeshAgent.remainingDistance == 0)
+			ToIdleState ();
 	}
 
 	public void OnTriggerEnter (Collider other) {
@@ -22,8 +23,10 @@ public class R2D2MoveState : IR2D2State {
 	public void ToIdleState () {
 		R2D2.currentState = R2D2.idleState;
 		R2D2.actualState = R2D2State.IDLE_STATE;
+		R2D2.arrow.SetActive (true);
 		gamestate.Instance.SetState(Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
-		R2D2.cameraFollowing.target = R2D2.player;
+		R2D2.player.enabled = true;
+
 	}
 
 	public void ToMoveState(){}
