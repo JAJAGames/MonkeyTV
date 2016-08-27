@@ -17,8 +17,7 @@ public class R2D2IdleState : IR2D2State {
 	}
 
 	public void OnTriggerEnter (Collider other) {
-		if (other.CompareTag ("Player")) {
-			Debug.Log ("enter player");
+		if (other.CompareTag ("Player") && !R2D2.isControlPoint) {
 			ToMoveState ();
 		}
 	}
@@ -28,12 +27,13 @@ public class R2D2IdleState : IR2D2State {
 	public void ToMoveState(){
 		
 		R2D2.currentPoint++;
+		R2D2.isControlPoint = true;
 		R2D2.navMeshAgent.destination = R2D2.controlPoints [R2D2.currentPoint].transform.position;
-		R2D2.arrow.transform.position = R2D2.controlPoints [R2D2.currentPoint].transform.position;
 		R2D2.arrow.SetActive (false);
 		R2D2.actualState = R2D2State.MOVE_STATE;
 		R2D2.currentState = R2D2.moveState;
-		R2D2.player.enabled = false;
+		R2D2.playerMovement.enabled = false;
+		R2D2.playerObstacle.enabled = true;
 		R2D2.cameraFollowing.target = R2D2.R2D2CameraPosition;
 		gamestate.Instance.SetState(Enums.state.STATE_STATIC_CAMERA);
 	}

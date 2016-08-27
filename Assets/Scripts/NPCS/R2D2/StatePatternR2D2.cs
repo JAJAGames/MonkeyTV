@@ -9,6 +9,7 @@ public class StatePatternR2D2 : MonoBehaviour {
 	[Header("R2D2 Settings")]
 
 	public R2D2State actualState;
+	public bool	isControlPoint;
 
 	[HideInInspector]	public IR2D2State currentState;
 	[HideInInspector]	public R2D2MoveState moveState;
@@ -17,25 +18,28 @@ public class StatePatternR2D2 : MonoBehaviour {
 	[HideInInspector]	public R2D2ReceiveItemsState receiveItemsState;
 	[HideInInspector]	public NavMeshAgent navMeshAgent;
 
-	[Header("Player References")]
-	public PlayerMovement player;
-
-	[Header("Camera Settings")]
-	public CameraFollow cameraFollowing;
-	public Transform R2D2CameraPosition;
-
 	[Header("Control Points Settings")]
 	public Transform R2D2Route;
 	public int currentPoint;
 	public GameObject[] controlPoints;
+
+	[Header("Player References")]
+	private GameObject player;
+	public PlayerMovement playerMovement;
+	public NavMeshObstacle playerObstacle;
+
+	[Header("Camera Settings")]
+	public CameraFollow cameraFollowing;
+	public Transform R2D2CameraPosition;
 
 	[Header ("User Interface Items")]
 	public GameObject arrow;
 
 
 	void Awake () {
-
-		player = GameObject.Find ("Player").GetComponent<PlayerMovement>();
+		player = GameObject.Find ("Player");
+		playerMovement = player.GetComponent<PlayerMovement>();
+		playerObstacle = player.GetComponent<NavMeshObstacle> ();
 		cameraFollowing = Camera.main.GetComponent<CameraFollow>();
 
 
@@ -65,6 +69,8 @@ public class StatePatternR2D2 : MonoBehaviour {
 		controlPoints = new GameObject[R2D2Route.childCount];			//get number of controlPoints
 		controlPoints = HelperMethods.GetChildren (R2D2Route);			//get the points as gameObjects
 		currentPoint = 0;
+		isControlPoint = false;
+
 		arrow.transform.position = controlPoints [currentPoint].transform.position;
 	}
 
