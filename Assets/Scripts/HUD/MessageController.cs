@@ -21,7 +21,7 @@ public class MessageController : MonoBehaviour {
 		countDown -= Time.deltaTime;
 
 		if (beep) {
-			AudioManager.Instance.PlayFX (Enums.fxClip.PICK_CLOK_KEY);
+			AudioManager.Instance.PlayFX (Enums.fxClip.FX_PICK_CLOK_KEY);
 			beep = false;
 			StartCoroutine (PlayClock ());
 		}

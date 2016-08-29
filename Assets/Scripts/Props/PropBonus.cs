@@ -20,11 +20,11 @@ public class PropBonus : MonoBehaviour {
 			other.transform.position = transform.position;
 			switch (type) {
 			case enumBonus.BONUS_TIME:
-				AudioManager.Instance.PlayFX (fxClip.PICK_CLOK_KEY);
+				AudioManager.Instance.PlayFX (fxClip.FX_PICK_CLOK_KEY);
 				bonusTime ();
 				break;
 			case enumBonus.BONUS_UNIFORM:
-				AudioManager.Instance.PlayFX (fxClip.PICK_SUIT);
+				AudioManager.Instance.PlayFX (fxClip.FX_PICK_SUIT);
 				bonusUniform ();
 				break;
 			case enumBonus.BONUS_KEY:

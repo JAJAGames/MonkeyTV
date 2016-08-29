@@ -27,7 +27,7 @@ public class PickKey : MonoBehaviour {
 
 
 		if (other.name == "PRMC_Llave") {
-			AudioManager.Instance.PlayFX (Enums.fxClip.PICK_CLOK_KEY);
+			AudioManager.Instance.PlayFX (Enums.fxClip.FX_PICK_CLOK_KEY);
 			//IGU_Key_Background.color = Color.yellow;
 			particleSystemKey.SetActive (true);
 			HasKey = true;
@@ -36,7 +36,7 @@ public class PickKey : MonoBehaviour {
 		}
 
 		if (other.name == "GRP_PRMC_Jaula" && HasKey) {
-			AudioManager.Instance.PlayFX(Enums.fxClip.OPEN_JAIL);
+			AudioManager.Instance.PlayFX(Enums.fxClip.FX_OPEN_JAIL);
 			otherToDestroy = other.gameObject;
 			otherToDestroy.transform.GetChild (0).gameObject.SetActive (false);
 			otherToDestroy.transform.GetChild (1).gameObject.SetActive (false);

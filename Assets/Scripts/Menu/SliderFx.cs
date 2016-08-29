@@ -14,6 +14,6 @@ public class SliderFx : MonoBehaviour {
 	public void SetVolume (){
 		AudioManager.Instance.SetFxVolume (slider.value);
 		if (!AudioManager.Instance.FxIsPlaying())
-			AudioManager.Instance.PlayFX (Enums.fxClip.BUTTON_HOVER);
+			AudioManager.Instance.PlayFX (Enums.fxClip.FX_BUTTON_HOVER);
 	}
 }

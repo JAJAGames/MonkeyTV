@@ -78,7 +78,7 @@ public class Dish : MonoBehaviour {
 		clockDish.SetClock (TIMEDELAY);
 		message.gameObject.SetActive (true);
 		message.SetTime(TIMEDELAY);
-		AudioManager.Instance.PlayFX(Enums.fxClip.COUNTDOWN);
+		AudioManager.Instance.PlayFX(Enums.fxClip.FX_COUNTDOWN);
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		player.enabled = true;
 

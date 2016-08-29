@@ -52,7 +52,7 @@ public class LeverOpen : MonoBehaviour {
 				closed = false;
 				mesh1.material.SetColor ("_Color", color1);
 				mesh2.material.SetColor ("_Color", color2);
-				AudioManager.Instance.PlayFX (Enums.fxClip.UNLOCK_LEVER);
+				AudioManager.Instance.PlayFX (Enums.fxClip.FX_UNLOCK_LEVER);
 				lever.Rotate (100, 0, 0);
 				Invoke ("ShowOpening", 1f);
 				gamestate.Instance.SetState(Enums.state.STATE_STATIC_CAMERA);
@@ -71,7 +71,7 @@ public class LeverOpen : MonoBehaviour {
 	}
 	void ShowOpening()
 	{
-		AudioManager.Instance.PlayFX (Enums.fxClip.OPEN_DOOR);
+		AudioManager.Instance.PlayFX (Enums.fxClip.FX_OPEN_DOOR);
 		Invoke ("DisableSelf", 1f);
 
 	}

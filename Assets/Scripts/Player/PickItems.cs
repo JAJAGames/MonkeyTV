@@ -50,7 +50,7 @@ public class PickItems : MonoBehaviour {
 
 	public void changeItem(itemsListMC newItem) {
 		actualItem = newItem;
-		AudioManager.Instance.PlayFX (fxClip.PICK_FOOD);
+		AudioManager.Instance.PlayFX (fxClip.FX_PICK_FOOD);
 		allItems[(int)newItem].SetActive(true);
 		boxCollider.enabled = true;
 	}

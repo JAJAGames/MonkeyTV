@@ -14,7 +14,7 @@ public class ButtonAnimation: MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		AudioManager.Instance.PlayFX  (Enums.fxClip.BUTTON_HOVER);
+		AudioManager.Instance.PlayFX  (Enums.fxClip.FX_BUTTON_HOVER);
 
 		anim.SetBool ("OnOver",true);
 	}

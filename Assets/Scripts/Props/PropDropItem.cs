@@ -152,7 +152,7 @@ public class PropDropItem : MonoBehaviour {
 				if (message.gameObject.activeSelf)
 					message.gameObject.SetActive (false);
 			}
-			AudioManager.Instance.PlayFX(Enums.fxClip.GUI_PICK_BONUS);
+			AudioManager.Instance.PlayFX(Enums.fxClip.FX_GUI_PICK_BONUS);
 
 			StartCoroutine(ActualizeIngredientsBar ());
 		}
@@ -200,7 +200,7 @@ public class PropDropItem : MonoBehaviour {
 	}
 
 	private IEnumerator WrongIngredient(){
-		AudioManager.Instance.PlayFX (fxClip.WRONG_DELIVER);
+		AudioManager.Instance.PlayFX (fxClip.FX_WRONG_DELIVER);
 		_particlesPot.startColor = _particleColor;
 		_particles.startColor = _particleColor;
 		player.throwItem ();

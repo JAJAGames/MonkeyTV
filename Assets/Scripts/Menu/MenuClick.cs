@@ -41,7 +41,7 @@ public class MenuClick : MonoBehaviour {
 	//CHANGE TO NEW SCENE. IN INSPECTOR WE CAN SET THE BUILD INDEX OF THE NEW SCENE.
 	public void LoadScene()
 	{
-		AudioManager.Instance.PlayFX (fxClip.BUTTON_PRESSED);
+		AudioManager.Instance.PlayFX (fxClip.FX_BUTTON_PRESSED);
 		gamestate.Instance.SetLevel (Enums.sceneLevel.LEVEL_1);
 	}
 
@@ -62,7 +62,7 @@ public class MenuClick : MonoBehaviour {
 	//CLOSE GAME
 	public void CloseGame()
 	{
-		AudioManager.Instance.PlayFX (fxClip.BUTTON_PRESSED);
+		AudioManager.Instance.PlayFX (fxClip.FX_BUTTON_PRESSED);
 		Application.Quit ();
 	}
 }

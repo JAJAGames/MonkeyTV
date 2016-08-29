@@ -32,7 +32,7 @@ public class LanguageSelector : MonoBehaviour {
 
 		// Move focus with directional inputs.
 		if (((inputDevice.Direction.Left|| Input.GetKeyDown (KeyCode.LeftArrow)) && value > 1) && timer == 0) {
-			AudioManager.Instance.PlayFX (Enums.fxClip.BUTTON_HOVER);
+			AudioManager.Instance.PlayFX (Enums.fxClip.FX_BUTTON_HOVER);
 			value -= 1;
 			language.output = (TypeOfData) value;
 			Debug.Log ("Next");
@@ -40,7 +40,7 @@ public class LanguageSelector : MonoBehaviour {
 		}
 
 		if (((inputDevice.Direction.Right || Input.GetKeyDown (KeyCode.RightArrow)) && value < (int) TypeOfData.max_laguages - 1 ) && timer == 0) {
-			AudioManager.Instance.PlayFX (Enums.fxClip.BUTTON_HOVER);
+			AudioManager.Instance.PlayFX (Enums.fxClip.FX_BUTTON_HOVER);
 			value += 1;
 			language.output = (TypeOfData) value;
 			Debug.Log ("Prev");

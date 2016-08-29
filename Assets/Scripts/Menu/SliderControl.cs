@@ -30,13 +30,13 @@ public class SliderControl : MonoBehaviour {
 
 		// Move focus with directional inputs.
 		if ((inputDevice.Direction.Left|| Input.GetKeyDown (KeyCode.LeftArrow)) && timer == 0) {
-			AudioManager.Instance.PlayFX (Enums.fxClip.BUTTON_HOVER);
+			AudioManager.Instance.PlayFX (Enums.fxClip.FX_BUTTON_HOVER);
 			slider.value -= 0.1f;
 			timer += 0.1f;
 		}
 
 		if ((inputDevice.Direction.Right || Input.GetKeyDown (KeyCode.RightArrow)) && timer == 0) {
-			AudioManager.Instance.PlayFX (Enums.fxClip.BUTTON_HOVER);
+			AudioManager.Instance.PlayFX (Enums.fxClip.FX_BUTTON_HOVER);
 			slider.value += 0.1f;
 			timer += 0.1f;
 		}

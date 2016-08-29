@@ -35,7 +35,7 @@ public class OpenDoor : MonoBehaviour {
 
 	public void Open(){
 		closed = false;
-		AudioManager.Instance.PlayFX(Enums.fxClip.OPEN_DOOR);
+		AudioManager.Instance.PlayFX(Enums.fxClip.FX_OPEN_DOOR);
 	}
 
 	public bool isClosed(){

@@ -19,7 +19,7 @@ public class PropCube : MonoBehaviour {
 	private void StartAnimation() {
 		
 		if (tag == "Water Cube")
-			AudioManager.Instance.PlayFX (Enums.fxClip.WATER_CUBE);
+			AudioManager.Instance.PlayFX (Enums.fxClip.FX_WATER_CUBE);
 
 		isAnimated = true;
 		anim.Play ();
@@ -61,7 +61,7 @@ public class PropCube : MonoBehaviour {
 
 	IEnumerator Freezed(){
 		yield return new WaitForSeconds (.3f);
-		AudioManager.Instance.PlayFX (Enums.fxClip.FALL_ON_BACKSIDE);
+		AudioManager.Instance.PlayFX (Enums.fxClip.FX_FALL_ON_BACKSIDE);
 		player.GetComponent<PickItems> ().throwItem ();
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		yield return new WaitForSeconds (1f);
