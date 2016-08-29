@@ -38,6 +38,9 @@ public class Loading : MonoBehaviour {
 			return;
 		xml = LanguageXMLSerializer.Load (Path.Combine (Application.dataPath + "/Resources/", "Languages.xml"));
 		GetList ();
+
+		if (PlayerPrefs.HasKey ("Player Language"))
+			output = (TypeOfData) PlayerPrefs.GetInt ("Player Language");
 	}
 		
 	private void GetList ()
