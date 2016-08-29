@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using InControl;
 using UnityEngine.UI;
@@ -56,7 +57,7 @@ public class ButtonMenu : MonoBehaviour
 
 	private void SetColor(Color c){
 		
-		if (childBackGround != null)
+		if (childBackGround != null) 
 			childBackGround.GetComponent<Image> ().color = c;
 		else
 			image.color = c;
@@ -64,9 +65,16 @@ public class ButtonMenu : MonoBehaviour
 
 	public void OnClick(){
 		SetColor (onPressedColor);
+		StartCoroutine(DelayForUser ());
 		onClick.Invoke();
 	}
-		
+
+	private IEnumerator DelayForUser(){
+		yield return new WaitForSeconds (0.1f);
+		SetColor (onPressedColor);
+		yield return new WaitForSeconds (0.15f);
+		SetColor (onSelectedColor);
+	}
 }
 	
 
