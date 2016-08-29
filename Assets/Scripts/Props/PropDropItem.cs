@@ -117,7 +117,7 @@ public class PropDropItem : MonoBehaviour {
 			}
 
 			if (!foundIngredient && menu[currentDish].ingredients[i] == player.actualItem) {
-				menu[dishSelection.currentCourse].ingredients [i] = itemsListMC.NO_ITEM_MC;
+				menu[dishSelection.currentCourse].ingredients [i] = itemsList.NO_ITEM;
 				IGUchek [i].gameObject.SetActive (true);
 				IGUchek [i].StartAnimation ();
 				player.throwItem ();

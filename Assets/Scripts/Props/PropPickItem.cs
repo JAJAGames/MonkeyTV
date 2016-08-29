@@ -2,9 +2,10 @@
 using System.Collections;
 using Enums;
 using InControl;
+
 public class PropPickItem : MonoBehaviour {
 
-	public itemsListMC itemType;
+	public itemsList itemType;
 	private MeshRenderer meshRenderer;
 	private CapsuleCollider capsuleCollider;
 	private SphereCollider sphereCollider;

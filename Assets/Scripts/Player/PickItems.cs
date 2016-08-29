@@ -5,7 +5,7 @@ using InControl;
 
 public class PickItems : MonoBehaviour {
 
-	public itemsListMC actualItem;
+	public itemsList actualItem;
 
 	[Tooltip("Items")]
 	public Transform Items;
@@ -16,7 +16,7 @@ public class PickItems : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		actualItem = itemsListMC.NO_ITEM_MC;
+		actualItem = itemsList.NO_ITEM;
 
 		allItems = HelperMethods.GetChildren (Items);
 		for (int i = 0; i < allItems.Length; i++) 
@@ -36,19 +36,19 @@ public class PickItems : MonoBehaviour {
 
 	public void throwItem() {
 		//Throw item animation
-		if (actualItem == itemsListMC.NO_ITEM_MC)
+		if (actualItem == itemsList.NO_ITEM)
 			return;
 		anim.SetBool("Pick_Object",false);
 		allItems[(int)actualItem].SetActive (false);
 		boxCollider.enabled = false;
-		actualItem = itemsListMC.NO_ITEM_MC;
+		actualItem = itemsList.NO_ITEM;
 	}
 
 	public bool haveItem() {
-		return !(actualItem == itemsListMC.NO_ITEM_MC);
+		return !(actualItem == itemsList.NO_ITEM);
 	}
 
-	public void changeItem(itemsListMC newItem) {
+	public void changeItem(itemsList newItem) {
 		actualItem = newItem;
 		AudioManager.Instance.PlayFX (fxClip.FX_PICK_FOOD);
 		allItems[(int)newItem].SetActive(true);

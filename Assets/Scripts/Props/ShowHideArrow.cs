@@ -16,8 +16,8 @@ public class ShowHideArrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		mesh.enabled = (player.actualItem != Enums.itemsListMC.NO_ITEM_MC);
+		mesh.enabled = (player.actualItem != Enums.itemsList.NO_ITEM);
 		if (child)
-			child.gameObject.SetActive (player.actualItem != Enums.itemsListMC.NO_ITEM_MC);
+			child.gameObject.SetActive (player.actualItem != Enums.itemsList.NO_ITEM);
 	}
 }
