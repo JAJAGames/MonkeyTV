@@ -37,4 +37,8 @@ public class BouncingItems : MonoBehaviour {
 			mesh.material.SetColor ("_EmissionColor", (color * Mathf.Abs( Mathf.Cos (Time.time /5 * speed))));
 	}
 
+	public void ResetPositionY (float y)
+	{
+		tempVal = y;
+	}
 }

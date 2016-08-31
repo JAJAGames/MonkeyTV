@@ -23,6 +23,7 @@ public class R2D2MoveState : IR2D2State {
 	public void ToIdleState () {
 		R2D2.currentState = R2D2.idleState;
 		R2D2.actualState = R2D2State.IDLE_STATE;
+		R2D2.arrow.GetComponent<BouncingItems> ().ResetPositionY (R2D2.arrow.transform.position.y);
 		R2D2.arrow.SetActive (true);
 		gamestate.Instance.SetState(Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		R2D2.playerMovement.enabled = true;
