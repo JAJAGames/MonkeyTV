@@ -14,6 +14,6 @@
 		<Tense key="10" english="LEVEL COMPLETED" spanish="NIVEL COMPLETADO" catalan="NIVELL COMPLETAT" galician="NIVEL COMPLETADO" />
 		<Tense key="11" english="PICK SUIT" spanish="COGER TRAJE" catalan="AGAFAR VESTIT" galician="COLLER TRAXE" />
 		<Tense key="12" english="MONKEYS SAVED" spanish="MONOS SALVADOS" catalan="MICOS SALVATS" galician="MONOS SALVADOS" />
-		<Tense key="13" english="try again" spanish="inténtalo de nuevo" catalan="Torna-hi" galician="volta de novo" />
+		<Tense key="13" english="Try again!" spanish="Otra véz!" catalan="Torna-hi!" galician="Volta de novo!" />
 	</Translation>
 </Language_List>

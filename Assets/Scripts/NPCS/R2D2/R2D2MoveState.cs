@@ -28,6 +28,7 @@ public class R2D2MoveState : IR2D2State {
 		gamestate.Instance.SetState(Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		R2D2.playerMovement.enabled = true;
 		R2D2.playerObstacle.enabled = false;
+		R2D2.isControlPoint = true;
 	}
 
 	public void ToMoveState(){}

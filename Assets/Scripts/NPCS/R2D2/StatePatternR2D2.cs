@@ -20,7 +20,7 @@ public class StatePatternR2D2 : MonoBehaviour {
 
 	[Header("Control Points Settings")]
 	public Transform R2D2Route;
-	public int currentPoint;
+	public R2D2Poin currentPoint;
 	public GameObject[] controlPoints;
 
 	[Header("Player References")]
@@ -34,7 +34,7 @@ public class StatePatternR2D2 : MonoBehaviour {
 
 	[Header ("User Interface Items")]
 	public GameObject arrow;
-
+	public GameObject canvas;
 
 	void Awake () {
 		player = GameObject.Find ("Player");
@@ -54,6 +54,7 @@ public class StatePatternR2D2 : MonoBehaviour {
 		navMeshAgent.destination = transform.position;
 
 		arrow.SetActive (true);
+		canvas.SetActive (false);
 	}
 
 
@@ -68,10 +69,10 @@ public class StatePatternR2D2 : MonoBehaviour {
 
 		controlPoints = new GameObject[R2D2Route.childCount];			//get number of controlPoints
 		controlPoints = HelperMethods.GetChildren (R2D2Route);			//get the points as gameObjects
-		currentPoint = 0;
+		currentPoint = R2D2Poin.INIT;
 		isControlPoint = false;
 
-		arrow.transform.position = controlPoints [currentPoint].transform.position;
+		arrow.transform.position = controlPoints [(int)currentPoint].transform.position;
 	}
 
 

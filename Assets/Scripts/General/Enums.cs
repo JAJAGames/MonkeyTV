@@ -109,4 +109,11 @@ namespace Enums {
 		ASK_FOR_ITEMS_STATE,
 		RECEIVE_ITEMS_STATE
 	};
+
+	public enum R2D2Poin{
+		INIT,
+		LEVELER,
+		BOMB,
+		SHIP
+	}
 }
