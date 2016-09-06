@@ -38,7 +38,7 @@ public class R2D2IdleState : IR2D2State {
 		R2D2.playerObstacle.enabled = true;
 
 		R2D2.cameraFollowing.target = R2D2.R2D2CameraPosition;
-		gamestate.Instance.SetState(Enums.state.STATE_STATIC_CAMERA);
+		gamestate.Instance.SetState(Enums.state.STATE_SWAP_CAMERA);
 
 
 
