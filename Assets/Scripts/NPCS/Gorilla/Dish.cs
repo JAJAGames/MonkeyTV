@@ -65,8 +65,9 @@ public class Dish : MonoBehaviour {
 			yield return null;
 		}
 
-		yield return new WaitForSeconds (3.0f);
-
+		if (clockDish.currentCourse == 0) {
+			yield return new WaitForSeconds (3.0f);
+		}
 
 		var inputDevice = InputManager.ActiveDevice;
 		while(!(Input.GetButton("Pick") || inputDevice.Action3)) {

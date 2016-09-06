@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: dd903629a2af34b0cab812e4c12a43a2
-timeCreated: 1463567747
+timeCreated: 1472673397
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,12 @@ TextureImporter:
     21300012: Ingredients_Icons_6
     21300014: Ingredients_Icons_7
     21300016: Ingredients_Icons_8
+    21300018: Ingredients_Icons_9
+    21300020: Ingredients_Icons_10
+    21300022: Ingredients_Icons_11
+    21300024: Ingredients_Icons_12
+    21300026: Ingredients_Icons_13
+    21300028: Ingredients_Icons_14
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -63,11 +69,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: 20, y: 31}
@@ -83,11 +89,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -19, y: -32}
@@ -102,11 +108,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -7, y: 32}
@@ -120,93 +126,92 @@ TextureImporter:
     - name: Ingredients_Icons_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
+        x: 192
+        y: 192
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -23, y: 31}
-        - {x: -30, y: 14}
-        - {x: -30, y: -31}
-        - {x: -28, y: -32}
-        - {x: 30, y: -32}
-        - {x: 31, y: -31}
-        - {x: 31, y: 12}
-        - {x: 25, y: 31}
+      - - {x: 13, y: 26}
+        - {x: 6, y: 32}
+        - {x: 0, y: 32}
+        - {x: -5, y: 31}
+        - {x: -25, y: -8}
+        - {x: -25, y: -32}
+        - {x: 8, y: -32}
+        - {x: 25, y: -27}
+        - {x: 28, y: -12}
+        - {x: 28, y: 8}
+        - {x: 23, y: 18}
     - name: Ingredients_Icons_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 0
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -7, y: 32}
-        - {x: -11, y: 28}
-        - {x: -11, y: 23}
-        - {x: -24, y: 4}
-        - {x: -24, y: -20}
-        - {x: -12, y: -32}
-        - {x: 26, y: -32}
-        - {x: 28, y: -22}
-        - {x: 28, y: 15}
-        - {x: 13, y: 32}
+      - - {x: -12, y: 32}
+        - {x: -31, y: 9}
+        - {x: -31, y: -20}
+        - {x: -22, y: -32}
+        - {x: 23, y: -32}
+        - {x: 30, y: -23}
+        - {x: 30, y: 4}
+        - {x: 16, y: 32}
     - name: Ingredients_Icons_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
+        x: 64
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 12, y: 32}
-        - {x: -11, y: 32}
-        - {x: -18, y: 15}
-        - {x: -18, y: -23}
-        - {x: -16, y: -30}
-        - {x: -10, y: -32}
-        - {x: 13, y: -32}
-        - {x: 22, y: -25}
-        - {x: 22, y: 7}
-        - {x: 19, y: 25}
+      - - {x: -8, y: 32}
+        - {x: -12, y: 28}
+        - {x: -12, y: 23}
+        - {x: -25, y: 4}
+        - {x: -25, y: -20}
+        - {x: -13, y: -32}
+        - {x: 25, y: -32}
+        - {x: 27, y: -22}
+        - {x: 27, y: 15}
+        - {x: 12, y: 32}
     - name: Ingredients_Icons_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 128
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 20, y: 18}
+      - - {x: -20, y: -26}
+        - {x: -16, y: -32}
+        - {x: 20, y: -32}
+        - {x: 20, y: 15}
         - {x: 14, y: 32}
-        - {x: -7, y: 32}
-        - {x: -28, y: 1}
-        - {x: -28, y: -32}
-        - {x: 5, y: -32}
-        - {x: 18, y: -24}
-        - {x: 25, y: -5}
-        - {x: 25, y: 8}
+        - {x: -13, y: 32}
+        - {x: -20, y: 21}
     - name: Ingredients_Icons_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 192
+        y: 128
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
       - - {x: -19, y: 32}
@@ -219,14 +224,129 @@ TextureImporter:
     - name: Ingredients_Icons_8
       rect:
         serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: -19}
+        - {x: 6, y: 15}
+        - {x: -14, y: 15}
+        - {x: -14, y: -19}
+    - name: Ingredients_Icons_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 16}
+        - {x: -13, y: 15}
+        - {x: -13, y: -19}
+        - {x: 11, y: -19}
+        - {x: 11, y: 16}
+    - name: Ingredients_Icons_10
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 16}
+        - {x: -9, y: -19}
+        - {x: 13, y: -19}
+        - {x: 15, y: -17}
+        - {x: 15, y: 13}
+        - {x: 12, y: 16}
+    - name: Ingredients_Icons_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 15}
+        - {x: -17, y: 7}
+        - {x: -20, y: -2}
+        - {x: -20, y: -12}
+        - {x: -8, y: -19}
+        - {x: 6, y: -19}
+        - {x: 6, y: 15}
+    - name: Ingredients_Icons_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 6}
+        - {x: 10, y: 12}
+        - {x: 10, y: 17}
+        - {x: -12, y: 17}
+        - {x: -12, y: -1}
+        - {x: -10, y: -2}
+        - {x: -13, y: -7}
+        - {x: -13, y: -18}
+        - {x: 7, y: -18}
+        - {x: 9, y: -15}
+        - {x: 10, y: -11}
+        - {x: 10, y: 2}
+    - name: Ingredients_Icons_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: -13}
+        - {x: -7, y: -18}
+        - {x: 8, y: -18}
+        - {x: 15, y: -15}
+        - {x: 15, y: 5}
+        - {x: 12, y: 17}
+        - {x: -3, y: 17}
+        - {x: -10, y: 9}
+    - name: Ingredients_Icons_14
+      rect:
+        serializedVersion: 2
         x: 128
         y: 0
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 18, y: 16}
+        - {x: -6, y: 16}
+        - {x: -6, y: -4}
+        - {x: -4, y: -18}
+        - {x: 4, y: -18}
+        - {x: 7, y: -16}
+        - {x: 18, y: 6}
     outline: []
   spritePackingTag: 
   userData: 

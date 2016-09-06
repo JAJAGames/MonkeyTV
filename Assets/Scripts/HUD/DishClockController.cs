@@ -22,9 +22,18 @@ public class DishClockController : MonoBehaviour {
 		
 		currentCourse = 0;							
 
-		course[0] = (int) Random.Range (0, 2); 		//first course sprites sliced from Fast_Food_Icons 0,1,2
-		course[1] = (int) Random.Range (3, 6);		//first course sprites sliced from Fast_Food_Icons 3,4,5,6 
-		course[2] = (int) Random.Range (7, 9);		//the rest...
+		switch (gamestate.Instance.GetLevel()) {
+		case Enums.sceneLevel.LEVEL_1:
+			course[0] = (int) Random.Range (0, 2); 		//first course sprites sliced from Fast_Food_Icons 0,1,2
+			course[1] = (int) Random.Range (3, 6);		//first course sprites sliced from Fast_Food_Icons 3,4,5,6 
+			course[2] = (int) Random.Range (7, 9);		//the rest...
+			break;
+		case Enums.sceneLevel.LEVEL_2:
+			course[0] = (int) Random.Range (9, 10);
+			course[1] = (int) Random.Range (11, 12); 
+			course[2] = (int) Random.Range (13, 14);
+			break;
+		}
 
 		text.gameObject.SetActive (false);
 		fullFilled = 0;
