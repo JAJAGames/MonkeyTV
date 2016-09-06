@@ -9,7 +9,8 @@ public class BadgetsButtons : MonoBehaviour {
 	}
 
 	public void ToNextLevel(){
-		gamestate.Instance.SetLevel (Enums.sceneLevel.MENU); //only one level
+		Debug.Log (gamestate.Instance.GetLevel () + 1);
+		gamestate.Instance.SetLevel (gamestate.Instance.GetLevel() + 1); //only one level
 	}
 
 	public void ReloadLevel(){

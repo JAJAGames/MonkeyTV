@@ -20,22 +20,22 @@ namespace InterfaceMovement
 			// Use last device which provided input.
 			var inputDevice = InputManager.ActiveDevice;
 
-			if (gamestate.Instance.GetState () == Enums.state.STATE_MENU) {
-				if (inputDevice.Direction.Up.WasPressed || Input.GetKeyDown (KeyCode.UpArrow))
+			if (inputDevice.Direction.Up.WasPressed || Input.GetKeyDown (KeyCode.UpArrow))
 					MoveFocusTo (focusedButton.up);
 
-				if (inputDevice.Direction.Down.WasPressed || Input.GetKeyDown (KeyCode.DownArrow))
+			if (inputDevice.Direction.Down.WasPressed || Input.GetKeyDown (KeyCode.DownArrow))
 					MoveFocusTo (focusedButton.down);
 
-				if (inputDevice.Direction.Left.WasPressed || Input.GetKeyDown (KeyCode.LeftArrow))
+			if (inputDevice.Direction.Left.WasPressed || Input.GetKeyDown (KeyCode.LeftArrow))
 					MoveFocusTo (focusedButton.left);
 
-				if (inputDevice.Direction.Right.WasPressed || Input.GetKeyDown (KeyCode.RightArrow))
+			if (inputDevice.Direction.Right.WasPressed || Input.GetKeyDown (KeyCode.RightArrow))
 					MoveFocusTo (focusedButton.right);
 
-				if ((inputDevice.Action1 && inputDevice.Action1.HasChanged) || Input.GetButtonDown ("Submit")) {
-					focusedButton.OnClick ();
-					MoveFocusTo (focusedButton.pressed);
+			if ((inputDevice.Action1 && inputDevice.Action1.HasChanged) || Input.GetButtonDown ("Submit")) {
+				if ( gamestate.Instance.GetState () == Enums.state.STATE_MENU || gamestate.Instance.GetState () == Enums.state.STATE_WIN  || gamestate.Instance.GetState () == Enums.state.STATE_LOSE) {
+						focusedButton.OnClick ();
+						MoveFocusTo (focusedButton.pressed);
 				}
 			}
 		}
