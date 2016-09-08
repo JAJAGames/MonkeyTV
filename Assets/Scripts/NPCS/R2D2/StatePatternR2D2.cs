@@ -18,6 +18,11 @@ public class StatePatternR2D2 : MonoBehaviour {
 	[HideInInspector]	public R2D2ReceiveItemsState receiveItemsState;
 	[HideInInspector]	public NavMeshAgent navMeshAgent;
 
+	//NEW
+	[HideInInspector]	public NewCraft newCraft;
+
+
+
 	[Header("Control Points Settings")]
 	public Transform R2D2Route;
 	public R2D2Poin currentPoint;
@@ -41,7 +46,7 @@ public class StatePatternR2D2 : MonoBehaviour {
 		playerMovement = player.GetComponent<PlayerMovement>();
 		playerObstacle = player.GetComponent<NavMeshObstacle> ();
 		cameraFollowing = Camera.main.GetComponent<CameraFollow>();
-
+		newCraft = GetComponent<NewCraft> ();
 
 
 		idleState			= new R2D2IdleState(this);

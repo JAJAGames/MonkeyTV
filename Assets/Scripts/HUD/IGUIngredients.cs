@@ -12,7 +12,14 @@ public class IGUIngredients : MonoBehaviour {
 	void Awake() {
 		iguImages = gameObject.GetComponentsInChildren<Image> ();
 		ingredientsSprites = Resources.LoadAll <Sprite>(@"Images/IGU/" + ingredientsTextures.name);
-		menu = GameObject.Find ("PRMC_Olla").GetComponent<PropDropItem>();
+		switch (gamestate.Instance.GetLevel()) {
+		case Enums.sceneLevel.LEVEL_1:
+			menu = GameObject.Find ("PRMC_Olla").GetComponent<PropDropItem>();
+			break;
+		case Enums.sceneLevel.LEVEL_2:
+			menu = GameObject.Find ("R2D2").GetComponent<PropDropItem>();
+			break;
+		}
 	}
 
 	public void ActualizeIcons() {

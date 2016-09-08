@@ -15,7 +15,7 @@ public class R2D2AskForItemsState : IR2D2State {
 
 	public void UpdateState() {
 		var inputDevice = InputManager.ActiveDevice;
-		if (inputDevice.Action3) {
+		if (inputDevice.Action3 || Input.GetButton("Pick")) {
 			ToReceiveItemsState ();
 		}
 			
@@ -42,15 +42,17 @@ public class R2D2AskForItemsState : IR2D2State {
 
 	public void ToReceiveItemsState() {
 		
-		R2D2.canvas.SetActive (false);
-		R2D2.playerMovement.enabled = true;
+		//R2D2.canvas.SetActive (false);
+		//R2D2.playerMovement.enabled = true;
 
-		gamestate.Instance.SetState(Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
+		//gamestate.Instance.SetState(Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 
 		R2D2.actualState = R2D2State.RECEIVE_ITEMS_STATE;
 		R2D2.currentState = R2D2.receiveItemsState;
 
+
+
+		//NEW
+		R2D2.newCraft.StartNewCraft();
 	}
-
-
 }
