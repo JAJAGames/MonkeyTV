@@ -122,4 +122,13 @@ namespace Enums {
 		BOMB,
 		SHIP
 	}
+
+	//Boss States
+	public enum BossState{
+		IDLE_SATE,
+		MOVE_STATE,
+		PUNCH_STATE,
+		DAMAGED_STATE,
+		DEAD_STATE
+	}
 }
