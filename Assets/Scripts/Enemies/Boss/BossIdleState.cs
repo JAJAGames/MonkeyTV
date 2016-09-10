@@ -11,6 +11,7 @@ public class BossIdleState : IBossState {
 	}
 
 	public void UpdateState() {
+		ToMoveState ();
 	}
 
 	public void OnTriggerEnter (Collider other) {
@@ -20,6 +21,8 @@ public class BossIdleState : IBossState {
 	public void ToIdleState () {}
 
 	public void ToMoveState(){
+		Boss.navMeshAgent.baseOffset = 10.6f;
+		Boss.anim.SetBool ("Walk", true);
 		Boss.actualState = BossState.MOVE_STATE;
 		Boss.currentState = Boss.moveState;
 	}
