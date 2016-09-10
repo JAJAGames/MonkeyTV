@@ -12,7 +12,7 @@ public class BossMoveState : IBossState {
 	}
 
 	public void UpdateState() {
-
+		Boss.BossCameraPosition.LookAt (Boss.transform.position);
 		Boss.navMeshAgent.destination = Boss.patrolWayPoints [Boss.nextPatrolWayPoint].position;
 		Boss.navMeshAgent.Resume ();
 

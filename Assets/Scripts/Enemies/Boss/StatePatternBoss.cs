@@ -38,7 +38,7 @@ public class StatePatternBoss : MonoBehaviour {
 		player = GameObject.Find ("Player");
 		playerMovement = player.GetComponent<PlayerMovement>();
 		cameraFollowing = Camera.main.GetComponent<CameraFollow>();
-		//BossCameraPosition = GameObject.Find ("Boss Camera").transform;
+		BossCameraPosition = transform.FindChild ("Boss Camera");
 		cameraFollowing.target = BossCameraPosition;
 		anim = GetComponent<Animator> ();
 		navMeshAgent = GetComponent<NavMeshAgent>();							//get de agent
