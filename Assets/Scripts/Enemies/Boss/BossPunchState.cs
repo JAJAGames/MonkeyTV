@@ -6,24 +6,34 @@ public class BossPunchState : IBossState {
 
 	private readonly StatePatternBoss Boss;
 	private Vector3 cameraPosition;
-	private float shake = 10f;
-	private float  shakeAmount = 0.7f;
-	private float decreaseFactor = 1.0f;
-	private float clock = 5f;
-
+	private BossCamera camera;
+	private float clock;
 	public BossPunchState(StatePatternBoss statePatternBoss) {
 		Boss = statePatternBoss;
 		cameraPosition = Boss.BossCameraPosition.position;
+		camera = Boss.BossCameraPosition.GetComponent<BossCamera> ();
 	}
 
 	public void UpdateState() {
-		VisualPunch ();
-		clock -= Time.deltaTime;
+	
 
-		if (clock <= 3)
-			gamestate.Instance.SetState (state.STATE_CAMERA_FOLLOW_PLAYER);
-		
-		if (clock <= 0)
+		if (camera.IsShaking ()) {
+			
+			camera.ShakeCamera ();
+
+			if (clock <= Constants.BOSS_RECOVER_TIME - 1f)
+				gamestate.Instance.SetState (state.STATE_CAMERA_FOLLOW_PLAYER);
+
+			clock -= Time.deltaTime;
+
+		} else {
+			clock = Constants.BOSS_RECOVER_TIME;
+			if (Boss.anim.GetCurrentAnimatorStateInfo (0).IsName ("Boss Recover"))
+				camera.SetShakeTime (1);
+
+		}
+
+		if (clock < 0)
 			ToIdleState ();
 	}
 
@@ -32,12 +42,15 @@ public class BossPunchState : IBossState {
 	}
 
 	public void ToIdleState () {
-		clock = 5f;
+		camera.SetShake (false);
+		Boss.anim.SetBool ("Walk", false);
 		Boss.currentState = Boss.idleState;
 		Boss.actualState = BossState.IDLE_SATE;
 	}
 
 	public void ToMoveState(){
+		camera.SetShake (false);
+		Boss.anim.SetBool ("Walk", true);
 		Boss.actualState = BossState.MOVE_STATE;
 		Boss.currentState = Boss.moveState;
 	}
@@ -45,27 +58,10 @@ public class BossPunchState : IBossState {
 	public void ToPunchState() {}
 
 	public void ToDamagedState() {
+		camera.SetShake (false);
+		Boss.anim.SetTrigger ("Damaged");
 		Boss.actualState = BossState.DAMAGED_STATE;
 		Boss.currentState = Boss.damagedState;
-	}
-
-	private void ShakeCamera(){
-		
-		if (shake > 0) {
-			Boss.BossCameraPosition.position += Random.insideUnitSphere * shakeAmount;
-			shake -= Time.deltaTime * decreaseFactor;
-
-		} else {
-			shake = 0.0f;
-
-		}
-	}
-
-	private void VisualPunch(){
-		if (clock > 3 && clock < 4)
-			ShakeCamera ();
-		else
-			Boss.BossCameraPosition.position = cameraPosition;
 	}
 
 }

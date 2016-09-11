@@ -5,7 +5,6 @@ using Enums;
 public class StatePatternBoss : MonoBehaviour {
 
 
-
 	[Header("Boss Settings")]
 	[HideInInspector] public Animator anim;
 	public BossState actualState;
@@ -38,7 +37,7 @@ public class StatePatternBoss : MonoBehaviour {
 		player = GameObject.Find ("Player");
 		playerMovement = player.GetComponent<PlayerMovement>();
 		cameraFollowing = Camera.main.GetComponent<CameraFollow>();
-		BossCameraPosition = transform.FindChild ("Boss Camera");
+		BossCameraPosition = transform.FindChild ("Boss Camera")	;
 		cameraFollowing.target = BossCameraPosition;
 		anim = GetComponent<Animator> ();
 		navMeshAgent = GetComponent<NavMeshAgent>();							//get de agent
@@ -51,7 +50,6 @@ public class StatePatternBoss : MonoBehaviour {
 		moveState			= new BossMoveState(this);
 		punchState			= new BossPunchState(this);
 		damagedState 		= new BossDamagedState (this);
-		navMeshAgent.baseOffset = 0;
 		anim.SetBool ("Walk", false);
 
 	}

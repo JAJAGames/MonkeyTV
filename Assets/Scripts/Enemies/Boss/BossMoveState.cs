@@ -35,6 +35,7 @@ public class BossMoveState : IBossState {
 	}
 
 	public void ToIdleState () {
+		Boss.anim.SetBool ("Walk", false);
 		Boss.currentState = Boss.idleState;
 		Boss.actualState = BossState.IDLE_SATE;
 	}
@@ -42,8 +43,7 @@ public class BossMoveState : IBossState {
 	public void ToMoveState(){}
 
 	public void ToPunchState() {
-		Boss.anim.SetBool ("Walk", false);
-		Boss.navMeshAgent.baseOffset = 0;
+		Boss.anim.SetTrigger ("Punch");
 		gamestate.Instance.SetState (state.STATE_SWAP_CAMERA);
 		Boss.actualState = BossState.PUNCH_STATE;
 		Boss.currentState = Boss.punchState;
