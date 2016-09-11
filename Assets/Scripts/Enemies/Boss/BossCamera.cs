@@ -7,13 +7,17 @@ public class BossCamera : MonoBehaviour {
 	private float shakeTime;
 	private Vector3 position;
 	private bool shake;
-
+	private Transform boss;
 	void Awake () {
-		position = transform.position;
+		boss = GameObject.Find ("Boss").transform;
 		shake = false;
 		shakeTime = 0f;
 	}
-	
+
+	void Update(){
+		transform.LookAt (boss.position);
+	}
+
 	public void ShakeCamera () {
 		transform.position += Random.insideUnitSphere * shakeAmount;
 		shakeTime -= Time.deltaTime;
@@ -24,11 +28,12 @@ public class BossCamera : MonoBehaviour {
 
 	private void ResetCamera(){
 		shakeTime = 0.0f;
-		transform.position = position;
+		transform.position = transform.parent.position - position;
 	}
 
 	public void SetShakeTime (float time)
 	{
+		position = transform.parent.position - transform.position;
 		shakeTime = time;
 		shake = true;
 	}

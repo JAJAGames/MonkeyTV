@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Enums;
+using InControl;
 public class PanelControl : MonoBehaviour {
 
 	public StatePatternBoss boss;
@@ -19,5 +20,16 @@ public class PanelControl : MonoBehaviour {
 			button.gameObject.SetActive (false);
 	
 	}
-	
+
+	public void OnTriggerStay (Collider other) {
+		if (boss.actualState != BossState.PUNCH_STATE)
+			return;
+		var inputDevice = InputManager.ActiveDevice;
+		if (other.gameObject.CompareTag ("Player")) {
+			if ( Input.GetButton("Pick") || inputDevice.Action3 ){ //inputDevice.Action3 or pickNutton
+				boss.batteries--;
+				gameObject.SetActive (false);
+			}
+		}
+	}
 }

@@ -31,7 +31,11 @@ public class BossMoveState : IBossState {
 	}
 
 	public void OnTriggerEnter (Collider other) {
-		
+		if (other.gameObject.CompareTag ("Player")) {
+			if (Boss.lastPatrolWayPoint != 0)
+				Boss.nextPatrolWayPoint = Boss.lastPatrolWayPoint;
+			ToPunchState ();
+		}
 	}
 
 	public void ToIdleState () {
@@ -43,7 +47,9 @@ public class BossMoveState : IBossState {
 	public void ToMoveState(){}
 
 	public void ToPunchState() {
+		Boss.navMeshAgent.enabled = false;
 		Boss.anim.SetTrigger ("Punch");
+		Boss.anim.SetBool ("Walk", false);
 		gamestate.Instance.SetState (state.STATE_SWAP_CAMERA);
 		Boss.actualState = BossState.PUNCH_STATE;
 		Boss.currentState = Boss.punchState;

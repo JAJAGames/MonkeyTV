@@ -8,6 +8,7 @@ public class StatePatternBoss : MonoBehaviour {
 	[Header("Boss Settings")]
 	[HideInInspector] public Animator anim;
 	public BossState actualState;
+	public int batteries = 3;
 
 	[Header("Boss Route")]
 	public Transform[] patrolWayPoints;
@@ -37,7 +38,6 @@ public class StatePatternBoss : MonoBehaviour {
 		player = GameObject.Find ("Player");
 		playerMovement = player.GetComponent<PlayerMovement>();
 		cameraFollowing = Camera.main.GetComponent<CameraFollow>();
-		BossCameraPosition = transform.FindChild ("Boss Camera")	;
 		cameraFollowing.target = BossCameraPosition;
 		anim = GetComponent<Animator> ();
 		navMeshAgent = GetComponent<NavMeshAgent>();							//get de agent
@@ -66,7 +66,15 @@ public class StatePatternBoss : MonoBehaviour {
 
 
 	void Update () {
-
+		if (actualState == BossState.DEAD_STATE)
+			return;
+		
+		if (batteries == 0) {
+			gamestate.Instance.SetState(Enums.state.STATE_STATIC_CAMERA);
+			anim.SetBool ("Walk", false);
+			currentState = idleState;
+		}
+		
 		currentState.UpdateState ();
 	}	
 		
@@ -86,6 +94,8 @@ public class StatePatternBoss : MonoBehaviour {
 
 	private void OnTriggerEnter (Collider other)
 	{
+		if (actualState == BossState.DEAD_STATE)
+			return;
 		currentState.OnTriggerEnter (other);										//execute triggers of states
 	}
 		

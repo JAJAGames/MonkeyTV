@@ -8,6 +8,7 @@ public class BossPunchState : IBossState {
 	private Vector3 cameraPosition;
 	private BossCamera camera;
 	private float clock;
+
 	public BossPunchState(StatePatternBoss statePatternBoss) {
 		Boss = statePatternBoss;
 		cameraPosition = Boss.BossCameraPosition.position;
