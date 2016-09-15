@@ -28,7 +28,7 @@ public class PropDropItem : MonoBehaviour {
 	public IGUfromWorld[] IGUchek = new IGUfromWorld[3];
 
 	int currentDish;
-	bool firsTime = true;
+	bool firstTime = true;
 	private InitSpawn spawn;
 
 	public IGUItemBar itemBar;
@@ -37,6 +37,9 @@ public class PropDropItem : MonoBehaviour {
 
 	public OnEnterEnable[] tutorial;
 
+	//NEW
+	public Teleport teleport;
+
 	// Use this for initialization
 	void Awake (){
 		cam = Camera.main.GetComponent<CameraFollow> ();
@@ -44,10 +47,19 @@ public class PropDropItem : MonoBehaviour {
 		player = GameObject.FindWithTag ("Player").GetComponent<PickItems> ();
 		anim = GameObject.FindWithTag ("Player").GetComponent<Animator>();
 		dishSelection = GameObject.Find ("Clock").GetComponent<DishClockController> ();
-		spawn = GameObject.Find ("Spawn Point").GetComponent<InitSpawn>();
 		itemBar = GameObject.Find ("ItemBarMask").GetComponent<IGUItemBar> ();
 		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
-		_initParticleColor = _particles.startColor;
+
+		switch (gamestate.Instance.GetLevel ()) {
+		case Enums.sceneLevel.LEVEL_1:
+			spawn = GameObject.Find ("Spawn Point").GetComponent<InitSpawn> ();
+			_initParticleColor = _particles.startColor;
+			break;
+		case Enums.sceneLevel.LEVEL_2:
+			teleport = GameObject.Find ("Teleport1").GetComponent<Teleport> ();
+			break;
+		}
+
 	}
 
 	void Start () {
@@ -82,6 +94,7 @@ public class PropDropItem : MonoBehaviour {
 		var inputDevice = InputManager.ActiveDevice;
 		if (other.CompareTag ("Player") ) {
 			if (player.haveItem()){
+				Debug.Log ("ON TRIGER STAY PLAYER HAVE ITEM");
 				checkItem ();
 			}
 		}
@@ -89,22 +102,32 @@ public class PropDropItem : MonoBehaviour {
 
 	private void OnTriggerEnter (Collider other){	//Si el player no porta ingredient no s'ha d'il.luminar
 		if (other.CompareTag ("Player") && player.haveItem()) {
-			meshRenderer.material.SetColor ("_EmissionColor", Color.grey);
+			switch (gamestate.Instance.GetLevel ()) {
+			case Enums.sceneLevel.LEVEL_1:
+				meshRenderer.material.SetColor ("_EmissionColor", Color.grey);
+				break;
+			}
 		}
 	}
 
 	private void OnTriggerExit (Collider other){
 		if (other.CompareTag ("Player")) {
-			meshRenderer.material.SetColor ("_EmissionColor", _color);
+			switch (gamestate.Instance.GetLevel ()) {
+			case Enums.sceneLevel.LEVEL_1:
+				meshRenderer.material.SetColor ("_EmissionColor", _color);
+				break;
+			}
 		}
 	}
 
 	private void checkItem () {
+		Debug.Log ("CHECK ITEM");
+
 		bool foundIngredient = false;
 
-		if (firsTime) {
+		if (firstTime) {
 			currentDish = dishSelection.currentCourse;
-			firsTime = false;
+			firstTime = false;
 			tutorial [0].SetTutorialOff(false);
 			tutorial [1].SetTutorialOff(false);
 			tutorial [2].SetTutorialOff(false);
@@ -136,18 +159,14 @@ public class PropDropItem : MonoBehaviour {
 				dishSelection.clock = Mathf.Infinity;
 				player.GetComponent<PlayerMovement> ().StopPlayer();
 
-				if (dishSelection.currentCourse == 0) {
-					StartCoroutine (OpenDoor (1f));
-					spawn.Spawning ();
+				switch (gamestate.Instance.GetLevel ()) {
+				case Enums.sceneLevel.LEVEL_1:
+					actionsLVL1 ();
+					break;
+				case Enums.sceneLevel.LEVEL_2:
+					actionsLVL2 ();
+					break;
 				}
-
-				if (dishSelection.currentCourse == 1) {
-					StartCoroutine (Open2Door (2f));
-				}
-					
-				if (dishSelection.currentCourse == 2) {
-					gamestate.Instance.SetState (Enums.state.STATE_WIN);
-				}					
 
 				if (message.gameObject.activeSelf)
 					message.gameObject.SetActive (false);
@@ -158,6 +177,35 @@ public class PropDropItem : MonoBehaviour {
 		}
 	}
 
+	public void actionsLVL1() {
+		if (dishSelection.currentCourse == 0) {
+			StartCoroutine (OpenDoor (1f));
+			spawn.Spawning ();
+		}
+
+		if (dishSelection.currentCourse == 1) {
+			StartCoroutine (Open2Door (2f));
+		}
+
+		if (dishSelection.currentCourse == 2) {
+			gamestate.Instance.SetState (Enums.state.STATE_WIN);
+		}					
+	}
+
+	public void actionsLVL2() {
+		if (dishSelection.currentCourse == 0) {
+			ActivateTeleport ();
+			StartCoroutine (ViewBoss1 (10f));
+		}
+
+		if (dishSelection.currentCourse == 1) {
+			StartCoroutine (ViewBoss2 (10f));
+			gamestate.Instance.SetState (Enums.state.STATE_WIN);
+		}
+	}
+		
+
+	//LEVEL 1 ACTIONS
 	IEnumerator OpenDoor(float waitTime){
 		gamestate.Instance.SetState (state.STATE_STATIC_CAMERA);
 		cam.target = cameraStaticPosition;
@@ -178,6 +226,19 @@ public class PropDropItem : MonoBehaviour {
 		CameraToFollow ();
 		//yield return new WaitForSeconds(waitTime + 2f);
 		NewCourse ();
+	}
+
+	//LEVEL 2 ACTIONS
+	public void ActivateTeleport() {
+		teleport.enabled = true;
+	}
+
+	IEnumerator ViewBoss1(float waitTime){
+		yield return new WaitForSeconds(waitTime);
+	}
+
+	IEnumerator ViewBoss2(float waitTime){
+		yield return new WaitForSeconds(waitTime);
 	}
 
 	void CameraToFollow(){

@@ -13,6 +13,7 @@ public class DishClockController : MonoBehaviour {
 	private float fullFilled;
 	public bool countDown;
 	public JailManager jail;
+	public JailManagerGeneric jailLVL2;
 	public MessageController message;
 
 	[HideInInspector] public PlayerStats playerStats;
@@ -24,14 +25,14 @@ public class DishClockController : MonoBehaviour {
 
 		switch (gamestate.Instance.GetLevel()) {
 		case Enums.sceneLevel.LEVEL_1:
-			course[0] = (int) Random.Range (0, 2); 		//first course sprites sliced from Fast_Food_Icons 0,1,2
-			course[1] = (int) Random.Range (3, 6);		//first course sprites sliced from Fast_Food_Icons 3,4,5,6 
-			course[2] = (int) Random.Range (7, 9);		//the rest...
+			course[0] = (int) Random.Range (0, 3); 		//first course sprites sliced from Fast_Food_Icons 0,1,2
+			course[1] = (int) Random.Range (3, 6);		//first course sprites sliced from Fast_Food_Icons 3,4,5 
+			course[2] = (int) Random.Range (6, 9);		//the rest...
 			break;
 		case Enums.sceneLevel.LEVEL_2:
-			course[0] = (int) Random.Range (9, 10);
-			course[1] = (int) Random.Range (11, 12); 
-			course[2] = (int) Random.Range (13, 14);
+			course[0] = (int)Random.Range (9, 12);
+			course[1] = 12;
+			course[2] = 0;
 			break;
 		}
 
@@ -92,8 +93,16 @@ public class DishClockController : MonoBehaviour {
 		if (currentCourse + 1 == course.Length)
 			return;
 		currentCourse += 1;
-		if (currentCourse == 2)
-			jail.SetSecond ();
+		if (currentCourse == 2) {
+			switch (gamestate.Instance.GetLevel ()) {
+			case Enums.sceneLevel.LEVEL_1:
+				jail.SetSecond ();
+				break;
+			case Enums.sceneLevel.LEVEL_2:
+				jailLVL2.SetSecond ();
+				break;
+			}
+		}
 	}
 
 	public void SetClock(float time){
