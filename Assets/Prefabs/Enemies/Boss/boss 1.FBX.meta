@@ -1,0 +1,1616 @@
+fileFormatVersion: 2
+guid: 4ad65d7f105d749ccb16e9a9cbbaf981
+timeCreated: 1473582798
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: A_Brazo der
+    100002: A_Brazo izq
+    100004: A_cadera
+    100006: A_Cuerpo
+    100008: A_Mano der
+    100010: A_Mano izq
+    100012: A_Pie der
+    100014: A_Pie izq
+    100016: A_Rodilla der
+    100018: A_Rodilla izq
+    100020: A_Tobillo der
+    100022: A_Tobillo izq
+    100024: Base Pinza
+    100026: //RootNode
+    100028: Box001
+    100030: Brazo der
+    100032: Brazo izq
+    100034: Cadera
+    100036: Canon
+    100038: Controles
+    100040: Cuerpo
+    100042: Helix001
+    100044: Helix002
+    100046: Helix003
+    100048: Hueso Cabeza
+    100050: Hueso Cuerpo
+    100052: IK Chain001
+    100054: IK Chain002
+    100056: IK Chain004
+    100058: IK Chain005
+    100060: Luces
+    100062: Luces001
+    100064: Luces002
+    100066: Mano izq
+    100068: Muslo der
+    100070: Muslo izq
+    100072: Oscar001
+    100074: Pie der
+    100076: Pie izq
+    100078: Pierna der
+    100080: Pierna izq
+    100082: Pila
+    100084: Pila001
+    100086: Pila002
+    100088: Pinza der 01
+    100090: Pinza der 02
+    100092: Pinza der 03
+    100094: Pinza der 04
+    100096: Pinza der 05
+    100098: Pinza der 06
+    100100: Pinza der 07
+    100102: Pinza izq 01
+    100104: Pinza izq 02
+    100106: Pinza izq 03
+    100108: Pinza izq 04
+    100110: Pinza izq 05
+    100112: Pinza izq 06
+    100114: Pinza izq 07
+    100116: Plataforma Controles
+    100118: Tornillo Rodilla der
+    100120: Tornillo Rodilla izq
+    100122: Tornillo tobillo der
+    100124: Tornillo tobillo izq
+    100126: Tubo
+    100128: Tubo001
+    100130: Tubo002
+    400000: A_Brazo der
+    400002: A_Brazo izq
+    400004: A_cadera
+    400006: A_Cuerpo
+    400008: A_Mano der
+    400010: A_Mano izq
+    400012: A_Pie der
+    400014: A_Pie izq
+    400016: A_Rodilla der
+    400018: A_Rodilla izq
+    400020: A_Tobillo der
+    400022: A_Tobillo izq
+    400024: Base Pinza
+    400026: //RootNode
+    400028: Box001
+    400030: Brazo der
+    400032: Brazo izq
+    400034: Cadera
+    400036: Canon
+    400038: Controles
+    400040: Cuerpo
+    400042: Helix001
+    400044: Helix002
+    400046: Helix003
+    400048: Hueso Cabeza
+    400050: Hueso Cuerpo
+    400052: IK Chain001
+    400054: IK Chain002
+    400056: IK Chain004
+    400058: IK Chain005
+    400060: Luces
+    400062: Luces001
+    400064: Luces002
+    400066: Mano izq
+    400068: Muslo der
+    400070: Muslo izq
+    400072: Oscar001
+    400074: Pie der
+    400076: Pie izq
+    400078: Pierna der
+    400080: Pierna izq
+    400082: Pila
+    400084: Pila001
+    400086: Pila002
+    400088: Pinza der 01
+    400090: Pinza der 02
+    400092: Pinza der 03
+    400094: Pinza der 04
+    400096: Pinza der 05
+    400098: Pinza der 06
+    400100: Pinza der 07
+    400102: Pinza izq 01
+    400104: Pinza izq 02
+    400106: Pinza izq 03
+    400108: Pinza izq 04
+    400110: Pinza izq 05
+    400112: Pinza izq 06
+    400114: Pinza izq 07
+    400116: Plataforma Controles
+    400118: Tornillo Rodilla der
+    400120: Tornillo Rodilla izq
+    400122: Tornillo tobillo der
+    400124: Tornillo tobillo izq
+    400126: Tubo
+    400128: Tubo001
+    400130: Tubo002
+    2300000: Base Pinza
+    2300002: Box001
+    2300004: Brazo der
+    2300006: Brazo izq
+    2300008: Cadera
+    2300010: Canon
+    2300012: Controles
+    2300014: Cuerpo
+    2300016: Luces
+    2300018: Luces001
+    2300020: Luces002
+    2300022: Mano izq
+    2300024: Muslo der
+    2300026: Muslo izq
+    2300028: Pie der
+    2300030: Pie izq
+    2300032: Pierna der
+    2300034: Pierna izq
+    2300036: Pila
+    2300038: Pila001
+    2300040: Pila002
+    2300042: Pinza der 01
+    2300044: Pinza der 02
+    2300046: Pinza der 03
+    2300048: Pinza der 04
+    2300050: Pinza der 05
+    2300052: Pinza der 06
+    2300054: Pinza der 07
+    2300056: Pinza izq 01
+    2300058: Pinza izq 02
+    2300060: Pinza izq 03
+    2300062: Pinza izq 04
+    2300064: Pinza izq 05
+    2300066: Pinza izq 06
+    2300068: Pinza izq 07
+    2300070: Plataforma Controles
+    2300072: Tornillo Rodilla der
+    2300074: Tornillo Rodilla izq
+    2300076: Tornillo tobillo der
+    2300078: Tornillo tobillo izq
+    2300080: Tubo
+    2300082: Tubo001
+    2300084: Tubo002
+    3300000: Base Pinza
+    3300002: Box001
+    3300004: Brazo der
+    3300006: Brazo izq
+    3300008: Cadera
+    3300010: Canon
+    3300012: Controles
+    3300014: Cuerpo
+    3300016: Luces
+    3300018: Luces001
+    3300020: Luces002
+    3300022: Mano izq
+    3300024: Muslo der
+    3300026: Muslo izq
+    3300028: Pie der
+    3300030: Pie izq
+    3300032: Pierna der
+    3300034: Pierna izq
+    3300036: Pila
+    3300038: Pila001
+    3300040: Pila002
+    3300042: Pinza der 01
+    3300044: Pinza der 02
+    3300046: Pinza der 03
+    3300048: Pinza der 04
+    3300050: Pinza der 05
+    3300052: Pinza der 06
+    3300054: Pinza der 07
+    3300056: Pinza izq 01
+    3300058: Pinza izq 02
+    3300060: Pinza izq 03
+    3300062: Pinza izq 04
+    3300064: Pinza izq 05
+    3300066: Pinza izq 06
+    3300068: Pinza izq 07
+    3300070: Plataforma Controles
+    3300072: Tornillo Rodilla der
+    3300074: Tornillo Rodilla izq
+    3300076: Tornillo tobillo der
+    3300078: Tornillo tobillo izq
+    3300080: Tubo
+    3300082: Tubo001
+    3300084: Tubo002
+    4300000: Cadera
+    4300002: Muslo izq
+    4300004: Tornillo Rodilla izq
+    4300006: Pierna izq
+    4300008: Tornillo tobillo izq
+    4300010: Pie izq
+    4300012: Muslo der
+    4300014: Tornillo Rodilla der
+    4300016: Pierna der
+    4300018: Tornillo tobillo der
+    4300020: Pie der
+    4300022: Cuerpo
+    4300024: Box001
+    4300026: Tubo002
+    4300028: Luces002
+    4300030: Tubo
+    4300032: Luces
+    4300034: Tubo001
+    4300036: Luces001
+    4300038: Pila002
+    4300040: Pila
+    4300042: Pila001
+    4300044: Plataforma Controles
+    4300046: Controles
+    4300048: Oscar001
+    4300050: Brazo der
+    4300052: Mano izq
+    4300054: Pinza izq 01
+    4300056: Pinza izq 02
+    4300058: Pinza izq 03
+    4300060: Pinza izq 04
+    4300062: Pinza izq 05
+    4300064: Pinza izq 06
+    4300066: Pinza izq 07
+    4300068: Pinza der 01
+    4300070: Pinza der 02
+    4300072: Pinza der 03
+    4300074: Pinza der 04
+    4300076: Pinza der 05
+    4300078: Pinza der 06
+    4300080: Pinza der 07
+    4300082: Base Pinza
+    4300084: Brazo izq
+    4300086: Canon
+    7400000: Boss Walk
+    7400002: Boss Idle
+    7400004: Boss Attack
+    7400006: Boss Recover
+    7400008: Boss Dead
+    7400010: Boss Damaged
+    7400012: Boss Idle2
+    9500000: //RootNode
+    13700000: Oscar001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Boss Walk
+      takeName: Take 001
+      firstFrame: 20
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_cadera
+        weight: 1
+      - path: A_cadera/A_Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der/Canon
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Base Pinza
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06/Pinza
+          der 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06/Pinza
+          izq 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix003
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Oscar001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles/Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo/Hueso Cabeza
+        weight: 1
+      - path: A_cadera/Cadera
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der/Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq/Pie izq
+        weight: 1
+      - path: A_Rodilla der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der/IK Chain005
+        weight: 1
+      - path: A_Rodilla der/IK Chain004
+        weight: 1
+      - path: A_Rodilla izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq/IK Chain002
+        weight: 1
+      - path: A_Rodilla izq/IK Chain001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Boss Idle
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 130
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_cadera
+        weight: 1
+      - path: A_cadera/A_Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der/Canon
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Base Pinza
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06/Pinza
+          der 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06/Pinza
+          izq 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix003
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Oscar001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles/Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo/Hueso Cabeza
+        weight: 1
+      - path: A_cadera/Cadera
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der/Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq/Pie izq
+        weight: 1
+      - path: A_Rodilla der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der/IK Chain005
+        weight: 1
+      - path: A_Rodilla der/IK Chain004
+        weight: 1
+      - path: A_Rodilla izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq/IK Chain002
+        weight: 1
+      - path: A_Rodilla izq/IK Chain001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Boss Attack
+      takeName: Take 001
+      firstFrame: 130
+      lastFrame: 160
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_cadera
+        weight: 1
+      - path: A_cadera/A_Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der/Canon
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Base Pinza
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06/Pinza
+          der 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06/Pinza
+          izq 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix003
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Oscar001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles/Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo/Hueso Cabeza
+        weight: 1
+      - path: A_cadera/Cadera
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der/Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq/Pie izq
+        weight: 1
+      - path: A_Rodilla der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der/IK Chain005
+        weight: 1
+      - path: A_Rodilla der/IK Chain004
+        weight: 1
+      - path: A_Rodilla izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq/IK Chain002
+        weight: 1
+      - path: A_Rodilla izq/IK Chain001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Boss Recover
+      takeName: Take 001
+      firstFrame: 160
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_cadera
+        weight: 1
+      - path: A_cadera/A_Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der/Canon
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Base Pinza
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06/Pinza
+          der 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06/Pinza
+          izq 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix003
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Oscar001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles/Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo/Hueso Cabeza
+        weight: 1
+      - path: A_cadera/Cadera
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der/Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq/Pie izq
+        weight: 1
+      - path: A_Rodilla der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der/IK Chain005
+        weight: 1
+      - path: A_Rodilla der/IK Chain004
+        weight: 1
+      - path: A_Rodilla izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq/IK Chain002
+        weight: 1
+      - path: A_Rodilla izq/IK Chain001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Boss Dead
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 480
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_cadera
+        weight: 1
+      - path: A_cadera/A_Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der/Canon
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Base Pinza
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06/Pinza
+          der 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06/Pinza
+          izq 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix003
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Oscar001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles/Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo/Hueso Cabeza
+        weight: 1
+      - path: A_cadera/Cadera
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der/Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq/Pie izq
+        weight: 1
+      - path: A_Rodilla der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der/IK Chain005
+        weight: 1
+      - path: A_Rodilla der/IK Chain004
+        weight: 1
+      - path: A_Rodilla izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq/IK Chain002
+        weight: 1
+      - path: A_Rodilla izq/IK Chain001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Boss Damaged
+      takeName: Take 001
+      firstFrame: 500
+      lastFrame: 530
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_cadera
+        weight: 1
+      - path: A_cadera/A_Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der/Canon
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Base Pinza
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06/Pinza
+          der 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06/Pinza
+          izq 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix003
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Oscar001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles/Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo/Hueso Cabeza
+        weight: 1
+      - path: A_cadera/Cadera
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der/Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq/Pie izq
+        weight: 1
+      - path: A_Rodilla der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der/IK Chain005
+        weight: 1
+      - path: A_Rodilla der/IK Chain004
+        weight: 1
+      - path: A_Rodilla izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq/IK Chain002
+        weight: 1
+      - path: A_Rodilla izq/IK Chain001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Boss Idle2
+      takeName: Take 001
+      firstFrame: 530
+      lastFrame: 575
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: A_cadera
+        weight: 1
+      - path: A_cadera/A_Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo der/Brazo izq/A_Mano der/Canon
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Base Pinza
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza der
+          01/Pinza der 02/Pinza der 03/Pinza der 04/Pinza der 05/Pinza der 06/Pinza
+          der 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06
+        weight: 1
+      - path: A_cadera/A_Cuerpo/A_Brazo izq/Brazo der/A_Mano izq/Mano izq/Pinza izq
+          01/Pinza izq 02/Pinza izq 03/Pinza izq 04/Pinza izq 05/Pinza izq 06/Pinza
+          izq 07
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Helix003
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Luces002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Pila002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Box001/Tubo002
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Oscar001
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Cuerpo/Plataforma Controles/Controles
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo
+        weight: 1
+      - path: A_cadera/A_Cuerpo/Hueso Cuerpo/Hueso Cabeza
+        weight: 1
+      - path: A_cadera/Cadera
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo der/Tornillo Rodilla der/Pierna der/Tornillo tobillo
+          der/A_Pie der/Pie der
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq
+        weight: 1
+      - path: A_cadera/Cadera/Muslo izq/Tornillo Rodilla izq/Pierna izq/Tornillo tobillo
+          izq/A_Pie izq/Pie izq
+        weight: 1
+      - path: A_Rodilla der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der
+        weight: 1
+      - path: A_Rodilla der/A_Tobillo der/IK Chain005
+        weight: 1
+      - path: A_Rodilla der/IK Chain004
+        weight: 1
+      - path: A_Rodilla izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq
+        weight: 1
+      - path: A_Rodilla izq/A_Tobillo izq/IK Chain002
+        weight: 1
+      - path: A_Rodilla izq/IK Chain001
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

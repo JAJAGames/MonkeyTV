@@ -50,7 +50,7 @@ public class gamestate : MonoBehaviour {
 	// initialize singleton 
 	private gamestate ()
 	{
-		
+		/*
 #if UNITY_5_3_OR_NEWER	
 
 		levelOfGame = (sceneLevel) SceneManager.GetActiveScene ().buildIndex;
@@ -59,7 +59,7 @@ public class gamestate : MonoBehaviour {
 		if (levelOfGame > 0)
 			Cursor.visible = false;
 		else
-			Cursor.visible = true;
+			Cursor.visible = true;*/
 		stateOfScene = state.STATE_INIT;  
 	}
 

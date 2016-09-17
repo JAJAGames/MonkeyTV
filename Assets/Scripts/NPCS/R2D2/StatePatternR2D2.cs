@@ -18,6 +18,11 @@ public class StatePatternR2D2 : MonoBehaviour {
 	[HideInInspector]	public R2D2ReceiveItemsState receiveItemsState;
 	[HideInInspector]	public NavMeshAgent navMeshAgent;
 
+	//NEW
+	[HideInInspector]	public NewCraft newCraft;
+
+
+
 	[Header("Control Points Settings")]
 	public Transform R2D2Route;
 	public R2D2Poin currentPoint;
@@ -36,22 +41,13 @@ public class StatePatternR2D2 : MonoBehaviour {
 	public GameObject arrow;
 	public GameObject canvas;
 
-	//NEW
-	[HideInInspector]	public NewCraft newCraft;
-	[HideInInspector]	public PropDropItem propDropItem;
-	[HideInInspector]	public PropDropItemGeneric propDropItemGeneric;
-	[HideInInspector]	public IGUIngredients ingredientsBar;
-
 	void Awake () {
 		player = GameObject.Find ("Player");
 		playerMovement = player.GetComponent<PlayerMovement>();
 		playerObstacle = player.GetComponent<NavMeshObstacle> ();
 		cameraFollowing = Camera.main.GetComponent<CameraFollow>();
-		//NEW
 		newCraft = GetComponent<NewCraft> ();
-		propDropItem = GetComponent<PropDropItem> ();
-		propDropItemGeneric = GetComponent<PropDropItemGeneric> ();
-		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
+
 
 		idleState			= new R2D2IdleState(this);
 		moveState			= new R2D2MoveState(this);

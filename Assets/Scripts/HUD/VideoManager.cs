@@ -15,7 +15,8 @@ public class VideoManager : MonoBehaviour {
 
 	void Awake() {
 		gamestate.Instance.SetState(actualState);
-
+		gamestate.Instance.GetLevel ();
+		AudioManager.Instance.LoadAudioFiles ();
 		screen = GetComponent<RawImage> ();
 		screen.enabled = true;
 		screen.texture = video as MovieTexture;

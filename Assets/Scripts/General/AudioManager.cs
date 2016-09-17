@@ -39,6 +39,9 @@ public class AudioManager : MonoBehaviour {
 		//_fxSource = gameObject.GetComponent<AudioSource> ();
 
 		_musicVolume = 1;
+	}
+
+	public void LoadAudioFiles(){
 		arrayFx =  Resources.LoadAll("Audio/FX", typeof(AudioClip));
 		arrayMusic =  Resources.LoadAll("Audio/Music", typeof(AudioClip));
 		PlayMusic (gamestate.Instance.GetLevel ());
