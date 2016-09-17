@@ -9,7 +9,7 @@ public class BossCamera : MonoBehaviour {
 	private bool shake;
 	private Transform boss;
 	void Awake () {
-		boss = GameObject.Find ("Boss").transform;
+		boss = GameObject.Find ("EnemyBoss").transform;
 		shake = false;
 		shakeTime = 0f;
 	}
