@@ -28,7 +28,7 @@ public class ChaseStateSimple : IEnemyStateSimple {
 		enemy.transform.LookAt (lookAt);
 
 		enemy.navMeshAgent.destination = enemy.player.position;
-
+		
 		timer += Time.deltaTime;
 
 		if (enemy.playerStats.uniformBonusActive ()) {
@@ -41,19 +41,24 @@ public class ChaseStateSimple : IEnemyStateSimple {
 	}
 
 	public void OnTriggerEnter (Collider other) {
-		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem() && !enemy.playerStats.godModeActive()) {
+		
+		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem() && !enemy.playerStats.godModeActive()) 
 			ToAttackState ();
-
+		if (other.gameObject.CompareTag ("Player") && enemy.type == enemyTypeSimple.SIMPLE_AGGRESIVE) {
+			if (notAttacking)
+				notAttacking = false;
+			else
+				ToAttackState ();
 		}
 	}
 
 	public void OnTriggerStay (Collider other) {
-		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem() && !enemy.playerStats.godModeActive()) {
+		if (other.gameObject.CompareTag ("Player") && playerItems.haveItem() && !enemy.playerStats.godModeActive()) 
 			ToAttackState ();
-		}
 	}
 
 	public void ToEscapeState() {
+		notAttacking = true;
 		enemy.admirationStick.SetActive (false);
 		enemy.admirationSphere.SetActive (false);
 
@@ -63,6 +68,7 @@ public class ChaseStateSimple : IEnemyStateSimple {
 	}
 
 	public void ToIdleState () {
+		notAttacking = true;
 		enemy.admirationStick.SetActive (false);
 		enemy.admirationSphere.SetActive (false);
 
@@ -75,6 +81,7 @@ public class ChaseStateSimple : IEnemyStateSimple {
 	}
 
 	public void ToAttackState() {
+		notAttacking = true;
 		enemy.admirationStick.SetActive (false);
 		enemy.admirationSphere.SetActive (false);
 
