@@ -33,5 +33,7 @@ public class EnemySimpleFocus : MonoBehaviour {
 		yield return new WaitForSeconds (1f);
 		_enemy.animator.SetTrigger ("Dead");
 		_enemy.enabled = false;
+		yield return new WaitForSeconds (5f);
+		this.gameObject.SetActive (false);
 	}
 }
