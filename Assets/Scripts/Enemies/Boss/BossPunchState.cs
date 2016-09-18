@@ -5,13 +5,13 @@ using Enums;
 public class BossPunchState : IBossState {
 
 	private readonly StatePatternBoss Boss;
-	private Vector3 cameraPosition;
+	//private Vector3 cameraPosition;
 	private BossCamera camera;
 	private float clock;
 
 	public BossPunchState(StatePatternBoss statePatternBoss) {
 		Boss = statePatternBoss;
-		cameraPosition = Boss.BossCameraPosition.position;
+	//		cameraPosition = Boss.BossCameraPosition.position;
 		camera = Boss.BossCameraPosition.GetComponent<BossCamera> ();
 	}
 
