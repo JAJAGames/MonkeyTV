@@ -27,16 +27,11 @@ public class DataRead : MonoBehaviour {
 
 	private Loading loading;
 	public TypeOfData type;
-
 	public int idKey;
 
 	void Start (){
 		loading = Camera.main.GetComponent<Loading> ();
-	}
 
-	//CHANGE THE TEXT OF gameObject.GetComponent<Text>().text IF THE LANGUAGE IS DIFFERENT FROM LANGUAGE SELECTED.
-	void Update (){
-		
 		if (loading.output != type) {
 			type = loading.output;
 			LoadChanges (loading.listData[idKey]);
@@ -69,4 +64,10 @@ public class DataRead : MonoBehaviour {
 		}
 
 	}
+
+	public void ChangeText(int newKey){
+		idKey = newKey;
+		LoadChanges (loading.listData[idKey]);
+	}
+
 }
