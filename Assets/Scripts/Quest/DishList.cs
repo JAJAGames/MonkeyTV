@@ -52,6 +52,7 @@ public class DishList : MonoBehaviour {
 
 	void Awake() {
 		//LEVEL 1
+		//FIRST CRAFT
 		menu[0] = new FoodMenu(
 			itemsList.ITEM_LVL1_LETTUCE, 
 			itemsList.ITEM_LVL1_CABBAGE
@@ -64,6 +65,7 @@ public class DishList : MonoBehaviour {
 			itemsList.ITEM_LVL1_PINEAPPLE, 
 			itemsList.ITEM_LVL1_CABBAGE
 		);
+		//SECOND CRAFT
 		menu[3] = new FoodMenu(
 			itemsList.ITEM_LVL1_CABBAGE,
 			itemsList.ITEM_LVL1_CARROT,
@@ -79,6 +81,7 @@ public class DishList : MonoBehaviour {
 			itemsList.ITEM_LVL1_LETTUCE,
 			itemsList.ITEM_LVL1_MUSHROOM
 		);
+		//THIRD CRAFT
 		menu[6] = new FoodMenu(
 			itemsList.ITEM_LVL1_MUSHROOM,
 			itemsList.ITEM_LVL1_APPLE,	
@@ -95,29 +98,23 @@ public class DishList : MonoBehaviour {
 			itemsList.ITEM_LVL1_ORANGE
 		);
 		//LEVEL 2
+		//FIRST CRAFT
 		menu[9] = new FoodMenu(
-			itemsList.ITEM_LVL2_ITEM1,
-			itemsList.ITEM_LVL2_ITEM2
+			itemsList.ITEM_LVL2_HAMMER,
+			itemsList.ITEM_LVL2_WRENCH
 		);
 		menu[10] = new FoodMenu(
-			itemsList.ITEM_LVL2_ITEM2,
-			itemsList.ITEM_LVL2_ITEM1
+			itemsList.ITEM_LVL2_HAMMER,
+			itemsList.ITEM_LVL2_SCREWDRIVER
 		);
 		menu[11] = new FoodMenu(
-			itemsList.ITEM_LVL2_ITEM3,
-			itemsList.ITEM_LVL2_ITEM4
+			itemsList.ITEM_LVL2_SCREWDRIVER,
+			itemsList.ITEM_LVL2_WRENCH
 		);
+		//SECOND CRAFT
 		menu[12] = new FoodMenu(
-			itemsList.ITEM_LVL2_ITEM4,
-			itemsList.ITEM_LVL2_ITEM3
-		);
-		menu[13] = new FoodMenu(
-			itemsList.ITEM_LVL2_ITEM5,
-			itemsList.ITEM_LVL2_ITEM6
-		);
-		menu[14] = new FoodMenu(
-			itemsList.ITEM_LVL2_ITEM6,
-			itemsList.ITEM_LVL2_ITEM5
+			itemsList.ITEM_LVL2_ENGINE,
+			itemsList.ITEM_LVL2_BATTERY
 		);
 	}
 }

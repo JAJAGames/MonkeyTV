@@ -6,13 +6,20 @@ public class R2D2ReceiveItemsState : IR2D2State {
 
 	private readonly StatePatternR2D2 R2D2;
 
-
 	public R2D2ReceiveItemsState(StatePatternR2D2 statePatternR2D2) {
 		R2D2 = statePatternR2D2;
 	}
 
 	public void UpdateState() {
+		/*if (R2D2.propDropItemGeneric.enabled == false) {
+			R2D2.propDropItemGeneric.enabled = true;
+		}*/
 
+		/*if (R2D2.propDropItem.enabled == false) {
+			//R2D2.ingredientsBar.ActualizeIcons ();
+			R2D2.propDropItem.enabled = true;
+		}
+		*/
 	}
 
 	public void OnTriggerEnter (Collider other) {
