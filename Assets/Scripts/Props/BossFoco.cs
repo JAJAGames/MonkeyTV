@@ -3,13 +3,13 @@ using System.Collections;
 
 public class BossFoco : MonoBehaviour {
 
-	private BossCamera _BossCamera;
+	public BossCamera _BossCamera;
 	private Rigidbody _rigidBody;
 	private Vector3 _initPos;
 	// Use this for initialization
 
 	void Awake() {
-		_BossCamera = GameObject.FindWithTag ("BossCamera").GetComponent<BossCamera>();
+		//_BossCamera = GameObject.FindWithTag ("BossCamera").GetComponent<BossCamera>();
 		_rigidBody = GetComponent<Rigidbody> ();
 		_initPos = transform.localPosition;
 	}
