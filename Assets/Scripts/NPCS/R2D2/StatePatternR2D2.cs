@@ -50,7 +50,7 @@ public class StatePatternR2D2 : MonoBehaviour {
 		//NEW
 		newCraft = GetComponent<NewCraft> ();
 		propDropItem = GetComponent<PropDropItem> ();
-		propDropItemGeneric = GetComponent<PropDropItemGeneric> ();
+		propDropItemGeneric = GameObject.Find ("PropDropItem").GetComponent<PropDropItemGeneric>();
 		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
 
 		idleState			= new R2D2IdleState(this);
@@ -94,6 +94,10 @@ public class StatePatternR2D2 : MonoBehaviour {
 	private void OnTriggerEnter (Collider other)
 	{
 		currentState.OnTriggerEnter (other);										//execute triggers of states
+	}
+
+	public void ActualizeIcons() {
+	
 	}
 		
 }

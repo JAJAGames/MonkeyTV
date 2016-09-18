@@ -48,7 +48,7 @@ public class DishList : MonoBehaviour {
 		}
 	}
 
-	public static FoodMenu[] menu = new FoodMenu[15];
+	public static FoodMenu[] menu = new FoodMenu[13];
 
 	void Awake() {
 		//LEVEL 1
