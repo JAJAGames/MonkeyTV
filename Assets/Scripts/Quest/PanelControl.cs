@@ -8,7 +8,7 @@ public class PanelControl : MonoBehaviour {
 	private Transform button;
 	// Use this for initialization
 	void Awake () {
-		boss = GameObject.Find ("Boss").GetComponent<StatePatternBoss> ();
+		boss = GameObject.FindWithTag("Boss").GetComponent<StatePatternBoss> ();
 		button = transform.FindChild ("Canvas");
 	}
 	
