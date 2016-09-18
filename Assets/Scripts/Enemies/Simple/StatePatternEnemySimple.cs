@@ -13,7 +13,6 @@ public class StatePatternEnemySimple : MonoBehaviour {
 	public enemyTypeSimple type;
 	public enemyStateSimple actualState;
 	public enemyStateSimple inititalState;
-	public float shootsColldown = 2.0f;
 	[Header ("NavMeshAgent Points and References")]
 	public Transform eyes;
 	public Transform[] wayPoints;

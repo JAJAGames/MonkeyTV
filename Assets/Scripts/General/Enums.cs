@@ -82,8 +82,8 @@ namespace Enums {
 	//ENEMIES
 	//ENEMY SIMPLE
 	public enum enemyTypeSimple {
-		SIMPLE_TYPE_RUNNER,
-		SIMPLE_TYPE_JUMPER
+		SIMPLE_HUNGRY,
+		SIMPLE_AGGRESIVE
 	};
 	public enum enemyStateSimple {
 		SIMPLE_STATE_IDLE,
