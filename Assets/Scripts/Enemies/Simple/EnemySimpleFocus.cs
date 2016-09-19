@@ -15,9 +15,10 @@ public class EnemySimpleFocus : MonoBehaviour {
 		_Boss = GameObject.FindWithTag ("Boss").GetComponent<StatePatternBoss>();
 	}
 	
-	void OnTriggerEnter (Collider other){
+	void OnTriggerStay (Collider other){
 		if (other.CompareTag("Trap")){
 			_enemy.currentState = _enemy.idleState;
+			_enemy.navMeshAgent.stoppingDistance = 0;
 			_enemy.startPosition = other.transform.position;
 			traped = true;
 		}
@@ -25,7 +26,6 @@ public class EnemySimpleFocus : MonoBehaviour {
 
 	public void Dead(){
 		foco.enabled = true;
-
 		StartCoroutine (ShowDead());
 	}
 

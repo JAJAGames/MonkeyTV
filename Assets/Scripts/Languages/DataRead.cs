@@ -31,11 +31,13 @@ public class DataRead : MonoBehaviour {
 
 	void Start (){
 		loading = Camera.main.GetComponent<Loading> ();
+	}
 
+	void Update(){
 		if (loading.output != type) {
 			type = loading.output;
 			LoadChanges (loading.listData[idKey]);
-		}	
+		}
 	}
 
 	//GET THE VALUE USING THE INDEX KEY
