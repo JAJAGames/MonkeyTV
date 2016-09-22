@@ -7,10 +7,12 @@ public class EnemySimpleFocus : MonoBehaviour {
 	private StatePatternEnemySimple _enemy;
 	private bool traped;
 	private StatePatternBoss _Boss;
+	private bool _isDead;
 	// Use this for initialization
 	void Awake() {
 		foco.enabled = false;
 		traped = false;
+		_isDead = false;
 		_enemy = GetComponent<StatePatternEnemySimple>();
 		_Boss = GameObject.FindWithTag ("Boss").GetComponent<StatePatternBoss>();
 	}
@@ -25,7 +27,11 @@ public class EnemySimpleFocus : MonoBehaviour {
 	}
 
 	public void Dead(){
+		if (_isDead)
+			return;
 		foco.enabled = true;
+		_isDead = true;
+		_Boss.remainingMonkeys--;
 		StartCoroutine (ShowDead());
 	}
 

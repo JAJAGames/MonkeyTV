@@ -21,6 +21,7 @@ namespace Enums {
 		MENU,
 		LEVEL_1,
 		LEVEL_2,
+		LEVEL_BOSS,
 		WIN,
 		LOSE
 	};
@@ -123,12 +124,19 @@ namespace Enums {
 		SHIP
 	}
 
-	//Boss States
+	//Boss States defines boss action
 	public enum BossState{
 		IDLE_SATE,
 		MOVE_STATE,
 		PUNCH_STATE,
 		DAMAGED_STATE,
 		DEAD_STATE
+	}
+
+	//boss phase defines boss behavior 
+	public enum BossPhase{
+		OUT_OF_COMBAT,
+		COMBAT_PHASE_1,
+		COMBAT_PHASE_2
 	}
 }

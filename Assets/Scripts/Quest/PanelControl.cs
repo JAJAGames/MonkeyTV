@@ -10,10 +10,14 @@ public class PanelControl : MonoBehaviour {
 	void Awake () {
 		boss = GameObject.FindWithTag("Boss").GetComponent<StatePatternBoss> ();
 		button = transform.FindChild ("Canvas");
+		button.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (boss.phase != BossPhase.COMBAT_PHASE_2)
+			return;
+		
 		if (boss.actualState == BossState.PUNCH_STATE) 
 			button.gameObject.SetActive (true);
 		else
@@ -22,6 +26,8 @@ public class PanelControl : MonoBehaviour {
 	}
 
 	public void OnTriggerStay (Collider other) {
+		if (boss.phase != BossPhase.COMBAT_PHASE_2)
+			return;
 		if (boss.actualState != BossState.PUNCH_STATE)
 			return;
 		var inputDevice = InputManager.ActiveDevice;

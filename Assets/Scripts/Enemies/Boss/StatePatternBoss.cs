@@ -6,10 +6,11 @@ public class StatePatternBoss : MonoBehaviour {
 
 
 	[Header("Boss Settings")]
-	[HideInInspector] public Animator anim;
+	public BossPhase phase;
 	public BossState actualState;
+	[HideInInspector] public Animator anim;
 	public int batteries = 3;
-
+	public int remainingMonkeys = 3;
 	[Header("Boss Route")]
 	public Transform[] patrolWayPoints;
 	public int lastPatrolWayPoint, nextPatrolWayPoint;
@@ -76,6 +77,9 @@ public class StatePatternBoss : MonoBehaviour {
 		}
 		
 		currentState.UpdateState ();
+
+		if (remainingMonkeys == 0)
+			phase = BossPhase.COMBAT_PHASE_2;
 	}	
 		
 	public virtual void CustomUpdate(){

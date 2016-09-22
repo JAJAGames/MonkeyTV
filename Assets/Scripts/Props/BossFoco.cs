@@ -30,6 +30,7 @@ public class BossFoco : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
+		
 		if (other.gameObject.CompareTag ("Enemy"))
 			other.GetComponent<EnemySimpleFocus>().Dead();
 	}

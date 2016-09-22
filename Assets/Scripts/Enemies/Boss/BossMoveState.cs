@@ -12,7 +12,7 @@ public class BossMoveState : IBossState {
 	}
 
 	public void UpdateState() {
-		Boss.BossCameraPosition.LookAt (Boss.transform.position);
+
 		Boss.navMeshAgent.destination = Boss.patrolWayPoints [Boss.nextPatrolWayPoint].position;
 		Boss.navMeshAgent.Resume ();
 
@@ -22,8 +22,12 @@ public class BossMoveState : IBossState {
 		if (Boss.navMeshAgent.remainingDistance <= Boss.navMeshAgent.stoppingDistance && destination == goal) {
 			Boss.lastPatrolWayPoint = Boss.nextPatrolWayPoint;
 			Boss.nextPatrolWayPoint = (Boss.lastPatrolWayPoint + 1) % Boss.patrolWayPoints.Length;
-			if (Boss.lastPatrolWayPoint == 0)
-				ToPunchState ();
+			if (Boss.lastPatrolWayPoint == 0) {
+				if (Boss.phase == BossPhase.OUT_OF_COMBAT)
+					ToIdleState ();
+				else
+					ToPunchState ();
+			}
 		} else {
 			destination = Boss.patrolWayPoints [Boss.nextPatrolWayPoint].position;
 			destination.y = 0;
@@ -47,6 +51,8 @@ public class BossMoveState : IBossState {
 	public void ToMoveState(){}
 
 	public void ToPunchState() {
+		Debug.Log ("ToPunch from Move" + Boss.phase);
+				
 		Boss.anim.SetTrigger ("Punch");
 		Boss.anim.SetBool ("Walk", false);
 		gamestate.Instance.SetState (state.STATE_SWAP_CAMERA);
