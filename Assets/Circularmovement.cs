@@ -7,16 +7,19 @@ public class Circularmovement : MonoBehaviour {
 	private Transform _player;
 	public FocusTarget target;
 	private Quaternion initRotation;
+
+
 	void Awake(){
 		_boss = GameObject.FindWithTag ("Boss").GetComponent<StatePatternBoss> ();
 		_player = GameObject.FindWithTag ("Player").transform;
 		target = FocusTarget.NONE;
 		initRotation = transform.rotation;
+
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (_boss.actualState == Enums.BossState.PUNCH_STATE)
+		if (_boss.actualState == Enums.BossState.PUNCH_STATE && target!=FocusTarget.PLAYER)
 			return;
 		
 		if (_boss.phase == BossPhase.COMBAT_PHASE_2 && target == FocusTarget.PLAYER) {
@@ -38,4 +41,5 @@ public class Circularmovement : MonoBehaviour {
 		if (_boss.phase == BossPhase.COMBAT_PHASE_2 && other.CompareTag ("Player"))
 			target = FocusTarget.PLAYER;
 	}
+		
 }
