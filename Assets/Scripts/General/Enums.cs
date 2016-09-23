@@ -139,4 +139,10 @@ namespace Enums {
 		COMBAT_PHASE_1,
 		COMBAT_PHASE_2
 	}
+
+	public enum FocusTarget{
+		NONE,
+		MONKEY,
+		PLAYER
+	}
 }

@@ -5,24 +5,23 @@ public class EnemySimpleFocus : MonoBehaviour {
 
 	public MeshRenderer foco;
 	private StatePatternEnemySimple _enemy;
-	private bool traped;
 	private StatePatternBoss _Boss;
 	private bool _isDead;
+	public bool trapped;
 	// Use this for initialization
 	void Awake() {
 		foco.enabled = false;
-		traped = false;
 		_isDead = false;
 		_enemy = GetComponent<StatePatternEnemySimple>();
 		_Boss = GameObject.FindWithTag ("Boss").GetComponent<StatePatternBoss>();
+		trapped = false;
 	}
 	
 	void OnTriggerStay (Collider other){
-		if (other.CompareTag("Trap")){
+		if (other.CompareTag("Trap") && trapped){
 			_enemy.currentState = _enemy.idleState;
 			_enemy.navMeshAgent.stoppingDistance = 0;
 			_enemy.startPosition = other.transform.position;
-			traped = true;
 		}
 	}
 

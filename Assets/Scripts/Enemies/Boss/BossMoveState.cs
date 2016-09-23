@@ -51,7 +51,6 @@ public class BossMoveState : IBossState {
 	public void ToMoveState(){}
 
 	public void ToPunchState() {
-		Debug.Log ("ToPunch from Move" + Boss.phase);
 				
 		Boss.anim.SetTrigger ("Punch");
 		Boss.anim.SetBool ("Walk", false);
