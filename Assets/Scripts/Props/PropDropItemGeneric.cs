@@ -5,25 +5,37 @@ using InControl;
 
 public class PropDropItemGeneric : MonoBehaviour {
 
+	//PLAYER
 	public PickItems player;
 	private Animator playerAnim;
 	public PlayerMovement playerMov;
 
-
-
+	//DISH
 	private DishClockController dishSelection;
 	public int[] courses;
-
 	public DishList.FoodMenu[] actualCraft;
 
+	//IGU
 	private IGUIngredients ingredientsBar;
 	public IGUItemBar itemBar;
-
-
 	public IGUfromWorld[] IGUchek = new IGUfromWorld[3];
 
-	//public MessageController message;
+	//TELEPORT
+	private Teleport teleport;
+	private GameObject teleportParticles;
 
+	//CAMERA
+	public CameraFollow camera;
+	public Transform cameraPosition;
+
+	//R2D2
+	public GameObject R2D2;
+	public StatePatternR2D2 statePattern;
+	public Transform teleportUp;
+	public Transform teleportDown;
+
+	//OTHER
+	public GameObject nextLocation;
 
 
 	void Awake (){
@@ -34,6 +46,15 @@ public class PropDropItemGeneric : MonoBehaviour {
 		dishSelection = GameObject.Find ("Clock").GetComponent<DishClockController> ();
 		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
 		itemBar = GameObject.Find ("ItemBarMask").GetComponent<IGUItemBar> ();
+
+		camera = Camera.main.GetComponent<CameraFollow>();
+		//cameraPosition = GameObject.Find ("BossCameraPosition").transform;
+
+		teleport = GameObject.Find ("Teleport1").GetComponent<Teleport> ();
+		teleportParticles = GameObject.Find ("Teleport1").transform.FindChild("Particles").gameObject;
+
+		R2D2 = GameObject.Find ("R2D2");
+		statePattern = R2D2.GetComponent<StatePatternR2D2> ();
 	}
 
 	void Start () {
@@ -78,7 +99,6 @@ public class PropDropItemGeneric : MonoBehaviour {
 			StartCoroutine (WrongItem());			//fer algun feedback de que no es l'ingredient correcte
 		} else { 											
 			playerAnim.SetBool("Pick_Object",false);
-			//meshRenderer.material.SetColor ("_EmissionColor", _color);
 
 			if (actualCraft [currentCourse].itemsLeft == 0) {
 				dishSelection.clock = Mathf.Infinity;
@@ -89,9 +109,7 @@ public class PropDropItemGeneric : MonoBehaviour {
 					actionsLVL2 ();
 					break;
 				}
-
-				//if (message.gameObject.activeSelf)
-				//	message.gameObject.SetActive (false);
+					
 			}
 			AudioManager.Instance.PlayFX(Enums.fxClip.FX_GUI_PICK_BONUS);
 
@@ -103,13 +121,18 @@ public class PropDropItemGeneric : MonoBehaviour {
 	public void actionsLVL2() {
 		switch (dishSelection.currentCourse) {
 		case 0:
+			teleportParticles.SetActive (false);
+			transform.position = nextLocation.transform.position;
+			statePattern.navMeshAgent.enabled = false;
+			StartCoroutine (ViewBoss ());
+			StartCoroutine (TeleportR2D2 ());
+			statePattern.navMeshAgent.enabled = true;
+			teleport.enabled = true;
 			playerMov.enabled = true;
-			Debug.Log ("ACTIVATE TELEPORT");
-			//ActivateTeleport ();
-			//StartCoroutine (ViewBoss1 (10f));
 			break;
 		case 1:
-			//StartCoroutine (ViewBoss2 (10f));
+			StartCoroutine (BombExplode ());
+			StartCoroutine (ViewBoss2 ());
 			gamestate.Instance.SetState (Enums.state.STATE_WIN);
 			break;
 		}
@@ -140,6 +163,30 @@ public class PropDropItemGeneric : MonoBehaviour {
 		_particles.startColor = _initParticleColor;
 		_particlesPot.startColor = _initParticleColor;*/
 
+		yield return new WaitForSeconds(2.5f);
+	}
+
+	//ACTIONS WHEN A CRAFT IS DONE
+	private IEnumerator TeleportR2D2() {
+		yield return new WaitForSeconds(2.0f);
+		R2D2.transform.position = teleportUp.transform.position;
+		yield return new WaitForSeconds(1.0f);
+	}
+
+	private IEnumerator ViewBoss() {
+		gamestate.Instance.SetState(Enums.state.STATE_SWAP_CAMERA);
+		camera.target = cameraPosition;
+		R2D2.transform.position = teleportUp.transform.position;
+		yield return new WaitForSeconds(3.0f);
+		gamestate.Instance.SetState(Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
+		yield return new WaitForSeconds(0.5f);
+	}
+
+	private IEnumerator BombExplode() {
+		yield return new WaitForSeconds(2.5f);
+	}
+
+	private IEnumerator ViewBoss2() {
 		yield return new WaitForSeconds(2.5f);
 	}
 }

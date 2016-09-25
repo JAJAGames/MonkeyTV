@@ -5,9 +5,10 @@ using InControl;
 public class Teleport : MonoBehaviour {
 
 	public GameObject destination;
+	private Transform canvas;
 
 	void Start() {
-		
+		canvas = transform.FindChild ("Canvas");
 	}
 
 	private void OnTriggerStay (Collider other) {
@@ -18,6 +19,14 @@ public class Teleport : MonoBehaviour {
 				StartCoroutine(TeleportEntity(other));
 			}
 		}
+	}
+
+	private void OnTriggerEnter (Collider other) {
+		canvas.gameObject.SetActive (true);
+	}
+
+	private void OnTriggerExit (Collider other) {
+		canvas.gameObject.SetActive (false);
 	}
 
 	IEnumerator TeleportEntity(Collider other) {
