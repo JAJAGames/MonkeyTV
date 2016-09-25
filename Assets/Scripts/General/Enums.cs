@@ -140,16 +140,14 @@ namespace Enums {
 		COMBAT_PHASE_2
 	}
 
-<<<<<<< Updated upstream
 	public enum FocusTarget{
 		NONE,
 		MONKEY,
 		PLAYER
 	}
-=======
+ 
 	public enum BossLiteState {
 		BOSSLITE_IDLE_STATE,
 		BOSSLITE_MOVE_STATE
 	};
->>>>>>> Stashed changes
 }
