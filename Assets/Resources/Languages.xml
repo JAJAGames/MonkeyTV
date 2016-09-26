@@ -15,5 +15,8 @@
 		<Tense key="11" english="PICK SUIT" spanish="COGER TRAJE" catalan="AGAFAR VESTIT" galician="COLLER TRAXE" />
 		<Tense key="12" english="MONKEYS SAVED" spanish="MONOS SALVADOS" catalan="MICOS SALVATS" galician="MONOS SALVADOS" />
 		<Tense key="13" english="Try again!" spanish="Otra véz!" catalan="Torna-hi!" galician="Volta de novo!" />
+		<Tense key="14" english="Monkey Cheff" spanish="Monkey Cheff" catalan="Monkey Cheff" galician="Monkey Cheff" />
+		<Tense key="15" english="Monkey Wars" spanish="Monkey Wars" catalan="Monkey Wars" galician="Monkey Wars" />
+		<Tense key="16" english="Dr. Peanut" spanish="Dr. Peanut" catalan="Dr. Peanut" galician="Dr. Peanut" />
 	</Translation>
 </Language_List>

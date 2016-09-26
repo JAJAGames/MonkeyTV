@@ -32,6 +32,7 @@ public class MenuClick : MonoBehaviour {
 	public GameObject panelMenu;
 	public GameObject panelCredits;
 	public GameObject panelOptions;
+	public GameObject panelLevel;
 	public GameObject logo;
 
 	void Awake() {
@@ -39,10 +40,10 @@ public class MenuClick : MonoBehaviour {
 	}
 
 	//CHANGE TO NEW SCENE. IN INSPECTOR WE CAN SET THE BUILD INDEX OF THE NEW SCENE.
-	public void LoadScene()
+	public void LoadScene(int levelToPlay)
 	{
 		AudioManager.Instance.PlayFX (fxClip.FX_BUTTON_PRESSED);
-		gamestate.Instance.SetLevel (Enums.sceneLevel.LEVEL_1);
+		gamestate.Instance.SetLevel ((Enums.sceneLevel) levelToPlay);
 	}
 
 	//TOGGLE PANEL MENU WITH PANEL CREDITS AND BACK
@@ -64,5 +65,12 @@ public class MenuClick : MonoBehaviour {
 	{
 		AudioManager.Instance.PlayFX (fxClip.FX_BUTTON_PRESSED);
 		Application.Quit ();
+	}
+
+	//TOGGLE PANEL MENU WITH PANEL CREDITS AND BACK
+	public void ToggleLevel()
+	{
+		panelMenu.SetActive (!panelMenu.activeSelf);
+		panelLevel.SetActive (!panelLevel.activeSelf);
 	}
 }
