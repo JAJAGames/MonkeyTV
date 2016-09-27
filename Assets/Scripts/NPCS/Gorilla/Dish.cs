@@ -21,12 +21,13 @@ public class Dish : MonoBehaviour {
 	private bool showSelection = false;
 	private PlayerMovement player;
 	private DishClockController clockDish;
-
+	private PopUp popup; 
 	void Awake(){
 		sprites = Resources.LoadAll <Sprite>(@"Images/IGU/"+texture.name) ;
 		player = GameObject.Find ("Player").GetComponent<PlayerMovement> ();
 		clockDish = GameObject.Find ("Clock").GetComponent<DishClockController> ();
 		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
+		popup = GameObject.Find("PopUp").GetComponent<PopUp>();
 	}
 
 	void Start(){
@@ -68,7 +69,6 @@ public class Dish : MonoBehaviour {
 		if (clockDish.currentCourse == 0) {
 			yield return new WaitForSeconds (3.0f);
 		}
-
 		var inputDevice = InputManager.ActiveDevice;
 		while(!(Input.GetButton("Pick") || inputDevice.Action3)) {
 			yield return null;
@@ -82,15 +82,15 @@ public class Dish : MonoBehaviour {
 		AudioManager.Instance.PlayFX(Enums.fxClip.FX_COUNTDOWN);
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		player.enabled = true;
-
 		dishCode = clockDish.GetCurrent ();
 		image.sprite = sprites [dishCode];
 		canvas.gameObject.SetActive(false);
 		IGU_Dish.gameObject.SetActive(true);
 		IGU_Dish.gameObject.GetComponent<IGUfromWorld> ().StartAnimation ();
 		IGU_Dish.sprite = sprites [dishCode];
-
 		ingredientsBar.ActualizeIcons();
+		if (clockDish.currentCourse == 0)
+			popup.ShowPopUp (17);
 		Invoke ("ToSearch", 5.0f);
 
 	}
@@ -101,8 +101,6 @@ public class Dish : MonoBehaviour {
 		clockDish.text.rectTransform.localScale = Vector3.one;
 		clockDish.SetClock (timeQuest);
 		gamestate.Instance.SetState (Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
-
-
 		player.enabled = true;
 		message.gameObject.SetActive (false);
 	}

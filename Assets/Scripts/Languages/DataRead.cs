@@ -29,7 +29,7 @@ public class DataRead : MonoBehaviour {
 	public TypeOfData type;
 	public int idKey;
 
-	void Start (){
+	void Awake (){
 		loading = Camera.main.GetComponent<Loading> ();
 	}
 

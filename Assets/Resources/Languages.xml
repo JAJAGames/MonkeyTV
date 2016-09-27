@@ -18,5 +18,11 @@
 		<Tense key="14" english="Monkey Cheff" spanish="Monkey Cheff" catalan="Monkey Cheff" galician="Monkey Cheff" />
 		<Tense key="15" english="Monkey Wars" spanish="Monkey Wars" catalan="Monkey Wars" galician="Monkey Wars" />
 		<Tense key="16" english="Dr. Peanut" spanish="Dr. Peanut" catalan="Dr. Peanut" galician="Dr. Peanut" />
+		<Tense key="17" english="Cook or will be trapped." spanish="Cocína o te atrapo." catalan="Cuina o t'enxampo." galician="Cociña ou vouche a coller." />
+		<Tense key="18" english="I had trapped them before." spanish="A ellos los atrapé antes." catalan="A ells els vaig agafar avanç." galician="A eles atrapeinos antes." />
+		<Tense key="19" english="Monkeys protect the controls!" spanish="Monkeys proteged los controles!" catalan="Monkeys protegiu els controls!" galician="Monkeys protexede os controis!" />
+		<Tense key="20" english="I not let you to activate the levelers!" spanish="No te dejaré activar las palancas!" catalan="No et deixaré activar les palanques!" galician="No deixareite activar as pancas!" />
+		<Tense key="21" english="I'll be back" spanish="Volveré!" catalan="Tornaré!" galician="Voltarei!" />
+		<Tense key="22" english="Monkeys!! Don't go to lights" spanish="Monkeys! No vayais a la luz!!" catalan="Monkeys! No aneu cap a la llum!!" galician="Monkeys! Non ides pra a luz" />
 	</Translation>
 </Language_List>

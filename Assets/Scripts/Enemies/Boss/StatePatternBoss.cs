@@ -26,7 +26,7 @@ public class StatePatternBoss : MonoBehaviour {
 	[Header("Camera Settings")]
 	public CameraFollow cameraFollowing;
 	public Transform BossCameraPosition;
-
+	private PopUp _popup;
 	[HideInInspector]	public IBossState currentState;
 	[HideInInspector]	public BossMoveState moveState;
 	[HideInInspector]	public BossIdleState idleState;
@@ -42,7 +42,7 @@ public class StatePatternBoss : MonoBehaviour {
 		cameraFollowing.target = BossCameraPosition;
 		anim = GetComponent<Animator> ();
 		navMeshAgent = GetComponent<NavMeshAgent>();							//get de agent
-
+		_popup = GameObject.Find("PopUp").GetComponent<PopUp>();
 		navMeshAgent.enabled = true;
 		navMeshAgent.speed = speed;
 		navMeshAgent.destination = transform.position;
@@ -52,7 +52,7 @@ public class StatePatternBoss : MonoBehaviour {
 		punchState			= new BossPunchState(this);
 		damagedState 		= new BossDamagedState (this);
 		anim.SetBool ("Walk", false);
-
+	
 	}
 
 
@@ -62,7 +62,8 @@ public class StatePatternBoss : MonoBehaviour {
 
 		currentState = idleState;
 		actualState = BossState.IDLE_SATE;
-
+		StartCoroutine (Talk(22,0));
+		StartCoroutine (Talk(19,10));
 	}
 
 
@@ -101,6 +102,11 @@ public class StatePatternBoss : MonoBehaviour {
 		if (actualState == BossState.DEAD_STATE)
 			return;
 		currentState.OnTriggerEnter (other);										//execute triggers of states
+	}
+
+	IEnumerator Talk(int code, float time){
+		yield return new WaitForSeconds (time);
+		_popup.ShowPopUp (code);
 	}
 		
 }
