@@ -26,7 +26,7 @@ public class StatePatternBoss : MonoBehaviour {
 	[Header("Camera Settings")]
 	public CameraFollow cameraFollowing;
 	public Transform BossCameraPosition;
-	private PopUp _popup;
+	[HideInInspector]	public PopUp popup;
 	[HideInInspector]	public IBossState currentState;
 	[HideInInspector]	public BossMoveState moveState;
 	[HideInInspector]	public BossIdleState idleState;
@@ -42,7 +42,7 @@ public class StatePatternBoss : MonoBehaviour {
 		cameraFollowing.target = BossCameraPosition;
 		anim = GetComponent<Animator> ();
 		navMeshAgent = GetComponent<NavMeshAgent>();							//get de agent
-		_popup = GameObject.Find("PopUp").GetComponent<PopUp>();
+		popup = GameObject.Find("PopUp").GetComponent<PopUp>();
 		navMeshAgent.enabled = true;
 		navMeshAgent.speed = speed;
 		navMeshAgent.destination = transform.position;
@@ -79,8 +79,10 @@ public class StatePatternBoss : MonoBehaviour {
 		
 		currentState.UpdateState ();
 
-		if (remainingMonkeys == 0)
+		if (remainingMonkeys == 0 && phase == BossPhase.COMBAT_PHASE_1) {
 			phase = BossPhase.COMBAT_PHASE_2;
+			popup.ShowPopUp (20);
+		}
 	}	
 		
 	public virtual void CustomUpdate(){
@@ -106,7 +108,7 @@ public class StatePatternBoss : MonoBehaviour {
 
 	IEnumerator Talk(int code, float time){
 		yield return new WaitForSeconds (time);
-		_popup.ShowPopUp (code);
+		popup.ShowPopUp (code);
 	}
 		
 }

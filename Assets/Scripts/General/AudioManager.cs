@@ -44,7 +44,6 @@ public class AudioManager : MonoBehaviour {
 	public void LoadAudioFiles(){
 		arrayFx =  Resources.LoadAll("Audio/FX", typeof(AudioClip));
 		arrayMusic =  Resources.LoadAll("Audio/Music", typeof(AudioClip));
-		PlayMusic (gamestate.Instance.GetLevel ());
 	}
 
 	public void SetFX(fxClip fx){

@@ -18,8 +18,11 @@ public class BossIdleState : IBossState {
 				ToMoveState ();
 		}
 		else {
-			Boss.anim.SetBool ("Dead", true);
-			Boss.actualState = BossState.DEAD_STATE;
+			if (Boss.actualState != BossState.DEAD_STATE) {
+				Boss.anim.SetBool ("Dead", true);
+				Boss.actualState = BossState.DEAD_STATE;
+				Boss.popup.ShowPopUp (21);
+			}
 		}
 
 		TimerCountDown ();
