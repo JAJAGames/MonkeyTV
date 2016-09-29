@@ -28,12 +28,6 @@ public class PropDropItemGeneric : MonoBehaviour {
 	public CameraFollow camera;
 	public Transform cameraPosition;
 
-	//R2D2
-	public GameObject R2D2;
-	public StatePatternR2D2 statePattern;
-	public Transform teleportUp;
-	public Transform teleportDown;
-
 	//OTHER
 	public GameObject nextLocation;
 
@@ -48,13 +42,9 @@ public class PropDropItemGeneric : MonoBehaviour {
 		itemBar = GameObject.Find ("ItemBarMask").GetComponent<IGUItemBar> ();
 
 		camera = Camera.main.GetComponent<CameraFollow>();
-		//cameraPosition = GameObject.Find ("BossCameraPosition").transform;
 
 		teleport = GameObject.Find ("Teleport1").GetComponent<Teleport> ();
 		teleportParticles = GameObject.Find ("Teleport1").transform.FindChild("Particles").gameObject;
-
-		R2D2 = GameObject.Find ("R2D2");
-		statePattern = R2D2.GetComponent<StatePatternR2D2> ();
 	}
 
 	void Start () {
@@ -109,11 +99,16 @@ public class PropDropItemGeneric : MonoBehaviour {
 					actionsLVL2 ();
 					break;
 				}
-					
+
+
 			}
 			AudioManager.Instance.PlayFX(Enums.fxClip.FX_GUI_PICK_BONUS);
 
 			StartCoroutine(ActualizeIngredientsBar ());
+
+			if (actualCraft [currentCourse].itemsLeft == 0) {
+				++dishSelection.currentCourse;
+			}
 		}
 
 	}
@@ -123,10 +118,7 @@ public class PropDropItemGeneric : MonoBehaviour {
 		case 0:
 			teleportParticles.SetActive (false);
 			transform.position = nextLocation.transform.position;
-			statePattern.navMeshAgent.enabled = false;
 			StartCoroutine (ViewBoss ());
-			StartCoroutine (TeleportR2D2 ());
-			statePattern.navMeshAgent.enabled = true;
 			teleport.enabled = true;
 			playerMov.enabled = true;
 			break;
@@ -155,28 +147,13 @@ public class PropDropItemGeneric : MonoBehaviour {
 
 	private IEnumerator WrongItem(){
 		Debug.Log ("WRONG ITEM");
-		/*AudioManager.Instance.PlayFX (fxClip.FX_WRONG_DELIVER);
-		_particlesPot.startColor = _particleColor;
-		_particles.startColor = _particleColor;
-		player.throwItem ();
-		yield return new WaitForSeconds(2.5f);
-		_particles.startColor = _initParticleColor;
-		_particlesPot.startColor = _initParticleColor;*/
-
-		yield return new WaitForSeconds(2.5f);
+		yield return new WaitForSeconds(0.1f);
 	}
 
 	//ACTIONS WHEN A CRAFT IS DONE
-	private IEnumerator TeleportR2D2() {
-		yield return new WaitForSeconds(2.0f);
-		R2D2.transform.position = teleportUp.transform.position;
-		yield return new WaitForSeconds(1.0f);
-	}
-
 	private IEnumerator ViewBoss() {
 		gamestate.Instance.SetState(Enums.state.STATE_SWAP_CAMERA);
 		camera.target = cameraPosition;
-		R2D2.transform.position = teleportUp.transform.position;
 		yield return new WaitForSeconds(3.0f);
 		gamestate.Instance.SetState(Enums.state.STATE_CAMERA_FOLLOW_PLAYER);
 		yield return new WaitForSeconds(0.5f);

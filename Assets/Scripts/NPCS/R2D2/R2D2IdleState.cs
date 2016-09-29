@@ -48,8 +48,6 @@ public class R2D2IdleState : IR2D2State {
 
 
 	public void ToAskForItemsState() {
-
-
 		R2D2.arrow.SetActive (false);
 		R2D2.canvas.SetActive (true);
 		R2D2.playerMovement.enabled = false;

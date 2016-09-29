@@ -32,7 +32,20 @@ public class R2D2AskForItemsState : IR2D2State {
 	}
 
 	public void ToMoveState(){
-		
+		R2D2.currentPoint++;
+		R2D2.navMeshAgent.destination = R2D2.controlPoints [(int) R2D2.currentPoint].transform.position;
+
+		R2D2.arrow.SetActive (false);
+		R2D2.playerMovement.enabled = false;
+		R2D2.playerObstacle.enabled = true;
+
+		R2D2.cameraFollowing.target = R2D2.R2D2CameraPosition;
+		gamestate.Instance.SetState(Enums.state.STATE_SWAP_CAMERA);
+
+
+
+		R2D2.actualState = R2D2State.MOVE_STATE;
+		R2D2.currentState = R2D2.moveState;
 	}
 
 
@@ -50,9 +63,7 @@ public class R2D2AskForItemsState : IR2D2State {
 		R2D2.actualState = R2D2State.RECEIVE_ITEMS_STATE;
 		R2D2.currentState = R2D2.receiveItemsState;
 
-
-
-		//NEW
 		R2D2.newCraft.StartNewCraft();
+
 	}
 }

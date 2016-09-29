@@ -6,9 +6,13 @@ public class Teleport : MonoBehaviour {
 
 	public GameObject destination;
 	private Transform canvas;
+	private GameObject R2D2;
+	public NavMeshObstacle playerObstacle;
 
 	void Start() {
 		canvas = transform.FindChild ("Canvas");
+		R2D2 = GameObject.Find ("R2D2");
+		playerObstacle = GameObject.Find ("Player").GetComponent<NavMeshObstacle> ();
 	}
 
 	private void OnTriggerStay (Collider other) {
@@ -32,5 +36,7 @@ public class Teleport : MonoBehaviour {
 	IEnumerator TeleportEntity(Collider other) {
 		yield return new WaitForSeconds(1.0f);
 		other.transform.position = destination.transform.position;
+		R2D2.SetActive (false);
+		playerObstacle.enabled = false;
 	}
 }

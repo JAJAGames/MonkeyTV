@@ -41,6 +41,8 @@ public class StatePatternR2D2 : MonoBehaviour {
 	[HideInInspector]	public PropDropItem propDropItem;
 	[HideInInspector]	public PropDropItemGeneric propDropItemGeneric;
 	[HideInInspector]	public IGUIngredients ingredientsBar;
+	[HideInInspector] 	public DishClockController dishSelection;
+
 
 	void Awake () {
 		player = GameObject.Find ("Player");
@@ -52,6 +54,7 @@ public class StatePatternR2D2 : MonoBehaviour {
 		propDropItem = GetComponent<PropDropItem> ();
 		propDropItemGeneric = GameObject.Find ("PropDropItem").GetComponent<PropDropItemGeneric>();
 		ingredientsBar = GameObject.Find ("IGUIngredients").GetComponent<IGUIngredients> ();
+		dishSelection = GameObject.Find ("Clock").GetComponent<DishClockController> ();
 
 		idleState			= new R2D2IdleState(this);
 		moveState			= new R2D2MoveState(this);
@@ -94,10 +97,5 @@ public class StatePatternR2D2 : MonoBehaviour {
 	private void OnTriggerEnter (Collider other)
 	{
 		currentState.OnTriggerEnter (other);										//execute triggers of states
-	}
-
-	public void ActualizeIcons() {
-	
-	}
-		
+	}		
 }

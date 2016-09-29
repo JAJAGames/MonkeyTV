@@ -18,7 +18,6 @@ public class NewCraft : MonoBehaviour {
 
 	public int craftCode;
 	private Sprite[] sprites ;
-	//private bool showSelection = false;
 	private PlayerMovement player;
 	private DishClockController clockDish;
 
@@ -35,12 +34,8 @@ public class NewCraft : MonoBehaviour {
 		craftImage.sprite = sprites [craftCode];
 		IGU_Dish.gameObject.SetActive(false);
 		buttonPress.gameObject.SetActive (true);
-		//showSelection = true;
-		//StartCoroutine(NeWDish());
 		clockDish.countDown = true;
 
-
-		//showSelection = false;
 		buttonPress.SetActiveItems ();
 		clockDish.SetClock (TIMEDELAY);
 		message.gameObject.SetActive (true);
@@ -49,13 +44,11 @@ public class NewCraft : MonoBehaviour {
 		gamestate.Instance.SetState (Enums.state.STATE_PLAYER_PAUSED);
 		player.enabled = true;
 
-		//craftImage.sprite = sprites [craftCode];
 		canvas.gameObject.SetActive(false);
 		IGU_Dish.gameObject.SetActive(true);
 		IGU_Dish.gameObject.GetComponent<IGUfromWorld> ().StartAnimation ();
 		IGU_Dish.sprite = sprites [craftCode];
 
-		//ingredientsBar.ActualizeIcons();
 		Invoke ("ToSearch", 5.0f);
 	}
 
